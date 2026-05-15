@@ -52,6 +52,11 @@ export function ScrollNarrative() {
   // Rain: pours from 0.6 → 0.85, stops by 0.92
   const rainOpacity = useTransform(p, [0.55, 0.7, 0.88, 0.95], [0, 1, 1, 0]);
 
+  // Flood: water accumulates on the soil and rises to cover the screen
+  const floodHeight = useTransform(p, [0.65, 0.78, 0.92], ["0vh", "20vh", "100vh"]);
+  const floodOpacity = useTransform(p, [0.63, 0.7, 0.95, 1], [0, 0.95, 0.95, 0.85]);
+  const ripplesOpacity = useTransform(p, [0.65, 0.78, 0.9], [0, 0.6, 0]);
+
   // Question reveal: appears at the very end (0.9 → 1)
   const questionOpacity = useTransform(p, [0.88, 0.97], [0, 1]);
   const questionY = useTransform(p, [0.88, 0.97], [40, 0]);
