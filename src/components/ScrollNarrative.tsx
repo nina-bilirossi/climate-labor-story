@@ -52,6 +52,11 @@ export function ScrollNarrative() {
   // Rain: pours from 0.6 → 0.85, stops by 0.92
   const rainOpacity = useTransform(p, [0.55, 0.7, 0.88, 0.95], [0, 1, 1, 0]);
 
+  // Flood: water accumulates on the soil and rises to cover the screen
+  const floodHeight = useTransform(p, [0.65, 0.78, 0.92], ["0vh", "20vh", "100vh"]);
+  const floodOpacity = useTransform(p, [0.63, 0.7, 0.95, 1], [0, 0.95, 0.95, 0.85]);
+  const ripplesOpacity = useTransform(p, [0.65, 0.78, 0.9], [0, 0.6, 0]);
+
   // Question reveal: appears at the very end (0.9 → 1)
   const questionOpacity = useTransform(p, [0.88, 0.97], [0, 1]);
   const questionY = useTransform(p, [0.88, 0.97], [40, 0]);
@@ -175,9 +180,39 @@ export function ScrollNarrative() {
           </motion.svg>
         </motion.div>
 
+        {/* Flood water rising */}
+        <motion.div
+          className="absolute inset-x-0 bottom-0 pointer-events-none overflow-hidden"
+          style={{ height: floodHeight, opacity: floodOpacity }}
+        >
+          <div
+            className="absolute inset-0"
+            style={{
+              background:
+                "linear-gradient(to bottom, oklch(0.30 0.06 245 / 0.85) 0%, oklch(0.18 0.07 250) 40%, oklch(0.10 0.06 255) 100%)",
+            }}
+          />
+          {/* Water surface highlight */}
+          <div
+            className="absolute inset-x-0 top-0 h-3"
+            style={{
+              background:
+                "linear-gradient(to bottom, oklch(0.85 0.04 230 / 0.5), transparent)",
+            }}
+          />
+          {/* Ripples on the surface */}
+          <motion.div
+            className="absolute inset-x-0 top-0 h-10"
+            style={{
+              opacity: ripplesOpacity,
+              backgroundImage:
+                "repeating-linear-gradient(90deg, transparent 0, transparent 18px, oklch(0.85 0.04 230 / 0.35) 18px, oklch(0.85 0.04 230 / 0.35) 19px)",
+            }}
+          />
+        </motion.div>
+
         {/* Final dim wash */}
         <motion.div className="absolute inset-0 bg-black" style={{ opacity: dimOpacity }} />
-
         {/* Research question */}
         <motion.div
           className="absolute inset-0 flex items-center justify-center px-6"
