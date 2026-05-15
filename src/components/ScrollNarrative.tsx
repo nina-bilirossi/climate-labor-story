@@ -180,9 +180,39 @@ export function ScrollNarrative() {
           </motion.svg>
         </motion.div>
 
+        {/* Flood water rising */}
+        <motion.div
+          className="absolute inset-x-0 bottom-0 pointer-events-none overflow-hidden"
+          style={{ height: floodHeight, opacity: floodOpacity }}
+        >
+          <div
+            className="absolute inset-0"
+            style={{
+              background:
+                "linear-gradient(to bottom, oklch(0.30 0.06 245 / 0.85) 0%, oklch(0.18 0.07 250) 40%, oklch(0.10 0.06 255) 100%)",
+            }}
+          />
+          {/* Water surface highlight */}
+          <div
+            className="absolute inset-x-0 top-0 h-3"
+            style={{
+              background:
+                "linear-gradient(to bottom, oklch(0.85 0.04 230 / 0.5), transparent)",
+            }}
+          />
+          {/* Ripples on the surface */}
+          <motion.div
+            className="absolute inset-x-0 top-0 h-10"
+            style={{
+              opacity: ripplesOpacity,
+              backgroundImage:
+                "repeating-linear-gradient(90deg, transparent 0, transparent 18px, oklch(0.85 0.04 230 / 0.35) 18px, oklch(0.85 0.04 230 / 0.35) 19px)",
+            }}
+          />
+        </motion.div>
+
         {/* Final dim wash */}
         <motion.div className="absolute inset-0 bg-black" style={{ opacity: dimOpacity }} />
-
         {/* Research question */}
         <motion.div
           className="absolute inset-0 flex items-center justify-center px-6"
