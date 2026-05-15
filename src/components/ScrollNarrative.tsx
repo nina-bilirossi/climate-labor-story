@@ -1,0 +1,208 @@
+import { useRef, useMemo } from "react";
+import { motion, useScroll, useTransform, useSpring } from "motion/react";
+
+/**
+ * The opening cinematic narrative.
+ * One ~600vh tall scroller with a sticky stage. Scroll progress drives
+ * five overlapping acts: sun → drought heat → soil cracking → clouds → rain.
+ */
+export function ScrollNarrative() {
+  const ref = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start start", "end end"],
+  });
+  const p = useSpring(scrollYProgress, { stiffness: 90, damping: 24, mass: 0.4 });
+
+  // Sky: warm sun → harsh white-hot → grey clouds → deep storm
+  const skyTop = useTransform(p, [0, 0.2, 0.45, 0.6, 1], [
+    "oklch(0.92 0.16 90)",
+    "oklch(0.86 0.20 70)",
+    "oklch(0.70 0.08 80)",
+    "oklch(0.45 0.04 250)",
+    "oklch(0.18 0.06 255)",
+  ]);
+  const skyBottom = useTransform(p, [0, 0.2, 0.45, 0.6, 1], [
+    "oklch(0.82 0.17 75)",
+    "oklch(0.78 0.18 55)",
+    "oklch(0.55 0.05 70)",
+    "oklch(0.32 0.06 255)",
+    "oklch(0.10 0.05 255)",
+  ]);
+
+  // Sun: large warm → intense white blaze → fades behind clouds
+  const sunOpacity = useTransform(p, [0, 0.35, 0.5, 0.6], [1, 1, 0.4, 0]);
+  const sunScale = useTransform(p, [0, 0.35], [1, 1.6]);
+  const sunY = useTransform(p, [0, 0.35], ["10%", "-5%"]);
+  const sunBlur = useTransform(p, [0, 0.35], [0, 12]);
+  const sunFilter = useTransform(sunBlur, (b) => `blur(${b}px)`);
+
+  // Heat haze
+  const heatOpacity = useTransform(p, [0.1, 0.3, 0.5], [0, 0.6, 0]);
+
+  // Soil: rises from bottom, then sinks (drought lowering ground)
+  const soilY = useTransform(p, [0, 0.25, 0.45, 1], ["0%", "8%", "18%", "22%"]);
+  const soilHue = useTransform(p, [0, 0.45], ["oklch(0.45 0.08 60)", "oklch(0.32 0.05 50)"]);
+  const cracksOpacity = useTransform(p, [0.15, 0.4], [0, 0.9]);
+
+  // Clouds: drift in fast around 0.45 → 0.6
+  const cloudsX = useTransform(p, [0.4, 0.6], ["-30%", "0%"]);
+  const cloudsOpacity = useTransform(p, [0.4, 0.55, 0.95, 1], [0, 1, 1, 0.3]);
+
+  // Rain: pours from 0.6 → 0.85, stops by 0.92
+  const rainOpacity = useTransform(p, [0.55, 0.7, 0.88, 0.95], [0, 1, 1, 0]);
+
+  // Question reveal: appears at the very end (0.9 → 1)
+  const questionOpacity = useTransform(p, [0.88, 0.97], [0, 1]);
+  const questionY = useTransform(p, [0.88, 0.97], [40, 0]);
+
+  // Final dim wash
+  const dimOpacity = useTransform(p, [0.85, 1], [0, 0.5]);
+
+  const drops = useMemo(
+    () =>
+      Array.from({ length: 120 }).map((_, i) => ({
+        left: Math.random() * 100,
+        height: 40 + Math.random() * 120,
+        delay: Math.random() * 1.2,
+        dur: 0.5 + Math.random() * 0.6,
+      })),
+    [],
+  );
+
+  return (
+    <section ref={ref} className="relative" style={{ height: "650vh" }}>
+      <div className="sticky top-0 h-screen w-full overflow-hidden">
+        {/* Sky gradient */}
+        <motion.div
+          className="absolute inset-0"
+          style={{
+            backgroundImage: useTransform(
+              [skyTop, skyBottom] as never,
+              ([a, b]: string[]) => `linear-gradient(to bottom, ${a} 0%, ${b} 100%)`,
+            ),
+          }}
+        />
+
+        {/* Sun */}
+        <motion.div
+          className="absolute left-1/2 top-[20%] -translate-x-1/2 sun-pulse"
+          style={{ opacity: sunOpacity, scale: sunScale, y: sunY, filter: sunFilter }}
+        >
+          <div
+            className="h-[28rem] w-[28rem] rounded-full"
+            style={{
+              background:
+                "radial-gradient(circle, oklch(0.98 0.12 95) 0%, oklch(0.92 0.18 80) 35%, oklch(0.85 0.20 60 / 0) 70%)",
+            }}
+          />
+        </motion.div>
+
+        {/* Heat haze */}
+        <motion.div
+          className="absolute inset-x-0 bottom-0 h-1/2"
+          style={{
+            opacity: heatOpacity,
+            background:
+              "repeating-linear-gradient(180deg, transparent 0, transparent 6px, oklch(1 0 0 / 0.04) 6px, oklch(1 0 0 / 0.04) 7px)",
+          }}
+        />
+
+        {/* Clouds */}
+        <motion.div
+          className="absolute inset-x-0 top-[8%] flex gap-12"
+          style={{ x: cloudsX, opacity: cloudsOpacity }}
+        >
+          {[0, 1, 2, 3].map((i) => (
+            <div
+              key={i}
+              className="rounded-full"
+              style={{
+                width: `${18 + i * 4}rem`,
+                height: `${6 + i}rem`,
+                marginTop: `${i * 1.5}rem`,
+                background:
+                  "radial-gradient(ellipse at center, oklch(0.85 0.02 250) 0%, oklch(0.45 0.04 250) 70%, transparent 100%)",
+                filter: "blur(2px)",
+              }}
+            />
+          ))}
+        </motion.div>
+
+        {/* Rain */}
+        <motion.div className="absolute inset-0 pointer-events-none" style={{ opacity: rainOpacity }}>
+          {drops.map((d, i) => (
+            <span
+              key={i}
+              className="rain-drop"
+              style={{
+                left: `${d.left}%`,
+                height: `${d.height}px`,
+                animationDuration: `${d.dur}s`,
+                animationDelay: `${d.delay}s`,
+              }}
+            />
+          ))}
+        </motion.div>
+
+        {/* Soil */}
+        <motion.div
+          className="absolute inset-x-0 bottom-0 h-[38vh]"
+          style={{ y: soilY, backgroundColor: soilHue }}
+        >
+          <div
+            className="absolute inset-0"
+            style={{
+              backgroundImage:
+                "radial-gradient(ellipse at 30% 0%, oklch(0.55 0.08 60) 0%, transparent 50%), radial-gradient(ellipse at 70% 10%, oklch(0.40 0.06 55) 0%, transparent 60%)",
+            }}
+          />
+          {/* Cracks */}
+          <motion.svg
+            className="absolute inset-0 h-full w-full"
+            viewBox="0 0 1000 400"
+            preserveAspectRatio="none"
+            style={{ opacity: cracksOpacity }}
+          >
+            <g stroke="oklch(0.18 0.04 50)" strokeWidth="2" fill="none" strokeLinecap="round">
+              <path d="M 100 20 L 180 90 L 160 180 L 240 260" />
+              <path d="M 400 0 L 420 80 L 380 160 L 460 240 L 430 380" />
+              <path d="M 700 30 L 740 110 L 700 200 L 780 290" />
+              <path d="M 880 0 L 860 70 L 920 140 L 880 230" />
+              <path d="M 250 100 L 320 160" />
+              <path d="M 540 60 L 600 130 L 560 220" />
+            </g>
+          </motion.svg>
+        </motion.div>
+
+        {/* Final dim wash */}
+        <motion.div className="absolute inset-0 bg-black" style={{ opacity: dimOpacity }} />
+
+        {/* Research question */}
+        <motion.div
+          className="absolute inset-0 flex items-center justify-center px-6"
+          style={{ opacity: questionOpacity, y: questionY }}
+        >
+          <div className="max-w-4xl text-center">
+            <p className="text-xs uppercase tracking-[0.4em] text-[color:var(--sun)] mb-6">
+              Research question
+            </p>
+            <h1 className="font-display text-3xl md:text-5xl lg:text-6xl leading-[1.1] text-foreground">
+              What are the effects of droughts and floods on{" "}
+              <em className="text-[color:var(--sun)] not-italic font-normal italic">informality</em>{" "}
+              in the Indian labor market?
+            </h1>
+          </div>
+        </motion.div>
+
+        {/* Scroll hint, fades early */}
+        <motion.div
+          className="absolute bottom-8 left-1/2 -translate-x-1/2 text-xs uppercase tracking-[0.3em] text-foreground/70"
+          style={{ opacity: useTransform(p, [0, 0.05], [1, 0]) }}
+        >
+          Scroll
+        </motion.div>
+      </div>
+    </section>
+  );
+}
