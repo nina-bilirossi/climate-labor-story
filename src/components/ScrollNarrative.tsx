@@ -121,25 +121,34 @@ export function ScrollNarrative() {
           }}
         />
 
-        {/* Clouds */}
+        {/* Clouds — three parallax layers of soft SVG puffs */}
         <motion.div
-          className="absolute inset-x-0 top-[8%] flex gap-12"
-          style={{ x: cloudsX, opacity: cloudsOpacity }}
+          className="absolute inset-0 pointer-events-none"
+          style={{ opacity: cloudsOpacity }}
         >
-          {[0, 1, 2, 3].map((i) => (
-            <div
-              key={i}
-              className="rounded-full"
-              style={{
-                width: `${18 + i * 4}rem`,
-                height: `${6 + i}rem`,
-                marginTop: `${i * 1.5}rem`,
-                background:
-                  "radial-gradient(ellipse at center, oklch(0.85 0.02 250) 0%, oklch(0.45 0.04 250) 70%, transparent 100%)",
-                filter: "blur(2px)",
-              }}
-            />
-          ))}
+          <motion.div style={{ color: cloudTint }} className="absolute inset-0">
+            {/* Far layer — large, low contrast, soft */}
+            <motion.div
+              className="absolute left-0 top-[6%] w-[180%] opacity-70"
+              style={{ x: cloudsFarX, filter: "blur(14px)" }}
+            >
+              <CloudRow seed={0} count={4} scale={1.3} />
+            </motion.div>
+            {/* Mid layer — denser, slightly sharper */}
+            <motion.div
+              className="absolute left-0 top-[14%] w-[180%] opacity-85"
+              style={{ x: cloudsMidX, filter: "blur(6px)" }}
+            >
+              <CloudRow seed={11} count={5} scale={1} />
+            </motion.div>
+            {/* Near layer — crisp foreground wisps */}
+            <motion.div
+              className="absolute left-0 top-[2%] w-[180%]"
+              style={{ x: cloudsNearX, filter: "blur(2px)" }}
+            >
+              <CloudRow seed={22} count={3} scale={0.75} />
+            </motion.div>
+          </motion.div>
         </motion.div>
 
         {/* Rain */}
