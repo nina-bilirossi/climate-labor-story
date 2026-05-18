@@ -258,3 +258,60 @@ export function ScrollNarrative() {
     </section>
   );
 }
+
+/**
+ * A horizontal row of organically-shaped clouds built from overlapping ellipses.
+ * Deterministic per `seed` so layers don't reshuffle on re-render.
+ */
+function CloudRow({ seed, count, scale }: { seed: number; count: number; scale: number }) {
+  // Simple seeded PRNG so layouts are stable
+  const rand = (n: number) => {
+    const x = Math.sin(seed * 9301 + n * 49297) * 233280;
+    return x - Math.floor(x);
+  };
+  const clouds = Array.from({ length: count }).map((_, i) => {
+    const left = (i / count) * 100 + rand(i) * 8;
+    const top = rand(i + 100) * 40;
+    const w = (16 + rand(i + 200) * 14) * scale;
+    return { left, top, w, puffs: 5 + Math.floor(rand(i + 300) * 4) };
+  });
+
+  return (
+    <div className="relative h-[40vh] w-full">
+      {clouds.map((c, i) => (
+        <svg
+          key={i}
+          className="absolute"
+          style={{
+            left: `${c.left}%`,
+            top: `${c.top}%`,
+            width: `${c.w}rem`,
+            height: `${c.w * 0.55}rem`,
+          }}
+          viewBox="0 0 200 110"
+          preserveAspectRatio="none"
+          fill="currentColor"
+        >
+          <defs>
+            <radialGradient id={`cg-${seed}-${i}`} cx="50%" cy="35%" r="70%">
+              <stop offset="0%" stopColor="currentColor" stopOpacity="1" />
+              <stop offset="60%" stopColor="currentColor" stopOpacity="0.85" />
+              <stop offset="100%" stopColor="currentColor" stopOpacity="0" />
+            </radialGradient>
+          </defs>
+          <g fill={`url(#cg-${seed}-${i})`}>
+            {/* Base flat bottom */}
+            <ellipse cx="100" cy="78" rx="92" ry="20" />
+            {/* Stacked puffs forming the top */}
+            <ellipse cx="55" cy="62" rx="32" ry="26" />
+            <ellipse cx="95" cy="45" rx="42" ry="36" />
+            <ellipse cx="140" cy="55" rx="36" ry="30" />
+            <ellipse cx="170" cy="68" rx="24" ry="20" />
+            <ellipse cx="30" cy="70" rx="22" ry="18" />
+          </g>
+        </svg>
+      ))}
+    </div>
+  );
+}
+
