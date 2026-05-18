@@ -45,9 +45,17 @@ export function ScrollNarrative() {
   const soilHue = useTransform(p, [0, 0.45], ["oklch(0.45 0.08 60)", "oklch(0.32 0.05 50)"]);
   const cracksOpacity = useTransform(p, [0.15, 0.4], [0, 0.9]);
 
-  // Clouds: drift in fast around 0.45 → 0.6
-  const cloudsX = useTransform(p, [0.4, 0.6], ["-30%", "0%"]);
-  const cloudsOpacity = useTransform(p, [0.4, 0.55, 0.95, 1], [0, 1, 1, 0.3]);
+  // Clouds: drift in fast around 0.4 → 0.6, three parallax layers
+  const cloudsFarX = useTransform(p, [0.38, 0.62], ["-40%", "0%"]);
+  const cloudsMidX = useTransform(p, [0.38, 0.62], ["-60%", "0%"]);
+  const cloudsNearX = useTransform(p, [0.38, 0.62], ["-90%", "0%"]);
+  const cloudsOpacity = useTransform(p, [0.38, 0.55, 0.95, 1], [0, 1, 1, 0.4]);
+  // Cloud color shifts from pale grey to bruised storm
+  const cloudTint = useTransform(p, [0.4, 0.55, 0.7], [
+    "oklch(0.88 0.02 240)",
+    "oklch(0.62 0.03 250)",
+    "oklch(0.32 0.05 255)",
+  ]);
 
   // Rain: pours from 0.6 → 0.85, stops by 0.92
   const rainOpacity = useTransform(p, [0.55, 0.7, 0.88, 0.95], [0, 1, 1, 0]);
