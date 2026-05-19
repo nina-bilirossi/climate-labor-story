@@ -183,53 +183,140 @@ export function ScrollNarrative() {
                 "radial-gradient(ellipse at 30% 0%, oklch(0.55 0.08 60) 0%, transparent 50%), radial-gradient(ellipse at 70% 10%, oklch(0.40 0.06 55) 0%, transparent 60%)",
             }}
           />
-          {/* Cracks */}
+          {/* Cracks — jagged, branching, draw-on as drought deepens */}
           <motion.svg
             className="absolute inset-0 h-full w-full"
             viewBox="0 0 1000 400"
             preserveAspectRatio="none"
             style={{ opacity: cracksOpacity }}
           >
-            <g stroke="oklch(0.18 0.04 50)" strokeWidth="2" fill="none" strokeLinecap="round">
-              <path d="M 100 20 L 180 90 L 160 180 L 240 260" />
-              <path d="M 400 0 L 420 80 L 380 160 L 460 240 L 430 380" />
-              <path d="M 700 30 L 740 110 L 700 200 L 780 290" />
-              <path d="M 880 0 L 860 70 L 920 140 L 880 230" />
-              <path d="M 250 100 L 320 160" />
-              <path d="M 540 60 L 600 130 L 560 220" />
+            <defs>
+              <linearGradient id="crack-stroke" x1="0" x2="0" y1="0" y2="1">
+                <stop offset="0%" stopColor="oklch(0.10 0.03 40)" />
+                <stop offset="100%" stopColor="oklch(0.04 0.02 30)" />
+              </linearGradient>
+            </defs>
+            {/* Soft dark halo under each major crack for depth */}
+            <motion.g
+              stroke="oklch(0 0 0 / 0.35)"
+              strokeWidth="7"
+              fill="none"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              style={{ opacity: cracksDraw }}
+            >
+              <path d="M 80 0 L 110 40 L 90 90 L 130 150 L 100 220 L 150 290 L 120 390" />
+              <path d="M 560 0 L 585 55 L 545 115 L 605 170 L 565 240 L 625 320 L 590 400" />
+              <path d="M 800 0 L 820 65 L 780 135 L 830 205 L 790 285 L 845 370" />
+            </motion.g>
+            <g
+              stroke="url(#crack-stroke)"
+              fill="none"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            >
+              {[
+                "M 80 0 L 110 40 L 90 90 L 130 150 L 100 220 L 150 290 L 120 390",
+                "M 130 150 L 200 175 L 245 230",
+                "M 245 230 L 275 295 L 255 380",
+                "M 320 0 L 345 60 L 310 115 L 365 175 L 330 245 L 385 325",
+                "M 365 175 L 435 185 L 475 235 L 515 225",
+                "M 475 235 L 495 305 L 465 395",
+                "M 560 0 L 585 55 L 545 115 L 605 170 L 565 240 L 625 320 L 590 400",
+                "M 605 170 L 675 180 L 710 230",
+                "M 710 230 L 740 295 L 720 380",
+                "M 800 0 L 820 65 L 780 135 L 830 205 L 790 285 L 845 370",
+                "M 830 205 L 895 215 L 935 265 L 975 255",
+              ].map((d, i) => (
+                <motion.path
+                  key={i}
+                  d={d}
+                  strokeWidth={i % 3 === 0 ? 3.5 : 1.8}
+                  style={{ pathLength: cracksDraw }}
+                />
+              ))}
             </g>
           </motion.svg>
         </motion.div>
 
-        {/* Flood water rising */}
+        {/* Flood — water pools on the soil, rises with an animated wavy surface */}
         <motion.div
-          className="absolute inset-x-0 bottom-0 pointer-events-none overflow-hidden"
+          className="absolute inset-x-0 bottom-0 pointer-events-none overflow-visible"
           style={{ height: floodHeight, opacity: floodOpacity }}
         >
+          {/* Body of water */}
           <div
             className="absolute inset-0"
             style={{
               background:
-                "linear-gradient(to bottom, oklch(0.30 0.06 245 / 0.85) 0%, oklch(0.18 0.07 250) 40%, oklch(0.10 0.06 255) 100%)",
+                "linear-gradient(to bottom, oklch(0.42 0.09 235 / 0.92) 0%, oklch(0.25 0.08 245) 35%, oklch(0.12 0.06 255) 100%)",
             }}
           />
-          {/* Water surface highlight */}
+          {/* Caustic shimmer */}
           <div
-            className="absolute inset-x-0 top-0 h-3"
+            className="absolute inset-0 opacity-30 mix-blend-screen"
             style={{
-              background:
-                "linear-gradient(to bottom, oklch(0.85 0.04 230 / 0.5), transparent)",
-            }}
-          />
-          {/* Ripples on the surface */}
-          <motion.div
-            className="absolute inset-x-0 top-0 h-10"
-            style={{
-              opacity: ripplesOpacity,
               backgroundImage:
-                "repeating-linear-gradient(90deg, transparent 0, transparent 18px, oklch(0.85 0.04 230 / 0.35) 18px, oklch(0.85 0.04 230 / 0.35) 19px)",
+                "repeating-linear-gradient(115deg, transparent 0 22px, oklch(0.85 0.05 230 / 0.25) 22px 24px), repeating-linear-gradient(65deg, transparent 0 30px, oklch(0.75 0.06 220 / 0.18) 30px 32px)",
             }}
           />
+          {/* Animated wave surface, sitting just above the water body */}
+          <svg
+            className="absolute left-0 right-0 -top-6 w-full h-12 overflow-visible"
+            viewBox="0 0 1440 60"
+            preserveAspectRatio="none"
+          >
+            <defs>
+              <linearGradient id="wave-foam" x1="0" x2="0" y1="0" y2="1">
+                <stop offset="0%" stopColor="oklch(0.95 0.03 220 / 0.9)" />
+                <stop offset="100%" stopColor="oklch(0.55 0.08 235 / 0)" />
+              </linearGradient>
+              <linearGradient id="wave-body" x1="0" x2="0" y1="0" y2="1">
+                <stop offset="0%" stopColor="oklch(0.48 0.09 235)" />
+                <stop offset="100%" stopColor="oklch(0.25 0.08 245)" />
+              </linearGradient>
+            </defs>
+            {/* Back wave, slower */}
+            <g className="wave-drift-slow">
+              <path
+                d="M -1440 30 Q -1260 10 -1080 30 T -720 30 T -360 30 T 0 30 T 360 30 T 720 30 T 1080 30 T 1440 30 T 1800 30 T 2160 30 T 2520 30 T 2880 30 V 80 H -1440 Z"
+                fill="url(#wave-body)"
+                opacity="0.7"
+              />
+            </g>
+            {/* Front wave + foam line, faster */}
+            <g className="wave-drift-fast">
+              <path
+                d="M -1440 36 Q -1260 16 -1080 36 T -720 36 T -360 36 T 0 36 T 360 36 T 720 36 T 1080 36 T 1440 36 T 1800 36 T 2160 36 T 2520 36 T 2880 36 V 80 H -1440 Z"
+                fill="url(#wave-body)"
+              />
+              <path
+                d="M -1440 36 Q -1260 16 -1080 36 T -720 36 T -360 36 T 0 36 T 360 36 T 720 36 T 1080 36 T 1440 36 T 1800 36 T 2160 36 T 2520 36 T 2880 36"
+                fill="none"
+                stroke="url(#wave-foam)"
+                strokeWidth="2.5"
+              />
+            </g>
+          </svg>
+          {/* Rising bubbles */}
+          <motion.div
+            className="absolute inset-0 overflow-hidden"
+            style={{ opacity: ripplesOpacity }}
+          >
+            {Array.from({ length: 14 }).map((_, i) => (
+              <span
+                key={i}
+                className="bubble"
+                style={{
+                  left: `${(i * 73) % 100}%`,
+                  width: `${4 + (i % 4) * 3}px`,
+                  height: `${4 + (i % 4) * 3}px`,
+                  animationDuration: `${3 + (i % 5)}s`,
+                  animationDelay: `${(i % 6) * 0.4}s`,
+                }}
+              />
+            ))}
+          </motion.div>
         </motion.div>
 
         {/* Final dim wash */}
