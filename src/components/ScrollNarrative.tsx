@@ -42,8 +42,12 @@ export function ScrollNarrative() {
 
   // Soil: rises from bottom, then sinks (drought lowering ground)
   const soilY = useTransform(p, [0, 0.25, 0.45, 1], ["0%", "8%", "18%", "22%"]);
-  const soilHue = useTransform(p, [0, 0.45], ["oklch(0.45 0.08 60)", "oklch(0.32 0.05 50)"]);
-  const cracksOpacity = useTransform(p, [0.15, 0.4], [0, 0.9]);
+  const soilHue = useTransform(p, [0, 0.45], ["oklch(0.45 0.08 60)", "oklch(0.28 0.04 45)"]);
+  const cracksOpacity = useTransform(p, [0.15, 0.4], [0, 1]);
+  // Cracks draw on as drought intensifies — stroke dashoffset trick
+  const cracksProgress = useTransform(p, [0.12, 0.42], [1, 0]);
+  const cracksWidth = useTransform(p, [0.15, 0.45], [1.5, 4]);
+
 
   // Clouds: drift in fast around 0.4 → 0.6, three parallax layers
   const cloudsFarX = useTransform(p, [0.38, 0.62], ["-40%", "0%"]);
