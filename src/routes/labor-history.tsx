@@ -8,7 +8,7 @@ export const Route = createFileRoute("/labor-history")({
       {
         name: "description",
         content:
-          "A short history of the Indian labor force and the long shadow of informality.",
+          "Industrial policy, human capital, and the structural roots of Indian informality.",
       },
     ],
   }),
@@ -19,10 +19,142 @@ function LaborHistoryPage() {
   return (
     <ChapterLayout
       eyebrow="Context"
-      title="Indian labor force"
-      lede="From agrarian roots to today's heterogeneous labor market."
+      title="The Indian Context: Industrial Policy and Structural Stagnancy"
+      lede="How post-independence policy, human capital deficits, and an incomplete structural transformation shaped today's informal labor market."
     >
-      <p>Placeholder content — add your write-up on the Indian labor force and informality history here.</p>
+      <p>
+        The ILO Employment Policy Department's technical report (ILO, 2019)
+        provides a comprehensive background on the origins and recent trends of
+        informality in India. I summarize it here. The report relies on previous
+        research and analysis of quinquennial NSS survey data — the predecessor
+        of the PLFS, which I use in my analysis.
+      </p>
+
+      <h2>Demand-side roots: post-independence industrial policy</h2>
+      <p>
+        The persistence of informality in India is largely a consequence of
+        policies that followed the country's independence in 1947. Three
+        structural features of post-independence industrial strategy jointly
+        depressed the demand for formal labor.
+      </p>
+
+      <p>
+        <em>
+          [Note to self: was it also that they wanted to prevent market power
+          concentration?]
+        </em>
+      </p>
+
+      <p>
+        <strong>First</strong>, the Planning Commission's 1955
+        import-substituting industrialization (ISI) strategy concentrated scarce
+        domestic savings in capital-intensive public sector heavy industry —
+        steel mills, power plants, machine-tool factories. By directing
+        investment away from agriculture, the strategy accelerated the
+        displacement of surplus agricultural workers, who migrated to cities in
+        search of non-agricultural work. But because heavy industry is
+        capital-intensive by design, it generated very few jobs per unit of
+        investment: the formal industrial sector could not absorb migrants at
+        anything close to the rate at which they were leaving agriculture. With
+        no unemployment benefits or savings cushion to fall back on, these
+        workers had to find income immediately, and were instead absorbed into
+        traditional services and micro-enterprises in the unorganized sector,
+        where no social insurance applied.
+      </p>
+      <p>
+        <em>
+          The official definition of organized-sector enterprises is
+          non-agricultural units that employ more than 10 workers.
+        </em>
+      </p>
+
+      <p>
+        <strong>Second</strong>, successive Industrial Policy resolutions
+        reserved the manufacture of non-durable consumer goods for small-scale
+        enterprises. The list started from a few goods and grew to 836 products
+        by 1990. Medium and large firms were excluded from these markets, while
+        small enterprises had no incentive to grow, since growth would cost
+        them their protected status and expose them to heavier regulatory
+        obligations.
+      </p>
+
+      <p>
+        <strong>Third</strong>, a plethora of central and state labor laws
+        emerged, mostly applied to large enterprises and workers in the
+        organized sector, with restrictions increasing with firm size. These
+        gave employers in the organized sector strong incentives to limit
+        headcount rather than expand, creating additional constraints and
+        confusion since the laws were often inconsistent.
+      </p>
+
+      <p>
+        Taken together, these three forces pushed workers out of agriculture,
+        failed to create formal employment to absorb them, and actively
+        discouraged the growth of firms that might otherwise have done so.
+      </p>
+
+      <p>
+        This is consistent with the broader theoretical literature: informal
+        firms remain small precisely to avoid inspection (Ulyssea, 2020), while
+        regulatory friction traps potentially productive firms outside the
+        formal sector (La Porta &amp; Shleifer, 2014).
+      </p>
+
+      <h2>Supply-side roots: human capital deficits</h2>
+      <p>
+        Informality was further pushed by historically low educational
+        attainment. In 2012, 30% of India's 485-million-strong workforce was
+        illiterate, and 52% had only secondary-level schooling. A lower level
+        of education hinders access to regular salaried employment; workers
+        then cluster in casual wage labor and own-account self-employment,
+        mapping to informal employment. Gender compounds these dynamics: 23% of
+        women participated in the labor force in 2011–12, disproportionately
+        concentrated in the most precarious and informal forms of work.
+      </p>
+
+      <h2>Trends since 2005: a Lewisian turning point, then a stall</h2>
+      <p>
+        There have been significant shifts since 2004–05. For the first time
+        since independence, the absolute number of agricultural workers fell —
+        driven by rising construction activity, rapid non-agricultural GDP
+        growth, and the rural public works program MGNREGA, which created an
+        unprecedented alternative to farm labor and tightened rural labor
+        markets. The share of regular salaried workers in total employment rose
+        from 14.3% in 2004–05 to 22.8% in 2017–18. These trends are consistent
+        with a Lewisian structural transformation.
+      </p>
+      <p>
+        <em>
+          The Mahatma Gandhi National Rural Employment Guarantee Act (MGNREGA),
+          enacted in 2005, is a rights-based rural job-guarantee scheme which
+          guarantees every rural household up to 100 days of wage employment
+          per year for unskilled manual labor at government-determined daily
+          wages.
+        </em>
+      </p>
+
+      <p>
+        Yet informality itself proved highly resistant. Even as organized-sector
+        employment grew, the share of informal workers <em>within</em> that
+        sector rose between 2000 and 2011–12, as firms substituted regular
+        workers with contract labor to circumvent labor laws. After 2012, as
+        GDP growth became less job-intensive, open unemployment reached a
+        45-year high of 6.1% in 2017–18, and the unorganized sector's share
+        expanded again. Manufacturing employment fell in absolute terms. The
+        introduction of the Goods and Services Tax in 2017 created new
+        incentives for small enterprises to register and claim input tax
+        credits, generating a measurable uptick in formal participation —
+        though what this means for workers' actual social protection remains an
+        open question.
+      </p>
+
+      <p>
+        These dynamics matter for what follows. A labor market shaped by
+        regulatory fragmentation, a legacy of firm-size distortions, and
+        persistent skills deficits is likely to respond to climate shocks in
+        ways that differ substantially from more formalized economies — and the
+        direction of that response is far from obvious, as I discuss next.
+      </p>
     </ChapterLayout>
   );
 }
