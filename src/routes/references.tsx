@@ -22,10 +22,7 @@ function formatAuthors(authors?: string): string {
 }
 
 function sortKey(r: Reference): string {
-  const a = (r.authors || r.key).toLowerCase();
-  const first = a.split(/\s+and\s+/i)[0];
-  const last = first.includes(",") ? first.split(",")[0] : first.split(/\s+/).pop() ?? "";
-  return `${last} ${r.year ?? ""}`.toLowerCase();
+  return (r.authors || r.key).toLowerCase();
 }
 
 function bestUrl(r: Reference): string | undefined {
