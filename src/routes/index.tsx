@@ -5,17 +5,16 @@ import { FieldScene } from "@/components/FieldScene";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Monsoon & Margins — Droughts, Floods & India's Informal Labor" },
+      { title: "Climate Shocked Workers — Droughts, Floods & India's Informal Labor" },
       {
         name: "description",
         content:
           "An interactive presentation of master's thesis research on how climate shocks reshape informality in the Indian labor market.",
       },
-      { property: "og:title", content: "Monsoon & Margins" },
+      { property: "og:title", content: "Climate Shocked Workers" },
       {
         property: "og:description",
-        content:
-          "How droughts and floods reshape informality in India's labor market — a scrollable thesis.",
+        content: "How droughts and floods reshape informality in India's labor market — a scrollable thesis.",
       },
     ],
   }),
@@ -30,23 +29,16 @@ function Index() {
       {/* Menu reveal section */}
       <section className="relative border-t border-border/60 px-6 py-24">
         <div className="mx-auto max-w-5xl">
-          <p className="text-xs uppercase tracking-[0.4em] text-[color:var(--sun)]">
-            Begin reading
-          </p>
-          <h2 className="mt-4 font-display text-4xl md:text-5xl leading-tight">
-            Three chapters, one monsoon.
-          </h2>
+          <p className="text-xs uppercase tracking-[0.4em] text-[color:var(--sun)]">Begin reading</p>
+          <h2 className="mt-4 font-display text-4xl md:text-5xl leading-tight">Three chapters, one monsoon.</h2>
           <p className="mt-4 max-w-2xl text-foreground/70">
-            A master's thesis on how climate volatility — too little rain, then too much — pushes
-            workers in India between formal and informal employment.
+            A master's thesis on how climate volatility — too little rain, then too much — pushes workers in India
+            between formal and informal employment.
           </p>
 
           <FieldScene />
 
-          <p className="mt-6 text-xs uppercase tracking-[0.3em] text-foreground/50">
-            Hover the scene · tap to explore
-          </p>
-
+          <p className="mt-6 text-xs uppercase tracking-[0.3em] text-foreground/50">Hover the scene · tap to explore</p>
 
           <div className="mt-12 grid gap-4 md:grid-cols-3">
             {[
@@ -77,9 +69,7 @@ function Index() {
                 <div className="text-xs font-mono text-[color:var(--sun)]">{c.num}</div>
                 <h3 className="mt-3 font-display text-2xl">{c.title}</h3>
                 <p className="mt-3 text-sm text-foreground/70">{c.desc}</p>
-                <div className="mt-6 text-sm text-foreground/60 group-hover:text-foreground">
-                  Read →
-                </div>
+                <div className="mt-6 text-sm text-foreground/60 group-hover:text-foreground">Read →</div>
               </Link>
             ))}
           </div>
