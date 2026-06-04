@@ -1,5 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ScrollNarrative } from "@/components/ScrollNarrative";
+import { FieldScene } from "@/components/FieldScene";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -39,6 +40,13 @@ function Index() {
             A master's thesis on how climate volatility — too little rain, then too much — pushes
             workers in India between formal and informal employment.
           </p>
+
+          <FieldScene />
+
+          <p className="mt-6 text-xs uppercase tracking-[0.3em] text-foreground/50">
+            Hover the scene · tap to explore
+          </p>
+
 
           <div className="mt-12 grid gap-4 md:grid-cols-3">
             {[
