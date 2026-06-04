@@ -33,8 +33,8 @@ function Index() {
           <p className="text-xs uppercase tracking-[0.4em] text-[color:var(--sun)]">Begin reading</p>
           <h2 className="mt-4 font-display text-4xl md:text-5xl leading-tight">Climate shocked into informality?.</h2>
           <p className="mt-4 max-w-2xl text-foreground/70">
-            A master's thesis on how climate volatility — too little rain, then too much — pushes workers in India
-            between formal and informal employment.
+            A master's thesis on how shocks linked to climate change — too little rain, then too much — influence the
+            movement of Indian workers.
           </p>
 
           <FieldScene />
