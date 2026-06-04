@@ -77,9 +77,7 @@ function Index() {
         </div>
       </section>
 
-      <footer className="border-t border-border/60 px-6 py-10 text-center text-xs text-foreground/50">
-        Master's thesis · Replace with your name & affiliation
-      </footer>
+      <SiteFooter />
     </main>
   );
 }
