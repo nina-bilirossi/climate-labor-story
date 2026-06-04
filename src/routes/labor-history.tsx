@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { ChapterLayout } from "@/components/ChapterLayout";
+import { Cite } from "@/components/Cite";
 
 export const Route = createFileRoute("/labor-history")({
   head: () => ({
@@ -23,11 +24,11 @@ function LaborHistoryPage() {
       lede="How post-independence policy, human capital deficits, and an incomplete structural transformation shaped today's informal labor market."
     >
       <p>
-        The ILO Employment Policy Department's technical report (ILO, 2019)
-        provides a comprehensive background on the origins and recent trends of
-        informality in India. I summarize it here. The report relies on previous
-        research and analysis of quinquennial NSS survey data — the predecessor
-        of the PLFS, which I use in my analysis.
+        The ILO Employment Policy Department's technical report (
+        <Cite k="ilo2019informal" />) provides a comprehensive background on the
+        origins and recent trends of informality in India. I summarize it here.
+        The report relies on previous research and analysis of quinquennial NSS
+        survey data — the predecessor of the PLFS, which I use in my analysis.
       </p>
 
       <h2>Demand-side roots: post-independence industrial policy</h2>
@@ -95,9 +96,9 @@ function LaborHistoryPage() {
 
       <p>
         This is consistent with the broader theoretical literature: informal
-        firms remain small precisely to avoid inspection (Ulyssea, 2020), while
-        regulatory friction traps potentially productive firms outside the
-        formal sector (La Porta &amp; Shleifer, 2014).
+        firms remain small precisely to avoid inspection (<Cite k="Ulyssea2020" />
+        ), while regulatory friction traps potentially productive firms outside
+        the formal sector (<Cite k="LaPorta2008" />).
       </p>
 
       <h2>Supply-side roots: human capital deficits</h2>
