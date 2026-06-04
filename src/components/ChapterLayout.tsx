@@ -28,6 +28,16 @@ export function ChapterLayout({ eyebrow, title, lede, children }: Props) {
             References
           </Link>
         </div>
+        <div className="mt-2">
+          Feeling more academic? Download my official thesis{" "}
+          <a
+            href="/thesis_placeholder.txt"
+            download
+            className="underline decoration-dotted underline-offset-2 hover:text-foreground/80"
+          >
+            here
+          </a>
+        </div>
       </footer>
     </div>
   );
