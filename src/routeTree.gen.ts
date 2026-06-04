@@ -12,6 +12,9 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as ResultsRouteImport } from './routes/results'
 import { Route as MethodologyRouteImport } from './routes/methodology'
+import { Route as LaborHistoryRouteImport } from './routes/labor-history'
+import { Route as InformalityContextRouteImport } from './routes/informality-context'
+import { Route as ClimateShocksRouteImport } from './routes/climate-shocks'
 import { Route as BackgroundRouteImport } from './routes/background'
 import { Route as IndexRouteImport } from './routes/index'
 
@@ -30,6 +33,21 @@ const MethodologyRoute = MethodologyRouteImport.update({
   path: '/methodology',
   getParentRoute: () => rootRouteImport,
 } as any)
+const LaborHistoryRoute = LaborHistoryRouteImport.update({
+  id: '/labor-history',
+  path: '/labor-history',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const InformalityContextRoute = InformalityContextRouteImport.update({
+  id: '/informality-context',
+  path: '/informality-context',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ClimateShocksRoute = ClimateShocksRouteImport.update({
+  id: '/climate-shocks',
+  path: '/climate-shocks',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const BackgroundRoute = BackgroundRouteImport.update({
   id: '/background',
   path: '/background',
@@ -44,6 +62,9 @@ const IndexRoute = IndexRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/background': typeof BackgroundRoute
+  '/climate-shocks': typeof ClimateShocksRoute
+  '/informality-context': typeof InformalityContextRoute
+  '/labor-history': typeof LaborHistoryRoute
   '/methodology': typeof MethodologyRoute
   '/results': typeof ResultsRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
@@ -51,6 +72,9 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/background': typeof BackgroundRoute
+  '/climate-shocks': typeof ClimateShocksRoute
+  '/informality-context': typeof InformalityContextRoute
+  '/labor-history': typeof LaborHistoryRoute
   '/methodology': typeof MethodologyRoute
   '/results': typeof ResultsRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
@@ -59,19 +83,41 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/background': typeof BackgroundRoute
+  '/climate-shocks': typeof ClimateShocksRoute
+  '/informality-context': typeof InformalityContextRoute
+  '/labor-history': typeof LaborHistoryRoute
   '/methodology': typeof MethodologyRoute
   '/results': typeof ResultsRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/background' | '/methodology' | '/results' | '/sitemap.xml'
+  fullPaths:
+    | '/'
+    | '/background'
+    | '/climate-shocks'
+    | '/informality-context'
+    | '/labor-history'
+    | '/methodology'
+    | '/results'
+    | '/sitemap.xml'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/background' | '/methodology' | '/results' | '/sitemap.xml'
+  to:
+    | '/'
+    | '/background'
+    | '/climate-shocks'
+    | '/informality-context'
+    | '/labor-history'
+    | '/methodology'
+    | '/results'
+    | '/sitemap.xml'
   id:
     | '__root__'
     | '/'
     | '/background'
+    | '/climate-shocks'
+    | '/informality-context'
+    | '/labor-history'
     | '/methodology'
     | '/results'
     | '/sitemap.xml'
@@ -80,6 +126,9 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   BackgroundRoute: typeof BackgroundRoute
+  ClimateShocksRoute: typeof ClimateShocksRoute
+  InformalityContextRoute: typeof InformalityContextRoute
+  LaborHistoryRoute: typeof LaborHistoryRoute
   MethodologyRoute: typeof MethodologyRoute
   ResultsRoute: typeof ResultsRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
@@ -108,6 +157,27 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof MethodologyRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/labor-history': {
+      id: '/labor-history'
+      path: '/labor-history'
+      fullPath: '/labor-history'
+      preLoaderRoute: typeof LaborHistoryRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/informality-context': {
+      id: '/informality-context'
+      path: '/informality-context'
+      fullPath: '/informality-context'
+      preLoaderRoute: typeof InformalityContextRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/climate-shocks': {
+      id: '/climate-shocks'
+      path: '/climate-shocks'
+      fullPath: '/climate-shocks'
+      preLoaderRoute: typeof ClimateShocksRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/background': {
       id: '/background'
       path: '/background'
@@ -128,6 +198,9 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   BackgroundRoute: BackgroundRoute,
+  ClimateShocksRoute: ClimateShocksRoute,
+  InformalityContextRoute: InformalityContextRoute,
+  LaborHistoryRoute: LaborHistoryRoute,
   MethodologyRoute: MethodologyRoute,
   ResultsRoute: ResultsRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
