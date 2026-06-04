@@ -13,7 +13,7 @@ export function SiteHeader() {
     <header className="sticky top-0 z-40 border-b border-border/60 bg-background/80 backdrop-blur-md">
       <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
         <Link to="/" className="font-display text-lg tracking-tight text-foreground">
-          Monsoon & Margins
+          Climate Shoked Workers
         </Link>
         <nav className="flex items-center gap-1 text-sm">
           {links.map((l) => {

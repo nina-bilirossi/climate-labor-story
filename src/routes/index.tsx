@@ -30,7 +30,7 @@ function Index() {
       <section className="relative border-t border-border/60 px-6 py-24">
         <div className="mx-auto max-w-5xl">
           <p className="text-xs uppercase tracking-[0.4em] text-[color:var(--sun)]">Begin reading</p>
-          <h2 className="mt-4 font-display text-4xl md:text-5xl leading-tight">Three chapters, one monsoon.</h2>
+          <h2 className="mt-4 font-display text-4xl md:text-5xl leading-tight">Climate shocked into informality?.</h2>
           <p className="mt-4 max-w-2xl text-foreground/70">
             A master's thesis on how climate volatility — too little rain, then too much — pushes workers in India
             between formal and informal employment.
