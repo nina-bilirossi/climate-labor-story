@@ -1,6 +1,6 @@
 import { ReactNode } from "react";
-import { Link } from "@tanstack/react-router";
 import { SiteHeader } from "@/components/SiteHeader";
+import { SiteFooter } from "@/components/SiteFooter";
 
 interface Props {
   eyebrow: string;
