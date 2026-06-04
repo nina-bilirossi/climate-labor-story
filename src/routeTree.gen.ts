@@ -11,6 +11,7 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as ResultsRouteImport } from './routes/results'
+import { Route as ReferencesRouteImport } from './routes/references'
 import { Route as MethodologyRouteImport } from './routes/methodology'
 import { Route as LaborHistoryRouteImport } from './routes/labor-history'
 import { Route as InformalityContextRouteImport } from './routes/informality-context'
@@ -26,6 +27,11 @@ const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
 const ResultsRoute = ResultsRouteImport.update({
   id: '/results',
   path: '/results',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ReferencesRoute = ReferencesRouteImport.update({
+  id: '/references',
+  path: '/references',
   getParentRoute: () => rootRouteImport,
 } as any)
 const MethodologyRoute = MethodologyRouteImport.update({
@@ -66,6 +72,7 @@ export interface FileRoutesByFullPath {
   '/informality-context': typeof InformalityContextRoute
   '/labor-history': typeof LaborHistoryRoute
   '/methodology': typeof MethodologyRoute
+  '/references': typeof ReferencesRoute
   '/results': typeof ResultsRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
 }
@@ -76,6 +83,7 @@ export interface FileRoutesByTo {
   '/informality-context': typeof InformalityContextRoute
   '/labor-history': typeof LaborHistoryRoute
   '/methodology': typeof MethodologyRoute
+  '/references': typeof ReferencesRoute
   '/results': typeof ResultsRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
 }
@@ -87,6 +95,7 @@ export interface FileRoutesById {
   '/informality-context': typeof InformalityContextRoute
   '/labor-history': typeof LaborHistoryRoute
   '/methodology': typeof MethodologyRoute
+  '/references': typeof ReferencesRoute
   '/results': typeof ResultsRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
 }
@@ -99,6 +108,7 @@ export interface FileRouteTypes {
     | '/informality-context'
     | '/labor-history'
     | '/methodology'
+    | '/references'
     | '/results'
     | '/sitemap.xml'
   fileRoutesByTo: FileRoutesByTo
@@ -109,6 +119,7 @@ export interface FileRouteTypes {
     | '/informality-context'
     | '/labor-history'
     | '/methodology'
+    | '/references'
     | '/results'
     | '/sitemap.xml'
   id:
@@ -119,6 +130,7 @@ export interface FileRouteTypes {
     | '/informality-context'
     | '/labor-history'
     | '/methodology'
+    | '/references'
     | '/results'
     | '/sitemap.xml'
   fileRoutesById: FileRoutesById
@@ -130,6 +142,7 @@ export interface RootRouteChildren {
   InformalityContextRoute: typeof InformalityContextRoute
   LaborHistoryRoute: typeof LaborHistoryRoute
   MethodologyRoute: typeof MethodologyRoute
+  ReferencesRoute: typeof ReferencesRoute
   ResultsRoute: typeof ResultsRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
 }
@@ -148,6 +161,13 @@ declare module '@tanstack/react-router' {
       path: '/results'
       fullPath: '/results'
       preLoaderRoute: typeof ResultsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/references': {
+      id: '/references'
+      path: '/references'
+      fullPath: '/references'
+      preLoaderRoute: typeof ReferencesRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/methodology': {
@@ -202,9 +222,20 @@ const rootRouteChildren: RootRouteChildren = {
   InformalityContextRoute: InformalityContextRoute,
   LaborHistoryRoute: LaborHistoryRoute,
   MethodologyRoute: MethodologyRoute,
+  ReferencesRoute: ReferencesRoute,
   ResultsRoute: ResultsRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
+
+import type { getRouter } from './router.tsx'
+import type { startInstance } from './start.ts'
+declare module '@tanstack/react-start' {
+  interface Register {
+    ssr: true
+    router: Awaited<ReturnType<typeof getRouter>>
+    config: Awaited<ReturnType<typeof startInstance.getOptions>>
+  }
+}
