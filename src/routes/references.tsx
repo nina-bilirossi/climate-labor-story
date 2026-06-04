@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect } from "react";
 import { SiteHeader } from "@/components/SiteHeader";
+import { SiteFooter } from "@/components/SiteFooter";
 import { references, type Reference } from "@/data/references";
 
 export const Route = createFileRoute("/references")({
@@ -110,9 +111,7 @@ function ReferencesPage() {
           ))}
         </ol>
       </article>
-      <footer className="border-t border-border/60 px-6 py-10 text-center text-xs text-foreground/50">
-        Master's thesis · Replace with your name &amp; affiliation
-      </footer>
+      <SiteFooter />
     </div>
   );
 }

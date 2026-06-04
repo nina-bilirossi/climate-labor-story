@@ -1,6 +1,6 @@
 import { ReactNode } from "react";
-import { Link } from "@tanstack/react-router";
 import { SiteHeader } from "@/components/SiteHeader";
+import { SiteFooter } from "@/components/SiteFooter";
 
 interface Props {
   eyebrow: string;
@@ -21,24 +21,7 @@ export function ChapterLayout({ eyebrow, title, lede, children }: Props) {
           {children}
         </div>
       </article>
-      <footer className="border-t border-border/60 px-6 py-10 text-center text-xs text-foreground/50">
-        <div>Master's thesis · Replace with your name &amp; affiliation</div>
-        <div className="mt-2">
-          <Link to="/references" className="underline decoration-dotted underline-offset-2 hover:text-foreground/80">
-            References
-          </Link>
-        </div>
-        <div className="mt-2">
-          Feeling more academic? Download my official thesis{" "}
-          <a
-            href="/thesis_placeholder.txt"
-            download
-            className="underline decoration-dotted underline-offset-2 hover:text-foreground/80"
-          >
-            here
-          </a>
-        </div>
-      </footer>
+      <SiteFooter />
     </div>
   );
 }

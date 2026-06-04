@@ -1,6 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ScrollNarrative } from "@/components/ScrollNarrative";
 import { FieldScene } from "@/components/FieldScene";
+import { SiteFooter } from "@/components/SiteFooter";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -76,9 +77,7 @@ function Index() {
         </div>
       </section>
 
-      <footer className="border-t border-border/60 px-6 py-10 text-center text-xs text-foreground/50">
-        Master's thesis · Replace with your name & affiliation
-      </footer>
+      <SiteFooter />
     </main>
   );
 }
