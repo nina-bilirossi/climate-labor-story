@@ -3,8 +3,8 @@ import { Link } from "@tanstack/react-router";
 /**
  * Minimalist SVG illustration: an Indian worker under a sun and cloud,
  * with a small hut beside them. Three interactive hotspots with styled hover
- * labels link to dedicated context pages. Hover applies a soft contour glow
- * that hugs the shapes (via SVG filter) rather than a square background.
+ * labels link to dedicated context pages. On hover, the shapes lift slightly
+ * and gain a soft faded-white contour glow that hugs their outlines.
  */
 export function FieldScene() {
   return (
@@ -16,39 +16,16 @@ export function FieldScene() {
         aria-label="A worker in the field beneath sun and cloud, beside a small hut"
       >
         <defs>
-          {/* Shape-hugging warm glow */}
-          <filter id="warmGlow" x="-50%" y="-50%" width="200%" height="200%">
-            <feGaussianBlur stdDeviation="6" result="blur" />
-            <feFlood floodColor="oklch(0.92 0.16 75)" floodOpacity="0.75" />
+          {/* Shape-hugging soft white contour glow */}
+          <filter id="whiteGlow" x="-50%" y="-50%" width="200%" height="200%">
+            <feGaussianBlur stdDeviation="5" result="blur" />
+            <feFlood floodColor="oklch(1 0 0)" floodOpacity="0.85" />
             <feComposite in2="blur" operator="in" result="glow" />
             <feMerge>
               <feMergeNode in="glow" />
               <feMergeNode in="SourceGraphic" />
             </feMerge>
           </filter>
-
-          {/* Soft cloud gradient */}
-          <radialGradient id="cloudGrad" cx="50%" cy="40%" r="60%">
-            <stop offset="0%" stopColor="oklch(0.99 0.005 240)" />
-            <stop offset="100%" stopColor="oklch(0.88 0.02 250)" />
-          </radialGradient>
-
-          {/* Warm sun gradient */}
-          <radialGradient id="sunGrad" cx="50%" cy="50%" r="50%">
-            <stop offset="0%" stopColor="oklch(0.95 0.16 85)" />
-            <stop offset="100%" stopColor="oklch(0.80 0.20 60)" />
-          </radialGradient>
-
-          {/* Earthy hut wall gradient */}
-          <linearGradient id="wallGrad" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0%" stopColor="oklch(0.84 0.06 75)" />
-            <stop offset="100%" stopColor="oklch(0.70 0.07 60)" />
-          </linearGradient>
-
-          <linearGradient id="roofGrad" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0%" stopColor="oklch(0.68 0.12 65)" />
-            <stop offset="100%" stopColor="oklch(0.48 0.10 50)" />
-          </linearGradient>
         </defs>
 
         {/* Horizon */}
@@ -66,48 +43,43 @@ export function FieldScene() {
         {/* === Climate hotspot: sun + cloud === */}
         <Link to="/climate-shocks" className="group cursor-pointer outline-none">
           <g>
-            {/* Hit area only — no visible rect */}
             <rect x="430" y="20" width="340" height="170" fill="transparent" />
 
-            {/* Glow layer: duplicates of the shapes, filtered, fade in on hover */}
-            <g className="opacity-0 group-hover:opacity-100 transition-opacity duration-500" filter="url(#warmGlow)">
-              <circle cx="615" cy="92" r="38" fill="oklch(0.92 0.18 80)" />
-              <path
-                d="M 470 130 Q 460 100 490 96 Q 498 76 522 82 Q 540 64 568 78 Q 595 80 590 108 Q 610 122 588 134 Q 580 144 470 140 Z"
-                fill="oklch(0.95 0.02 240)"
-              />
+            {/* Glow layer: white contour, fades in on hover */}
+            <g
+              className="opacity-0 group-hover:opacity-100 transition-opacity duration-500 group-hover:-translate-y-2 transition-transform"
+              filter="url(#whiteGlow)"
+            >
+              <circle cx="615" cy="92" r="34" fill="oklch(1 0 0)" />
+              <ellipse cx="500" cy="120" rx="28" ry="16" fill="oklch(1 0 0)" />
+              <ellipse cx="525" cy="110" rx="32" ry="20" fill="oklch(1 0 0)" />
+              <ellipse cx="558" cy="118" rx="28" ry="16" fill="oklch(1 0 0)" />
             </g>
 
-            {/* Visible shapes */}
-            <g className="transition-transform duration-500 group-hover:scale-110 group-hover:-translate-y-2 origin-center">
-              <circle cx="615" cy="92" r="38" fill="url(#sunGrad)" />
-              <circle
-                cx="615"
-                cy="92"
-                r="38"
-                fill="none"
-                stroke="oklch(0.55 0.18 55)"
-                strokeWidth="1.2"
-                opacity="0.5"
-              />
-            </g>
-
-            <g className="transition-transform duration-500 group-hover:translate-x-[-6px] group-hover:-translate-y-2">
-              {/* Soft pebble-shaped cloud (single rounded path) */}
-              <path
-                d="M 470 130 Q 460 100 490 96 Q 498 76 522 82 Q 540 64 568 78 Q 595 80 590 108 Q 610 122 588 134 Q 580 144 470 140 Z"
-                fill="url(#cloudGrad)"
-                stroke="oklch(0.62 0.03 250)"
-                strokeWidth="1.2"
-              />
-              {/* Soft inner highlight */}
-              <path
-                d="M 488 100 Q 510 92 530 96"
-                fill="none"
-                stroke="oklch(1 0 0 / 0.6)"
-                strokeWidth="2"
+            {/* Visible shapes — original simple design */}
+            <g className="transition-transform duration-500 group-hover:-translate-y-2">
+              {/* Sun */}
+              <circle cx="615" cy="92" r="34" fill="oklch(0.88 0.16 80)" />
+              {/* Sun rays */}
+              <g
+                stroke="oklch(0.85 0.18 75)"
+                strokeWidth="2.5"
                 strokeLinecap="round"
-              />
+              >
+                <line x1="615" y1="40" x2="615" y2="52" />
+                <line x1="615" y1="132" x2="615" y2="144" />
+                <line x1="563" y1="92" x2="575" y2="92" />
+                <line x1="655" y1="92" x2="667" y2="92" />
+                <line x1="578" y1="55" x2="586" y2="63" />
+                <line x1="644" y1="121" x2="652" y2="129" />
+                <line x1="578" y1="129" x2="586" y2="121" />
+                <line x1="644" y1="63" x2="652" y2="55" />
+              </g>
+
+              {/* Cloud — three ellipses */}
+              <ellipse cx="500" cy="120" rx="28" ry="16" fill="oklch(0.95 0.01 240)" />
+              <ellipse cx="525" cy="110" rx="32" ry="20" fill="oklch(0.97 0.01 240)" />
+              <ellipse cx="558" cy="118" rx="28" ry="16" fill="oklch(0.95 0.01 240)" />
             </g>
 
             {/* Hover label */}
@@ -142,83 +114,101 @@ export function FieldScene() {
             <rect x="280" y="190" width="120" height="170" fill="transparent" />
 
             {/* Glow layer */}
-            <g className="opacity-0 group-hover:opacity-100 transition-opacity duration-500" filter="url(#warmGlow)">
-              {/* head */}
-              <ellipse cx="340" cy="222" rx="16" ry="18" fill="oklch(0.6 0.08 50)" />
-              {/* body silhouette */}
-              <path
-                d="M 318 252 Q 340 244 362 252 Q 372 290 368 332 Q 340 340 312 332 Q 308 290 318 252 Z"
-                fill="oklch(0.82 0.10 90)"
-              />
-              {/* dhoti */}
-              <path
-                d="M 314 332 Q 340 340 366 332 L 360 372 Q 340 376 320 372 Z"
-                fill="oklch(0.92 0.02 90)"
-              />
+            <g
+              className="opacity-0 group-hover:opacity-100 transition-opacity duration-500 group-hover:-translate-y-3 transition-transform"
+              filter="url(#whiteGlow)"
+            >
+              <circle cx="340" cy="225" r="14" fill="oklch(1 0 0)" />
+              <path d="M 326 215 Q 340 200 354 215 L 354 222 L 326 222 Z" fill="oklch(1 0 0)" />
+              <rect x="322" y="240" width="36" height="60" rx="4" fill="oklch(1 0 0)" />
+              <rect x="320" y="298" width="40" height="40" rx="3" fill="oklch(1 0 0)" />
+              <line x1="322" y1="252" x2="300" y2="232" stroke="oklch(1 0 0)" strokeWidth="8" strokeLinecap="round" />
+              <line x1="358" y1="252" x2="378" y2="280" stroke="oklch(1 0 0)" strokeWidth="8" strokeLinecap="round" />
+              <line x1="378" y1="280" x2="386" y2="248" stroke="oklch(1 0 0)" strokeWidth="3" strokeLinecap="round" />
             </g>
 
-            <g className="transition-transform duration-500 group-hover:-translate-y-3 group-hover:scale-105 origin-bottom">
+            <g className="transition-transform duration-500 group-hover:-translate-y-3">
               {/* Head */}
-              <ellipse
-                cx="340"
-                cy="222"
-                rx="16"
-                ry="18"
-                fill="oklch(0.62 0.08 50)"
-              />
-              {/* Turban — rounded dome */}
+              <circle cx="340" cy="225" r="14" fill="oklch(0.62 0.08 50)" />
+              {/* Turban */}
               <path
-                d="M 322 220 Q 340 198 358 220 Q 350 210 340 209 Q 330 210 322 220 Z"
+                d="M 326 215 Q 340 200 354 215 L 354 222 L 326 222 Z"
                 fill="oklch(0.72 0.16 30)"
               />
-              <path
-                d="M 322 220 Q 340 212 358 220"
+              <line
+                x1="326"
+                y1="220"
+                x2="354"
+                y2="220"
                 stroke="oklch(0.45 0.14 30)"
                 strokeWidth="1"
-                fill="none"
               />
 
-              {/* Body — soft curved tunic, no straight sticks */}
-              <path
-                d="M 318 252 Q 340 244 362 252 Q 372 290 368 332 Q 340 340 312 332 Q 308 290 318 252 Z"
+              {/* Body / kurta */}
+              <rect
+                x="322"
+                y="240"
+                width="36"
+                height="60"
+                rx="4"
                 fill="oklch(0.84 0.10 90)"
                 stroke="oklch(0.40 0.05 60)"
-                strokeWidth="1.2"
+                strokeWidth="1"
               />
               {/* Sash */}
-              <path
-                d="M 312 296 Q 340 304 368 296"
-                fill="none"
+              <line
+                x1="322"
+                y1="285"
+                x2="358"
+                y2="285"
                 stroke="oklch(0.55 0.18 30)"
-                strokeWidth="3.5"
+                strokeWidth="3"
+              />
+
+              {/* Arms */}
+              <line
+                x1="322"
+                y1="252"
+                x2="300"
+                y2="232"
+                stroke="oklch(0.62 0.08 50)"
+                strokeWidth="7"
+                strokeLinecap="round"
+              />
+              <line
+                x1="358"
+                y1="252"
+                x2="378"
+                y2="280"
+                stroke="oklch(0.62 0.08 50)"
+                strokeWidth="7"
+                strokeLinecap="round"
+              />
+              {/* Sickle */}
+              <path
+                d="M 378 280 Q 388 268 386 248"
+                fill="none"
+                stroke="oklch(0.75 0.02 250)"
+                strokeWidth="2.5"
                 strokeLinecap="round"
               />
 
-              {/* Arms — gentle curves, capsule-thick */}
-              <path
-                d="M 322 258 Q 308 244 296 230"
-                fill="none"
-                stroke="oklch(0.62 0.08 50)"
-                strokeWidth="9"
-                strokeLinecap="round"
-              />
-              <path
-                d="M 358 258 Q 374 282 372 312"
-                fill="none"
-                stroke="oklch(0.62 0.08 50)"
-                strokeWidth="9"
-                strokeLinecap="round"
-              />
-
-              {/* Dhoti / legs — flowing */}
-              <path
-                d="M 314 332 Q 340 340 366 332 L 360 372 Q 340 376 320 372 Z"
+              {/* Dhoti / legs */}
+              <rect
+                x="320"
+                y="298"
+                width="40"
+                height="40"
+                rx="3"
                 fill="oklch(0.94 0.02 90)"
                 stroke="oklch(0.40 0.05 60)"
-                strokeWidth="1.1"
+                strokeWidth="1"
               />
-              <path
-                d="M 340 340 L 340 372"
+              <line
+                x1="340"
+                y1="298"
+                x2="340"
+                y2="338"
                 stroke="oklch(0.40 0.05 60)"
                 strokeWidth="0.8"
               />
@@ -256,62 +246,68 @@ export function FieldScene() {
             <rect x="110" y="210" width="170" height="140" fill="transparent" />
 
             {/* Glow layer */}
-            <g className="opacity-0 group-hover:opacity-100 transition-opacity duration-500" filter="url(#warmGlow)">
-              <path
-                d="M 130 282 Q 195 222 260 282 Q 258 286 250 286 L 140 286 Q 132 286 130 282 Z"
-                fill="oklch(0.6 0.12 60)"
-              />
-              <path
-                d="M 150 286 Q 150 282 156 282 L 234 282 Q 240 282 240 286 L 240 330 Q 240 336 234 336 L 156 336 Q 150 336 150 330 Z"
-                fill="oklch(0.78 0.06 70)"
-              />
+            <g
+              className="opacity-0 group-hover:opacity-100 transition-opacity duration-500 group-hover:-translate-y-3 transition-transform"
+              filter="url(#whiteGlow)"
+            >
+              <polygon points="130,286 195,232 260,286" fill="oklch(1 0 0)" />
+              <rect x="150" y="286" width="90" height="50" fill="oklch(1 0 0)" />
+              <rect x="184" y="308" width="22" height="28" fill="oklch(1 0 0)" />
+              <rect x="160" y="300" width="12" height="10" fill="oklch(1 0 0)" />
+              <rect x="218" y="300" width="12" height="10" fill="oklch(1 0 0)" />
             </g>
 
-            <g className="transition-transform duration-500 group-hover:-translate-y-3 group-hover:scale-105 origin-bottom">
-              {/* Roof — rounded thatched dome */}
-              <path
-                d="M 130 282 Q 195 222 260 282 Q 258 286 250 286 L 140 286 Q 132 286 130 282 Z"
-                fill="url(#roofGrad)"
+            <g className="transition-transform duration-500 group-hover:-translate-y-3">
+              {/* Roof */}
+              <polygon
+                points="130,286 195,232 260,286"
+                fill="oklch(0.55 0.10 55)"
                 stroke="oklch(0.35 0.06 50)"
-                strokeWidth="1.2"
+                strokeWidth="1"
               />
-              {/* Thatch hints — curved, no sharp ticks */}
-              <path
-                d="M 160 280 Q 170 260 178 248 M 190 278 Q 195 250 198 232 M 220 280 Q 215 256 210 240"
-                stroke="oklch(0.40 0.08 55)"
-                strokeWidth="0.8"
-                fill="none"
-                opacity="0.7"
-              />
+              {/* Thatch hints */}
+              <g stroke="oklch(0.40 0.08 55)" strokeWidth="0.8" opacity="0.7">
+                <line x1="160" y1="280" x2="170" y2="248" />
+                <line x1="190" y1="280" x2="195" y2="236" />
+                <line x1="220" y1="280" x2="215" y2="246" />
+              </g>
 
-              {/* Walls — rounded corners */}
-              <path
-                d="M 150 286 Q 150 282 156 282 L 234 282 Q 240 282 240 286 L 240 330 Q 240 336 234 336 L 156 336 Q 150 336 150 330 Z"
-                fill="url(#wallGrad)"
+              {/* Walls */}
+              <rect
+                x="150"
+                y="286"
+                width="90"
+                height="50"
+                fill="oklch(0.78 0.06 70)"
                 stroke="oklch(0.35 0.04 50)"
-                strokeWidth="1.2"
+                strokeWidth="1"
               />
-              {/* Door — arched */}
-              <path
-                d="M 184 336 L 184 308 Q 184 296 195 296 Q 206 296 206 308 L 206 336 Z"
+              {/* Door */}
+              <rect
+                x="184"
+                y="308"
+                width="22"
+                height="28"
                 fill="oklch(0.28 0.04 40)"
               />
-              {/* Window — round */}
-              <circle
-                cx="165"
-                cy="306"
-                r="6"
+              {/* Windows */}
+              <rect
+                x="160"
+                y="300"
+                width="12"
+                height="10"
                 fill="oklch(0.40 0.06 60)"
                 stroke="oklch(0.25 0.03 40)"
-                strokeWidth="1"
+                strokeWidth="0.8"
               />
-              <circle
-                cx="225"
-                cy="306"
-                r="6"
+              <rect
+                x="218"
+                y="300"
+                width="12"
+                height="10"
                 fill="oklch(0.40 0.06 60)"
                 stroke="oklch(0.25 0.03 40)"
-                strokeWidth="1"
+                strokeWidth="0.8"
               />
             </g>
 
@@ -341,11 +337,14 @@ export function FieldScene() {
           </g>
         </Link>
 
-        {/* Grass tufts — soft curls */}
-        <g stroke="oklch(0.50 0.10 130)" strokeWidth="1.5" strokeLinecap="round" fill="none">
-          <path d="M 80 332 Q 78 324 82 318 M 86 332 Q 88 326 92 322" />
-          <path d="M 420 332 Q 418 324 422 318 M 426 332 Q 428 326 432 322" />
-          <path d="M 700 332 Q 698 324 702 318 M 706 332 Q 708 326 712 322" />
+        {/* Grass tufts */}
+        <g stroke="oklch(0.50 0.10 130)" strokeWidth="1.5" strokeLinecap="round">
+          <line x1="80" y1="332" x2="82" y2="322" />
+          <line x1="86" y1="332" x2="88" y2="324" />
+          <line x1="420" y1="332" x2="422" y2="322" />
+          <line x1="426" y1="332" x2="428" y2="324" />
+          <line x1="700" y1="332" x2="702" y2="322" />
+          <line x1="706" y1="332" x2="708" y2="324" />
         </g>
       </svg>
     </div>
