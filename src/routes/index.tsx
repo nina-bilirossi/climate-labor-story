@@ -41,6 +41,13 @@ function Index() {
             workers in India between formal and informal employment.
           </p>
 
+          <FieldScene />
+
+          <p className="mt-6 text-xs uppercase tracking-[0.3em] text-foreground/50">
+            Hover the scene · tap to explore
+          </p>
+
+
           <div className="mt-12 grid gap-4 md:grid-cols-3">
             {[
               {
