@@ -26,6 +26,7 @@ export const Route = createFileRoute("/")({
 
 function Index() {
   const [introOpen, setIntroOpen] = useState(false);
+  const [contribOpen, setContribOpen] = useState(false);
 
   return (
     <main className="bg-background text-foreground">
