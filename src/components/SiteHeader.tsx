@@ -1,10 +1,11 @@
 import { Link, useRouterState } from "@tanstack/react-router";
 
 const links = [
-  { to: "/", label: "Overview" },
-  { to: "/background", label: "Background" },
-  { to: "/methodology", label: "Methodology" },
+  { to: "/", label: "Intro" },
+  { to: "/methodology", label: "Methods" },
   { to: "/results", label: "Results" },
+  { to: "/discussion", label: "Discussion" },
+  { to: "/about", label: "About" },
 ] as const;
 
 export function SiteHeader() {
