@@ -11,6 +11,7 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as ResultsRouteImport } from './routes/results'
+import { Route as ReflectionsRouteImport } from './routes/reflections'
 import { Route as ReferencesRouteImport } from './routes/references'
 import { Route as MethodologyRouteImport } from './routes/methodology'
 import { Route as LaborHistoryRouteImport } from './routes/labor-history'
@@ -28,6 +29,11 @@ const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
 const ResultsRoute = ResultsRouteImport.update({
   id: '/results',
   path: '/results',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ReflectionsRoute = ReflectionsRouteImport.update({
+  id: '/reflections',
+  path: '/reflections',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ReferencesRoute = ReferencesRouteImport.update({
@@ -80,6 +86,7 @@ export interface FileRoutesByFullPath {
   '/labor-history': typeof LaborHistoryRoute
   '/methodology': typeof MethodologyRoute
   '/references': typeof ReferencesRoute
+  '/reflections': typeof ReflectionsRoute
   '/results': typeof ResultsRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
 }
@@ -92,6 +99,7 @@ export interface FileRoutesByTo {
   '/labor-history': typeof LaborHistoryRoute
   '/methodology': typeof MethodologyRoute
   '/references': typeof ReferencesRoute
+  '/reflections': typeof ReflectionsRoute
   '/results': typeof ResultsRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
 }
@@ -105,6 +113,7 @@ export interface FileRoutesById {
   '/labor-history': typeof LaborHistoryRoute
   '/methodology': typeof MethodologyRoute
   '/references': typeof ReferencesRoute
+  '/reflections': typeof ReflectionsRoute
   '/results': typeof ResultsRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
 }
@@ -119,6 +128,7 @@ export interface FileRouteTypes {
     | '/labor-history'
     | '/methodology'
     | '/references'
+    | '/reflections'
     | '/results'
     | '/sitemap.xml'
   fileRoutesByTo: FileRoutesByTo
@@ -131,6 +141,7 @@ export interface FileRouteTypes {
     | '/labor-history'
     | '/methodology'
     | '/references'
+    | '/reflections'
     | '/results'
     | '/sitemap.xml'
   id:
@@ -143,6 +154,7 @@ export interface FileRouteTypes {
     | '/labor-history'
     | '/methodology'
     | '/references'
+    | '/reflections'
     | '/results'
     | '/sitemap.xml'
   fileRoutesById: FileRoutesById
@@ -156,6 +168,7 @@ export interface RootRouteChildren {
   LaborHistoryRoute: typeof LaborHistoryRoute
   MethodologyRoute: typeof MethodologyRoute
   ReferencesRoute: typeof ReferencesRoute
+  ReflectionsRoute: typeof ReflectionsRoute
   ResultsRoute: typeof ResultsRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
 }
@@ -174,6 +187,13 @@ declare module '@tanstack/react-router' {
       path: '/results'
       fullPath: '/results'
       preLoaderRoute: typeof ResultsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/reflections': {
+      id: '/reflections'
+      path: '/reflections'
+      fullPath: '/reflections'
+      preLoaderRoute: typeof ReflectionsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/references': {
@@ -244,6 +264,7 @@ const rootRouteChildren: RootRouteChildren = {
   LaborHistoryRoute: LaborHistoryRoute,
   MethodologyRoute: MethodologyRoute,
   ReferencesRoute: ReferencesRoute,
+  ReflectionsRoute: ReflectionsRoute,
   ResultsRoute: ResultsRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
 }
