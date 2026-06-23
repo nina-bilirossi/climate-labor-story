@@ -340,7 +340,7 @@ export function FieldScene() {
         {/* === Grass hotspot === */}
         <Link to="/grass" className="group cursor-pointer outline-none">
           <g>
-            <rect x="410" y="315" width="28" height="22" fill="transparent" />
+            <rect x="410" y="315" width="28" height="22" fill="transparent" pointerEvents="all" />
 
             {/* Hover label */}
             <g className="transition-all duration-500 opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0">
