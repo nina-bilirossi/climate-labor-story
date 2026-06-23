@@ -16,6 +16,7 @@ import { Route as ReferencesRouteImport } from './routes/references'
 import { Route as MethodologyRouteImport } from './routes/methodology'
 import { Route as LaborHistoryRouteImport } from './routes/labor-history'
 import { Route as InformalityContextRouteImport } from './routes/informality-context'
+import { Route as GrassRouteImport } from './routes/grass'
 import { Route as DiscussionRouteImport } from './routes/discussion'
 import { Route as ClimateShocksRouteImport } from './routes/climate-shocks'
 import { Route as BackgroundRouteImport } from './routes/background'
@@ -57,6 +58,11 @@ const InformalityContextRoute = InformalityContextRouteImport.update({
   path: '/informality-context',
   getParentRoute: () => rootRouteImport,
 } as any)
+const GrassRoute = GrassRouteImport.update({
+  id: '/grass',
+  path: '/grass',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const DiscussionRoute = DiscussionRouteImport.update({
   id: '/discussion',
   path: '/discussion',
@@ -89,6 +95,7 @@ export interface FileRoutesByFullPath {
   '/background': typeof BackgroundRoute
   '/climate-shocks': typeof ClimateShocksRoute
   '/discussion': typeof DiscussionRoute
+  '/grass': typeof GrassRoute
   '/informality-context': typeof InformalityContextRoute
   '/labor-history': typeof LaborHistoryRoute
   '/methodology': typeof MethodologyRoute
@@ -103,6 +110,7 @@ export interface FileRoutesByTo {
   '/background': typeof BackgroundRoute
   '/climate-shocks': typeof ClimateShocksRoute
   '/discussion': typeof DiscussionRoute
+  '/grass': typeof GrassRoute
   '/informality-context': typeof InformalityContextRoute
   '/labor-history': typeof LaborHistoryRoute
   '/methodology': typeof MethodologyRoute
@@ -118,6 +126,7 @@ export interface FileRoutesById {
   '/background': typeof BackgroundRoute
   '/climate-shocks': typeof ClimateShocksRoute
   '/discussion': typeof DiscussionRoute
+  '/grass': typeof GrassRoute
   '/informality-context': typeof InformalityContextRoute
   '/labor-history': typeof LaborHistoryRoute
   '/methodology': typeof MethodologyRoute
@@ -134,6 +143,7 @@ export interface FileRouteTypes {
     | '/background'
     | '/climate-shocks'
     | '/discussion'
+    | '/grass'
     | '/informality-context'
     | '/labor-history'
     | '/methodology'
@@ -148,6 +158,7 @@ export interface FileRouteTypes {
     | '/background'
     | '/climate-shocks'
     | '/discussion'
+    | '/grass'
     | '/informality-context'
     | '/labor-history'
     | '/methodology'
@@ -162,6 +173,7 @@ export interface FileRouteTypes {
     | '/background'
     | '/climate-shocks'
     | '/discussion'
+    | '/grass'
     | '/informality-context'
     | '/labor-history'
     | '/methodology'
@@ -177,6 +189,7 @@ export interface RootRouteChildren {
   BackgroundRoute: typeof BackgroundRoute
   ClimateShocksRoute: typeof ClimateShocksRoute
   DiscussionRoute: typeof DiscussionRoute
+  GrassRoute: typeof GrassRoute
   InformalityContextRoute: typeof InformalityContextRoute
   LaborHistoryRoute: typeof LaborHistoryRoute
   MethodologyRoute: typeof MethodologyRoute
@@ -237,6 +250,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof InformalityContextRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/grass': {
+      id: '/grass'
+      path: '/grass'
+      fullPath: '/grass'
+      preLoaderRoute: typeof GrassRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/discussion': {
       id: '/discussion'
       path: '/discussion'
@@ -281,6 +301,7 @@ const rootRouteChildren: RootRouteChildren = {
   BackgroundRoute: BackgroundRoute,
   ClimateShocksRoute: ClimateShocksRoute,
   DiscussionRoute: DiscussionRoute,
+  GrassRoute: GrassRoute,
   InformalityContextRoute: InformalityContextRoute,
   LaborHistoryRoute: LaborHistoryRoute,
   MethodologyRoute: MethodologyRoute,
