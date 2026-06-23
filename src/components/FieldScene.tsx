@@ -2,9 +2,10 @@ import { Link } from "@tanstack/react-router";
 
 /**
  * Minimalist SVG illustration: an Indian worker under a sun and cloud,
- * with a small hut beside them. Three interactive hotspots with styled hover
- * labels link to dedicated context pages. On hover, the shapes lift slightly
- * and gain a soft faded-white contour glow that hugs their outlines.
+ * with a small hut beside them and a tuft of grass nearby. Four interactive
+ * hotspots with styled hover labels link to dedicated context pages. On hover,
+ * the shapes lift slightly and gain a soft faded-white contour glow that hugs
+ * their outlines.
  */
 export function FieldScene() {
   return (
