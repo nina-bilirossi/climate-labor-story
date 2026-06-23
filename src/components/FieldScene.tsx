@@ -184,14 +184,6 @@ export function FieldScene() {
                 strokeWidth="7"
                 strokeLinecap="round"
               />
-              {/* Sickle */}
-              <path
-                d="M 378 280 Q 388 268 386 248"
-                fill="none"
-                stroke="oklch(0.75 0.02 250)"
-                strokeWidth="2.5"
-                strokeLinecap="round"
-              />
 
               {/* Dhoti / legs */}
               <rect
@@ -341,11 +333,52 @@ export function FieldScene() {
         <g stroke="oklch(0.50 0.10 130)" strokeWidth="1.5" strokeLinecap="round">
           <line x1="80" y1="332" x2="82" y2="322" />
           <line x1="86" y1="332" x2="88" y2="324" />
-          <line x1="420" y1="332" x2="422" y2="322" />
-          <line x1="426" y1="332" x2="428" y2="324" />
           <line x1="700" y1="332" x2="702" y2="322" />
           <line x1="706" y1="332" x2="708" y2="324" />
         </g>
+
+        {/* === Grass hotspot === */}
+        <Link to="/grass" className="group cursor-pointer outline-none">
+          <g>
+            <rect x="410" y="315" width="28" height="22" fill="transparent" />
+
+            {/* Hover label */}
+            <g className="transition-all duration-500 opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0">
+              <rect
+                x="380"
+                y="350"
+                width="130"
+                height="30"
+                rx="15"
+                fill="oklch(0.18 0.04 255 / 0.85)"
+              />
+              <text
+                x="445"
+                y="369"
+                textAnchor="middle"
+                fontSize="13"
+                fontFamily="var(--font-sans)"
+                fontWeight="500"
+                fill="oklch(0.97 0.02 80)"
+                letterSpacing="0.02em"
+              >
+                More about grass
+              </text>
+            </g>
+
+            {/* Visible grass */}
+            <g
+              stroke="oklch(0.50 0.10 130)"
+              strokeWidth="1.5"
+              strokeLinecap="round"
+              className="transition-transform duration-500 group-hover:-translate-y-2"
+            >
+              <line x1="420" y1="332" x2="422" y2="322" />
+              <line x1="426" y1="332" x2="428" y2="324" />
+            </g>
+          </g>
+        </Link>
+
       </svg>
     </div>
   );
