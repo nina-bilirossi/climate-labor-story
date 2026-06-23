@@ -246,7 +246,7 @@ function Index() {
       </section>
 
       {/* Scene + chapter cards */}
-      <section className="relative border-t border-border/60 px-6 py-24">
+      <section id="scene" className="relative border-t border-border/60 px-6 py-24">
         <div className="mx-auto max-w-5xl">
           <p className="text-xs uppercase tracking-[0.4em] text-[color:var(--sun)]">Begin reading</p>
           <h2 className="mt-4 font-display text-4xl md:text-5xl leading-tight">Climate shocked into informality?</h2>
