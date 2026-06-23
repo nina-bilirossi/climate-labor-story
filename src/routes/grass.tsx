@@ -16,6 +16,7 @@ function GrassPage() {
       <p className="text-2xl">just kidding.</p>
       <Link
         to="/"
+        hash="scene"
         className="mt-4 text-sm opacity-70 underline underline-offset-4 hover:opacity-100"
       >
         Go back
