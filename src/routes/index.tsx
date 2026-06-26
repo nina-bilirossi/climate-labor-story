@@ -261,22 +261,22 @@ function Index() {
 
           <div className="mt-16">
             {ROADMAP.map((step, i) => {
-              const positions: Array<"left" | "center" | "right"> = [
-                "center",
-                "right",
-                "left",
-                "right",
-                "left",
-                "center",
-              ];
-              const align = positions[i] ?? "center";
-              const nextAlign = positions[i + 1];
-              const arrowDir: "left" | "right" =
-                nextAlign === "left" ? "left" : nextAlign === "right" ? "right" : align === "left" ? "right" : "left";
+              // Horizontal offsets for a wide zig-zag; vertical overlap via negative margin.
+              const offsets = ["0", "16rem", "-14rem", "18rem", "-16rem", "4rem"];
+              const tx = offsets[i] ?? "0";
               return (
                 <div key={step.num} id={step.slug} className="scroll-mt-24">
-                  <RoadmapStepCard step={step} align={align} />
-                  {i < ROADMAP.length - 1 && <CurvyArrow direction={arrowDir} />}
+                  <div
+                    className="flex justify-center"
+                    style={{ transform: `translateX(${tx})`, marginTop: i === 0 ? 0 : "-2.5rem" }}
+                  >
+                    <RoadmapStepCard step={step} />
+                  </div>
+                  {i < ROADMAP.length - 1 && (
+                    <div style={{ marginTop: "-1rem", marginBottom: "-1rem" }}>
+                      <CurvyArrow index={i} />
+                    </div>
+                  )}
                 </div>
               );
             })}
