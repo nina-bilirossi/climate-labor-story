@@ -340,10 +340,10 @@ export function ScrollNarrative() {
 
         {/* Scroll hint, fades early */}
         <motion.div
-          className="absolute bottom-8 left-1/2 -translate-x-1/2 text-xs uppercase tracking-[0.3em] text-foreground/70"
+          className="absolute bottom-10 left-1/2 -translate-x-1/2 text-xs uppercase tracking-[0.3em] text-foreground/80"
           style={{ opacity: useTransform(p, [0, 0.05], [1, 0]) }}
         >
-          Scroll
+          Scroll down
         </motion.div>
       </div>
     </section>
