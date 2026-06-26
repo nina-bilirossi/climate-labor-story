@@ -277,29 +277,52 @@ function Index() {
             movement of Indian workers.
           </p>
 
-          {/* Horizontal cascading flow: boxes drift down then back up, last one stands out */}
-          <div className="mt-16 overflow-x-auto pb-6">
-            <div className="flex min-w-max items-start gap-0 px-2">
-              {ROADMAP.map((step, i) => {
-                const yOffsets = [0, 45, 90, 55, 20, 75];
-                const ty = yOffsets[i] ?? 0;
-                const isLast = i === ROADMAP.length - 1;
-                return (
-                  <div key={step.num} className="flex items-start">
-                    <div id={step.slug} className="scroll-mt-24" style={{ transform: `translateY(${ty}px)` }}>
-                      <RoadmapStepCard step={step} highlight={isLast} />
-                    </div>
-                    {i < ROADMAP.length - 1 && (
-                      <div
-                        className="shrink-0"
-                        style={{ transform: `translateY(${ty}px)`, marginLeft: "-0.25rem", marginRight: "-0.25rem" }}
-                      >
-                        <CurvyArrow index={i} />
-                      </div>
-                    )}
+          {/* Two-row snake flow: 1→2→3, then down, then 6←5←4 */}
+          <div className="mt-16 flex flex-col items-start gap-2">
+            <div className="flex items-start">
+              {ROADMAP.slice(0, 3).map((step, i) => (
+                <div key={step.num} className="flex items-start">
+                  <div id={step.slug} className="scroll-mt-24">
+                    <RoadmapStepCard step={step} highlight={step.num === "06"} />
                   </div>
-                );
-              })}
+                  {i < 2 && (
+                    <div className="shrink-0" style={{ marginLeft: "-0.25rem", marginRight: "-0.25rem" }}>
+                      <CurvyArrow
+                        path={ARROW_PATHS_RIGHT[i]}
+                        width={100}
+                        height={80}
+                        viewBox="0 0 160 140"
+                      />
+                    </div>
+                  )}
+                </div>
+              ))}
+            </div>
+
+            <div className="flex w-full justify-end">
+              <div className="flex w-40 justify-center md:w-44">
+                <CurvyArrow path={ARROW_DOWN} width={40} height={80} viewBox="0 0 40 100" />
+              </div>
+            </div>
+
+            <div className="flex items-start">
+              {[ROADMAP[5], ROADMAP[4], ROADMAP[3]].map((step, i) => (
+                <div key={step.num} className="flex items-start">
+                  <div id={step.slug} className="scroll-mt-24">
+                    <RoadmapStepCard step={step} highlight={step.num === "06"} />
+                  </div>
+                  {i < 2 && (
+                    <div className="shrink-0" style={{ marginLeft: "-0.25rem", marginRight: "-0.25rem" }}>
+                      <CurvyArrow
+                        path={ARROW_PATHS_LEFT[i]}
+                        width={100}
+                        height={80}
+                        viewBox="0 0 160 140"
+                      />
+                    </div>
+                  )}
+                </div>
+              ))}
             </div>
           </div>
 
