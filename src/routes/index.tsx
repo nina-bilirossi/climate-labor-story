@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useId, useRef, useState } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ScrollNarrative } from "@/components/ScrollNarrative";
 import { FieldScene } from "@/components/FieldScene";
@@ -86,26 +86,62 @@ const ROADMAP: RoadmapStep[] = [
 ];
 
 // Curvy dotted arrows connecting cascading boxes. Each arrow varies in shape.
-const ARROW_PATHS = [
-  { d: "M 10 20 C 60 10, 100 90, 150 110", tip: "142,98 152,114 158,96" },
-  { d: "M 10 110 C 70 130, 110 30, 150 20", tip: "140,8 152,22 158,8" },
-  { d: "M 10 20 C 80 30, 80 110, 150 110", tip: "140,98 152,114 158,96" },
-  { d: "M 10 110 C 60 100, 100 20, 150 30", tip: "140,18 152,32 158,16" },
-  { d: "M 10 20 C 70 50, 90 90, 150 100", tip: "140,90 152,104 158,88" },
+const ARROW_PATHS_RIGHT = [
+  "M 10 20 C 60 10, 100 90, 150 110",
+  "M 10 110 C 70 130, 110 30, 150 20",
+  "M 10 20 C 80 30, 80 110, 150 110",
 ];
 
-function CurvyArrow({ index }: { index: number }) {
-  const a = ARROW_PATHS[index % ARROW_PATHS.length];
+const ARROW_PATHS_LEFT = [
+  "M 150 20 C 100 10, 60 90, 10 110",
+  "M 150 110 C 90 130, 50 30, 10 20",
+  "M 150 20 C 80 30, 80 110, 10 110",
+];
+
+const ARROW_DOWN = "M 20 10 C 20 40, 20 60, 20 90";
+
+function CurvyArrow({
+  path,
+  width,
+  height,
+  viewBox,
+}: {
+  path: string;
+  width: number;
+  height: number;
+  viewBox: string;
+}) {
+  const id = `arrowhead-${useId().replace(/:/g, "")}`;
   return (
-    <svg width="100" height="80" viewBox="0 0 160 140" className="text-[color:var(--sun)]/80" aria-hidden>
-      <path d={a.d} fill="none" stroke="currentColor" strokeWidth="2.2" strokeDasharray="2 6" strokeLinecap="round" />
-      <polyline
-        points={a.tip}
+    <svg
+      width={width}
+      height={height}
+      viewBox={viewBox}
+      className="text-[color:var(--sun)]/80"
+      overflow="visible"
+      aria-hidden
+    >
+      <defs>
+        <marker
+          id={id}
+          markerWidth="6"
+          markerHeight="4.2"
+          refX="5"
+          refY="2.1"
+          orient="auto"
+          markerUnits="strokeWidth"
+        >
+          <polygon points="0 0, 6 2.1, 0 4.2" fill="currentColor" />
+        </marker>
+      </defs>
+      <path
+        d={path}
         fill="none"
         stroke="currentColor"
         strokeWidth="2.2"
+        strokeDasharray="2 6"
         strokeLinecap="round"
-        strokeLinejoin="round"
+        markerEnd={`url(#${id})`}
       />
     </svg>
   );
@@ -241,29 +277,52 @@ function Index() {
             movement of Indian workers.
           </p>
 
-          {/* Horizontal cascading flow: boxes drift down then back up, last one stands out */}
-          <div className="mt-16 overflow-x-auto pb-6">
-            <div className="flex min-w-max items-start gap-0 px-2">
-              {ROADMAP.map((step, i) => {
-                const yOffsets = [0, 45, 90, 55, 20, 75];
-                const ty = yOffsets[i] ?? 0;
-                const isLast = i === ROADMAP.length - 1;
-                return (
-                  <div key={step.num} className="flex items-start">
-                    <div id={step.slug} className="scroll-mt-24" style={{ transform: `translateY(${ty}px)` }}>
-                      <RoadmapStepCard step={step} highlight={isLast} />
-                    </div>
-                    {i < ROADMAP.length - 1 && (
-                      <div
-                        className="shrink-0"
-                        style={{ transform: `translateY(${ty}px)`, marginLeft: "-0.25rem", marginRight: "-0.25rem" }}
-                      >
-                        <CurvyArrow index={i} />
-                      </div>
-                    )}
+          {/* Two-row snake flow: 1→2→3, then down, then 6←5←4 */}
+          <div className="mt-16 flex flex-col items-start gap-2">
+            <div className="flex items-start">
+              {ROADMAP.slice(0, 3).map((step, i) => (
+                <div key={step.num} className="flex items-start">
+                  <div id={step.slug} className="scroll-mt-24">
+                    <RoadmapStepCard step={step} highlight={step.num === "06"} />
                   </div>
-                );
-              })}
+                  {i < 2 && (
+                    <div className="shrink-0" style={{ marginLeft: "-0.25rem", marginRight: "-0.25rem" }}>
+                      <CurvyArrow
+                        path={ARROW_PATHS_RIGHT[i]}
+                        width={100}
+                        height={80}
+                        viewBox="0 0 160 140"
+                      />
+                    </div>
+                  )}
+                </div>
+              ))}
+            </div>
+
+            <div className="flex w-full justify-end">
+              <div className="flex w-40 justify-center md:w-44">
+                <CurvyArrow path={ARROW_DOWN} width={40} height={80} viewBox="0 0 40 100" />
+              </div>
+            </div>
+
+            <div className="flex items-start">
+              {[ROADMAP[5], ROADMAP[4], ROADMAP[3]].map((step, i) => (
+                <div key={step.num} className="flex items-start">
+                  <div id={step.slug} className="scroll-mt-24">
+                    <RoadmapStepCard step={step} highlight={step.num === "06"} />
+                  </div>
+                  {i < 2 && (
+                    <div className="shrink-0" style={{ marginLeft: "-0.25rem", marginRight: "-0.25rem" }}>
+                      <CurvyArrow
+                        path={ARROW_PATHS_LEFT[i]}
+                        width={100}
+                        height={80}
+                        viewBox="0 0 160 140"
+                      />
+                    </div>
+                  )}
+                </div>
+              ))}
             </div>
           </div>
 
