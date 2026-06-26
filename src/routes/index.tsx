@@ -143,7 +143,7 @@ function ConnectorArrow() {
   const id = `arrowhead-connector-${useId().replace(/:/g, "")}`;
   return (
     <svg
-      viewBox="0 0 100 16"
+      viewBox="0 0 100 12"
       className="h-auto w-full text-[color:var(--sun)]/80"
       overflow="visible"
       aria-hidden
@@ -162,7 +162,7 @@ function ConnectorArrow() {
         </marker>
       </defs>
       <path
-        d="M 95 2 C 95 14, 25 2, 5 14"
+        d="M 95 2 C 95 10, 25 2, 5 10"
         fill="none"
         stroke="currentColor"
         strokeWidth="2.2"
