@@ -1,5 +1,12 @@
 import { useRef, useMemo } from "react";
 import { motion, useScroll, useTransform, useSpring } from "motion/react";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
+
 
 /**
  * The opening cinematic narrative.
@@ -332,7 +339,22 @@ export function ScrollNarrative() {
             </p>
             <h1 className="font-display text-3xl md:text-5xl lg:text-6xl leading-[1.1] text-foreground">
               What are the effects of droughts and floods on{" "}
-              <em className="text-[color:var(--sun)] not-italic font-normal italic">informality</em>{" "}
+              <TooltipProvider delayDuration={100}>
+                <Tooltip>
+                  <TooltipTrigger asChild>
+                    <em className="text-[color:var(--sun)] not-italic font-normal italic cursor-help border-b border-[color:var(--sun)]/50 transition-colors hover:border-[color:var(--sun)]">
+                      informality
+                    </em>
+                  </TooltipTrigger>
+                  <TooltipContent
+                    side="bottom"
+                    className="max-w-xs text-sm leading-relaxed"
+                  >
+                    Informality can be defined in many ways. A simple description (for now) is that it gathers all activities that are in law or practice not sufficiently covered by formal agreements. Think: a food delivery worker with no social security, a contractor for “odd jobs”… more on this later.
+                  </TooltipContent>
+                </Tooltip>
+              </TooltipProvider>
+              {" "}
               in the Indian labor market?
             </h1>
           </div>
