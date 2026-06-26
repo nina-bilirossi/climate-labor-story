@@ -43,11 +43,46 @@ type RoadmapStep = {
 
 const ROADMAP: RoadmapStep[] = [
   { num: "01", slug: "step-1", shortTitle: "Topic", title: "Learning about the topic", custom: "fieldscene" },
-  { num: "02", slug: "step-2", shortTitle: "Research gaps", title: "Figuring out the research gaps", image: roadmapGaps, imageAlt: "Magnifying glass over papers" },
-  { num: "03", slug: "step-3", shortTitle: "Plan & data", title: "Laying out the plan and getting the data", image: roadmapSatellite, imageAlt: "Small satellite" },
-  { num: "04", slug: "step-4", shortTitle: "Analysis", title: "Running the analysis", image: roadmapComputer, imageAlt: "Laptop and papers" },
-  { num: "05", slug: "step-5", shortTitle: "Results", title: "Analysing the results and discussing the mechanisms", image: roadmapResults, imageAlt: "Chart and magnifier" },
-  { num: "06", slug: "step-6", shortTitle: "Conclusion", title: "Limitations and Conclusion", image: roadmapConclusion, imageAlt: "Finish flag and papers" },
+  {
+    num: "02",
+    slug: "step-2",
+    shortTitle: "Research gaps",
+    title: "Figuring out the research gaps",
+    image: roadmapGaps,
+    imageAlt: "Magnifying glass over papers",
+  },
+  {
+    num: "03",
+    slug: "step-3",
+    shortTitle: "Plan & data",
+    title: "Laying out the plan and getting the data",
+    image: roadmapSatellite,
+    imageAlt: "Small satellite",
+  },
+  {
+    num: "04",
+    slug: "step-4",
+    shortTitle: "Analysis",
+    title: "Running the analysis",
+    image: roadmapComputer,
+    imageAlt: "Laptop and papers",
+  },
+  {
+    num: "05",
+    slug: "step-5",
+    shortTitle: "Results",
+    title: "Analysing the results and discussing the mechanisms",
+    image: roadmapResults,
+    imageAlt: "Chart and magnifier",
+  },
+  {
+    num: "06",
+    slug: "step-6",
+    shortTitle: "Conclusion",
+    title: "Limitations and Conclusion",
+    image: roadmapConclusion,
+    imageAlt: "Finish flag and papers",
+  },
 ];
 
 // Curvy dotted arrows connecting cascading boxes. Each arrow varies in shape.
@@ -62,21 +97,8 @@ const ARROW_PATHS = [
 function CurvyArrow({ index }: { index: number }) {
   const a = ARROW_PATHS[index % ARROW_PATHS.length];
   return (
-    <svg
-      width="160"
-      height="140"
-      viewBox="0 0 160 140"
-      className="text-[color:var(--sun)]/80"
-      aria-hidden
-    >
-      <path
-        d={a.d}
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="2.2"
-        strokeDasharray="2 6"
-        strokeLinecap="round"
-      />
+    <svg width="160" height="140" viewBox="0 0 160 140" className="text-[color:var(--sun)]/80" aria-hidden>
+      <path d={a.d} fill="none" stroke="currentColor" strokeWidth="2.2" strokeDasharray="2 6" strokeLinecap="round" />
       <polyline
         points={a.tip}
         fill="none"
@@ -150,10 +172,6 @@ function RoadmapStepCard({ step, highlight = false }: { step: RoadmapStep; highl
   );
 }
 
-
-
-
-
 function Index() {
   const sentinelRef = useRef<HTMLDivElement | null>(null);
   const [navVisible, setNavVisible] = useState(false);
@@ -187,21 +205,20 @@ function Index() {
       <ScrollNarrative />
       <div ref={sentinelRef} aria-hidden />
 
-
       {/* First things first */}
       <section className="relative border-t border-border/60 px-6 py-24">
         <div className="mx-auto max-w-3xl">
           <p className="text-xs uppercase tracking-[0.4em] text-[color:var(--sun)]">First things first</p>
           <p className="mt-6 text-lg leading-relaxed text-foreground/85">
             Before diving into any kind of content or definition, let me just say a few words about what this website is
-            and its purpose. <br></br>By the time you read this, I will have completed and submitted my master's thesis.
-            Seeing how it is going now, the manuscript might well be over 70 pages long. However interesting the
-            writing, I do not believe very strongly that anyone who is not grading me might read it. That's a shame
-            because it is truly, really, very interesting (not clickbait). Anyway, I decided I would like to share what
-            I've learned over the past 6 months in a way that could transmit how captivating this topic has been for me.
-            This is the goal of the website. And if you are feeling a bit more academic, the manuscript is available for
-            download at the bottom of this page.
-            <br></br>Happy exploring!
+            and its purpose. <br></br> <br></br> By the time you read this, I will have completed and submitted my
+            master's thesis. Seeing how it is going now, the manuscript might well be over 70 pages long. However
+            interesting the writing, I do not believe very strongly that anyone who is not grading me might read it.
+            That's a shame because it is truly, really, very interesting (not clickbait). Anyway, I decided I would like
+            to share what I've learned over the past 6 months in a way that could transmit how captivating this topic
+            has been for me. This is the goal of the website. And if you are feeling a bit more academic, the manuscript
+            is available for download at the bottom of this page.
+            <br></br> <br></br> Happy exploring!
           </p>
         </div>
       </section>
@@ -242,11 +259,7 @@ function Index() {
                 const isLast = i === ROADMAP.length - 1;
                 return (
                   <div key={step.num} className="flex items-start">
-                    <div
-                      id={step.slug}
-                      className="scroll-mt-24"
-                      style={{ transform: `translateY(${ty}px)` }}
-                    >
+                    <div id={step.slug} className="scroll-mt-24" style={{ transform: `translateY(${ty}px)` }}>
                       <RoadmapStepCard step={step} highlight={isLast} />
                     </div>
                     {i < ROADMAP.length - 1 && (
@@ -262,7 +275,6 @@ function Index() {
               })}
             </div>
           </div>
-
 
           {/* Appendix note */}
           <p className="mt-16 text-sm text-foreground/60 italic">
