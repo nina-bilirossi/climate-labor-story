@@ -3,6 +3,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { ScrollNarrative } from "@/components/ScrollNarrative";
 import { FieldScene } from "@/components/FieldScene";
 import { SiteFooter } from "@/components/SiteFooter";
+import { TopNav } from "@/components/TopNav";
 import { Cite } from "@/components/Cite";
 import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
 import roadmapGaps from "@/assets/roadmap-gaps.png";
