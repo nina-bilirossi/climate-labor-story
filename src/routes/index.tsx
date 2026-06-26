@@ -97,7 +97,7 @@ const ARROW_PATHS = [
 function CurvyArrow({ index }: { index: number }) {
   const a = ARROW_PATHS[index % ARROW_PATHS.length];
   return (
-    <svg width="160" height="140" viewBox="0 0 160 140" className="text-[color:var(--sun)]/80" aria-hidden>
+    <svg width="100" height="80" viewBox="0 0 160 140" className="text-[color:var(--sun)]/80" aria-hidden>
       <path d={a.d} fill="none" stroke="currentColor" strokeWidth="2.2" strokeDasharray="2 6" strokeLinecap="round" />
       <polyline
         points={a.tip}
@@ -118,7 +118,7 @@ function RoadmapStepCard({ step, highlight = false }: { step: RoadmapStep; highl
         <button
           type="button"
           className={
-            "block w-56 cursor-zoom-in rounded-2xl border p-4 text-center transition-all md:w-60 " +
+            "block w-40 cursor-zoom-in rounded-2xl border p-3 text-center transition-all md:w-44 " +
             (highlight
               ? "border-[color:var(--sun)] bg-[color:var(--sun)]/15 shadow-[0_10px_40px_-10px_color-mix(in_oklab,var(--sun)_60%,transparent)] hover:bg-[color:var(--sun)]/25 scale-105"
               : "border-border bg-card/40 hover:border-[color:var(--sun)] hover:bg-card/70")
@@ -126,22 +126,13 @@ function RoadmapStepCard({ step, highlight = false }: { step: RoadmapStep; highl
           aria-label={`Open: ${step.title}`}
         >
           <div className="text-xs font-mono text-[color:var(--sun)]">{step.num}</div>
-          <h3 className={"mt-2 font-display leading-snug " + (highlight ? "text-xl" : "text-base")}>{step.title}</h3>
-          <div className="mt-3">
+          <h3 className={"mt-2 font-display leading-snug text-sm " + (highlight ? "md:text-base" : "")}>{step.title}</h3>
+          <div className="mt-2">
             {step.custom === "fieldscene" ? (
-              <div className="pointer-events-none">
+              <div className="pointer-events-none mx-auto max-w-[6rem]">
                 <FieldScene />
               </div>
-            ) : (
-              <img
-                src={step.image}
-                alt={step.imageAlt ?? ""}
-                width={512}
-                height={512}
-                loading="lazy"
-                className="mx-auto h-24 w-24 object-contain md:h-28 md:w-28"
-              />
-            )}
+            ) : null}
           </div>
           <p className="mt-2 text-[10px] uppercase tracking-[0.3em] text-foreground/50">
             {highlight ? "The big finish · click" : "Click to zoom"}
@@ -254,7 +245,7 @@ function Index() {
           <div className="mt-16 overflow-x-auto pb-6">
             <div className="flex min-w-max items-start gap-0 px-2">
               {ROADMAP.map((step, i) => {
-                const yOffsets = [0, 70, 140, 80, 30, 110];
+                const yOffsets = [0, 45, 90, 55, 20, 75];
                 const ty = yOffsets[i] ?? 0;
                 const isLast = i === ROADMAP.length - 1;
                 return (
@@ -265,7 +256,7 @@ function Index() {
                     {i < ROADMAP.length - 1 && (
                       <div
                         className="shrink-0"
-                        style={{ transform: `translateY(${ty}px)`, marginLeft: "-0.5rem", marginRight: "-0.5rem" }}
+                        style={{ transform: `translateY(${ty}px)`, marginLeft: "-0.25rem", marginRight: "-0.25rem" }}
                       >
                         <CurvyArrow index={i} />
                       </div>
