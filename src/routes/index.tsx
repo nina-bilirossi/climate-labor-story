@@ -245,7 +245,7 @@ function Index() {
           <div className="mt-16 overflow-x-auto pb-6">
             <div className="flex min-w-max items-start gap-0 px-2">
               {ROADMAP.map((step, i) => {
-                const yOffsets = [0, 70, 140, 80, 30, 110];
+                const yOffsets = [0, 45, 90, 55, 20, 75];
                 const ty = yOffsets[i] ?? 0;
                 const isLast = i === ROADMAP.length - 1;
                 return (
@@ -256,7 +256,7 @@ function Index() {
                     {i < ROADMAP.length - 1 && (
                       <div
                         className="shrink-0"
-                        style={{ transform: `translateY(${ty}px)`, marginLeft: "-0.5rem", marginRight: "-0.5rem" }}
+                        style={{ transform: `translateY(${ty}px)`, marginLeft: "-0.25rem", marginRight: "-0.25rem" }}
                       >
                         <CurvyArrow index={i} />
                       </div>
