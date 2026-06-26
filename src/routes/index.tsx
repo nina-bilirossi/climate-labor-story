@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { ScrollNarrative } from "@/components/ScrollNarrative";
 import { FieldScene } from "@/components/FieldScene";
 import { SiteFooter } from "@/components/SiteFooter";
@@ -185,6 +185,17 @@ function Index() {
             Note: the Appendix is not included on the website. Readers can download the full manuscript for additional
             tables, figures, and methodological notes (e.g. the choice of time lags).
           </p>
+
+          {/* Bonus block */}
+          <Link
+            to="/reflections"
+            className="group mt-10 block rounded-2xl border p-6 transition-all border-[color:var(--sun)]/40 bg-[color:var(--sun)]/10 hover:bg-[color:var(--sun)]/15 hover:border-[color:var(--sun)]"
+          >
+            <div className="text-xs font-mono uppercase tracking-[0.3em] text-[color:var(--sun)]">Bonus</div>
+            <h3 className="mt-3 font-display text-2xl">Reflecting on my experience writing the master's thesis</h3>
+            <p className="mt-3 text-sm text-foreground/75">A quick dip into my brain.</p>
+            <div className="mt-6 text-sm text-foreground/70 group-hover:text-foreground">Read →</div>
+          </Link>
         </div>
       </section>
 
