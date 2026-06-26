@@ -57,29 +57,42 @@ const ROADMAP: RoadmapStep[] = [
   { num: "06", title: "Limitations and Conclusion", image: roadmapConclusion, imageAlt: "Finish flag and papers" },
 ];
 
-function DottedArrow() {
+function CurvyArrow({ direction }: { direction: "left" | "right" }) {
+  // Curves from top-center down to bottom-left or bottom-right
+  const path =
+    direction === "right"
+      ? "M 100 0 C 100 40, 180 50, 180 110"
+      : "M 100 0 C 100 40, 20 50, 20 110";
+  const tip = direction === "right" ? "172,102 180,118 188,102" : "12,102 20,118 28,102";
   return (
-    <div className="flex justify-center py-6" aria-hidden>
-      <svg width="40" height="60" viewBox="0 0 40 60" className="text-[color:var(--sun)]/70">
-        <line
-          x1="20"
-          y1="0"
-          x2="20"
-          y2="48"
+    <div className="flex justify-center py-2" aria-hidden>
+      <svg width="200" height="120" viewBox="0 0 200 120" className="text-[color:var(--sun)]/70">
+        <path
+          d={path}
+          fill="none"
           stroke="currentColor"
           strokeWidth="2"
           strokeDasharray="3 6"
           strokeLinecap="round"
         />
-        <polyline points="12,42 20,54 28,42" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+        <polyline
+          points={tip}
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
       </svg>
     </div>
   );
 }
 
-function RoadmapStepCard({ step }: { step: RoadmapStep }) {
+function RoadmapStepCard({ step, align }: { step: RoadmapStep; align: "left" | "center" | "right" }) {
+  const alignClass =
+    align === "left" ? "md:items-start md:text-left" : align === "right" ? "md:items-end md:text-right" : "";
   return (
-    <div className="flex flex-col items-center text-center">
+    <div className={`flex flex-col items-center text-center ${alignClass}`}>
       <div className="text-xs font-mono text-[color:var(--sun)]">{step.num}</div>
       <h3 className="mt-2 font-display text-xl md:text-2xl max-w-md">{step.title}</h3>
       <div className="mt-4">
@@ -164,20 +177,34 @@ function Index() {
       {/* Roadmap */}
       <section id="scene" className="relative border-t border-border/60 px-6 py-24">
         <div className="mx-auto max-w-5xl">
-          <p className="text-xs uppercase tracking-[0.4em] text-[color:var(--sun)]">Roadmap</p>
-          <h2 className="mt-4 font-display text-4xl md:text-5xl leading-tight">The journey, step by step</h2>
+          <p className="text-xs uppercase tracking-[0.4em] text-[color:var(--sun)]">Begin reading</p>
+          <h2 className="mt-4 font-display text-4xl md:text-5xl leading-tight">Climate shocked into informality?</h2>
           <p className="mt-4 max-w-2xl text-foreground/70">
-            A visual outline of how this thesis came together — from first encounter with the topic to final
-            conclusions.
+            A master's thesis on how shocks linked to climate change — too little rain, then too much — influence the
+            movement of Indian workers.
           </p>
 
           <div className="mt-16">
-            {ROADMAP.map((step, i) => (
-              <div key={step.num}>
-                <RoadmapStepCard step={step} />
-                {i < ROADMAP.length - 1 && <DottedArrow />}
-              </div>
-            ))}
+            {ROADMAP.map((step, i) => {
+              const positions: Array<"left" | "center" | "right"> = [
+                "center",
+                "right",
+                "left",
+                "right",
+                "left",
+                "center",
+              ];
+              const align = positions[i] ?? "center";
+              const nextAlign = positions[i + 1];
+              const arrowDir: "left" | "right" =
+                nextAlign === "left" ? "left" : nextAlign === "right" ? "right" : align === "left" ? "right" : "left";
+              return (
+                <div key={step.num}>
+                  <RoadmapStepCard step={step} align={align} />
+                  {i < ROADMAP.length - 1 && <CurvyArrow direction={arrowDir} />}
+                </div>
+              );
+            })}
           </div>
 
           {/* Appendix note */}
