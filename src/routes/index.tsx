@@ -33,28 +33,20 @@ export const Route = createFileRoute("/")({
 type RoadmapStep = {
   num: string;
   title: string;
+  shortTitle: string;
+  slug: string;
   image?: string;
   imageAlt?: string;
   custom?: "fieldscene";
 };
 
 const ROADMAP: RoadmapStep[] = [
-  { num: "01", title: "Learning about the topic", custom: "fieldscene" },
-  { num: "02", title: "Figuring out the research gaps", image: roadmapGaps, imageAlt: "Magnifying glass over papers" },
-  {
-    num: "03",
-    title: "Laying out the plan and getting the data",
-    image: roadmapSatellite,
-    imageAlt: "Small satellite",
-  },
-  { num: "04", title: "Running the analysis", image: roadmapComputer, imageAlt: "Laptop and papers" },
-  {
-    num: "05",
-    title: "Analysing the results and discussing the mechanisms",
-    image: roadmapResults,
-    imageAlt: "Chart and magnifier",
-  },
-  { num: "06", title: "Limitations and Conclusion", image: roadmapConclusion, imageAlt: "Finish flag and papers" },
+  { num: "01", slug: "step-1", shortTitle: "Topic", title: "Learning about the topic", custom: "fieldscene" },
+  { num: "02", slug: "step-2", shortTitle: "Research gaps", title: "Figuring out the research gaps", image: roadmapGaps, imageAlt: "Magnifying glass over papers" },
+  { num: "03", slug: "step-3", shortTitle: "Plan & data", title: "Laying out the plan and getting the data", image: roadmapSatellite, imageAlt: "Small satellite" },
+  { num: "04", slug: "step-4", shortTitle: "Analysis", title: "Running the analysis", image: roadmapComputer, imageAlt: "Laptop and papers" },
+  { num: "05", slug: "step-5", shortTitle: "Results", title: "Analysing the results and discussing the mechanisms", image: roadmapResults, imageAlt: "Chart and magnifier" },
+  { num: "06", slug: "step-6", shortTitle: "Conclusion", title: "Limitations and Conclusion", image: roadmapConclusion, imageAlt: "Finish flag and papers" },
 ];
 
 function CurvyArrow({ direction }: { direction: "left" | "right" }) {
