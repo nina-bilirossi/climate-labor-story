@@ -151,14 +151,14 @@ function ConnectorArrow() {
       <defs>
         <marker
           id={id}
-          markerWidth="6"
-          markerHeight="4.2"
-          refX="5"
-          refY="2.1"
+          markerWidth="3"
+          markerHeight="2.1"
+          refX="2.5"
+          refY="1.05"
           orient="auto"
           markerUnits="strokeWidth"
         >
-          <polygon points="0 0, 6 2.1, 0 4.2" fill="currentColor" />
+          <polygon points="0 0, 3 1.05, 0 2.1" fill="currentColor" />
         </marker>
       </defs>
       <path
@@ -168,6 +168,7 @@ function ConnectorArrow() {
         strokeWidth="2.2"
         strokeDasharray="2 6"
         strokeLinecap="round"
+        vectorEffect="non-scaling-stroke"
         markerEnd={`url(#${id})`}
       />
     </svg>
