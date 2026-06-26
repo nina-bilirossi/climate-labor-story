@@ -233,28 +233,36 @@ function Index() {
             movement of Indian workers.
           </p>
 
-          <div className="mt-16">
-            {ROADMAP.map((step, i) => {
-              // Horizontal offsets for a wide zig-zag; vertical overlap via negative margin.
-              const offsets = ["0", "16rem", "-14rem", "18rem", "-16rem", "4rem"];
-              const tx = offsets[i] ?? "0";
-              return (
-                <div key={step.num} id={step.slug} className="scroll-mt-24">
-                  <div
-                    className="flex justify-center"
-                    style={{ transform: `translateX(${tx})`, marginTop: i === 0 ? 0 : "-2.5rem" }}
-                  >
-                    <RoadmapStepCard step={step} />
-                  </div>
-                  {i < ROADMAP.length - 1 && (
-                    <div style={{ marginTop: "-1rem", marginBottom: "-1rem" }}>
-                      <CurvyArrow index={i} />
+          {/* Horizontal cascading flow: boxes drift down then back up, last one stands out */}
+          <div className="mt-16 overflow-x-auto pb-6">
+            <div className="flex min-w-max items-start gap-0 px-2">
+              {ROADMAP.map((step, i) => {
+                const yOffsets = [0, 70, 140, 80, 30, 110];
+                const ty = yOffsets[i] ?? 0;
+                const isLast = i === ROADMAP.length - 1;
+                return (
+                  <div key={step.num} className="flex items-start">
+                    <div
+                      id={step.slug}
+                      className="scroll-mt-24"
+                      style={{ transform: `translateY(${ty}px)` }}
+                    >
+                      <RoadmapStepCard step={step} highlight={isLast} />
                     </div>
-                  )}
-                </div>
-              );
-            })}
+                    {i < ROADMAP.length - 1 && (
+                      <div
+                        className="shrink-0"
+                        style={{ transform: `translateY(${ty}px)`, marginLeft: "-0.5rem", marginRight: "-0.5rem" }}
+                      >
+                        <CurvyArrow index={i} />
+                      </div>
+                    )}
+                  </div>
+                );
+              })}
+            </div>
           </div>
+
 
           {/* Appendix note */}
           <p className="mt-16 text-sm text-foreground/60 italic">
