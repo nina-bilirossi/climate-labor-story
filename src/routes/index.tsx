@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ScrollNarrative } from "@/components/ScrollNarrative";
 import { FieldScene } from "@/components/FieldScene";
@@ -33,28 +33,20 @@ export const Route = createFileRoute("/")({
 type RoadmapStep = {
   num: string;
   title: string;
+  shortTitle: string;
+  slug: string;
   image?: string;
   imageAlt?: string;
   custom?: "fieldscene";
 };
 
 const ROADMAP: RoadmapStep[] = [
-  { num: "01", title: "Learning about the topic", custom: "fieldscene" },
-  { num: "02", title: "Figuring out the research gaps", image: roadmapGaps, imageAlt: "Magnifying glass over papers" },
-  {
-    num: "03",
-    title: "Laying out the plan and getting the data",
-    image: roadmapSatellite,
-    imageAlt: "Small satellite",
-  },
-  { num: "04", title: "Running the analysis", image: roadmapComputer, imageAlt: "Laptop and papers" },
-  {
-    num: "05",
-    title: "Analysing the results and discussing the mechanisms",
-    image: roadmapResults,
-    imageAlt: "Chart and magnifier",
-  },
-  { num: "06", title: "Limitations and Conclusion", image: roadmapConclusion, imageAlt: "Finish flag and papers" },
+  { num: "01", slug: "step-1", shortTitle: "Topic", title: "Learning about the topic", custom: "fieldscene" },
+  { num: "02", slug: "step-2", shortTitle: "Research gaps", title: "Figuring out the research gaps", image: roadmapGaps, imageAlt: "Magnifying glass over papers" },
+  { num: "03", slug: "step-3", shortTitle: "Plan & data", title: "Laying out the plan and getting the data", image: roadmapSatellite, imageAlt: "Small satellite" },
+  { num: "04", slug: "step-4", shortTitle: "Analysis", title: "Running the analysis", image: roadmapComputer, imageAlt: "Laptop and papers" },
+  { num: "05", slug: "step-5", shortTitle: "Results", title: "Analysing the results and discussing the mechanisms", image: roadmapResults, imageAlt: "Chart and magnifier" },
+  { num: "06", slug: "step-6", shortTitle: "Conclusion", title: "Limitations and Conclusion", image: roadmapConclusion, imageAlt: "Finish flag and papers" },
 ];
 
 function CurvyArrow({ direction }: { direction: "left" | "right" }) {
@@ -134,10 +126,70 @@ function RoadmapStepCard({ step, align }: { step: RoadmapStep; align: "left" | "
   );
 }
 
-function Index() {
+function TopNav({ visible }: { visible: boolean }) {
   return (
-    <main className="bg-background text-foreground">
+    <nav
+      className={`fixed inset-x-0 top-0 z-50 border-b border-border/60 bg-background/85 backdrop-blur transition-all duration-300 ${
+        visible ? "translate-y-0 opacity-100" : "-translate-y-full opacity-0 pointer-events-none"
+      }`}
+      aria-hidden={!visible}
+    >
+      <div className="mx-auto flex max-w-6xl items-center gap-1 overflow-x-auto px-4 py-3 text-xs uppercase tracking-[0.2em]">
+        <a href="#top" className="whitespace-nowrap rounded px-2 py-1 text-foreground/80 hover:text-[color:var(--sun)]">
+          Homepage
+        </a>
+        <span className="text-foreground/30">·</span>
+        {ROADMAP.map((s) => (
+          <a
+            key={s.slug}
+            href={`#${s.slug}`}
+            className="whitespace-nowrap rounded px-2 py-1 text-foreground/80 hover:text-[color:var(--sun)]"
+          >
+            {s.num}. {s.shortTitle}
+          </a>
+        ))}
+        <span className="text-foreground/30">·</span>
+        <Link to="/about" className="whitespace-nowrap rounded px-2 py-1 text-foreground/80 hover:text-[color:var(--sun)]">
+          About me
+        </Link>
+      </div>
+    </nav>
+  );
+}
+
+function Index() {
+  const sentinelRef = useRef<HTMLDivElement | null>(null);
+  const [navVisible, setNavVisible] = useState(false);
+
+  useEffect(() => {
+    const el = sentinelRef.current;
+    if (!el) return;
+    const obs = new IntersectionObserver(
+      ([entry]) => {
+        // Show nav once the sentinel (placed at end of ScrollNarrative) has scrolled out the top
+        setNavVisible(entry.boundingClientRect.top < 0);
+      },
+      { threshold: 0 },
+    );
+    obs.observe(el);
+    const onScroll = () => {
+      const rect = el.getBoundingClientRect();
+      setNavVisible(rect.top < 0);
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
+    onScroll();
+    return () => {
+      obs.disconnect();
+      window.removeEventListener("scroll", onScroll);
+    };
+  }, []);
+
+  return (
+    <main id="top" className="bg-background text-foreground">
+      <TopNav visible={navVisible} />
       <ScrollNarrative />
+      <div ref={sentinelRef} aria-hidden />
+
 
       {/* First things first */}
       <section className="relative border-t border-border/60 px-6 py-24">
@@ -199,7 +251,7 @@ function Index() {
               const arrowDir: "left" | "right" =
                 nextAlign === "left" ? "left" : nextAlign === "right" ? "right" : align === "left" ? "right" : "left";
               return (
-                <div key={step.num}>
+                <div key={step.num} id={step.slug} className="scroll-mt-24">
                   <RoadmapStepCard step={step} align={align} />
                   {i < ROADMAP.length - 1 && <CurvyArrow direction={arrowDir} />}
                 </div>
