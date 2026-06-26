@@ -187,7 +187,7 @@ function TopNav({ visible }: { visible: boolean }) {
 
         <div className="group relative flex items-center">
           <button type="button" className={`${linkBase} flex items-center gap-1`}>
-            My Research <span aria-hidden>▾</span>
+            MY RESEARCH <span aria-hidden>▾</span>
           </button>
           <div className="absolute left-0 top-full z-50 hidden min-w-[12rem] rounded-md border border-border/60 bg-background/95 p-2 shadow-lg backdrop-blur group-hover:block">
             <a href="#step-3" className={dropdownLink}>
