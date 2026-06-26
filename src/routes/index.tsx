@@ -97,7 +97,7 @@ const ARROW_PATHS = [
 function CurvyArrow({ index }: { index: number }) {
   const a = ARROW_PATHS[index % ARROW_PATHS.length];
   return (
-    <svg width="160" height="140" viewBox="0 0 160 140" className="text-[color:var(--sun)]/80" aria-hidden>
+    <svg width="100" height="80" viewBox="0 0 160 140" className="text-[color:var(--sun)]/80" aria-hidden>
       <path d={a.d} fill="none" stroke="currentColor" strokeWidth="2.2" strokeDasharray="2 6" strokeLinecap="round" />
       <polyline
         points={a.tip}
