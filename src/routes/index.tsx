@@ -305,7 +305,7 @@ function Index() {
           </p>
 
           {/* Two-row snake flow: 1→2→3, then 3→4, then 4→5→6 */}
-          <div className="mt-16 grid grid-cols-[auto_auto_auto_auto_auto] gap-x-1 gap-y-2">
+          <div className="mx-auto mt-16 grid w-fit grid-cols-[auto_auto_auto_auto_auto] gap-x-1 gap-y-2">
             {ROADMAP.slice(0, 3).map((step, i) => (
               <div key={step.num} className="contents">
                 <div id={step.slug} className="scroll-mt-24">
@@ -324,10 +324,8 @@ function Index() {
               </div>
             ))}
 
-            <div className="col-span-5 flex justify-center">
-              <div className="w-60 md:w-72">
-                <ConnectorArrow />
-              </div>
+            <div className="col-span-5">
+              <ConnectorArrow />
             </div>
 
             {ROADMAP.slice(3, 6).map((step, i) => (
