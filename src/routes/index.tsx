@@ -49,26 +49,41 @@ const ROADMAP: RoadmapStep[] = [
   { num: "06", slug: "step-6", shortTitle: "Conclusion", title: "Limitations and Conclusion", image: roadmapConclusion, imageAlt: "Finish flag and papers" },
 ];
 
-function CurvyArrow({ direction }: { direction: "left" | "right" }) {
-  // Curves from top-center down to bottom-left or bottom-right
-  const path =
-    direction === "right"
-      ? "M 100 0 C 100 40, 180 50, 180 110"
-      : "M 100 0 C 100 40, 20 50, 20 110";
-  const tip = direction === "right" ? "172,102 180,118 188,102" : "12,102 20,118 28,102";
+// A set of varied curvy dotted-arrow paths between successive steps.
+// Each path goes from a point near the previous box (top) to a point near the next.
+const ARROW_PATHS = [
+  // 1 -> 2 (down-right, gentle S)
+  { d: "M 60 0 C 90 50, 240 30, 260 130", tip: "248,118 262,134 270,116" },
+  // 2 -> 3 (down-left, wide swing)
+  { d: "M 260 0 C 240 70, 40 50, 40 130", tip: "30,116 38,134 50,118" },
+  // 3 -> 4 (down-right, loopy)
+  { d: "M 40 0 C 20 40, 320 60, 280 130", tip: "266,118 280,134 288,114" },
+  // 4 -> 5 (down-left, sharp curve)
+  { d: "M 280 0 C 320 70, -20 40, 30 130", tip: "20,116 30,134 42,116" },
+  // 5 -> 6 (down-center, gentle wave)
+  { d: "M 30 0 C 80 60, 220 60, 160 130", tip: "148,116 160,134 172,118" },
+];
+
+function CurvyArrow({ index }: { index: number }) {
+  const a = ARROW_PATHS[index % ARROW_PATHS.length];
   return (
-    <div className="flex justify-center py-2" aria-hidden>
-      <svg width="200" height="120" viewBox="0 0 200 120" className="text-[color:var(--sun)]/70">
+    <div className="pointer-events-none flex justify-center" aria-hidden>
+      <svg
+        width="320"
+        height="140"
+        viewBox="0 0 320 140"
+        className="text-[color:var(--sun)]/70 -my-6"
+      >
         <path
-          d={path}
+          d={a.d}
           fill="none"
           stroke="currentColor"
           strokeWidth="2"
-          strokeDasharray="3 6"
+          strokeDasharray="3 7"
           strokeLinecap="round"
         />
         <polyline
-          points={tip}
+          points={a.tip}
           fill="none"
           stroke="currentColor"
           strokeWidth="2"
@@ -80,51 +95,59 @@ function CurvyArrow({ direction }: { direction: "left" | "right" }) {
   );
 }
 
-function RoadmapStepCard({ step, align }: { step: RoadmapStep; align: "left" | "center" | "right" }) {
-  const alignClass =
-    align === "left" ? "md:items-start md:text-left" : align === "right" ? "md:items-end md:text-right" : "";
+function RoadmapStepCard({ step }: { step: RoadmapStep }) {
   return (
-    <div className={`flex flex-col items-center text-center ${alignClass}`}>
-      <div className="text-xs font-mono text-[color:var(--sun)]">{step.num}</div>
-      <h3 className="mt-2 font-display text-xl md:text-2xl max-w-md">{step.title}</h3>
-      <div className="mt-4">
-        {step.custom === "fieldscene" ? (
-          <Dialog>
-            <DialogTrigger asChild>
-              <button
-                type="button"
-                className="block w-full max-w-xs cursor-zoom-in rounded-xl border border-border bg-card/40 p-3 transition-all hover:border-[color:var(--sun)] hover:bg-card/70"
-                aria-label="Open interactive scene"
-              >
-                <div className="pointer-events-none scale-100 origin-top">
-                  <FieldScene />
-                </div>
-                <p className="mt-2 text-[10px] uppercase tracking-[0.3em] text-foreground/50">Click to zoom in</p>
-              </button>
-            </DialogTrigger>
-            <DialogContent className="max-w-5xl">
-              <div className="mt-4">
+    <Dialog>
+      <DialogTrigger asChild>
+        <button
+          type="button"
+          className="block w-full max-w-xs cursor-zoom-in rounded-xl border border-border bg-card/40 p-4 text-center transition-all hover:border-[color:var(--sun)] hover:bg-card/70"
+          aria-label={`Open: ${step.title}`}
+        >
+          <div className="text-xs font-mono text-[color:var(--sun)]">{step.num}</div>
+          <h3 className="mt-2 font-display text-lg leading-snug">{step.title}</h3>
+          <div className="mt-3">
+            {step.custom === "fieldscene" ? (
+              <div className="pointer-events-none">
                 <FieldScene />
-                <p className="mt-4 text-center text-xs uppercase tracking-[0.3em] text-foreground/50">
-                  Hover the scene · tap to explore
-                </p>
               </div>
-            </DialogContent>
-          </Dialog>
-        ) : (
-          <img
-            src={step.image}
-            alt={step.imageAlt ?? ""}
-            width={512}
-            height={512}
-            loading="lazy"
-            className="mx-auto h-40 w-40 object-contain md:h-48 md:w-48"
-          />
-        )}
-      </div>
-    </div>
+            ) : (
+              <img
+                src={step.image}
+                alt={step.imageAlt ?? ""}
+                width={512}
+                height={512}
+                loading="lazy"
+                className="mx-auto h-32 w-32 object-contain md:h-36 md:w-36"
+              />
+            )}
+          </div>
+          <p className="mt-2 text-[10px] uppercase tracking-[0.3em] text-foreground/50">Click to zoom in</p>
+        </button>
+      </DialogTrigger>
+      <DialogContent className="max-w-3xl">
+        <div className="mt-4 text-center">
+          <div className="text-xs font-mono text-[color:var(--sun)]">{step.num}</div>
+          <h3 className="mt-2 font-display text-2xl">{step.title}</h3>
+          <div className="mt-6">
+            {step.custom === "fieldscene" ? (
+              <FieldScene />
+            ) : (
+              <img
+                src={step.image}
+                alt={step.imageAlt ?? ""}
+                width={512}
+                height={512}
+                className="mx-auto h-72 w-72 object-contain"
+              />
+            )}
+          </div>
+        </div>
+      </DialogContent>
+    </Dialog>
   );
 }
+
 
 function TopNav({ visible }: { visible: boolean }) {
   return (
