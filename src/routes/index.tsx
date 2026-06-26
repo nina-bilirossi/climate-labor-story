@@ -126,10 +126,70 @@ function RoadmapStepCard({ step, align }: { step: RoadmapStep; align: "left" | "
   );
 }
 
-function Index() {
+function TopNav({ visible }: { visible: boolean }) {
   return (
-    <main className="bg-background text-foreground">
+    <nav
+      className={`fixed inset-x-0 top-0 z-50 border-b border-border/60 bg-background/85 backdrop-blur transition-all duration-300 ${
+        visible ? "translate-y-0 opacity-100" : "-translate-y-full opacity-0 pointer-events-none"
+      }`}
+      aria-hidden={!visible}
+    >
+      <div className="mx-auto flex max-w-6xl items-center gap-1 overflow-x-auto px-4 py-3 text-xs uppercase tracking-[0.2em]">
+        <a href="#top" className="whitespace-nowrap rounded px-2 py-1 text-foreground/80 hover:text-[color:var(--sun)]">
+          Homepage
+        </a>
+        <span className="text-foreground/30">·</span>
+        {ROADMAP.map((s) => (
+          <a
+            key={s.slug}
+            href={`#${s.slug}`}
+            className="whitespace-nowrap rounded px-2 py-1 text-foreground/80 hover:text-[color:var(--sun)]"
+          >
+            {s.num}. {s.shortTitle}
+          </a>
+        ))}
+        <span className="text-foreground/30">·</span>
+        <Link to="/about" className="whitespace-nowrap rounded px-2 py-1 text-foreground/80 hover:text-[color:var(--sun)]">
+          About me
+        </Link>
+      </div>
+    </nav>
+  );
+}
+
+function Index() {
+  const sentinelRef = useRef<HTMLDivElement | null>(null);
+  const [navVisible, setNavVisible] = useState(false);
+
+  useEffect(() => {
+    const el = sentinelRef.current;
+    if (!el) return;
+    const obs = new IntersectionObserver(
+      ([entry]) => {
+        // Show nav once the sentinel (placed at end of ScrollNarrative) has scrolled out the top
+        setNavVisible(entry.boundingClientRect.top < 0);
+      },
+      { threshold: 0 },
+    );
+    obs.observe(el);
+    const onScroll = () => {
+      const rect = el.getBoundingClientRect();
+      setNavVisible(rect.top < 0);
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
+    onScroll();
+    return () => {
+      obs.disconnect();
+      window.removeEventListener("scroll", onScroll);
+    };
+  }, []);
+
+  return (
+    <main id="top" className="bg-background text-foreground">
+      <TopNav visible={navVisible} />
       <ScrollNarrative />
+      <div ref={sentinelRef} aria-hidden />
+
 
       {/* First things first */}
       <section className="relative border-t border-border/60 px-6 py-24">
