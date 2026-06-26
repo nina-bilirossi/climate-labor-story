@@ -251,7 +251,7 @@ function Index() {
               const arrowDir: "left" | "right" =
                 nextAlign === "left" ? "left" : nextAlign === "right" ? "right" : align === "left" ? "right" : "left";
               return (
-                <div key={step.num}>
+                <div key={step.num} id={step.slug} className="scroll-mt-24">
                   <RoadmapStepCard step={step} align={align} />
                   {i < ROADMAP.length - 1 && <CurvyArrow direction={arrowDir} />}
                 </div>
