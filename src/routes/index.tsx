@@ -150,6 +150,11 @@ function RoadmapStepCard({ step }: { step: RoadmapStep }) {
 
 
 function TopNav({ visible }: { visible: boolean }) {
+  const linkBase =
+    "whitespace-nowrap rounded px-2 py-1 text-foreground/80 hover:text-[color:var(--sun)]";
+  const dropdownLink =
+    "block rounded px-3 py-2 text-xs uppercase tracking-[0.2em] text-foreground/80 hover:bg-accent hover:text-[color:var(--sun)]";
+
   return (
     <nav
       className={`fixed inset-x-0 top-0 z-50 border-b border-border/60 bg-background/85 backdrop-blur transition-all duration-300 ${
@@ -158,21 +163,54 @@ function TopNav({ visible }: { visible: boolean }) {
       aria-hidden={!visible}
     >
       <div className="mx-auto flex max-w-6xl items-center gap-1 overflow-x-auto px-4 py-3 text-xs uppercase tracking-[0.2em]">
-        <a href="#top" className="whitespace-nowrap rounded px-2 py-1 text-foreground/80 hover:text-[color:var(--sun)]">
+        <a href="#top" className={linkBase}>
           Homepage
         </a>
+
         <span className="text-foreground/30">·</span>
-        {ROADMAP.map((s) => (
-          <a
-            key={s.slug}
-            href={`#${s.slug}`}
-            className="whitespace-nowrap rounded px-2 py-1 text-foreground/80 hover:text-[color:var(--sun)]"
-          >
-            {s.num}. {s.shortTitle}
-          </a>
-        ))}
+
+        <div className="group relative flex items-center">
+          <button type="button" className={`${linkBase} flex items-center gap-1`}>
+            Context <span aria-hidden>▾</span>
+          </button>
+          <div className="absolute left-0 top-full z-50 hidden min-w-[12rem] rounded-md border border-border/60 bg-background/95 p-2 shadow-lg backdrop-blur group-hover:block">
+            <a href="#step-1" className={dropdownLink}>
+              Introduction
+            </a>
+            <a href="#step-2" className={dropdownLink}>
+              Research gaps
+            </a>
+          </div>
+        </div>
+
         <span className="text-foreground/30">·</span>
-        <Link to="/about" className="whitespace-nowrap rounded px-2 py-1 text-foreground/80 hover:text-[color:var(--sun)]">
+
+        <div className="group relative flex items-center">
+          <button type="button" className={`${linkBase} flex items-center gap-1`}>
+            My Research <span aria-hidden>▾</span>
+          </button>
+          <div className="absolute left-0 top-full z-50 hidden min-w-[12rem] rounded-md border border-border/60 bg-background/95 p-2 shadow-lg backdrop-blur group-hover:block">
+            <a href="#step-3" className={dropdownLink}>
+              Plan and data
+            </a>
+            <a href="#step-4" className={dropdownLink}>
+              Analysis
+            </a>
+            <a href="#step-5" className={dropdownLink}>
+              Results
+            </a>
+          </div>
+        </div>
+
+        <span className="text-foreground/30">·</span>
+
+        <a href="#step-6" className={linkBase}>
+          Conclusions
+        </a>
+
+        <span className="text-foreground/30">·</span>
+
+        <Link to="/about" className={linkBase}>
           About me
         </Link>
       </div>
