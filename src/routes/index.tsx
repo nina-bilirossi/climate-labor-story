@@ -50,63 +50,61 @@ const ROADMAP: RoadmapStep[] = [
   { num: "06", slug: "step-6", shortTitle: "Conclusion", title: "Limitations and Conclusion", image: roadmapConclusion, imageAlt: "Finish flag and papers" },
 ];
 
-// A set of varied curvy dotted-arrow paths between successive steps.
-// Each path goes from a point near the previous box (top) to a point near the next.
+// Curvy dotted arrows connecting cascading boxes. Each arrow varies in shape.
 const ARROW_PATHS = [
-  // 1 -> 2 (down-right, gentle S)
-  { d: "M 60 0 C 90 50, 240 30, 260 130", tip: "248,118 262,134 270,116" },
-  // 2 -> 3 (down-left, wide swing)
-  { d: "M 260 0 C 240 70, 40 50, 40 130", tip: "30,116 38,134 50,118" },
-  // 3 -> 4 (down-right, loopy)
-  { d: "M 40 0 C 20 40, 320 60, 280 130", tip: "266,118 280,134 288,114" },
-  // 4 -> 5 (down-left, sharp curve)
-  { d: "M 280 0 C 320 70, -20 40, 30 130", tip: "20,116 30,134 42,116" },
-  // 5 -> 6 (down-center, gentle wave)
-  { d: "M 30 0 C 80 60, 220 60, 160 130", tip: "148,116 160,134 172,118" },
+  { d: "M 10 20 C 60 10, 100 90, 150 110", tip: "142,98 152,114 158,96" },
+  { d: "M 10 110 C 70 130, 110 30, 150 20", tip: "140,8 152,22 158,8" },
+  { d: "M 10 20 C 80 30, 80 110, 150 110", tip: "140,98 152,114 158,96" },
+  { d: "M 10 110 C 60 100, 100 20, 150 30", tip: "140,18 152,32 158,16" },
+  { d: "M 10 20 C 70 50, 90 90, 150 100", tip: "140,90 152,104 158,88" },
 ];
 
 function CurvyArrow({ index }: { index: number }) {
   const a = ARROW_PATHS[index % ARROW_PATHS.length];
   return (
-    <div className="pointer-events-none flex justify-center" aria-hidden>
-      <svg
-        width="320"
-        height="140"
-        viewBox="0 0 320 140"
-        className="text-[color:var(--sun)]/70 -my-6"
-      >
-        <path
-          d={a.d}
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="2"
-          strokeDasharray="3 7"
-          strokeLinecap="round"
-        />
-        <polyline
-          points={a.tip}
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="2"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        />
-      </svg>
-    </div>
+    <svg
+      width="160"
+      height="140"
+      viewBox="0 0 160 140"
+      className="text-[color:var(--sun)]/80"
+      aria-hidden
+    >
+      <path
+        d={a.d}
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="2.2"
+        strokeDasharray="2 6"
+        strokeLinecap="round"
+      />
+      <polyline
+        points={a.tip}
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="2.2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
   );
 }
 
-function RoadmapStepCard({ step }: { step: RoadmapStep }) {
+function RoadmapStepCard({ step, highlight = false }: { step: RoadmapStep; highlight?: boolean }) {
   return (
     <Dialog>
       <DialogTrigger asChild>
         <button
           type="button"
-          className="block w-full max-w-xs cursor-zoom-in rounded-xl border border-border bg-card/40 p-4 text-center transition-all hover:border-[color:var(--sun)] hover:bg-card/70"
+          className={
+            "block w-56 cursor-zoom-in rounded-2xl border p-4 text-center transition-all md:w-60 " +
+            (highlight
+              ? "border-[color:var(--sun)] bg-[color:var(--sun)]/15 shadow-[0_10px_40px_-10px_color-mix(in_oklab,var(--sun)_60%,transparent)] hover:bg-[color:var(--sun)]/25 scale-105"
+              : "border-border bg-card/40 hover:border-[color:var(--sun)] hover:bg-card/70")
+          }
           aria-label={`Open: ${step.title}`}
         >
           <div className="text-xs font-mono text-[color:var(--sun)]">{step.num}</div>
-          <h3 className="mt-2 font-display text-lg leading-snug">{step.title}</h3>
+          <h3 className={"mt-2 font-display leading-snug " + (highlight ? "text-xl" : "text-base")}>{step.title}</h3>
           <div className="mt-3">
             {step.custom === "fieldscene" ? (
               <div className="pointer-events-none">
@@ -119,13 +117,16 @@ function RoadmapStepCard({ step }: { step: RoadmapStep }) {
                 width={512}
                 height={512}
                 loading="lazy"
-                className="mx-auto h-32 w-32 object-contain md:h-36 md:w-36"
+                className="mx-auto h-24 w-24 object-contain md:h-28 md:w-28"
               />
             )}
           </div>
-          <p className="mt-2 text-[10px] uppercase tracking-[0.3em] text-foreground/50">Click to zoom in</p>
+          <p className="mt-2 text-[10px] uppercase tracking-[0.3em] text-foreground/50">
+            {highlight ? "The big finish · click" : "Click to zoom"}
+          </p>
         </button>
       </DialogTrigger>
+
       <DialogContent className="max-w-3xl">
         <div className="mt-4 text-center">
           <div className="text-xs font-mono text-[color:var(--sun)]">{step.num}</div>
@@ -232,28 +233,36 @@ function Index() {
             movement of Indian workers.
           </p>
 
-          <div className="mt-16">
-            {ROADMAP.map((step, i) => {
-              // Horizontal offsets for a wide zig-zag; vertical overlap via negative margin.
-              const offsets = ["0", "16rem", "-14rem", "18rem", "-16rem", "4rem"];
-              const tx = offsets[i] ?? "0";
-              return (
-                <div key={step.num} id={step.slug} className="scroll-mt-24">
-                  <div
-                    className="flex justify-center"
-                    style={{ transform: `translateX(${tx})`, marginTop: i === 0 ? 0 : "-2.5rem" }}
-                  >
-                    <RoadmapStepCard step={step} />
-                  </div>
-                  {i < ROADMAP.length - 1 && (
-                    <div style={{ marginTop: "-1rem", marginBottom: "-1rem" }}>
-                      <CurvyArrow index={i} />
+          {/* Horizontal cascading flow: boxes drift down then back up, last one stands out */}
+          <div className="mt-16 overflow-x-auto pb-6">
+            <div className="flex min-w-max items-start gap-0 px-2">
+              {ROADMAP.map((step, i) => {
+                const yOffsets = [0, 70, 140, 80, 30, 110];
+                const ty = yOffsets[i] ?? 0;
+                const isLast = i === ROADMAP.length - 1;
+                return (
+                  <div key={step.num} className="flex items-start">
+                    <div
+                      id={step.slug}
+                      className="scroll-mt-24"
+                      style={{ transform: `translateY(${ty}px)` }}
+                    >
+                      <RoadmapStepCard step={step} highlight={isLast} />
                     </div>
-                  )}
-                </div>
-              );
-            })}
+                    {i < ROADMAP.length - 1 && (
+                      <div
+                        className="shrink-0"
+                        style={{ transform: `translateY(${ty}px)`, marginLeft: "-0.5rem", marginRight: "-0.5rem" }}
+                      >
+                        <CurvyArrow index={i} />
+                      </div>
+                    )}
+                  </div>
+                );
+              })}
+            </div>
           </div>
+
 
           {/* Appendix note */}
           <p className="mt-16 text-sm text-foreground/60 italic">
