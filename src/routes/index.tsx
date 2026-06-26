@@ -86,26 +86,62 @@ const ROADMAP: RoadmapStep[] = [
 ];
 
 // Curvy dotted arrows connecting cascading boxes. Each arrow varies in shape.
-const ARROW_PATHS = [
-  { d: "M 10 20 C 60 10, 100 90, 150 110", tip: "142,98 152,114 158,96" },
-  { d: "M 10 110 C 70 130, 110 30, 150 20", tip: "140,8 152,22 158,8" },
-  { d: "M 10 20 C 80 30, 80 110, 150 110", tip: "140,98 152,114 158,96" },
-  { d: "M 10 110 C 60 100, 100 20, 150 30", tip: "140,18 152,32 158,16" },
-  { d: "M 10 20 C 70 50, 90 90, 150 100", tip: "140,90 152,104 158,88" },
+const ARROW_PATHS_RIGHT = [
+  "M 10 20 C 60 10, 100 90, 150 110",
+  "M 10 110 C 70 130, 110 30, 150 20",
+  "M 10 20 C 80 30, 80 110, 150 110",
 ];
 
-function CurvyArrow({ index }: { index: number }) {
-  const a = ARROW_PATHS[index % ARROW_PATHS.length];
+const ARROW_PATHS_LEFT = [
+  "M 150 20 C 100 10, 60 90, 10 110",
+  "M 150 110 C 90 130, 50 30, 10 20",
+  "M 150 20 C 80 30, 80 110, 10 110",
+];
+
+const ARROW_DOWN = "M 20 10 C 20 40, 20 60, 20 90";
+
+function CurvyArrow({
+  path,
+  width,
+  height,
+  viewBox,
+}: {
+  path: string;
+  width: number;
+  height: number;
+  viewBox: string;
+}) {
+  const id = `arrowhead-${useId().replace(/:/g, "")}`;
   return (
-    <svg width="100" height="80" viewBox="0 0 160 140" className="text-[color:var(--sun)]/80" aria-hidden>
-      <path d={a.d} fill="none" stroke="currentColor" strokeWidth="2.2" strokeDasharray="2 6" strokeLinecap="round" />
-      <polyline
-        points={a.tip}
+    <svg
+      width={width}
+      height={height}
+      viewBox={viewBox}
+      className="text-[color:var(--sun)]/80"
+      overflow="visible"
+      aria-hidden
+    >
+      <defs>
+        <marker
+          id={id}
+          markerWidth="6"
+          markerHeight="4.2"
+          refX="5"
+          refY="2.1"
+          orient="auto"
+          markerUnits="strokeWidth"
+        >
+          <polygon points="0 0, 6 2.1, 0 4.2" fill="currentColor" />
+        </marker>
+      </defs>
+      <path
+        d={path}
         fill="none"
         stroke="currentColor"
         strokeWidth="2.2"
+        strokeDasharray="2 6"
         strokeLinecap="round"
-        strokeLinejoin="round"
+        markerEnd={`url(#${id})`}
       />
     </svg>
   );
