@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ScrollNarrative } from "@/components/ScrollNarrative";
 import { FieldScene } from "@/components/FieldScene";
