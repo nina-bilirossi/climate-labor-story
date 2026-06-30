@@ -290,7 +290,7 @@ function Index() {
                 <div
                   id={step.slug}
                   className={`scroll-mt-24 ${
-                    i === 0 ? "-translate-y-2" : i === 1 ? "translate-y-3" : "-translate-y-3"
+                    i === 0 ? "-translate-y-2" : i === 1 ? "translate-y-3" : "translate-y-3"
                   }`}
                 >
                   <RoadmapStepCard step={step} highlight={step.num === "06"} />
