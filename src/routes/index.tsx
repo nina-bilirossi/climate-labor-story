@@ -297,7 +297,7 @@ function Index() {
                 </div>
                 {i < 2 && (
                   <div className="flex items-center justify-center w-24 h-24">
-                    <DottedArrow path={i === 1 ? "M 5 90 C 50 120, 110 70, 155 108" : ARROW_PATHS_RIGHT[i]} viewBox="0 0 160 140" className="w-full h-full" />
+                    <DottedArrow path={i === 1 ? "M 5 90 C 50 120, 110 70, 167 108" : ARROW_PATHS_RIGHT[i]} viewBox="0 0 160 140" className="w-full h-full" />
                   </div>
                 )}
               </div>
