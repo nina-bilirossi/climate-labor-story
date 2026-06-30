@@ -323,12 +323,12 @@ function Index() {
           {/* Bonus block */}
           <Link
             to="/reflections"
-            className="group mt-10 block rounded-2xl border p-6 transition-all border-[color:var(--sun)]/40 bg-[color:var(--sun)]/10 hover:bg-[color:var(--sun)]/15 hover:border-[color:var(--sun)]"
+            className="group mt-8 block max-w-xl rounded-xl border p-4 transition-all border-[color:var(--sun)]/40 bg-[color:var(--sun)]/10 hover:bg-[color:var(--sun)]/15 hover:border-[color:var(--sun)]"
           >
-            <div className="text-xs font-mono uppercase tracking-[0.3em] text-[color:var(--sun)]">Bonus</div>
-            <h3 className="mt-3 font-display text-2xl">Reflecting on my experience writing the master's thesis</h3>
-            <p className="mt-3 text-sm text-foreground/75">A quick dip into my brain.</p>
-            <div className="mt-6 text-sm text-foreground/70 group-hover:text-foreground">Read →</div>
+            <div className="text-[10px] font-mono uppercase tracking-[0.3em] text-[color:var(--sun)]">Bonus</div>
+            <h3 className="mt-2 font-display text-lg leading-snug">Reflecting on my experience writing the master's thesis</h3>
+            <p className="mt-2 text-sm text-foreground/75">A quick dip into my brain.</p>
+            <div className="mt-4 text-sm text-foreground/70 group-hover:text-foreground">Read →</div>
           </Link>
         </div>
       </section>
