@@ -83,33 +83,20 @@ const ROADMAP: RoadmapStep[] = [
     imageAlt: "Finish flag and papers",
   },
 ];
-
-// Curvy dotted arrows. All start/end at vertical center (y=70 in a 0..140 viewBox)
-// so the arrowhead lands on the middle of the next box's side.
-const ARROW_PATHS_RIGHT = [
-  "M 5 70 C 50 30, 110 110, 155 70",
-  "M 5 70 C 50 110, 110 30, 155 70",
-  "M 5 70 C 80 35, 80 105, 155 70",
-];
-
-// Shared marker/stroke constants — keep every arrow identical.
-const ARROW_STROKE_WIDTH = 2.2;
-const ARROW_DASH = "2 6";
-const ARROW_MARKER_W = 4;
-const ARROW_MARKER_H = 4;
-
 function DottedArrow({
   path,
   viewBox,
   className = "",
   preserveAspectRatio = "xMidYMid meet",
   dashArray = ARROW_DASH,
+  showArrowhead = true,
 }: {
   path: string;
   viewBox: string;
   className?: string;
   preserveAspectRatio?: string;
   dashArray?: string;
+  showArrowhead?: boolean;
 }) {
   const id = `arrowhead-${useId().replace(/:/g, "")}`;
   return (
@@ -120,19 +107,21 @@ function DottedArrow({
       overflow="visible"
       aria-hidden
     >
-      <defs>
-        <marker
-          id={id}
-          markerWidth={ARROW_MARKER_W}
-          markerHeight={ARROW_MARKER_H}
-          refX={ARROW_MARKER_W - 0.5}
-          refY={ARROW_MARKER_H / 2}
-          orient="auto"
-          markerUnits="strokeWidth"
-        >
-          <polygon points={`0 0, ${ARROW_MARKER_W} ${ARROW_MARKER_H / 2}, 0 ${ARROW_MARKER_H}`} fill="currentColor" />
-        </marker>
-      </defs>
+      {showArrowhead && (
+        <defs>
+          <marker
+            id={id}
+            markerWidth={ARROW_MARKER_W}
+            markerHeight={ARROW_MARKER_H}
+            refX={ARROW_MARKER_W - 0.5}
+            refY={ARROW_MARKER_H / 2}
+            orient="auto"
+            markerUnits="strokeWidth"
+          >
+            <polygon points={`0 0, ${ARROW_MARKER_W} ${ARROW_MARKER_H / 2}, 0 ${ARROW_MARKER_H}`} fill="currentColor" />
+          </marker>
+        </defs>
+      )}
       <path
         d={path}
         fill="none"
@@ -141,12 +130,26 @@ function DottedArrow({
         strokeDasharray={dashArray}
         strokeLinecap="round"
         vectorEffect="non-scaling-stroke"
-        markerEnd={`url(#${id})`}
+        markerEnd={showArrowhead ? `url(#${id})` : undefined}
       />
     </svg>
   );
 }
 
+// A standalone arrowhead with its own square viewBox — never stretched,
+// regardless of how the parent line's SVG scales.
+function FixedArrowhead({ style, className = "" }: { style?: React.CSSProperties; className?: string }) {
+  return (
+    <svg
+      viewBox="0 0 10 10"
+      className={"absolute w-3 h-3 text-[color:var(--sun)]/80 " + className}
+      style={style}
+      aria-hidden
+    >
+      <polygon points="0,0 10,5 0,10" fill="currentColor" />
+    </svg>
+  );
+}
 function RoadmapStepCard({ step, highlight = false }: { step: RoadmapStep; highlight?: boolean }) {
   const navigate = useNavigate();
   const [animating, setAnimating] = useState(false);
@@ -287,13 +290,21 @@ function Index() {
               </div>
             ))}
 
-            <div className="col-span-5 flex justify-center">
+            <div className="col-span-5 relative h-24 w-full">
               <DottedArrow
-                path="M 98 10 C 98 130, 2 10, 2 130"
-                viewBox="0 0 100 140"
-                className="w-full h-24"
+                path="M 785 15 C 785 135, 35 135, 15 105"
+                viewBox="0 0 800 140"
+                className="absolute inset-0 w-full h-full"
                 preserveAspectRatio="none"
                 dashArray="2 4"
+                showArrowhead={false}
+              />
+              <FixedArrowhead
+                style={{
+                  left: "1.5%",
+                  top: "73%",
+                  transform: "translate(-50%, -50%) rotate(165deg)",
+                }}
               />
             </div>
 
