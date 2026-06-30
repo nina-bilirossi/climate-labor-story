@@ -9,6 +9,12 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as Step6RouteImport } from './routes/step-6'
+import { Route as Step5RouteImport } from './routes/step-5'
+import { Route as Step4RouteImport } from './routes/step-4'
+import { Route as Step3RouteImport } from './routes/step-3'
+import { Route as Step2RouteImport } from './routes/step-2'
+import { Route as Step1RouteImport } from './routes/step-1'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as ResultsRouteImport } from './routes/results'
 import { Route as ReflectionsRouteImport } from './routes/reflections'
@@ -23,6 +29,36 @@ import { Route as BackgroundRouteImport } from './routes/background'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
 
+const Step6Route = Step6RouteImport.update({
+  id: '/step-6',
+  path: '/step-6',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const Step5Route = Step5RouteImport.update({
+  id: '/step-5',
+  path: '/step-5',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const Step4Route = Step4RouteImport.update({
+  id: '/step-4',
+  path: '/step-4',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const Step3Route = Step3RouteImport.update({
+  id: '/step-3',
+  path: '/step-3',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const Step2Route = Step2RouteImport.update({
+  id: '/step-2',
+  path: '/step-2',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const Step1Route = Step1RouteImport.update({
+  id: '/step-1',
+  path: '/step-1',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
   id: '/sitemap.xml',
   path: '/sitemap.xml',
@@ -103,6 +139,12 @@ export interface FileRoutesByFullPath {
   '/reflections': typeof ReflectionsRoute
   '/results': typeof ResultsRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/step-1': typeof Step1Route
+  '/step-2': typeof Step2Route
+  '/step-3': typeof Step3Route
+  '/step-4': typeof Step4Route
+  '/step-5': typeof Step5Route
+  '/step-6': typeof Step6Route
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -118,6 +160,12 @@ export interface FileRoutesByTo {
   '/reflections': typeof ReflectionsRoute
   '/results': typeof ResultsRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/step-1': typeof Step1Route
+  '/step-2': typeof Step2Route
+  '/step-3': typeof Step3Route
+  '/step-4': typeof Step4Route
+  '/step-5': typeof Step5Route
+  '/step-6': typeof Step6Route
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -134,6 +182,12 @@ export interface FileRoutesById {
   '/reflections': typeof ReflectionsRoute
   '/results': typeof ResultsRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/step-1': typeof Step1Route
+  '/step-2': typeof Step2Route
+  '/step-3': typeof Step3Route
+  '/step-4': typeof Step4Route
+  '/step-5': typeof Step5Route
+  '/step-6': typeof Step6Route
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -151,6 +205,12 @@ export interface FileRouteTypes {
     | '/reflections'
     | '/results'
     | '/sitemap.xml'
+    | '/step-1'
+    | '/step-2'
+    | '/step-3'
+    | '/step-4'
+    | '/step-5'
+    | '/step-6'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -166,6 +226,12 @@ export interface FileRouteTypes {
     | '/reflections'
     | '/results'
     | '/sitemap.xml'
+    | '/step-1'
+    | '/step-2'
+    | '/step-3'
+    | '/step-4'
+    | '/step-5'
+    | '/step-6'
   id:
     | '__root__'
     | '/'
@@ -181,6 +247,12 @@ export interface FileRouteTypes {
     | '/reflections'
     | '/results'
     | '/sitemap.xml'
+    | '/step-1'
+    | '/step-2'
+    | '/step-3'
+    | '/step-4'
+    | '/step-5'
+    | '/step-6'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -197,10 +269,58 @@ export interface RootRouteChildren {
   ReflectionsRoute: typeof ReflectionsRoute
   ResultsRoute: typeof ResultsRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
+  Step1Route: typeof Step1Route
+  Step2Route: typeof Step2Route
+  Step3Route: typeof Step3Route
+  Step4Route: typeof Step4Route
+  Step5Route: typeof Step5Route
+  Step6Route: typeof Step6Route
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/step-6': {
+      id: '/step-6'
+      path: '/step-6'
+      fullPath: '/step-6'
+      preLoaderRoute: typeof Step6RouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/step-5': {
+      id: '/step-5'
+      path: '/step-5'
+      fullPath: '/step-5'
+      preLoaderRoute: typeof Step5RouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/step-4': {
+      id: '/step-4'
+      path: '/step-4'
+      fullPath: '/step-4'
+      preLoaderRoute: typeof Step4RouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/step-3': {
+      id: '/step-3'
+      path: '/step-3'
+      fullPath: '/step-3'
+      preLoaderRoute: typeof Step3RouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/step-2': {
+      id: '/step-2'
+      path: '/step-2'
+      fullPath: '/step-2'
+      preLoaderRoute: typeof Step2RouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/step-1': {
+      id: '/step-1'
+      path: '/step-1'
+      fullPath: '/step-1'
+      preLoaderRoute: typeof Step1RouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/sitemap.xml': {
       id: '/sitemap.xml'
       path: '/sitemap.xml'
@@ -309,6 +429,12 @@ const rootRouteChildren: RootRouteChildren = {
   ReflectionsRoute: ReflectionsRoute,
   ResultsRoute: ResultsRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
+  Step1Route: Step1Route,
+  Step2Route: Step2Route,
+  Step3Route: Step3Route,
+  Step4Route: Step4Route,
+  Step5Route: Step5Route,
+  Step6Route: Step6Route,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
