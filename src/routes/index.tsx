@@ -277,20 +277,23 @@ function Index() {
                   <RoadmapStepCard step={step} highlight={step.num === "06"} />
                 </div>
                 {i < 2 && (
-                  <div className="flex items-center justify-center">
-                    <CurvyArrow
+                  <div className="flex items-center justify-center w-24 h-24">
+                    <DottedArrow
                       path={ARROW_PATHS_RIGHT[i]}
-                      width={100}
-                      height={80}
                       viewBox="0 0 160 140"
+                      className="w-full h-full"
                     />
                   </div>
                 )}
               </div>
             ))}
 
-            <div className="col-span-5">
-              <ConnectorArrow />
+            <div className="col-span-5 flex justify-center">
+              <DottedArrow
+                path="M 380 10 C 380 90, 20 10, 20 90"
+                viewBox="0 0 400 100"
+                className="w-[80%] max-w-2xl h-16"
+              />
             </div>
 
             {ROADMAP.slice(3, 6).map((step, i) => (
@@ -299,12 +302,11 @@ function Index() {
                   <RoadmapStepCard step={step} highlight={step.num === "06"} />
                 </div>
                 {i < 2 && (
-                  <div className="flex items-center justify-center">
-                    <CurvyArrow
+                  <div className="flex items-center justify-center w-24 h-24">
+                    <DottedArrow
                       path={ARROW_PATHS_RIGHT[i]}
-                      width={100}
-                      height={80}
                       viewBox="0 0 160 140"
+                      className="w-full h-full"
                     />
                   </div>
                 )}
