@@ -314,6 +314,16 @@ function Index() {
                 preserveAspectRatio="none"
                 dashArray="2 4"
                 showArrowhead={false}
+                extraPaths={
+                  <path
+                    d="M 705 40 v 2 m 0 2 v 2 m 0 2 v 2 m 0 2 v 2 m 0 2 v 2 m 0 2 v 2"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth={ARROW_STROKE_WIDTH}
+                    strokeLinecap="round"
+                    vectorEffect="non-scaling-stroke"
+                  />
+                }
               />
               <FixedArrowhead
                 style={{
