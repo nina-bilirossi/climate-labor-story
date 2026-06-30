@@ -78,7 +78,7 @@ const ROADMAP: RoadmapStep[] = [
     num: "06",
     slug: "step-6",
     shortTitle: "Conclusion",
-    title: "Limitations and Conclusion",
+    title: "Conclusion",
     image: roadmapConclusion,
     imageAlt: "Finish flag and papers",
   },
