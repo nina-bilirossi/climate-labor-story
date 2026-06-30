@@ -83,6 +83,15 @@ const ROADMAP: RoadmapStep[] = [
     imageAlt: "Finish flag and papers",
   },
 ];
+const ARROW_DASH = "2 6";
+const ARROW_MARKER_W = 6;
+const ARROW_MARKER_H = 6;
+const ARROW_STROKE_WIDTH = 2;
+const ARROW_PATHS_RIGHT = [
+  "M 10 70 L 150 70",
+  "M 10 70 L 150 70",
+];
+
 function DottedArrow({
   path,
   viewBox,
