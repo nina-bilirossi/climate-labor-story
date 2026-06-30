@@ -4,7 +4,7 @@ import { ChapterLayout } from "@/components/ChapterLayout";
 export const Route = createFileRoute("/step-6")({
   head: () => ({
     meta: [
-      { title: "Step 06 — Limitations and Conclusion" },
+      { title: "Step 06 — Conclusion" },
       { name: "description", content: "The big finish: caveats and takeaways." },
     ],
   }),
