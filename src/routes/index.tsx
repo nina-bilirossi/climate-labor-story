@@ -141,7 +141,7 @@ function DottedArrow({
         fill="none"
         stroke="currentColor"
         strokeWidth={ARROW_STROKE_WIDTH}
-        strokeDasharray={ARROW_DASH}
+        strokeDasharray={dashArray}
         strokeLinecap="round"
         vectorEffect="non-scaling-stroke"
         markerEnd={`url(#${id})`}
