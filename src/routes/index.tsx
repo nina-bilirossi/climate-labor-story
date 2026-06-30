@@ -305,7 +305,7 @@ function Index() {
 
             <div className="col-span-5 relative -mt-4 -mb-4 h-28 w-full">
               <DottedArrow
-                path="M 705 40 C 705 70, 560 70, 400 70 S 200 110, 120 110 C 120 110, 88 110, 88 140"
+                path="M 705 40 C 705 90, 560 0, 400 50 S 200 110, 120 110 C 120 110, 88 110, 88 140"
                 viewBox="0 0 800 140"
                 className="absolute inset-0 w-full h-full"
                 preserveAspectRatio="none"
