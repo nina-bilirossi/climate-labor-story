@@ -291,7 +291,7 @@ function Index() {
               <DottedArrow
                 path="M 380 10 C 380 130, 20 10, 20 130"
                 viewBox="0 0 400 140"
-                className="w-[80%] max-w-2xl h-24"
+                className="w-full max-w-4xl h-24"
                 dashArray="2 4"
               />
             </div>
