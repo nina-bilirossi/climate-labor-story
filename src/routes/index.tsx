@@ -103,11 +103,13 @@ function DottedArrow({
   viewBox,
   className = "",
   preserveAspectRatio = "xMidYMid meet",
+  dashArray = ARROW_DASH,
 }: {
   path: string;
   viewBox: string;
   className?: string;
   preserveAspectRatio?: string;
+  dashArray?: string;
 }) {
   const id = `arrowhead-${useId().replace(/:/g, "")}`;
   return (
