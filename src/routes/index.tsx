@@ -304,21 +304,23 @@ function Index() {
             ))}
 
             <div className="col-span-5 relative -mt-4 -mb-4 h-28 w-full">
-              <DottedArrow
-                path="M 705 40 C 705 80, 560 80, 400 70 S 200 110, 120 110 C 120 110, 88 110, 88 140"
-                viewBox="0 0 800 140"
-                className="absolute inset-0 w-full h-full -translate-y-3"
-                preserveAspectRatio="none"
-                dashArray="2 4"
-                showArrowhead={false}
-              />
-              <FixedArrowhead
-                style={{
-                  left: "11%",
-                  top: "100%",
-                  transform: "translate(-50%, -100%) rotate(90deg)",
-                }}
-              />
+              <div className="absolute inset-0 -translate-y-3">
+                <DottedArrow
+                  path="M 705 40 C 705 80, 560 80, 400 70 S 200 110, 120 110 C 120 110, 88 110, 88 140"
+                  viewBox="0 0 800 140"
+                  className="absolute inset-0 w-full h-full"
+                  preserveAspectRatio="none"
+                  dashArray="2 4"
+                  showArrowhead={false}
+                />
+                <FixedArrowhead
+                  style={{
+                    left: "11%",
+                    top: "100%",
+                    transform: "translate(-50%, -100%) rotate(90deg)",
+                  }}
+                />
+              </div>
             </div>
 
             {ROADMAP.slice(3, 6).map((step, i) => (
