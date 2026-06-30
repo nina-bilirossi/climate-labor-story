@@ -303,9 +303,9 @@ function Index() {
               </div>
             ))}
 
-            <div className="col-span-5 relative h-24 w-full">
+            <div className="col-span-5 relative -mt-4 -mb-4 h-28 w-full">
               <DottedArrow
-                path="M 785 15 C 785 135, 35 135, 15 105"
+                path="M 705 0 C 705 150, 88 150, 88 140"
                 viewBox="0 0 800 140"
                 className="absolute inset-0 w-full h-full"
                 preserveAspectRatio="none"
@@ -314,9 +314,9 @@ function Index() {
               />
               <FixedArrowhead
                 style={{
-                  left: "1.5%",
-                  top: "73%",
-                  transform: "translate(-50%, -50%) rotate(165deg)",
+                  left: "11%",
+                  top: "100%",
+                  transform: "translate(-50%, -50%) rotate(90deg)",
                 }}
               />
             </div>
