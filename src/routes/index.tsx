@@ -88,7 +88,7 @@ const ROADMAP: RoadmapStep[] = [
 // so the arrowhead lands on the middle of the next box's side.
 const ARROW_PATHS_RIGHT = [
   "M 5 70 C 50 30, 110 110, 155 70",
-  "M 5 70 C 50 110, 110 30, 155 70",
+  "M 5 90 C 50 120, 110 60, 155 90",
   "M 5 70 C 80 35, 80 105, 155 70",
 ];
 
