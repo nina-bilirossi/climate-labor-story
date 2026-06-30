@@ -130,10 +130,7 @@ function DottedArrow({
           orient="auto"
           markerUnits="strokeWidth"
         >
-          <polygon
-            points={`0 0, ${ARROW_MARKER_W} ${ARROW_MARKER_H / 2}, 0 ${ARROW_MARKER_H}`}
-            fill="currentColor"
-          />
+          <polygon points={`0 0, ${ARROW_MARKER_W} ${ARROW_MARKER_H / 2}, 0 ${ARROW_MARKER_H}`} fill="currentColor" />
         </marker>
       </defs>
       <path
@@ -267,8 +264,7 @@ function Index() {
           <p className="text-xs uppercase tracking-[0.4em] text-[color:var(--sun)]">Begin reading</p>
           <h2 className="mt-4 font-display text-4xl md:text-5xl leading-tight">Climate shocked into informality?</h2>
           <p className="mt-4 max-w-2xl text-foreground/70">
-            A master's thesis on how shocks linked to climate change — too little rain, then too much — influence the
-            movement of Indian workers.
+            Casual Business: Floods, Droughts, and Informal Work in India
           </p>
 
           {/* Two-row snake flow: 1→2→3, then 3→4, then 4→5→6 */}
@@ -285,11 +281,7 @@ function Index() {
                 </div>
                 {i < 2 && (
                   <div className="flex items-center justify-center w-24 h-24">
-                    <DottedArrow
-                      path={ARROW_PATHS_RIGHT[i]}
-                      viewBox="0 0 160 140"
-                      className="w-full h-full"
-                    />
+                    <DottedArrow path={ARROW_PATHS_RIGHT[i]} viewBox="0 0 160 140" className="w-full h-full" />
                   </div>
                 )}
               </div>
@@ -308,19 +300,13 @@ function Index() {
               <div key={step.num} className="contents">
                 <div
                   id={step.slug}
-                  className={`scroll-mt-24 ${
-                    i === 0 ? "translate-y-2" : i === 1 ? "-translate-y-3" : "translate-y-1"
-                  }`}
+                  className={`scroll-mt-24 ${i === 0 ? "translate-y-2" : i === 1 ? "-translate-y-3" : "translate-y-1"}`}
                 >
                   <RoadmapStepCard step={step} highlight={step.num === "06"} />
                 </div>
                 {i < 2 && (
                   <div className="flex items-center justify-center w-24 h-24">
-                    <DottedArrow
-                      path={ARROW_PATHS_RIGHT[i]}
-                      viewBox="0 0 160 140"
-                      className="w-full h-full"
-                    />
+                    <DottedArrow path={ARROW_PATHS_RIGHT[i]} viewBox="0 0 160 140" className="w-full h-full" />
                   </div>
                 )}
               </div>
@@ -339,7 +325,9 @@ function Index() {
             className="group mx-auto mt-8 block max-w-xl rounded-xl border p-4 transition-all border-[color:var(--sun)]/40 bg-[color:var(--sun)]/10 hover:bg-[color:var(--sun)]/15 hover:border-[color:var(--sun)]"
           >
             <div className="text-[10px] font-mono uppercase tracking-[0.3em] text-[color:var(--sun)]">Bonus</div>
-            <h3 className="mt-2 font-display text-lg leading-snug">Reflecting on my experience writing the master's thesis</h3>
+            <h3 className="mt-2 font-display text-lg leading-snug">
+              Reflecting on my experience writing the master's thesis
+            </h3>
             <p className="mt-2 text-sm text-foreground/75">A quick dip into my brain.</p>
             <div className="mt-4 text-sm text-foreground/70 group-hover:text-foreground">Read →</div>
           </Link>
@@ -350,4 +338,3 @@ function Index() {
     </main>
   );
 }
-
