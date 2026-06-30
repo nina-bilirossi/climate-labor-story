@@ -290,7 +290,7 @@ function Index() {
             <div className="col-span-5 flex justify-center">
               <DottedArrow
                 path="M 98 10 C 98 130, 2 10, 2 130"
-                viewBox="0 0 700 140"
+                viewBox="0 0 400 140"
                 className="w-full h-24"
                 preserveAspectRatio="none"
                 dashArray="2 4"
