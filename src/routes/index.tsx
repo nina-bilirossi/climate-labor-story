@@ -105,6 +105,7 @@ function DottedArrow({
   preserveAspectRatio = "xMidYMid meet",
   dashArray = ARROW_DASH,
   showArrowhead = true,
+  extraPaths,
 }: {
   path: string;
   viewBox: string;
@@ -112,6 +113,7 @@ function DottedArrow({
   preserveAspectRatio?: string;
   dashArray?: string;
   showArrowhead?: boolean;
+  extraPaths?: React.ReactNode;
 }) {
   const id = `arrowhead-${useId().replace(/:/g, "")}`;
   return (
@@ -145,6 +147,7 @@ function DottedArrow({
         vectorEffect="non-scaling-stroke"
         markerEnd={showArrowhead ? `url(#${id})` : undefined}
       />
+      {extraPaths}
     </svg>
   );
 }
