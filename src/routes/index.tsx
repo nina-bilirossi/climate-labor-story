@@ -88,7 +88,7 @@ const ROADMAP: RoadmapStep[] = [
 // so the arrowhead lands on the middle of the next box's side.
 const ARROW_PATHS_RIGHT = [
   "M 5 70 C 50 30, 110 110, 155 70",
-  "M 5 70 C 50 110, 110 30, 155 70",
+  "M 5 90 C 50 120, 110 60, 155 90",
   "M 5 70 C 80 35, 80 105, 155 70",
 ];
 
@@ -290,7 +290,7 @@ function Index() {
                 <div
                   id={step.slug}
                   className={`scroll-mt-24 ${
-                    i === 0 ? "-translate-y-2" : i === 1 ? "translate-y-3" : "-translate-y-3"
+                    i === 0 ? "-translate-y-2" : i === 1 ? "translate-y-3" : "translate-y-3"
                   }`}
                 >
                   <RoadmapStepCard step={step} highlight={step.num === "06"} />
@@ -305,7 +305,7 @@ function Index() {
 
             <div className="col-span-5 relative -mt-4 -mb-4 h-28 w-full">
               <DottedArrow
-                path="M 705 0 C 705 150, 88 150, 88 140"
+                path="M 705 0 C 705 80, 560 10, 400 70 S 100 130, 88 140"
                 viewBox="0 0 800 140"
                 className="absolute inset-0 w-full h-full"
                 preserveAspectRatio="none"
