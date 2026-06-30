@@ -275,7 +275,12 @@ function Index() {
           <div className="mx-auto mt-16 grid w-fit grid-cols-[auto_auto_auto_auto_auto] gap-x-1 gap-y-2">
             {ROADMAP.slice(0, 3).map((step, i) => (
               <div key={step.num} className="contents">
-                <div id={step.slug} className="scroll-mt-24">
+                <div
+                  id={step.slug}
+                  className={`scroll-mt-24 ${
+                    i === 0 ? "-translate-y-2" : i === 1 ? "translate-y-3" : "-translate-y-3"
+                  }`}
+                >
                   <RoadmapStepCard step={step} highlight={step.num === "06"} />
                 </div>
                 {i < 2 && (
@@ -292,15 +297,21 @@ function Index() {
 
             <div className="col-span-5 flex justify-center">
               <DottedArrow
-                path="M 380 10 C 380 90, 20 10, 20 90"
-                viewBox="0 0 400 100"
-                className="w-[80%] max-w-2xl h-16"
+                path="M 380 10 C 380 130, 20 10, 20 130"
+                viewBox="0 0 400 140"
+                className="w-[80%] max-w-2xl h-24"
+                dashArray="2 4"
               />
             </div>
 
             {ROADMAP.slice(3, 6).map((step, i) => (
               <div key={step.num} className="contents">
-                <div id={step.slug} className="scroll-mt-24">
+                <div
+                  id={step.slug}
+                  className={`scroll-mt-24 ${
+                    i === 0 ? "translate-y-2" : i === 1 ? "-translate-y-3" : "translate-y-1"
+                  }`}
+                >
                   <RoadmapStepCard step={step} highlight={step.num === "06"} />
                 </div>
                 {i < 2 && (
