@@ -84,88 +84,62 @@ const ROADMAP: RoadmapStep[] = [
   },
 ];
 
-// Curvy dotted arrows connecting cascading boxes. Each arrow varies in shape.
+// Curvy dotted arrows. All start/end at vertical center (y=70 in a 0..140 viewBox)
+// so the arrowhead lands on the middle of the next box's side.
 const ARROW_PATHS_RIGHT = [
-  "M 10 20 C 60 10, 100 90, 150 110",
-  "M 10 110 C 70 130, 110 30, 150 20",
-  "M 10 20 C 80 30, 80 110, 150 110",
+  "M 5 70 C 50 30, 110 110, 155 70",
+  "M 5 70 C 50 110, 110 30, 155 70",
+  "M 5 70 C 80 35, 80 105, 155 70",
 ];
 
-function CurvyArrow({
+// Shared marker/stroke constants — keep every arrow identical.
+const ARROW_STROKE_WIDTH = 2.2;
+const ARROW_DASH = "2 6";
+const ARROW_MARKER_W = 4;
+const ARROW_MARKER_H = 4;
+
+function DottedArrow({
   path,
-  width,
-  height,
   viewBox,
+  className = "",
+  preserveAspectRatio = "xMidYMid meet",
 }: {
   path: string;
-  width: number;
-  height: number;
   viewBox: string;
+  className?: string;
+  preserveAspectRatio?: string;
 }) {
   const id = `arrowhead-${useId().replace(/:/g, "")}`;
   return (
     <svg
-      width={width}
-      height={height}
       viewBox={viewBox}
-      className="text-[color:var(--sun)]/80"
+      preserveAspectRatio={preserveAspectRatio}
+      className={"text-[color:var(--sun)]/80 " + className}
       overflow="visible"
       aria-hidden
     >
       <defs>
         <marker
           id={id}
-          markerWidth="6"
-          markerHeight="4.2"
-          refX="5"
-          refY="2.1"
+          markerWidth={ARROW_MARKER_W}
+          markerHeight={ARROW_MARKER_H}
+          refX={ARROW_MARKER_W - 0.5}
+          refY={ARROW_MARKER_H / 2}
           orient="auto"
           markerUnits="strokeWidth"
         >
-          <polygon points="0 0, 6 2.1, 0 4.2" fill="currentColor" />
+          <polygon
+            points={`0 0, ${ARROW_MARKER_W} ${ARROW_MARKER_H / 2}, 0 ${ARROW_MARKER_H}`}
+            fill="currentColor"
+          />
         </marker>
       </defs>
       <path
         d={path}
         fill="none"
         stroke="currentColor"
-        strokeWidth="2.2"
-        strokeDasharray="2 6"
-        strokeLinecap="round"
-        markerEnd={`url(#${id})`}
-      />
-    </svg>
-  );
-}
-
-function ConnectorArrow() {
-  const id = `arrowhead-connector-${useId().replace(/:/g, "")}`;
-  return (
-    <svg
-      viewBox="0 0 100 12"
-      className="h-auto w-full text-[color:var(--sun)]/80"
-      overflow="visible"
-      aria-hidden
-    >
-      <defs>
-        <marker
-          id={id}
-          markerWidth="3"
-          markerHeight="2.1"
-          refX="2.5"
-          refY="1.05"
-          orient="auto"
-          markerUnits="strokeWidth"
-        >
-          <polygon points="0 0, 3 1.05, 0 2.1" fill="currentColor" />
-        </marker>
-      </defs>
-      <path
-        d="M 95 2 C 95 10, 25 2, 5 10"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="2.2"
-        strokeDasharray="2 6"
+        strokeWidth={ARROW_STROKE_WIDTH}
+        strokeDasharray={ARROW_DASH}
         strokeLinecap="round"
         vectorEffect="non-scaling-stroke"
         markerEnd={`url(#${id})`}
@@ -175,54 +149,45 @@ function ConnectorArrow() {
 }
 
 function RoadmapStepCard({ step, highlight = false }: { step: RoadmapStep; highlight?: boolean }) {
-  return (
-    <Dialog>
-      <DialogTrigger asChild>
-        <button
-          type="button"
-          className={
-            "block w-40 cursor-zoom-in rounded-2xl border p-3 text-center transition-all md:w-44 " +
-            (highlight
-              ? "border-[color:var(--sun)] bg-[color:var(--sun)]/15 shadow-[0_10px_40px_-10px_color-mix(in_oklab,var(--sun)_60%,transparent)] hover:bg-[color:var(--sun)]/25 scale-105"
-              : "border-border bg-card/40 hover:border-[color:var(--sun)] hover:bg-card/70")
-          }
-          aria-label={`Open: ${step.title}`}
-        >
-          <div className="text-xs font-mono text-[color:var(--sun)]">{step.num}</div>
-          <h3 className={"mt-2 font-display leading-snug text-sm " + (highlight ? "md:text-base" : "")}>{step.title}</h3>
-          <div className="mt-2">
-            {step.custom === "fieldscene" ? (
-              <div className="pointer-events-none mx-auto max-w-[6rem]">
-                <FieldScene />
-              </div>
-            ) : null}
-          </div>
-          <p className="mt-2 text-[10px] uppercase tracking-[0.3em] text-foreground/50">
-            {highlight ? "The big finish · click" : "Click to zoom"}
-          </p>
-        </button>
-      </DialogTrigger>
+  const navigate = useNavigate();
+  const [animating, setAnimating] = useState(false);
 
-      <DialogContent className="max-w-3xl">
-        <div className="mt-4 text-center">
-          <div className="text-xs font-mono text-[color:var(--sun)]">{step.num}</div>
-          <h3 className="mt-2 font-display text-2xl">{step.title}</h3>
-          <div className="mt-6">
-            {step.custom === "fieldscene" ? (
-              <FieldScene />
-            ) : (
-              <img
-                src={step.image}
-                alt={step.imageAlt ?? ""}
-                width={512}
-                height={512}
-                className="mx-auto h-72 w-72 object-contain"
-              />
-            )}
-          </div>
-        </div>
-      </DialogContent>
-    </Dialog>
+  const handleClick = () => {
+    if (animating) return;
+    setAnimating(true);
+    window.setTimeout(() => {
+      navigate({ to: `/${step.slug}` });
+    }, 360);
+  };
+
+  return (
+    <button
+      type="button"
+      onClick={handleClick}
+      className={
+        "block w-40 cursor-pointer rounded-2xl border p-3 text-center transition-all md:w-44 " +
+        (animating ? "roadmap-droplet " : "") +
+        (highlight
+          ? "border-[color:var(--sun)] bg-[color:var(--sun)]/15 shadow-[0_10px_40px_-10px_color-mix(in_oklab,var(--sun)_60%,transparent)] hover:bg-[color:var(--sun)]/25 scale-105"
+          : "border-border bg-card/40 hover:border-[color:var(--sun)] hover:bg-card/70")
+      }
+      aria-label={`Open: ${step.title}`}
+    >
+      <div className="text-xs font-mono text-[color:var(--sun)]">{step.num}</div>
+      <h3 className={"mt-2 font-display leading-snug text-sm " + (highlight ? "md:text-base" : "")}>{step.title}</h3>
+      <div
+        className={
+          step.custom === "fieldscene"
+            ? "[&>div]:!mt-0 [&>div]:!max-w-full mx-auto max-w-[6rem] pointer-events-none"
+            : "mt-2"
+        }
+      >
+        {step.custom === "fieldscene" ? <FieldScene /> : null}
+      </div>
+      <p className="mt-2 text-[10px] uppercase tracking-[0.3em] text-foreground/50">
+        {highlight ? "The big finish · click" : "Click to open"}
+      </p>
+    </button>
   );
 }
 
