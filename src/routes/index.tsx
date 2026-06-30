@@ -316,7 +316,7 @@ function Index() {
                 showArrowhead={false}
                 extraPaths={
                   <path
-                    d="M 705 40 v 2 m 0 2 v 2 m 0 2 v 2 m 0 2 v 2 m 0 2 v 2 m 0 2 v 2"
+                    d="M 705 40 v 4 m 0 4 v 4 m 0 4 v 4 m 0 4 v 4 m 0 4 v 4 m 0 4 v 4"
                     fill="none"
                     stroke="currentColor"
                     strokeWidth={ARROW_STROKE_WIDTH}
