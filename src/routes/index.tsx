@@ -143,9 +143,23 @@ function DottedArrow({
         strokeDasharray={dashArray}
         strokeLinecap="round"
         vectorEffect="non-scaling-stroke"
-        markerEnd={`url(#${id})`}
+        markerEnd={showArrowhead ? `url(#${id})` : undefined}
       />
     </svg>
+  );
+}
+
+function FixedArrowhead({ style }: { style?: React.CSSProperties }) {
+  return (
+    <div
+      className="absolute text-[color:var(--sun)]/80"
+      style={style}
+      aria-hidden
+    >
+      <svg width="12" height="12" viewBox="0 0 4 4" overflow="visible">
+        <polygon points="0 0, 4 2, 0 4" fill="currentColor" />
+      </svg>
+    </div>
   );
 }
 
