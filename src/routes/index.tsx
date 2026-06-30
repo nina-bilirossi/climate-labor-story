@@ -290,14 +290,14 @@ function Index() {
                 <div
                   id={step.slug}
                   className={`scroll-mt-24 ${
-                    i === 0 ? "-translate-y-2" : i === 1 ? "translate-y-3" : "translate-y-3"
+                    i === 0 ? "-translate-y-2" : i === 1 ? "translate-y-3" : "translate-y-6"
                   }`}
                 >
                   <RoadmapStepCard step={step} highlight={step.num === "06"} />
                 </div>
                 {i < 2 && (
                   <div className="flex items-center justify-center w-24 h-24">
-                    <DottedArrow path={ARROW_PATHS_RIGHT[i]} viewBox="0 0 160 140" className="w-full h-full" />
+                    <DottedArrow path={i === 1 ? "M 5 90 C 50 120, 110 70, 167 108" : ARROW_PATHS_RIGHT[i]} viewBox="0 0 160 140" className="w-full h-full" />
                   </div>
                 )}
               </div>
@@ -305,7 +305,7 @@ function Index() {
 
             <div className="col-span-5 relative -mt-4 -mb-4 h-28 w-full">
               <DottedArrow
-                path="M 705 0 C 705 80, 560 10, 400 70 S 100 130, 88 140"
+                path="M 705 40 C 705 50, 560 10, 400 70 S 200 120, 120 120 C 120 120, 88 120, 88 140"
                 viewBox="0 0 800 140"
                 className="absolute inset-0 w-full h-full"
                 preserveAspectRatio="none"
@@ -316,7 +316,7 @@ function Index() {
                 style={{
                   left: "11%",
                   top: "100%",
-                  transform: "translate(-50%, -50%) rotate(90deg)",
+                  transform: "translate(-50%, -100%) rotate(90deg)",
                 }}
               />
             </div>
