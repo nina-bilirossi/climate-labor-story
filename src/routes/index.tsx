@@ -154,11 +154,7 @@ function DottedArrow({
 
 function FixedArrowhead({ style }: { style?: React.CSSProperties }) {
   return (
-    <div
-      className="absolute text-[color:var(--sun)]/80"
-      style={style}
-      aria-hidden
-    >
+    <div className="absolute text-[color:var(--sun)]/80" style={style} aria-hidden>
       <svg width="12" height="12" viewBox="0 0 4 4" overflow="visible">
         <polygon points="0 0, 4 2, 0 4" fill="currentColor" />
       </svg>
@@ -292,15 +288,17 @@ function Index() {
               <div key={step.num} className="contents">
                 <div
                   id={step.slug}
-                  className={`scroll-mt-24 ${
-                    i === 0 ? "-translate-y-2" : i === 1 ? "translate-y-3" : "translate-y-6"
-                  }`}
+                  className={`scroll-mt-24 ${i === 0 ? "-translate-y-2" : i === 1 ? "translate-y-3" : "translate-y-6"}`}
                 >
                   <RoadmapStepCard step={step} highlight={step.num === "06"} />
                 </div>
                 {i < 2 && (
                   <div className="flex items-center justify-center w-24 h-24">
-                    <DottedArrow path={i === 1 ? "M 5 90 C 50 120, 110 70, 167 108" : ARROW_PATHS_RIGHT[i]} viewBox="0 0 160 140" className="w-full h-full" />
+                    <DottedArrow
+                      path={i === 1 ? "M 5 90 C 50 120, 110 70, 167 108" : ARROW_PATHS_RIGHT[i]}
+                      viewBox="0 0 160 140"
+                      className="w-full h-full"
+                    />
                   </div>
                 )}
               </div>
@@ -316,7 +314,7 @@ function Index() {
                 showArrowhead={false}
                 extraPaths={
                   <path
-                    d="M 705 -44 v 4 m 0 4 v 4 m 0 4 v 4 m 0 4 v 4 m 0 4 v 4 m 0 4 v 4"
+                    d="M 705 -38 v 4 m 0 4 v 4 m 0 4 v 4 m 0 4 v 4 m 0 4 v 4 m 0 4 v 4"
                     fill="none"
                     stroke="currentColor"
                     strokeWidth={ARROW_STROKE_WIDTH}
@@ -350,12 +348,6 @@ function Index() {
               </div>
             ))}
           </div>
-
-          {/* Appendix note */}
-          <p className="mt-16 text-sm text-foreground/60 italic">
-            Note: the Appendix is not included on the website. Readers can download the full manuscript for additional
-            tables, figures, and methodological notes (e.g. the choice of time lags).
-          </p>
 
           {/* Bonus block */}
           <Link
