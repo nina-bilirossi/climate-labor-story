@@ -22,6 +22,11 @@ export const Route = createFileRoute("/reflections")({
 
 function ReflectionsPage() {
   return (
+    <ChapterLayout
+      eyebrow="Bonus"
+      title="A quick dip into my brain"
+      lede="Reflections on the experience of writing this thesis — the false starts, the small wins, and what I wish I'd known on day one."
+    >
       <p className="text-lg leading-relaxed text-foreground/85">
         <strong className="text-foreground">Main takeaway:</strong> The thesis is about learning. I learned about informality in response to climate shocks in India (duh), but more importantly, I learned about organizational, life-work balance, communicating progress, and feeling confident as a researcher.
       </p>
@@ -108,5 +113,6 @@ function ReflectionsPage() {
           </li>
         </ul>
       </div>
+    </ChapterLayout>
   );
 }
