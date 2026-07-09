@@ -28,18 +28,18 @@ The analysis distinguishes between formal and informal segments of the labor for
             <div>
               <h4 className="font-bold text-lg mb-2">Determinants and dynamics of informality</h4>
               <ul className="list-disc pl-5 space-y-2">
-                <li>Existing work establishes the structural drivers of informality \cite{Ulyssea2020}, \cite{LaPorta2014} and labor market transitions in India \cite{Abraham2025}, but largely omits an environmental dimension</li>
+                <li>Existing work establishes the structural drivers of informality (Ulyssea 2020), (LaPorta 2014) and labor market transitions in India (Abraham 2025), but largely omits an environmental dimension</li>
                 <li>This paper identifies climate shocks (droughts and floods) as an exogenous driver of the formal-informal margin</li>
-                <li>Also contributes to understanding informal firms' heterogeneous physical/human capital needs in response to destructive climate shocks (c.f. \cite{LintBarrage2026})</li>
-                <li>Tests two competing mechanisms: (1) informal firms' smaller size/lower capital \cite{Jat2026} may make them more fragile to climate shocks, reducing informality as they collapse; or (2) informal work's flexibility and low fixed costs may insulate it from shocks, shifting the burden onto formal employment</li>
+                <li>Also contributes to understanding informal firms' heterogeneous physical/human capital needs in response to destructive climate shocks (c.f. Lint & Barrage 2026)</li>
+                <li>Tests two competing mechanisms: (1) informal firms' smaller size/lower capital (Jat 2026) may make them more fragile to climate shocks, reducing informality as they collapse; or (2) informal work's flexibility and low fixed costs may insulate it from shocks, shifting the burden onto formal employment</li>
               </ul>
             </div>
 
             <div>
               <h4 className="font-bold text-lg mb-2">Economic consequences of climate change</h4>
               <ul className="list-disc pl-5 space-y-2">
-                <li>Prior work documents the macroeconomic costs of floods/droughts in India \cite{Panwar2020}, \cite{Bahinipati2026} and the migration they induce \cite{Ulyssea2026}</li>
-                <li>Along with \cite{LintBarrage2026} on informality, climate policy, and hurricanes, this paper provides state-level evidence that different types of climatic exposure directly reshape the formal-informal composition of the labor force, treating informality as an outcome in its own right rather than a background condition</li>
+                <li>Prior work documents the macroeconomic costs of floods/droughts in India (Panwar 2020), (Bahinipati 2026) and the migration they induce (Ulyssea 2026)</li>
+                <li>Along with Lint & Barrage (2026) on informality, climate policy, and hurricanes, this paper provides state-level evidence that different types of climatic exposure directly reshape the formal-informal composition of the labor force, treating informality as an outcome in its own right rather than a background condition</li>
                 <li>Notes that much existing research focuses on temperature increases, rather than the more frequent, less predictable shocks (droughts, floods) that arise from those increases</li>
               </ul>
             </div>
@@ -47,10 +47,10 @@ The analysis distinguishes between formal and informal segments of the labor for
             <div>
               <h4 className="font-bold text-lg mb-2">Climate adaptation and labor policy design</h4>
               <ul className="list-disc pl-5 space-y-2">
-                <li>India's labor market is already structurally fragile — pervasive informality/self-employment, rising fragmentation, low female labor force participation, marginalization of large social groups \cite{Hammer2022}</li>
-                <li>Existing labor protections can backfire: \cite{Chaurey2024} finds new employment protection legislation in Andhra Pradesh reduced formal contract work while expanding lower-wage informal employment, depressing aggregate productivity and welfare</li>
-                <li>Climate shocks' poverty consequences are most severe where economies are agriculture-dependent and institutions are weak, though diversification and strong governance can attenuate effects \cite{Behera2025}</li>
-                <li>This challenge is further complicated by the ambiguity inherent in climate adaptation decision-making \cite{YanSims2025}</li>
+                <li>India's labor market is already structurally fragile — pervasive informality/self-employment, rising fragmentation, low female labor force participation, marginalization of large social groups (Hammer 2022)</li>
+                <li>Existing labor protections can backfire: Chaurey (2024) finds new employment protection legislation in Andhra Pradesh reduced formal contract work while expanding lower-wage informal employment, depressing aggregate productivity and welfare</li>
+                <li>Climate shocks' poverty consequences are most severe where economies are agriculture-dependent and institutions are weak, though diversification and strong governance can attenuate effects (Behera 2025)</li>
+                <li>This challenge is further complicated by the ambiguity inherent in climate adaptation decision-making (Yan & Sims 2025)</li>
                 <li>This paper contributes evidence on the informality channel to inform better-targeted social protection and labor market policy in climate-vulnerable developing economies</li>
               </ul>
             </div>
