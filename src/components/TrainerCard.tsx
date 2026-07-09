@@ -2,8 +2,8 @@ import { User } from "lucide-react";
 
 export function TrainerCard() {
   return (
-    <div className="not-prose w-full max-w-[180px] text-xs">
-      <div className="relative rounded-xl border-2 border-[color:var(--sun)] bg-gradient-to-br from-amber-50 to-orange-100 p-3 shadow-[0_4px_0_rgba(0,0,0,0.12),0_8px_20px_rgba(0,0,0,0.18)] dark:from-amber-950/40 dark:to-orange-950/40">
+    <div className="not-prose w-full max-w-[180px] text-xs flex">
+      <div className="relative flex w-full flex-col rounded-xl border-2 border-[color:var(--sun)] bg-gradient-to-br from-amber-50 to-orange-100 p-3 shadow-[0_4px_0_rgba(0,0,0,0.12),0_8px_20px_rgba(0,0,0,0.18)] dark:from-amber-950/40 dark:to-orange-950/40">
         {/* Header */}
         <div className="flex items-center justify-between text-xs font-bold uppercase tracking-widest text-foreground/70">
           <span>Trainer Card</span>
