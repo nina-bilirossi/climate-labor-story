@@ -11,9 +11,9 @@ export function TrainerCard() {
         </div>
 
         {/* Portrait */}
-        <div className="mt-2 aspect-square w-full overflow-hidden rounded-lg border-2 border-foreground/20 bg-gradient-to-br from-sky-200 via-emerald-100 to-amber-100 dark:from-sky-900/50 dark:via-emerald-900/40 dark:to-amber-900/40">
+        <div className="mx-auto mt-2 h-20 w-20 overflow-hidden rounded-lg border-2 border-foreground/20 bg-gradient-to-br from-sky-200 via-emerald-100 to-amber-100 dark:from-sky-900/50 dark:via-emerald-900/40 dark:to-amber-900/40">
           <div className="flex h-full w-full items-center justify-center text-foreground/40">
-            <User size={40} strokeWidth={1.25} />
+            <User size={36} strokeWidth={1.25} />
           </div>
         </div>
 
