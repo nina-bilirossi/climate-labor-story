@@ -31,7 +31,7 @@ function Step1() {
           the workforce is informal.
           <br />
           <br />
-          In not so short:
+          <em>In not so short:</em>
         </p>
         <h3 className="mt-8 text-xl font-bold text-white">Multifaceted definitons and perceptions</h3>
         <p className="mt-4 text-white">
