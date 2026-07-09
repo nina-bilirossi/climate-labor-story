@@ -48,13 +48,13 @@ function ReferenceEntry({ r }: { r: Reference }) {
       {r.title && (
         <>
           {". "}
-          <span className="italic text-foreground/90">{r.title}</span>
+          <span className="italic text-foreground/90">{stripBraces(r.title)}</span>
         </>
       )}
       {r.journal && (
         <>
           {". "}
-          <span>{r.journal}</span>
+          <span>{stripBraces(r.journal)}</span>
           {r.volume && <span>, {r.volume}</span>}
           {r.number && <span>({r.number})</span>}
           {r.pages && <span>, {r.pages}</span>}
@@ -63,13 +63,13 @@ function ReferenceEntry({ r }: { r: Reference }) {
       {r.booktitle && (
         <>
           {". In "}
-          <span>{r.booktitle}</span>
+          <span>{stripBraces(r.booktitle)}</span>
           {r.pages && <span> (pp. {r.pages})</span>}
         </>
       )}
-      {r.publisher && <span>. {r.publisher}</span>}
-      {r.institution && <span>. {r.institution}</span>}
-      {r.howpublished && <span>. {r.howpublished}</span>}
+      {r.publisher && <span>. {stripBraces(r.publisher)}</span>}
+      {r.institution && <span>. {stripBraces(r.institution)}</span>}
+      {r.howpublished && <span>. {stripBraces(r.howpublished)}</span>}
       <span>.</span>
       {url && (
         <>
