@@ -26,7 +26,7 @@ export function TrainerCard() {
         </div>
 
         {/* Nationalities */}
-        <div className="mt-1 flex gap-2 text-sm">
+        <div className="mt-1 flex flex-wrap gap-1 text-[11px]">
           <span className="rounded-full bg-foreground/10 px-2 py-0.5">🇫🇷 French</span>
           <span className="rounded-full bg-foreground/10 px-2 py-0.5">🇧🇷 Brazilian</span>
         </div>
