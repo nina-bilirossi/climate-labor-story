@@ -25,16 +25,21 @@ function AboutPage() {
     <ChapterLayout
       eyebrow="About"
       title="Hi, I'm Nina"
-      lede="MSc Agricultural Economics @ ETH Zürich. I care about how people make a living when the climate stops cooperating."
+      lede="MSc Agricultural Economics @ ETH Zürich. I like math, economics, and am fascinated bvy foos and agricultural systems."
     >
       <p>
-        Placeholder — a few paragraphs about my background, what drew me to this question, and the
-        path that led to this thesis.
+        I am defined by curiosity and desire to learn.&nbsp;After my Bachelor's in Maths and
+        Economics,&nbsp;I wanted to study something more applied&nbsp;and&nbsp;tangible, and to learn
+        more about the real world. This led me to the&nbsp;Master's program in Agricultural
+        Economics at ETHZ. I got to diversify&nbsp;and deepen&nbsp;my knowledge of food
+        systems&nbsp;and the world through classes, internships, and projects. It's been very
+        exciting, and the master's thesis&nbsp;is the last bit of this chapter for me. It summarizes
+        my interests: quantitative and mathematical methods applied to environmental&nbsp;economic
+        problems, caring for livelihoods in a future marked by an uncertain climate.
       </p>
 
       <p>
-        If you want the messier, more personal side of how this thesis came together — the false
-        starts, the small wins, and the things I'd do differently —{" "}
+        If you want the more personal side of how this thesis came together,&nbsp;
         <Link
           to="/reflections"
           className="underline decoration-[color:var(--sun)] decoration-2 underline-offset-4 hover:text-foreground"
