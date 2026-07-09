@@ -7,7 +7,7 @@ import { InformalityTable } from "@/components/InformalityTable";
 export const Route = createFileRoute("/step-1")({
   head: () => ({
     meta: [
-      { title: "Step 01 — Building up background knowledge" },
+      { title: "Step 01 — Building background knowledge" },
       { name: "description", content: "Getting acquainted with the topic of climate shocks and informality." },
     ],
   }),
@@ -18,7 +18,7 @@ function Step1() {
   return (
     <ChapterLayout
       eyebrow="Step 01"
-      title="Building up background knowledge"
+      title="Building background knowledge"
       lede="What is informality? How come there's data on it? Why would it relate to climate change? Why India?"
     >
       <FieldScene />
