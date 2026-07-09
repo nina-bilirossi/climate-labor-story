@@ -31,7 +31,9 @@ function Step1() {
           workforce is informal — a share that has proven remarkably persistent across decades of
           growth.
           <br /><br />
-          is it good or bad?
+          Multifaceted definitons and perceptions.
+          <br /><br />
+          Is it good or bad? Depends who you ask
         </p>
         <InformalityTable />
       </section>
