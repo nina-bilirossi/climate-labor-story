@@ -26,7 +26,7 @@ function Step1() {
       <section id="informality" className="scroll-mt-24 pt-16">
         <h2 className="font-display text-3xl md:text-4xl">What is informality?</h2>
         <p className="mt-4 text-white">
-          In short: Informal work is employment outside the reach of formal labor protections: no
+          <em>In short:</em> Informal work is employment outside the reach of formal labor protections: no
           written contract, no social security, no guaranteed minimum wage. In India, over 88% of
           the workforce is informal.
           <br />
