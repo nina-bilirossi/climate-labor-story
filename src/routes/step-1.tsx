@@ -215,60 +215,6 @@ function Step1() {
             </p>
           </div>
 
-          <div>
-            <h3 className="text-xl font-bold">A critical but underexplored intersection</h3>
-            <p className="mt-4">
-              The intersection of high informality and climate vulnerability defines a critical but
-              underexplored research domain. The existing literature has examined how climate
-              shocks affect labor productivity, migration, and poverty.{" "}
-              <Link to="/references" hash="cite-ulyssea2026" className="underline decoration-dotted underline-offset-2 hover:decoration-solid">
-                Ulyssea (2026)
-              </Link>
-              , for instance, studies drought-induced migration from rural to urban areas in
-              Brazil. Studies on India establish that agricultural regions are especially
-              vulnerable to climatic shocks, with events such as floods and droughts directly
-              threatening food production, economic stability, and poverty outcomes{" "}
-              <Link to="/references" hash="cite-behera2025" className="underline decoration-dotted underline-offset-2 hover:decoration-solid">
-                (Behera 2025)
-              </Link>
-              ,{" "}
-              <Link to="/references" hash="cite-colmer2021" className="underline decoration-dotted underline-offset-2 hover:decoration-solid">
-                (Colmer 2021)
-              </Link>
-              ,{" "}
-              <Link to="/references" hash="cite-bahinipati2026" className="underline decoration-dotted underline-offset-2 hover:decoration-solid">
-                (Bahinipati 2026)
-              </Link>
-              ,{" "}
-              <Link to="/references" hash="cite-joshi2025" className="underline decoration-dotted underline-offset-2 hover:decoration-solid">
-                (Joshi 2025)
-              </Link>
-              . Studies also highlight that high-income states are more resilient to climate
-              damage, and that policy is an important factor in reducing damage{" "}
-              <Link to="/references" hash="cite-patri2022" className="underline decoration-dotted underline-offset-2 hover:decoration-solid">
-                (Patri 2022)
-              </Link>
-              ,{" "}
-              <Link to="/references" hash="cite-panwar2020" className="underline decoration-dotted underline-offset-2 hover:decoration-solid">
-                (Panwar 2020)
-              </Link>
-              ,{" "}
-              <Link to="/references" hash="cite-kannan2025" className="underline decoration-dotted underline-offset-2 hover:decoration-solid">
-                (Kannan 2025)
-              </Link>
-              . Yet while these contributions identify significant economic vulnerabilities
-              following extreme weather events, most do not isolate informality as a distinct
-              outcome, nor do they specify the channels through which climate shocks alter the
-              formal-informal composition of the labor market. This gap is consequential: if
-              climate shocks systematically shift workers into or out of informality, then standard
-              analyses of poverty and labor market resilience may be mischaracterizing the
-              mechanisms at work. With a stronger focus on informality,{" "}
-              <Link to="/references" hash="cite-lintbarrage2026" className="underline decoration-dotted underline-offset-2 hover:decoration-solid">
-                Lint &amp; Barrage (2026)
-              </Link>
-              {" "}investigate the labor market effects of hurricanes and temperature extremes.
-            </p>
-          </div>
 
         </div>
       </section>
