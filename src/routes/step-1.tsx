@@ -38,7 +38,7 @@ function Step1() {
           element to decide on when discussing informality is whether we are looking at firms or
           workers. My research focuses on workers, as this more closely aligns with my desire to
           observe the effects of climate change on livelihoods.
-          <br />
+          <br /><br />
           Nevertheless, the literature has provided much reflection on why firms decide to
           formalize or not.{" "}
           <Link
