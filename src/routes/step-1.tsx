@@ -30,7 +30,7 @@ function Step1() {
           contract, no social security, no guaranteed minimum wage. In India, over 88% of the
           workforce is informal.
           <br /><br />
-          Multifaceted definitons and perceptions.
+          <span className="text-xl font-bold">Multifaceted definitons and perceptions.</span>
           <br /><br />
           Informality is one of those concepts that can be talked about or quantified in many
           different ways. In fact, because countries have different laws, labor systems, and data
