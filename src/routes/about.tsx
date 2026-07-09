@@ -29,8 +29,8 @@ function AboutPage() {
       title="Hi, I'm Nina"
       lede="MSc Agricultural Economics @ ETH Zürich. I like maths, economics, and am fascinated by food and agricultural systems."
     >
-      <div className="not-prose flex flex-col sm:flex-row gap-6 items-start">
-        <div className="shrink-0 sm:sticky sm:top-6">
+      <div className="not-prose flex flex-col sm:flex-row gap-6 items-stretch">
+        <div className="shrink-0 flex">
           <TrainerCard />
         </div>
         <p className="text-foreground/85 leading-relaxed">
