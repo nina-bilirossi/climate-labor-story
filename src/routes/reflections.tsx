@@ -126,12 +126,12 @@ function ReflectionsPage() {
                 experience of working on his PhD, and reminded me that the most important task in the thesis is to grow.
               </li>
               <li>Sharing doubts with Izzy, a good friend also writing her thesis.</li>
-              <li>The MSc Thesis lab in CAB, with monitors, daylight, and people around to hold you accountable.</li>
-              <li>Issey Skyr yogurt for days I felt I needed an extra boost.</li>
-              <li>
-                A Post-it note on my desk: <strong>“You are here to GROW”</strong>.
-              </li>
             </ul>
+            <li>The MSc Thesis lab in CAB, with monitors, daylight, and people around to hold you accountable.</li>
+            <li>Issey Skyr yogurt for days I felt I needed an extra boost.</li>
+            <li>
+              A Post-it note on my desk: <strong>“You are here to GROW”</strong>.
+            </li>
           </li>
         </ul>
       </div>
