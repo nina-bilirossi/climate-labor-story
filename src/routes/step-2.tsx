@@ -22,7 +22,7 @@ The analysis distinguishes between formal and informal segments of the labor for
     >
       <div className="prose-thesis space-y-8">
         <section>
-          <h3 className="text-xl font-bold mb-4">Contribution:</h3>
+          <h3 className="text-xl font-bold mb-4">Contribution :</h3>
           
           <div className="space-y-6">
             <div>
