@@ -129,6 +129,181 @@ function Step1() {
           moisture) and mechanisms: temperature increase =&gt; water retention of air increases
           =&gt; it is both drier, and when it rains, it rains much more intensely.
         </div>
+
+        <div className="mt-8 text-white space-y-6">
+          <div>
+            <h3 className="text-xl font-bold">India: a critical site for informality research</h3>
+            <p className="mt-4">
+              India offers a particularly instructive case. With the world's largest population and
+              one of the highest informal employment rates globally — 87% as of 2025{" "}
+              <Link to="/references" hash="cite-ilostat2025" className="underline decoration-dotted underline-offset-2 hover:decoration-solid">
+                (ILO 2025)
+              </Link>
+              {" "}— India concentrates an extraordinary share of the world's informal workforce.
+              In 2017, informal enterprises accounted for 43% of non-farm GDP and 68% of all
+              non-farm employment{" "}
+              <Link to="/references" hash="cite-jat2026" className="underline decoration-dotted underline-offset-2 hover:decoration-solid">
+                (Jat 2026)
+              </Link>
+              . Agriculture, which employs roughly 42% of the labor force, remains deeply
+              intertwined with informality, seasonal precarity, and subsistence livelihoods{" "}
+              <Link to="/references" hash="cite-ilostat2025" className="underline decoration-dotted underline-offset-2 hover:decoration-solid">
+                (ILO 2025)
+              </Link>
+              ,{" "}
+              <Link to="/references" hash="cite-behera2025" className="underline decoration-dotted underline-offset-2 hover:decoration-solid">
+                (Behera 2025)
+              </Link>
+              . These structural conditions make India a critical site for studying the channels
+              through which economic shocks propagate across formal and informal segments of the
+              labor market.
+            </p>
+          </div>
+
+          <div>
+            <h3 className="text-xl font-bold">Acute exposure to climate risk</h3>
+            <p className="mt-4">
+              At the same time, India is acutely exposed to climate risk. The IPCC Sixth
+              Assessment Report projects that extreme weather events will intensify and occur more
+              frequently, generating growing economic and non-economic losses and damages{" "}
+              <Link to="/references" hash="cite-ipcc2022b" className="underline decoration-dotted underline-offset-2 hover:decoration-solid">
+                (IPCC 2022b)
+              </Link>
+              ,{" "}
+              <Link to="/references" hash="cite-ipcc2022a" className="underline decoration-dotted underline-offset-2 hover:decoration-solid">
+                (IPCC 2022a)
+              </Link>
+              . Among South Asian nations, India is considered one of the most vulnerable, owing
+              to its geographical exposure, population pressure, and developmental challenges{" "}
+              <Link to="/references" hash="cite-bahinipati2026" className="underline decoration-dotted underline-offset-2 hover:decoration-solid">
+                (Bahinipati 2026)
+              </Link>
+              ,{" "}
+              <Link to="/references" hash="cite-behera2025" className="underline decoration-dotted underline-offset-2 hover:decoration-solid">
+                (Behera 2025)
+              </Link>
+              ,{" "}
+              <Link to="/references" hash="cite-hammer2022" className="underline decoration-dotted underline-offset-2 hover:decoration-solid">
+                (Hammer 2022)
+              </Link>
+              . Droughts and floods are particularly prominent threats: research documents a
+              persistent and severe drought risk for India's population, with economic losses
+              increasing steadily between 1964 and 2019{" "}
+              <Link to="/references" hash="cite-bahinipati2026" className="underline decoration-dotted underline-offset-2 hover:decoration-solid">
+                (Bahinipati 2026)
+              </Link>
+              . Increasing mean temperatures (0.25°C per decade) and declining precipitation both
+              exacerbate drought frequency and intensity and amplify flood magnitudes during
+              extreme rainfall periods{" "}
+              <Link to="/references" hash="cite-sharma2025" className="underline decoration-dotted underline-offset-2 hover:decoration-solid">
+                (Sharma 2025)
+              </Link>
+              . Area and extreme rainfall thresholds are projected to increase by about 18(13)%
+              and 58(50)% in the far future (2071–2100) under SSP5-8.5 (SSP2-4.5){" "}
+              <Link to="/references" hash="cite-konda24" className="underline decoration-dotted underline-offset-2 hover:decoration-solid">
+                (Konda 2024)
+              </Link>
+              . Moreover, drought and flood losses exhibit significant regional disparity across
+              Indian states, reflecting heterogeneous exposure, infrastructure capacity, and
+              adaptive resources{" "}
+              <Link to="/references" hash="cite-archana2024" className="underline decoration-dotted underline-offset-2 hover:decoration-solid">
+                (Archana 2024)
+              </Link>
+              . In sum, as climate change accelerates, the frequency, severity, and unpredictability
+              of these events are projected to increase, making adaptation not merely a policy
+              aspiration but an economic necessity.
+            </p>
+          </div>
+
+          <div>
+            <h3 className="text-xl font-bold">A critical but underexplored intersection</h3>
+            <p className="mt-4">
+              The intersection of high informality and climate vulnerability defines a critical but
+              underexplored research domain. The existing literature has examined how climate
+              shocks affect labor productivity, migration, and poverty.{" "}
+              <Link to="/references" hash="cite-ulyssea2026" className="underline decoration-dotted underline-offset-2 hover:decoration-solid">
+                Ulyssea (2026)
+              </Link>
+              , for instance, studies drought-induced migration from rural to urban areas in
+              Brazil. Studies on India establish that agricultural regions are especially
+              vulnerable to climatic shocks, with events such as floods and droughts directly
+              threatening food production, economic stability, and poverty outcomes{" "}
+              <Link to="/references" hash="cite-behera2025" className="underline decoration-dotted underline-offset-2 hover:decoration-solid">
+                (Behera 2025)
+              </Link>
+              ,{" "}
+              <Link to="/references" hash="cite-colmer2021" className="underline decoration-dotted underline-offset-2 hover:decoration-solid">
+                (Colmer 2021)
+              </Link>
+              ,{" "}
+              <Link to="/references" hash="cite-bahinipati2026" className="underline decoration-dotted underline-offset-2 hover:decoration-solid">
+                (Bahinipati 2026)
+              </Link>
+              ,{" "}
+              <Link to="/references" hash="cite-joshi2025" className="underline decoration-dotted underline-offset-2 hover:decoration-solid">
+                (Joshi 2025)
+              </Link>
+              . Studies also highlight that high-income states are more resilient to climate
+              damage, and that policy is an important factor in reducing damage{" "}
+              <Link to="/references" hash="cite-patri2022" className="underline decoration-dotted underline-offset-2 hover:decoration-solid">
+                (Patri 2022)
+              </Link>
+              ,{" "}
+              <Link to="/references" hash="cite-panwar2020" className="underline decoration-dotted underline-offset-2 hover:decoration-solid">
+                (Panwar 2020)
+              </Link>
+              ,{" "}
+              <Link to="/references" hash="cite-kannan2025" className="underline decoration-dotted underline-offset-2 hover:decoration-solid">
+                (Kannan 2025)
+              </Link>
+              . Yet while these contributions identify significant economic vulnerabilities
+              following extreme weather events, most do not isolate informality as a distinct
+              outcome, nor do they specify the channels through which climate shocks alter the
+              formal-informal composition of the labor market. This gap is consequential: if
+              climate shocks systematically shift workers into or out of informality, then standard
+              analyses of poverty and labor market resilience may be mischaracterizing the
+              mechanisms at work. With a stronger focus on informality,{" "}
+              <Link to="/references" hash="cite-lintbarrage2026" className="underline decoration-dotted underline-offset-2 hover:decoration-solid">
+                Lint &amp; Barrage (2026)
+              </Link>
+              {" "}investigate the labor market effects of hurricanes and temperature extremes.
+            </p>
+          </div>
+
+          <div>
+            <h3 className="text-xl font-bold">This paper's contribution</h3>
+            <p className="mt-4">
+              This paper investigates the effect of droughts and floods on informal employment in
+              India, drawing on district-level data across Indian states. The analysis
+              distinguishes between formal and informal segments of the labor force and tests
+              whether exposure to climatic events is a significant determinant of informality. Two
+              competing mechanisms are plausible a priori. On one hand, the smaller production
+              units and lower capital endowments characteristic of informal firms{" "}
+              <Link to="/references" hash="cite-jat2026" className="underline decoration-dotted underline-offset-2 hover:decoration-solid">
+                (Jat 2026)
+              </Link>
+              {" "}may render them more fragile in the face of climate shocks, reducing informality
+              as these enterprises collapse. On the other hand, the relative flexibility and low
+              fixed costs of informal arrangements may insulate such workers from rapid-onset
+              events, while formal employment bears the greater burden of infrastructure
+              destruction and economic contraction. Adjudicating between these mechanisms has
+              direct implications for climate adaptation policy and worker protection frameworks.
+              This study contributes to the growing literature on loss and damage from climate
+              change, as defined by the{" "}
+              <Link to="/references" hash="cite-unfccc2012" className="underline decoration-dotted underline-offset-2 hover:decoration-solid">
+                UNFCCC (2012)
+              </Link>
+              , and is aligned with SDG 8's commitment to promoting decent work and sustainable
+              economic growth{" "}
+              <Link to="/references" hash="cite-sdg" className="underline decoration-dotted underline-offset-2 hover:decoration-solid">
+                (SDG)
+              </Link>
+              . By illuminating how extreme weather events reshape the formal-informal boundary,
+              it aims to inform the design of more targeted and effective labor market policies in
+              climate-vulnerable developing economies.
+            </p>
+          </div>
+        </div>
       </section>
 
       <section id="labor" className="scroll-mt-24 pt-16">
