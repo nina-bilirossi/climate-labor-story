@@ -46,13 +46,13 @@ export function TopNav({ visible = true }: Props) {
             MY RESEARCH <span aria-hidden>▾</span>
           </button>
           <div className="absolute right-0 top-full z-50 hidden min-w-[12rem] rounded-md border border-border/60 bg-background/95 p-2 shadow-lg backdrop-blur group-hover:block">
-            <Link to="/" hash="step-3" className={dropdownLink}>
+            <Link to="/step-3" className={dropdownLink}>
               Plan and data
             </Link>
-            <Link to="/" hash="step-4" className={dropdownLink}>
+            <Link to="/step-4" className={dropdownLink}>
               Analysis
             </Link>
-            <Link to="/" hash="step-5" className={dropdownLink}>
+            <Link to="/step-5" className={dropdownLink}>
               Results
             </Link>
           </div>
@@ -60,7 +60,7 @@ export function TopNav({ visible = true }: Props) {
 
         <span className="text-foreground/30">·</span>
 
-        <Link to="/" hash="step-6" className={linkBase}>
+        <Link to="/step-6" className={linkBase}>
           Conclusions
         </Link>
 
