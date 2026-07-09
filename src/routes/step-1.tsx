@@ -1,6 +1,8 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { ChapterLayout } from "@/components/ChapterLayout";
 import { FieldScene } from "@/components/FieldScene";
+import { InformalityTable } from "@/components/InformalityTable";
+
 
 export const Route = createFileRoute("/step-1")({
   head: () => ({
