@@ -14,9 +14,14 @@ export const Route = createFileRoute("/references")({
   component: ReferencesPage,
 });
 
+function stripBraces(s?: string): string {
+  if (!s) return "";
+  return s.replace(/[{}]/g, "");
+}
+
 function formatAuthors(authors?: string): string {
   if (!authors) return "";
-  return authors
+  return stripBraces(authors)
     .split(/\s+and\s+/i)
     .map((a) => a.trim().replace(/\s+/g, " "))
     .join(", ");
