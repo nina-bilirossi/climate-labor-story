@@ -29,18 +29,21 @@ function AboutPage() {
       title="Hi, I'm Nina"
       lede="MSc Agricultural Economics @ ETH Zürich. I like maths, economics, and am fascinated by food and agricultural systems."
     >
-      <TrainerCard />
-
-      <p>
-        I am defined by curiosity and desire to learn.&nbsp;After my Bachelor's in Maths and
-        Economics,&nbsp;I wanted to study something more applied&nbsp;and&nbsp;tangible, and to learn
-        more about the real world. This led me to the&nbsp;Master's program in Agricultural
-        Economics at ETHZ. I got to diversify&nbsp;and deepen&nbsp;my knowledge of food
-        systems&nbsp;and the world through classes, internships, and projects. It's been very
-        exciting, and the master's thesis&nbsp;is the last bit of this chapter for me. It summarizes
-        my interests: quantitative and mathematical methods applied to environmental&nbsp;economic
-        problems, caring for livelihoods in a future marked by an uncertain climate.
-      </p>
+      <div className="not-prose flex flex-col sm:flex-row gap-6 items-start">
+        <div className="shrink-0 sm:sticky sm:top-6">
+          <TrainerCard />
+        </div>
+        <p className="text-foreground/85 leading-relaxed">
+          I am defined by curiosity and desire to learn.&nbsp;After my Bachelor's in Maths and
+          Economics,&nbsp;I wanted to study something more applied&nbsp;and&nbsp;tangible, and to learn
+          more about the real world. This led me to the&nbsp;Master's program in Agricultural
+          Economics at ETHZ. I got to diversify&nbsp;and deepen&nbsp;my knowledge of food
+          systems&nbsp;and the world through classes, internships, and projects. It's been very
+          exciting, and the master's thesis&nbsp;is the last bit of this chapter for me. It summarizes
+          my interests: quantitative and mathematical methods applied to environmental&nbsp;economic
+          problems, caring for livelihoods in a future marked by an uncertain climate.
+        </p>
+      </div>
 
       <p>
         If you want the more personal side of how this thesis came together,&nbsp;

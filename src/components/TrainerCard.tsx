@@ -2,7 +2,7 @@ import { User } from "lucide-react";
 
 export function TrainerCard() {
   return (
-    <div className="not-prose mx-auto my-8 w-full max-w-sm">
+    <div className="not-prose w-full max-w-[220px]">
       <div className="relative rounded-2xl border-4 border-[color:var(--sun)] bg-gradient-to-br from-amber-50 to-orange-100 p-4 shadow-[0_8px_0_rgba(0,0,0,0.15),0_12px_30px_rgba(0,0,0,0.25)] dark:from-amber-950/40 dark:to-orange-950/40">
         {/* Header */}
         <div className="flex items-center justify-between text-xs font-bold uppercase tracking-widest text-foreground/70">
@@ -13,7 +13,7 @@ export function TrainerCard() {
         {/* Portrait */}
         <div className="mt-2 aspect-square w-full overflow-hidden rounded-lg border-2 border-foreground/20 bg-gradient-to-br from-sky-200 via-emerald-100 to-amber-100 dark:from-sky-900/50 dark:via-emerald-900/40 dark:to-amber-900/40">
           <div className="flex h-full w-full items-center justify-center text-foreground/40">
-            <User size={96} strokeWidth={1.25} />
+            <User size={56} strokeWidth={1.25} />
           </div>
         </div>
 
