@@ -42,7 +42,7 @@ export function FieldScene() {
         />
 
         {/* === Climate hotspot: sun + cloud === */}
-        <Link to="/climate-shocks" className="group cursor-pointer outline-none">
+        <Link to="/step-1" hash="climate" className="group cursor-pointer outline-none">
           <g>
             <rect x="430" y="20" width="340" height="170" fill="transparent" />
 
@@ -110,7 +110,7 @@ export function FieldScene() {
         </Link>
 
         {/* === Worker hotspot === */}
-        <Link to="/labor-history" className="group cursor-pointer outline-none">
+        <Link to="/step-1" hash="labor" className="group cursor-pointer outline-none">
           <g>
             <rect x="280" y="190" width="120" height="170" fill="transparent" />
 
@@ -234,7 +234,7 @@ export function FieldScene() {
         </Link>
 
         {/* === Hut hotspot === */}
-        <Link to="/informality-context" className="group cursor-pointer outline-none">
+        <Link to="/step-1" hash="informality" className="group cursor-pointer outline-none">
           <g>
             <rect x="110" y="210" width="170" height="140" fill="transparent" />
 

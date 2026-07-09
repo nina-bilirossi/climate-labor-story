@@ -20,6 +20,37 @@ function Step1() {
       lede="What is informality? How come there's data on it? Why would it relate to climate change? Why India?"
     >
       <FieldScene />
+
+      <section id="climate" className="scroll-mt-24 pt-16">
+        <h2 className="font-display text-3xl md:text-4xl">Climate shocks in India</h2>
+        <p className="mt-4">
+          India is on the frontline of climate change. Heatwaves, erratic monsoons, and droughts
+          increasingly disrupt the agricultural calendar that most rural households depend on. These
+          shocks don't just harm crops — they ripple into labor markets, pushing workers toward
+          informal, precarious jobs.
+        </p>
+      </section>
+
+      <section id="informality" className="scroll-mt-24 pt-16">
+        <h2 className="font-display text-3xl md:text-4xl">What is informality?</h2>
+        <p className="mt-4">
+          Informal work is employment outside the reach of formal labor protections: no written
+          contract, no social security, no guaranteed minimum wage. In India, over 80% of the
+          workforce is informal — a share that has proven remarkably persistent across decades of
+          growth.
+        </p>
+      </section>
+
+      <section id="labor" className="scroll-mt-24 pt-16">
+        <h2 className="font-display text-3xl md:text-4xl">Indian labor policy history</h2>
+        <p className="mt-4">
+          From colonial-era factory acts to post-independence protective legislation and the more
+          recent Labor Codes, India's approach to regulating work has shifted repeatedly. Yet the
+          formal/informal divide has widened rather than closed, shaping how households absorb
+          shocks today.
+        </p>
+      </section>
+
     </ChapterLayout>
   );
 }
