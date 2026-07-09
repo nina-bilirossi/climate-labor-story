@@ -41,6 +41,9 @@ function Step1() {
           shocks don't just harm crops — they ripple into labor markets, pushing workers toward
           informal, precarious jobs.
         </p>
+        <div className="mt-4 text-foreground/80 italic">
+          Droughts and floods are linked to the same variables and mechanisms
+        </div>
       </section>
 
       <section id="labor" className="scroll-mt-24 pt-16">
