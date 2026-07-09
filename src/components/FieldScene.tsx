@@ -110,7 +110,7 @@ export function FieldScene() {
         </Link>
 
         {/* === Worker hotspot === */}
-        <Link to="/labor-history" className="group cursor-pointer outline-none">
+        <Link to="/step-1" hash="labor" className="group cursor-pointer outline-none">
           <g>
             <rect x="280" y="190" width="120" height="170" fill="transparent" />
 
