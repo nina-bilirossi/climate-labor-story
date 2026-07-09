@@ -28,6 +28,8 @@ function Step1() {
           contract, no social security, no guaranteed minimum wage. In India, over 80% of the
           workforce is informal — a share that has proven remarkably persistent across decades of
           growth.
+          <br /><br />
+          is it good or bad?
         </p>
       </section>
 
@@ -39,6 +41,9 @@ function Step1() {
           shocks don't just harm crops — they ripple into labor markets, pushing workers toward
           informal, precarious jobs.
         </p>
+        <div className="mt-4 text-foreground/80 italic">
+          Droughts and floods are linked to the same variables and mechanisms
+        </div>
       </section>
 
       <section id="labor" className="scroll-mt-24 pt-16">
