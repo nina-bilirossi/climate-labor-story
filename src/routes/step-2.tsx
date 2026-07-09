@@ -20,7 +20,7 @@ function Step2() {
     >
       <div className="prose-thesis space-y-8">
         <section>
-          <h3 className="text-xl font-bold mb-4">Contribution :</h3>
+          <h3 className="text-xl font-bold mb-4">I contribute to 3 main strands of the literature :</h3>
           
           <div className="space-y-6">
             <div>
