@@ -32,7 +32,7 @@ export function TrainerCard() {
         </div>
 
         {/* Stats */}
-        <div className="mt-4 grid grid-cols-2 gap-3 text-sm">
+        <div className="mt-3 grid grid-cols-2 gap-2 text-[11px]">
           <div>
             <p className="text-[10px] font-bold uppercase tracking-widest text-emerald-700 dark:text-emerald-400">
               Strengths
