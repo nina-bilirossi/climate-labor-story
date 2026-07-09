@@ -234,7 +234,7 @@ export function FieldScene() {
         </Link>
 
         {/* === Hut hotspot === */}
-        <Link to="/informality-context" className="group cursor-pointer outline-none">
+        <Link to="/step-1" hash="informality" className="group cursor-pointer outline-none">
           <g>
             <rect x="110" y="210" width="170" height="140" fill="transparent" />
 
