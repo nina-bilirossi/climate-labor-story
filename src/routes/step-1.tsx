@@ -33,7 +33,9 @@ function Step1() {
           <br /><br />
           is it good or bad?
         </p>
+        <InformalityTable />
       </section>
+
 
       <section id="climate" className="scroll-mt-24 pt-16">
         <h2 className="font-display text-3xl md:text-4xl">Climate shocks in India</h2>
