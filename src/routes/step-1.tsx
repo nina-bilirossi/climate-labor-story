@@ -21,16 +21,6 @@ function Step1() {
     >
       <FieldScene />
 
-      <section id="climate" className="scroll-mt-24 pt-16">
-        <h2 className="font-display text-3xl md:text-4xl">Climate shocks in India</h2>
-        <p className="mt-4">
-          India is on the frontline of climate change. Heatwaves, erratic monsoons, and droughts
-          increasingly disrupt the agricultural calendar that most rural households depend on. These
-          shocks don't just harm crops — they ripple into labor markets, pushing workers toward
-          informal, precarious jobs.
-        </p>
-      </section>
-
       <section id="informality" className="scroll-mt-24 pt-16">
         <h2 className="font-display text-3xl md:text-4xl">What is informality?</h2>
         <p className="mt-4">
@@ -38,6 +28,16 @@ function Step1() {
           contract, no social security, no guaranteed minimum wage. In India, over 80% of the
           workforce is informal — a share that has proven remarkably persistent across decades of
           growth.
+        </p>
+      </section>
+
+      <section id="climate" className="scroll-mt-24 pt-16">
+        <h2 className="font-display text-3xl md:text-4xl">Climate shocks in India</h2>
+        <p className="mt-4">
+          India is on the frontline of climate change. Heatwaves, erratic monsoons, and droughts
+          increasingly disrupt the agricultural calendar that most rural households depend on. These
+          shocks don't just harm crops — they ripple into labor markets, pushing workers toward
+          informal, precarious jobs.
         </p>
       </section>
 
