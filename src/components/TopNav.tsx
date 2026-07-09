@@ -30,10 +30,10 @@ export function TopNav({ visible = true }: Props) {
             CONTEXT <span aria-hidden>▾</span>
           </button>
           <div className="absolute right-0 top-full z-50 hidden min-w-[12rem] rounded-md border border-border/60 bg-background/95 p-2 shadow-lg backdrop-blur group-hover:block">
-            <Link to="/" hash="step-1" className={dropdownLink}>
+            <Link to="/step-1" className={dropdownLink}>
               Introduction
             </Link>
-            <Link to="/" hash="step-2" className={dropdownLink}>
+            <Link to="/step-2" className={dropdownLink}>
               Research gaps
             </Link>
           </div>
