@@ -27,8 +27,16 @@ function Step1() {
         <h2 className="font-display text-3xl md:text-4xl">What is informality?</h2>
         <p className="mt-4 text-white">
           <em>In short:</em> Informal work is employment outside the reach of formal labor protections: no
-          written contract, no social security, no guaranteed minimum wage. In India, over 88% of
-          the workforce is informal.
+          written contract, no social security, no guaranteed minimum wage. In India, over 87% of
+          the workforce is informal{" "}
+          <Link
+            to="/references"
+            hash="cite-ilostat2025"
+            className="underline decoration-dotted underline-offset-2 hover:decoration-solid"
+          >
+            (ILO 2025)
+          </Link>
+          .
           <br />
           <br />
           <em>In not so short:</em>
