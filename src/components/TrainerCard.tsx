@@ -55,8 +55,8 @@ export function TrainerCard() {
         </div>
 
         {/* Footer */}
-        <div className="mt-4 border-t-2 border-dashed border-foreground/20 pt-2 text-[10px] uppercase tracking-widest text-foreground/50">
-          No. 001 · MSc @ ETH Zürich
+        <div className="mt-auto border-t-2 border-dashed border-foreground/20 pt-2 text-[10px] uppercase tracking-widest text-foreground/50">
+          <div className="pt-2">No. 001 · MSc @ ETH Zürich</div>
         </div>
       </div>
     </div>
