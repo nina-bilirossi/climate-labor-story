@@ -32,6 +32,33 @@ function Step1() {
           <br /><br />
           Multifaceted definitons and perceptions.
           <br /><br />
+          Informality is one of those concepts that can be talked about or quantified in many
+          different ways. In fact, because countries have different laws, labor systems, and data
+          available, informality needs to be quantified and judged in different ways. One core
+          element to decide on when discussing informality is whether we are looking at firms or
+          workers. My research focuses on workers, as this more closely aligns with my desire to
+          observe the effects of climate change on livelihoods.
+          <br />
+          Nevertheless, the literature has provided much reflection on why firms decide to
+          formalize or not. Ulyssea (2020) provides an account of those views, and argues that the
+          three main paradigms are not contradictory, but rather highlight heterogeneous informal
+          firms within the same economy. The backbone argument to those views is that formalization
+          comes at a cost (administrative burden, regulatory constraints, financial barriers) which
+          firms cannot or do not want to pay. The three main paradigms around informality are:
+          <br />
+          the survivalist view: those informal firms would not break even if they were to become
+          formal. They operate in a different bubble of the economy and do not compete with formal
+          firms. They are too different, not from the same world.
+          <br />
+          the unfair competition view: those informal firms would break even if they were to become
+          formal, but benefit from remaining informal because of the avoided costs.
+          <br />
+          the untapped entrepreneurial energy view: those informal firms would break even and net
+          benefit from formalizing (e.g., they could expand), but remain informal because of
+          formalization constraints.
+          <br /><br />
+          Informality os
+          <br /><br />
           Is it good or bad? Depends who you ask
         </p>
         <InformalityTable />
