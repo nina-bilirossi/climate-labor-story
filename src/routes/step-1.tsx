@@ -72,9 +72,9 @@ function Step1() {
           </li>
         </ul>
         <p className="mt-4 text-white">
-          Informality os
+          Informality is
           <br /><br />
-          Is it good or bad? Depends who you ask
+          Is it good or bad? Depends who you ask.
         </p>
         <InformalityTable />
       </section>
