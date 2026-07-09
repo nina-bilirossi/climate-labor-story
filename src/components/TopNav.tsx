@@ -60,7 +60,7 @@ export function TopNav({ visible = true }: Props) {
 
         <span className="text-foreground/30">·</span>
 
-        <Link to="/" hash="step-6" className={linkBase}>
+        <Link to="/step-6" className={linkBase}>
           Conclusions
         </Link>
 
