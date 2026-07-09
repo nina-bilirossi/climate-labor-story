@@ -199,7 +199,7 @@ function RoadmapStepCard({ step, highlight = false }: { step: RoadmapStep; highl
         {step.custom === "fieldscene" ? <FieldScene /> : null}
       </div>
       <p className="mt-2 text-[10px] uppercase tracking-[0.3em] text-foreground/50">
-        {highlight ? "The big finish · click" : "Click to open"}
+        {highlight ? "\n" : "Click to open"}
       </p>
     </button>
   );
