@@ -62,12 +62,12 @@ function AboutPage() {
 
       <div className="not-prose flex flex-wrap items-center gap-4 pt-2">
         <span className="inline-flex items-center gap-2 text-sm text-foreground/70">
-          <span className="text-lg leading-none">🇫🇷</span> French
+          <span className="text-lg leading-none">🇫🇷</span>
         </span>
         <span className="inline-flex items-center gap-2 text-sm text-foreground/70">
-          <span className="text-lg leading-none">🇧🇷</span> Brazilian
+          <span className="text-lg leading-none">🇧🇷</span>
         </span>
-        <span className="mx-1 text-foreground/30">·</span>
+        <span className="mx-1 text-foreground/30">· &nbsp;</span>
         <a
           href="https://www.linkedin.com/in/nina-bili-rossi"
           target="_blank"
