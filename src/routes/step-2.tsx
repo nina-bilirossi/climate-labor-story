@@ -39,7 +39,7 @@ function Step2() {
               <ul className="list-disc pl-5 space-y-2">
                 <li>Prior work documents the macroeconomic costs of floods/droughts in India (<Cite k="Panwar2020" />, <Cite k="Bahinipati2026" />) and the migration they induce (<Cite k="Ulyssea2026" />)</li>
                 <li>Along with <Cite k="LintBarrage2026" /> on informality, climate policy, and hurricanes, this paper provides state-level evidence that different types of climatic exposure directly reshape the formal-informal composition of the labor force, treating informality as an outcome in its own right rather than a background condition</li>
-                <li>Notes that much existing research focuses on temperature increases, rather than the more frequent, less predictable shocks (droughts, floods) that arise from those increases</li>
+                <li>Notes that much existing research focuses on temperature increases, rather than shocks (droughts, floods) that arise from those increases</li>
               </ul>
             </div>
 
