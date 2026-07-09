@@ -1,6 +1,8 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { ChapterLayout } from "@/components/ChapterLayout";
 import { FieldScene } from "@/components/FieldScene";
+import { InformalityTable } from "@/components/InformalityTable";
+
 
 export const Route = createFileRoute("/step-1")({
   head: () => ({
@@ -31,7 +33,9 @@ function Step1() {
           <br /><br />
           is it good or bad?
         </p>
+        <InformalityTable />
       </section>
+
 
       <section id="climate" className="scroll-mt-24 pt-16">
         <h2 className="font-display text-3xl md:text-4xl">Climate shocks in India</h2>
