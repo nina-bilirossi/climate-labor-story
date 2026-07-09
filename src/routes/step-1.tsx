@@ -125,7 +125,9 @@ function Step1() {
           informal, precarious jobs.
         </p>
         <div className="mt-4 text-foreground/80 italic">
-          Droughts and floods are linked to the same variables and mechanisms
+          Droughts and floods are linked to the same variables (temperature, precipitation, soil
+          moisture) and mechanisms: temperature increase =&gt; water retention of air increases
+          =&gt; it is both drier, and when it rains, it rains much more intensely.
         </div>
       </section>
 
