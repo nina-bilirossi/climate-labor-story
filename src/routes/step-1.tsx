@@ -28,6 +28,8 @@ function Step1() {
           contract, no social security, no guaranteed minimum wage. In India, over 80% of the
           workforce is informal — a share that has proven remarkably persistent across decades of
           growth.
+          <br /><br />
+          is it good or bad?
         </p>
       </section>
 
