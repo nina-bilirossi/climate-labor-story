@@ -61,7 +61,7 @@ export function TopNav({ visible = true }: Props) {
         <span className="text-foreground/30">·</span>
 
         <Link to="/step-6" className={linkBase}>
-          Conclusions
+          CONCLUSION
         </Link>
 
         <span className="text-foreground/30">·</span>
