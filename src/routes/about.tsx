@@ -1,7 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Linkedin, Mail } from "lucide-react";
 import { ChapterLayout } from "@/components/ChapterLayout";
-import { TrainerCard } from "@/components/TrainerCard";
+import ninaPhoto from "@/assets/nina-portrait.jpeg.asset.json";
 
 export const Route = createFileRoute("/about")({
   head: () => ({
@@ -30,8 +30,12 @@ function AboutPage() {
       lede="MSc Agricultural Economics @ ETH Zürich. I like maths, economics, and am fascinated by food and agricultural systems."
     >
       <div className="not-prose flex flex-col sm:flex-row gap-6 items-stretch">
-        <div className="shrink-0 flex">
-          <TrainerCard />
+        <div className="shrink-0 w-full sm:w-56">
+          <img
+            src={ninaPhoto.url}
+            alt="Nina hiking in the mountains"
+            className="w-full h-full object-cover rounded-lg shadow-md"
+          />
         </div>
         <p className="text-foreground/85 leading-relaxed">
           I am defined by curiosity and desire to learn.&nbsp;After my Bachelor's in Maths and
@@ -56,7 +60,14 @@ function AboutPage() {
         .
       </p>
 
-      <div className="flex items-center gap-4 pt-2">
+      <div className="not-prose flex flex-wrap items-center gap-4 pt-2">
+        <span className="inline-flex items-center gap-2 text-sm text-foreground/70">
+          <span className="text-lg leading-none">🇫🇷</span> French
+        </span>
+        <span className="inline-flex items-center gap-2 text-sm text-foreground/70">
+          <span className="text-lg leading-none">🇧🇷</span> Brazilian
+        </span>
+        <span className="mx-1 text-foreground/30">·</span>
         <a
           href="https://www.linkedin.com/in/nina-bili-rossi"
           target="_blank"
