@@ -1,6 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Linkedin, Mail } from "lucide-react";
 import { ChapterLayout } from "@/components/ChapterLayout";
+import { TrainerCard } from "@/components/TrainerCard";
 
 export const Route = createFileRoute("/about")({
   head: () => ({
@@ -28,6 +29,8 @@ function AboutPage() {
       title="Hi, I'm Nina"
       lede="MSc Agricultural Economics @ ETH Zürich. I like math, economics, and am fascinated bvy foos and agricultural systems."
     >
+      <TrainerCard />
+
       <p>
         I am defined by curiosity and desire to learn.&nbsp;After my Bachelor's in Maths and
         Economics,&nbsp;I wanted to study something more applied&nbsp;and&nbsp;tangible, and to learn
