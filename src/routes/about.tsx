@@ -1,4 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
+import { Linkedin, Mail } from "lucide-react";
 import { ChapterLayout } from "@/components/ChapterLayout";
 
 export const Route = createFileRoute("/about")({
@@ -48,6 +49,25 @@ function AboutPage() {
         </Link>
         .
       </p>
+
+      <div className="flex items-center gap-4 pt-2">
+        <a
+          href="https://www.linkedin.com/in/nina-bili-rossi"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="LinkedIn profile"
+          className="text-foreground/70 hover:text-foreground transition-colors"
+        >
+          <Linkedin size={20} />
+        </a>
+        <a
+          href="mailto:nina.bilirossi@gmail.com"
+          aria-label="Email Nina"
+          className="text-foreground/70 hover:text-foreground transition-colors"
+        >
+          <Mail size={20} />
+        </a>
+      </div>
     </ChapterLayout>
   );
 }
