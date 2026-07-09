@@ -16,9 +16,7 @@ function Step2() {
     <ChapterLayout
       eyebrow="Step 02"
       title="Figuring out the research gaps"
-      lede="I investigate the effect of drought and flood shocks on casual labor force participation in India. I combine satellite climate data with labor survey data to investigate a potential correlation and argue a causal relationship. 
-
-The analysis distinguishes between formal and informal segments of the labor force and tests whether exposure to climatic events is a significant determinant of informality. Two competing mechanisms are plausible a priori. On one hand, the smaller production units and lower capital endowments characteristic of informal firms (Jat 2026) may render them more fragile in the face of climate shocks, reducing informality as these enterprises collapse. On the other hand, the relative flexibility and low fixed costs of informal arrangements may insulate such workers from rapid-onset events, while formal employment bears the greater burden of infrastructure destruction and economic contraction. Adjudicating between these mechanisms has direct implications for climate adaptation policy and worker protection frameworks. This study contributes to the growing literature on loss and damage from climate change, as defined by the UNFCCC (2012), and is aligned with SDG 8's commitment to promoting decent work and sustainable economic growth (SDG). By illuminating how extreme weather events reshape the formal-informal boundary, it aims to inform the design of more targeted and effective labor market policies in climate-vulnerable developing economies."
+      lede="I investigate the effect of drought and flood shocks on casual labor force participation in India. I combine satellite climate data with labor survey data to investigate a potential correlation and argue a causal relationship."
     >
       <div className="prose-thesis space-y-8">
         <section>
