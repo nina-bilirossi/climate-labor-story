@@ -27,7 +27,7 @@ function AboutPage() {
     <ChapterLayout
       eyebrow="About"
       title="Hi, I'm Nina"
-      lede="MSc Agricultural Economics @ ETH Zürich. I like math, economics, and am fascinated bvy foos and agricultural systems."
+      lede="MSc Agricultural Economics @ ETH Zürich. I like math, economics, and am fascinated by food and agricultural systems."
     >
       <TrainerCard />
 
