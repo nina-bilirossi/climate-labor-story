@@ -29,9 +29,9 @@ function Step1() {
           Informal work is employment outside the reach of formal labor protections: no written
           contract, no social security, no guaranteed minimum wage. In India, over 88% of the
           workforce is informal.
-          <br /><br />
-          <span className="text-xl font-bold">Multifaceted definitons and perceptions.</span>
-          <br /><br />
+        </p>
+        <h3 className="mt-8 text-xl font-bold text-white">Multifaceted definitons and perceptions</h3>
+        <p className="mt-4 text-white">
           Informality is one of those concepts that can be talked about or quantified in many
           different ways. In fact, because countries have different laws, labor systems, and data
           available, informality needs to be quantified and judged in different ways. One core
