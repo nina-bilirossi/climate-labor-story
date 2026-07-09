@@ -19,7 +19,7 @@ export function TrainerCard() {
 
         {/* Name + type */}
         <div className="mt-3 flex items-baseline justify-between">
-          <h3 className="font-display text-2xl leading-none">Nina</h3>
+          <h3 className="font-display text-lg leading-none">Nina</h3>
           <span className="text-xs font-semibold uppercase tracking-widest text-foreground/60">
             Agri-Econ · Lv. 24
           </span>
