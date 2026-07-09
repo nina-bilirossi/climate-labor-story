@@ -42,7 +42,7 @@ export function FieldScene() {
         />
 
         {/* === Climate hotspot: sun + cloud === */}
-        <Link to="/climate-shocks" className="group cursor-pointer outline-none">
+        <Link to="/step-1" hash="climate" className="group cursor-pointer outline-none">
           <g>
             <rect x="430" y="20" width="340" height="170" fill="transparent" />
 
