@@ -88,6 +88,3 @@ function AboutPage() {
     </ChapterLayout>
   );
 }
-    </ChapterLayout>
-  );
-}
