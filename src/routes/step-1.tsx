@@ -116,7 +116,7 @@ function Step1() {
           </div>
 
           <div>
-            <h3 className="text-xl font-bold">Is informality good or bad?</h3>
+            <h3 className="text-xl font-bold">India: a critical site to study informality</h3>
             <p className="mt-2">Depends who you ask.</p>
           </div>
         </div>
@@ -128,6 +128,8 @@ function Step1() {
         <h2 className="font-display text-3xl md:text-4xl">
         </h2>
         <p className="mt-4">
+          Is informality good or bad?
+          <br /><br />
           India offers a particularly instructive case for the study of climate shocks and informality. With the world's largest population and
           one of the highest informal employment rates globally — 87% as of 2025{" "}
           <Link to="/references" hash="cite-ilostat2025" className="underline decoration-dotted underline-offset-2 hover:decoration-solid">
