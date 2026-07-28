@@ -278,34 +278,25 @@ function Step1() {
             </Link>
             .
           </p>
-          <p>
-            <ul className="list-disc pl-5 space-y-4">
+          <ul className="list-disc pl-5 space-y-4">
             <li>
-            Informality was further pushed by historically low educational attainment. In 2012, 30% of India's 485-million-strong workforce was illiterate, and 52% had only secondary-level schooling. A lower level of education hinders access to regular salaried employment; workers then cluster in casual wage labor and own-account self-employment, mapping to informal employment.
-            <\li>
-            <\ul>
-          </p>
-          <p>
-            <ul className="list-disc pl-5 space-y-4">
+              Informality was further pushed by historically low educational attainment. In 2012, 30% of India's 485-million-strong workforce was illiterate, and 52% had only secondary-level schooling. A lower level of education hinders access to regular salaried employment; workers then cluster in casual wage labor and own-account self-employment, mapping to informal employment.
+            </li>
             <li>
-            <strong>More recent news:</strong> The share of agricultural workers fell in the early 2000s, consistent with a Lewisian structural transformation. Organized-sector employment grew, but the share of informal workers within that sector rose between 2000 and 2011-12, as firms substituted regular workers with contract labor to circumvent labor laws.
-          </p>
-          <p>
-            <\li>
-            <\ul>
-            <ul className="list-disc pl-5 space-y-4">
+              <strong>More recent news:</strong> The share of agricultural workers fell in the early 2000s, consistent with a Lewisian structural transformation. Organized-sector employment grew, but the share of informal workers within that sector rose between 2000 and 2011-12, as firms substituted regular workers with contract labor to circumvent labor laws.
+            </li>
             <li>
-            Between 2011–12 and 2017–18, informality — defined as employment without a written contract, paid leave, health benefits, or social security — declined modestly in aggregate, falling from 92.4% to 90.7% of the workforce. This overall reduction masks divergent sectoral dynamics: informality contracted within the organized sector while simultaneously increasing in the unorganized sector, even as the unorganized sector’s share of total employment shrank{" "}
-            <Link to="/references" hash="cite-murthy2019" className="underline decoration-dotted underline-offset-2 hover:decoration-solid">
-              (Murthy, 2019)
-            </Link>
-            . The precise picture therefore depends on which definition of informality one adopts.
-              <\li>
-            <\ul>
-          </p>
+              Between 2011–12 and 2017–18, informality — defined as employment without a written contract, paid leave, health benefits, or social security — declined modestly in aggregate, falling from 92.4% to 90.7% of the workforce. This overall reduction masks divergent sectoral dynamics: informality contracted within the organized sector while simultaneously increasing in the unorganized sector, even as the unorganized sector’s share of total employment shrank{" "}
+              <Link to="/references" hash="cite-murthy2019" className="underline decoration-dotted underline-offset-2 hover:decoration-solid">
+                (Murthy, 2019)
+              </Link>
+              . The precise picture therefore depends on which definition of informality one adopts.
+            </li>
+          </ul>
           <p>
             For more details, check out the ILO paper or the thesis manuscript.
           </p>
+
         </div>
       </section>
 
