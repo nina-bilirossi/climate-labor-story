@@ -169,34 +169,6 @@ function Step1() {
         </div>
 
         <div className="mt-8 text-white space-y-6">
-          <div>
-            <h3 className="text-xl font-bold">India: a critical site for informality research</h3>
-            <p className="mt-4">
-              India offers a particularly instructive case for the study of climate shocks and informality. With the world's largest population and
-              one of the highest informal employment rates globally — 87% as of 2025{" "}
-              <Link to="/references" hash="cite-ilostat2025" className="underline decoration-dotted underline-offset-2 hover:decoration-solid">
-                (ILO 2025)
-              </Link>
-              {" "}— India concentrates an extraordinary share of the world's informal workforce.
-              In 2017, informal enterprises accounted for 43% of non-farm GDP and 68% of all
-              non-farm employment{" "}
-              <Link to="/references" hash="cite-jat2026" className="underline decoration-dotted underline-offset-2 hover:decoration-solid">
-                (Jat 2026)
-              </Link>
-              . Agriculture, which employs roughly 42% of the labor force, remains deeply
-              intertwined with informality, seasonal precarity, and subsistence livelihoods{" "}
-              <Link to="/references" hash="cite-ilostat2025" className="underline decoration-dotted underline-offset-2 hover:decoration-solid">
-                (ILO 2025)
-              </Link>
-              ,{" "}
-              <Link to="/references" hash="cite-behera2025" className="underline decoration-dotted underline-offset-2 hover:decoration-solid">
-                (Behera 2025)
-              </Link>
-              . These structural conditions make India a critical site for studying the channels
-              through which economic shocks propagate across formal and informal segments of the
-              labor market.
-            </p>
-          </div>
 
           <div>
             <h3 className="text-xl font-bold">Acute exposure to climate risk</h3>
