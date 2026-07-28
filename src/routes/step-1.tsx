@@ -142,7 +142,7 @@ function Step1() {
           <div>
             <h3 className="text-xl font-bold">India: a critical site for informality research</h3>
             <p className="mt-4">
-              India offers a particularly instructive case. With the world's largest population and
+              India offers a particularly instructive case for the study of climate shocks and informality. With the world's largest population and
               one of the highest informal employment rates globally — 87% as of 2025{" "}
               <Link to="/references" hash="cite-ilostat2025" className="underline decoration-dotted underline-offset-2 hover:decoration-solid">
                 (ILO 2025)
