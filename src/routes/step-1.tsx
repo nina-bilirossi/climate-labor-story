@@ -247,45 +247,41 @@ function Step1() {
           <ul className="list-disc pl-5 space-y-4">
             <li>
               After about 200 years of colonial governance, India became independent from British rule in 1947. India launched Five-Year Plans with the goal of directing state resources into promoting balanced economic growth and modernizing infrastructure, heavy industry, and agriculture.
+              <br /><br />
+              Three structural features of post-independence industrial strategy jointly depressed the demand for formal labor:
+              <ul className="mt-4 list-decimal pl-6 space-y-4">
+                <li>
+                  First, domestic savings were concentrated in heavy industry and away from agriculture. Agricultural workers, left with limited “funding”, sought work outside of agriculture. But modern industry is capital intensive, meaning it needs fewer workers for the same output. The formal industrial sector could not absorb migrants at anything close to the rate at which they were leaving agriculture :/ . With no unemployment benefits or savings cushion to fall back on, these workers had to find income immediately, and were instead absorbed into traditional services and micro-enterprises in the unorganized sector.
+                </li>
+                <li>
+                  Second, successive Industrial Policies made sure to protect small-scale enterprises by reserving the manufacturing of those goods precisely for those firms. Medium and large firms were excluded from these markets, while small enterprises had no incentive to grow, since growth would cost them their protected status and expose them to heavier regulatory obligations.
+                </li>
+                <li>
+                  The third factor was the emergence of a plethora of central and state labor laws, mostly applied to large enterprises and workers in the organized sector, with restrictions increasing with firm size. Those gave employers in the organized sector strong incentives to limit headcount rather than expand, as they created additional constraints and confusion, since they were often inconsistent.
+                </li>
+              </ul>
+              <div className="mt-4">
+                <p>
+                  The result was what economists call the "missing middle": a landscape polarized between a few capital-heavy giants and millions of informal micro-firms, with a structural void of medium-sized enterprises.
+                </p>
+                <p className="mt-4">
+                  This is consistent with the broader theoretical literature: informal firms remain small precisely to avoid inspection or restrictions{" "}
+                  <Link to="/references" hash="cite-ulyssea2020" className="underline decoration-dotted underline-offset-2 hover:decoration-solid">
+                    (Ulyssea 2020)
+                  </Link>
+                  , while regulatory friction traps potentially productive firms outside the formal sector{" "}
+                  <Link to="/references" hash="cite-laporta2014" className="underline decoration-dotted underline-offset-2 hover:decoration-solid">
+                    (La Porta 2014)
+                  </Link>
+                  .
+                </p>
+              </div>
             </li>
-          </ul>
-
-          <p>
-            Three structural features of post-independence industrial strategy jointly depressed the demand for formal labor:
-          </p>
-          <ul className="list-disc pl-5 space-y-4">
-            <li>
-              First, domestic savings were concentrated in heavy industry and away from agriculture. Agricultural workers, left with limited “funding”, sought work outside of agriculture. But modern industry is capital intensive, meaning it needs fewer workers for the same output. The formal industrial sector could not absorb migrants at anything close to the rate at which they were leaving agriculture :/ . With no unemployment benefits or savings cushion to fall back on, these workers had to find income immediately, and were instead absorbed into traditional services and micro-enterprises in the unorganized sector.
-            </li>
-            <li>
-              Second, successive Industrial Policies made sure to protect small-scale enterprises by reserving the manufacturing of those goods precisely for those firms. Medium and large firms were excluded from these markets, while small enterprises had no incentive to grow, since growth would cost them their protected status and expose them to heavier regulatory obligations.
-            </li>
-            <li>
-              The third factor was the emergence of a plethora of central and state labor laws, mostly applied to large enterprises and workers in the organized sector, with restrictions increasing with firm size. Those gave employers in the organized sector strong incentives to limit headcount rather than expand, as they created additional constraints and confusion, since they were often inconsistent.
-            </li>
-          </ul>
-          <p>
-            The result was what economists call the "missing middle": a landscape polarized between a few capital-heavy giants and millions of informal micro-firms, with a structural void of medium-sized enterprises.
-          </p>
-          <p>
-            This is consistent with the broader theoretical literature: informal firms remain small precisely to avoid inspection or restrictions{" "}
-            <Link to="/references" hash="cite-ulyssea2020" className="underline decoration-dotted underline-offset-2 hover:decoration-solid">
-              (Ulyssea 2020)
-            </Link>
-            , while regulatory friction traps potentially productive firms outside the formal sector{" "}
-            <Link to="/references" hash="cite-laporta2014" className="underline decoration-dotted underline-offset-2 hover:decoration-solid">
-              (La Porta 2014)
-            </Link>
-            .
-          </p>
-          <ul className="list-disc pl-5 space-y-4">
             <li>
               Informality was further pushed by historically low educational attainment. In 2012, 30% of India's 485-million-strong workforce was illiterate, and 52% had only secondary-level schooling. A lower level of education hinders access to regular salaried employment; workers then cluster in casual wage labor and own-account self-employment, mapping to informal employment.
             </li>
             <li>
               <strong>More recent news:</strong> The share of agricultural workers fell in the early 2000s, consistent with a Lewisian structural transformation. Organized-sector employment grew, but the share of informal workers within that sector rose between 2000 and 2011-12, as firms substituted regular workers with contract labor to circumvent labor laws.
-            </li>
-            <li>
               Between 2011–12 and 2017–18, informality — defined as employment without a written contract, paid leave, health benefits, or social security — declined modestly in aggregate, falling from 92.4% to 90.7% of the workforce. This overall reduction masks divergent sectoral dynamics: informality contracted within the organized sector while simultaneously increasing in the unorganized sector, even as the unorganized sector’s share of total employment shrank{" "}
               <Link to="/references" hash="cite-murthy2019" className="underline decoration-dotted underline-offset-2 hover:decoration-solid">
                 (Murthy, 2019)
