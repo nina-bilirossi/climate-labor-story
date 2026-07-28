@@ -234,9 +234,22 @@ function Step1() {
 
       <section id="labor" className="scroll-mt-24 pt-16">
         <h2 className="font-display text-3xl md:text-4xl">Indian labor policy history</h2>
-        <p className="mt-4">
-          Informality in India is a result of structural policy decisions and limited educational attainments among population subgroups.
-        </p>
+        <div className="mt-4 space-y-4">
+          <p>
+            Informality in India is a result of structural policy decisions and limited educational attainments among population subgroups.
+          </p>
+          <p>
+            The ILO Employment Policy Department’s technical report{" "}
+            <Link to="/references" hash="cite-mehrotra2019" className="underline decoration-dotted underline-offset-2 hover:decoration-solid">
+              (Mehrotra, 2019)
+            </Link>{" "}
+            provides a complete and comprehensive background on the origins and recent trends of informality in India. I recommend getting a look at it, but here are the essentials for what relates to my research:
+          </p>
+          <ul className="list-disc pl-5 space-y-2">
+            <li>
+            </li>
+          </ul>
+        </div>
       </section>
 
     </ChapterLayout>
