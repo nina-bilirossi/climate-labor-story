@@ -235,10 +235,7 @@ function Step1() {
       <section id="labor" className="scroll-mt-24 pt-16">
         <h2 className="font-display text-3xl md:text-4xl">Indian labor policy history</h2>
         <p className="mt-4">
-          From colonial-era factory acts to post-independence protective legislation and the more
-          recent Labor Codes, India's approach to regulating work has shifted repeatedly. Yet the
-          formal/informal divide has widened rather than closed, shaping how households absorb
-          shocks today.
+          Informality in India is a result of structural policy decisions and limited educational attainments among population subgroups.
         </p>
       </section>
 
