@@ -37,7 +37,8 @@ export function SunCursor() {
     };
   }, []);
 
-  const size = hot ? 34 : 18;
+  const size = hot ? 38 : 14;
+  const opacity = hot ? 0.95 : 0.55;
 
   return (
     <div
@@ -52,13 +53,15 @@ export function SunCursor() {
         borderRadius: "9999px",
         pointerEvents: "none",
         zIndex: 2147483647,
-        opacity: visible ? 1 : 0,
+        opacity: visible ? opacity : 0,
         transition:
           "width 180ms ease, height 180ms ease, opacity 200ms ease, background 200ms ease, box-shadow 200ms ease",
-        background:
-          "radial-gradient(circle at 50% 50%, oklch(0.92 0.16 90 / 0.95) 0%, oklch(0.88 0.16 80 / 0.6) 45%, oklch(0.85 0.18 75 / 0) 70%)",
-        boxShadow:
-          "0 0 12px 4px oklch(0.9 0.17 85 / 0.55), 0 0 28px 10px oklch(0.88 0.16 80 / 0.28)",
+        background: hot
+          ? "radial-gradient(circle at 50% 50%, oklch(0.95 0.18 92 / 0.98) 0%, oklch(0.9 0.18 85 / 0.75) 45%, oklch(0.85 0.18 75 / 0) 70%)"
+          : "radial-gradient(circle at 50% 50%, oklch(0.92 0.14 90 / 0.75) 0%, oklch(0.88 0.14 80 / 0.35) 45%, oklch(0.85 0.16 75 / 0) 70%)",
+        boxShadow: hot
+          ? "0 0 14px 5px oklch(0.93 0.19 88 / 0.75), 0 0 36px 14px oklch(0.9 0.18 82 / 0.45)"
+          : "0 0 6px 2px oklch(0.9 0.15 85 / 0.35), 0 0 16px 5px oklch(0.88 0.14 80 / 0.18)",
         mixBlendMode: "screen",
       }}
     />
