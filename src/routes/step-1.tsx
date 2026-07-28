@@ -116,7 +116,7 @@ function Step1() {
           </div>
 
           <div>
-            <h3 className="text-xl font-bold">Is informality good or bad?</h3>
+            <h3 className="text-xl font-bold">India: a critical site to study informality</h3>
             <p className="mt-2">Depends who you ask.</p>
           </div>
         </div>
