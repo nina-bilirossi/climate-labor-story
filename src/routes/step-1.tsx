@@ -242,9 +242,15 @@ function Step1() {
               (Mehrotra, 2019)
             </Link>{" "}
             provides a complete and comprehensive background on the origins and recent trends of informality in India. I recommend getting a look at it, but here are the essentials for what relates to my research:
-            <br />
-            After about 200 years of colonial governance, India became independent from British rule in 1947. India launched Five-Year Plans with the goal of directing state resources into promoting balanced economic growth and modernizing infrastructure, heavy industry, and agriculture.
-            <br />
+          </p>
+
+          <ul className="list-disc pl-5 space-y-4">
+            <li>
+              After about 200 years of colonial governance, India became independent from British rule in 1947. India launched Five-Year Plans with the goal of directing state resources into promoting balanced economic growth and modernizing infrastructure, heavy industry, and agriculture.
+            </li>
+          </ul>
+
+          <p>
             Three structural features of post-independence industrial strategy jointly depressed the demand for formal labor:
           </p>
           <ul className="list-disc pl-5 space-y-4">
