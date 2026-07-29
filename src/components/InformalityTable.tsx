@@ -44,7 +44,7 @@ const rows: {
       { text: "Flexible hours", cites: ["5", "8"] },
       { text: "Tax evasion", cites: ["5", "8"] },
       { text: "Autonomy", cites: ["1", "5"] },
-      { text: "Reduced administrative burden", cites: ["13"] },
+      { text: "Reduced administrative burden", cites: ["12"] },
     ],
     cons: [
       { text: "Lower wage", cites: ["1", "10"] },
@@ -64,16 +64,16 @@ const rows: {
     pros: [
       { text: "Tax evasion", cites: ["2"] },
       { text: "Reduced entry costs", cites: ["8"] },
-      { text: "Reduced recurrent administrative burden", cites: ["8", "13"] },
+      { text: "Reduced recurrent administrative burden", cites: ["8", "12"] },
     ],
     cons: [
       { text: "Forced to remain small*", cites: ["3"] },
       { text: "Risk of inspection (stress)", cites: ["7"] },
       {
         text: "Difficult access to financial products (credit, insurance)",
-        cites: ["2", "11", "13"],
+        cites: ["2", "11", "12"],
       },
-      { text: "Limited physical capital accumulation", cites: ["13"] },
+      { text: "Limited physical capital accumulation", cites: ["12"] },
       { text: "Low productivity and low quality output", cites: ["2"] },
     ],
   },
@@ -83,11 +83,11 @@ const rows: {
     cons: [
       { text: "Tax revenue loss, distortions", cites: ["6", "12"] },
       { text: "Inadequate worker protection policy", cites: ["9"] },
-      { text: "Low productivity, resource misallocation", cites: ["3", "13"] },
+      { text: "Low productivity, resource misallocation", cites: ["3", "12"] },
       { text: "Distributional concerns**", cites: ["4", "5"] },
       { text: "Less traceability of energy and capital use", cites: ["6"] },
       { text: "Unfair competition", cites: ["2"] },
-      { text: "Slower human capital accumulation", cites: ["13"] },
+      { text: "Slower human capital accumulation", cites: ["12"] },
     ],
   },
 ];
