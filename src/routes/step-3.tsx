@@ -186,24 +186,40 @@ function Step3() {
               </span>
             </summary>
             <div className="mt-4 space-y-4 text-foreground/80">
-              <p className="whitespace-pre-line">
-                Labor data: Periodic Labor Force Survey of India (PLFS)
-                {"\n\n"}
-                • Representative national household survey{"\n"}
-                • Yearly from 2017 to 2024, for each of the 36 states and union territories{"\n"}
-                • Open access, upon request{"\n"}
-                More infoo on survey design:{" "}
-                <a 
-                  href="https://www.dataforindia.com/plfs-explainer/" 
-                  target="_blank" 
+              <p className="font-semibold text-foreground/90">
+                &gt; Labor data:&nbsp;Periodic Labor Force Survey of India (PLFS)
+              </p>
+              <ul className="list-disc pl-5 space-y-1">
+                <li>Representative national household survey</li>
+                <li>Yearly from 2017 to 2024, for each of the 36 states and union territories</li>
+                <li>Open access, upon request</li>
+              </ul>
+              <p>
+                More info on survey design:{" "}
+                <a
+                  href="https://www.dataforindia.com/plfs-explainer/"
+                  target="_blank"
                   rel="noopener noreferrer"
                   className="underline decoration-[color:var(--sun)]/30 hover:decoration-[color:var(--sun)] transition-colors"
                 >
                   https://www.dataforindia.com/plfs-explainer/
                 </a>
-                {"\n\n"}
-                Index construction (using Stata)
               </p>
+              
+              <div className="pt-4 space-y-4">
+                <p className="font-semibold text-foreground/90">
+                  &gt; Index construction (using Stata)
+                </p>
+                <p>
+                  My main measure of informality is the <span className="font-bold text-foreground">share of casual workers</span> among all workers aged 15 to 64. 
+                  Casual worker status is defined as including individuals who worked in a household enterprise (self-employed) as own account workers or helpers, as casual wage labor in public works, or as casual wage labor in other types of work. 
+                  This excludes individuals who worked as employers in a household enterprise or as salaried or regular-wage workers. 
+                  Note that begging and prostitution are excluded from the labor force (as per the PLFS classification).
+                </p>
+                <p>
+                  The status of a casual worker is determined if an individual engaged in casual work as a primary or subsidiary activity (≥ 30 days) over the past 365 days.
+                </p>
+              </div>
             </div>
           </details>
         </section>
