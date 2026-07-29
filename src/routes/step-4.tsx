@@ -29,8 +29,8 @@ function Step4() {
     const y = e.clientY - rect.top;
     const bgW = rect.width * ZOOM;
     const bgH = rect.height * ZOOM;
-    const bgX = -(x * ZOOM - LENS_SIZE / 2);
-    const bgY = -(y * ZOOM - LENS_SIZE / 2);
+    const bgX = -(x * ZOOM - LENS_W / 2);
+    const bgY = -(y * ZOOM - LENS_H / 2);
     setLens({ x: e.clientX, y: e.clientY, bgX, bgY, bgW, bgH, visible: true });
   };
 
