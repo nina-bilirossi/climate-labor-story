@@ -118,18 +118,49 @@ function Step4() {
             className="relative w-full max-w-7xl max-h-full flex flex-col md:flex-row gap-4 overflow-auto rounded-lg bg-background p-4"
             onClick={(e) => e.stopPropagation()}
           >
-            <div className="flex items-center justify-between md:hidden">
-              <span className="text-sm font-medium text-foreground">
-                Mind map of my regression settings and structure
-              </span>
-              <button
-                type="button"
-                onClick={() => setZoomOpen(false)}
-                className="text-sm px-2 py-1 rounded hover:bg-foreground/10"
-                aria-label="Close zoom view"
-              >
-                ✕
-              </button>
+            <div className="flex flex-col gap-2 md:hidden">
+              <div className="flex items-center justify-between">
+                <span className="text-sm font-medium text-foreground">
+                  Mind map of my regression settings and structure
+                </span>
+                <button
+                  type="button"
+                  onClick={() => setZoomOpen(false)}
+                  className="text-sm px-2 py-1 rounded hover:bg-foreground/10"
+                  aria-label="Close zoom view"
+                >
+                  ✕
+                </button>
+              </div>
+              <div className="flex items-center gap-2 text-xs text-muted-foreground">
+                <button
+                  type="button"
+                  onClick={() => setZoom((z) => Math.max(1, +(z - 0.5).toFixed(2)))}
+                  className="px-2 py-1 rounded border border-border hover:bg-foreground/5"
+                  aria-label="Zoom out"
+                >
+                  −
+                </button>
+                <input
+                  type="range"
+                  min={1}
+                  max={6}
+                  step={0.1}
+                  value={zoom}
+                  onChange={(e) => setZoom(+e.target.value)}
+                  className="flex-1 accent-[color:var(--sun)]"
+                  aria-label="Zoom level"
+                />
+                <button
+                  type="button"
+                  onClick={() => setZoom((z) => Math.min(6, +(z + 0.5).toFixed(2)))}
+                  className="px-2 py-1 rounded border border-border hover:bg-foreground/5"
+                  aria-label="Zoom in"
+                >
+                  +
+                </button>
+                <span className="tabular-nums font-medium text-foreground w-10 text-right">{zoom.toFixed(1)}×</span>
+              </div>
             </div>
 
             <div className="flex flex-col gap-2 md:w-56 shrink-0">
