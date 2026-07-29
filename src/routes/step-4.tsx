@@ -20,7 +20,7 @@ function Step4() {
     <ChapterLayout
       eyebrow="Step 04"
       title="Running the analysis"
-      lede="The empirical workhorse: specifications and robustness check."
+      lede="The empirical backstage: specifications and robustness check."
     >
       <div className="space-y-4">
         <p>
