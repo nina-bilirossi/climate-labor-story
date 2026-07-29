@@ -102,7 +102,7 @@ function Step3() {
           <InlineMath math="+ \delta_i \cdot t + \epsilon_{i, t}" />
         </div>
 
-        <p className="mt-8 border-t border-foreground/10 pt-8">
+        <p className="mt-8">
           where <InlineMath math="i" /> indexes states and{" "}
           <InlineMath math="t" /> denotes the period (annual period from June to
           July).{" "}
