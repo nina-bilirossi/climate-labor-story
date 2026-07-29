@@ -16,7 +16,7 @@ export const Route = createFileRoute("/step-3")({
   component: Step3,
 });
 
-type MathKey = "inf" | "zeta" | "i" | "t" | "alpha" | "gamma";
+type MathKey = "inf" | "zeta" | "alpha" | "gamma";
 
 function Step3() {
   const [active, setActive] = useState<MathKey | null>(null);
