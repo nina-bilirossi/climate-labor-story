@@ -22,7 +22,7 @@ function Step2() {
       <div className="prose-thesis space-y-8">
         <section>
           <p className="mb-4">
-            It's a bit scary having to check what's already been done, because you can't possibly check every paper that has been published. But to the best&nbsp;of my ability in the limited time that is the thesis, it seems to me like what i've set out to research was fairly original, and contributes to 3 main strands of the literature.
+            It's a bit scary having to check what's already been done, because you can't possibly check every paper that has been published. But to the best&nbsp;of my ability in the limited time that is the thesis, it seems to me like what I've set out to research was fairly original&nbsp;and contributes to 3 main strands of the literature:
           </p>
           
           <div className="space-y-6">
