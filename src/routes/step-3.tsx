@@ -128,8 +128,7 @@ function Step3() {
           regressions are weighted by 2020 population.
         </p>
 
-
-        <p className="font-semibold text-lg">
+        <p className="mt-8 border-t border-foreground/10 pt-8 font-semibold text-lg">
           This recipe (analysis) requires a few ingredients:
         </p>
 
