@@ -17,7 +17,7 @@ function Step4() {
     <ChapterLayout
       eyebrow="Step 04"
       title="Running the analysis"
-      lede="The empirical workhorse: specifications, robustness, and what came out."
+      lede="The empirical workhorse: specifications and robustness check."
     >
       <div className="space-y-4">
         <p>
@@ -33,7 +33,7 @@ function Step4() {
             className="w-full rounded-lg border border-border"
           />
           <figcaption className="mt-2 text-sm italic text-muted-foreground text-center">
-            Visual diagram of my regression settings and structure. Made with Miro.
+            Mind map of my regression settings and structure. Made with Miro.
           </figcaption>
         </figure>
       </div>
