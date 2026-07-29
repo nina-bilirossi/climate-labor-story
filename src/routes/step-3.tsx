@@ -208,7 +208,28 @@ function Step3() {
 
             <details className="group border-t border-foreground/10 pt-4">
               <summary className="cursor-pointer list-none flex items-center justify-between font-medium">
-                <span>Index construction (using Stata)</span>
+                <span className="flex items-center gap-2">
+                  Index construction
+                  <svg
+                    viewBox="0 0 80 24"
+                    className="inline-block h-4 w-auto"
+                    aria-label="Stata"
+                    role="img"
+                  >
+                    <rect x="0" y="0" width="80" height="24" rx="3" fill="#1D4E89" />
+                    <text
+                      x="40"
+                      y="17"
+                      textAnchor="middle"
+                      fill="white"
+                      fontSize="13"
+                      fontFamily="Georgia, 'Times New Roman', serif"
+                      fontWeight="bold"
+                    >
+                      Stata
+                    </text>
+                  </svg>
+                </span>
                 <span className="ml-4 text-foreground/50 transition-transform group-open:rotate-90">▶</span>
               </summary>
               <div className="mt-3 space-y-3 text-foreground/80">
