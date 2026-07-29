@@ -15,6 +15,23 @@ export const Route = createFileRoute("/step-4")({
 
 function Step4() {
   const [zoomOpen, setZoomOpen] = useState(false);
+  const [lens, setLens] = useState<{ x: number; y: number; bgX: number; bgY: number; bgW: number; bgH: number; visible: boolean }>({
+    x: 0, y: 0, bgX: 0, bgY: 0, bgW: 0, bgH: 0, visible: false,
+  });
+  const LENS_SIZE = 220;
+  const ZOOM = 3;
+
+  const handleLensMove = (e: React.MouseEvent<HTMLImageElement>) => {
+    const img = e.currentTarget;
+    const rect = img.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    const bgW = rect.width * ZOOM;
+    const bgH = rect.height * ZOOM;
+    const bgX = -(x * ZOOM - LENS_SIZE / 2);
+    const bgY = -(y * ZOOM - LENS_SIZE / 2);
+    setLens({ x: e.clientX, y: e.clientY, bgX, bgY, bgW, bgH, visible: true });
+  };
 
   return (
     <ChapterLayout
