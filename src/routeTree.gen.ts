@@ -9,109 +9,29 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
-import { Route as Step6RouteImport } from './routes/step-6'
-import { Route as Step5RouteImport } from './routes/step-5'
-import { Route as Step4RouteImport } from './routes/step-4'
-import { Route as Step3RouteImport } from './routes/step-3'
-import { Route as Step2RouteImport } from './routes/step-2'
-import { Route as Step1RouteImport } from './routes/step-1'
-import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
-import { Route as ResultsRouteImport } from './routes/results'
-import { Route as ReflectionsRouteImport } from './routes/reflections'
-import { Route as ReferencesRouteImport } from './routes/references'
-import { Route as MethodologyRouteImport } from './routes/methodology'
-import { Route as LaborHistoryRouteImport } from './routes/labor-history'
-import { Route as InformalityContextRouteImport } from './routes/informality-context'
-import { Route as GrassRouteImport } from './routes/grass'
-import { Route as DiscussionRouteImport } from './routes/discussion'
-import { Route as ClimateShocksRouteImport } from './routes/climate-shocks'
-import { Route as BackgroundRouteImport } from './routes/background'
-import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AboutRouteImport } from './routes/about'
+import { Route as BackgroundRouteImport } from './routes/background'
+import { Route as ClimateShocksRouteImport } from './routes/climate-shocks'
+import { Route as DiscussionRouteImport } from './routes/discussion'
+import { Route as GrassRouteImport } from './routes/grass'
+import { Route as InformalityContextRouteImport } from './routes/informality-context'
+import { Route as LaborHistoryRouteImport } from './routes/labor-history'
+import { Route as MethodologyRouteImport } from './routes/methodology'
+import { Route as ReferencesRouteImport } from './routes/references'
+import { Route as ReflectionsRouteImport } from './routes/reflections'
+import { Route as ResultsRouteImport } from './routes/results'
+import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
+import { Route as Step1RouteImport } from './routes/step-1'
+import { Route as Step2RouteImport } from './routes/step-2'
+import { Route as Step3RouteImport } from './routes/step-3'
+import { Route as Step4RouteImport } from './routes/step-4'
+import { Route as Step5RouteImport } from './routes/step-5'
+import { Route as Step6RouteImport } from './routes/step-6'
 
-const Step6Route = Step6RouteImport.update({
-  id: '/step-6',
-  path: '/step-6',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const Step5Route = Step5RouteImport.update({
-  id: '/step-5',
-  path: '/step-5',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const Step4Route = Step4RouteImport.update({
-  id: '/step-4',
-  path: '/step-4',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const Step3Route = Step3RouteImport.update({
-  id: '/step-3',
-  path: '/step-3',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const Step2Route = Step2RouteImport.update({
-  id: '/step-2',
-  path: '/step-2',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const Step1Route = Step1RouteImport.update({
-  id: '/step-1',
-  path: '/step-1',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
-  id: '/sitemap.xml',
-  path: '/sitemap.xml',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ResultsRoute = ResultsRouteImport.update({
-  id: '/results',
-  path: '/results',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ReflectionsRoute = ReflectionsRouteImport.update({
-  id: '/reflections',
-  path: '/reflections',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ReferencesRoute = ReferencesRouteImport.update({
-  id: '/references',
-  path: '/references',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const MethodologyRoute = MethodologyRouteImport.update({
-  id: '/methodology',
-  path: '/methodology',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const LaborHistoryRoute = LaborHistoryRouteImport.update({
-  id: '/labor-history',
-  path: '/labor-history',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const InformalityContextRoute = InformalityContextRouteImport.update({
-  id: '/informality-context',
-  path: '/informality-context',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const GrassRoute = GrassRouteImport.update({
-  id: '/grass',
-  path: '/grass',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const DiscussionRoute = DiscussionRouteImport.update({
-  id: '/discussion',
-  path: '/discussion',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ClimateShocksRoute = ClimateShocksRouteImport.update({
-  id: '/climate-shocks',
-  path: '/climate-shocks',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const BackgroundRoute = BackgroundRouteImport.update({
-  id: '/background',
-  path: '/background',
+const IndexRoute = IndexRouteImport.update({
+  id: '/',
+  path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
 const AboutRoute = AboutRouteImport.update({
@@ -119,9 +39,89 @@ const AboutRoute = AboutRouteImport.update({
   path: '/about',
   getParentRoute: () => rootRouteImport,
 } as any)
-const IndexRoute = IndexRouteImport.update({
-  id: '/',
-  path: '/',
+const BackgroundRoute = BackgroundRouteImport.update({
+  id: '/background',
+  path: '/background',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ClimateShocksRoute = ClimateShocksRouteImport.update({
+  id: '/climate-shocks',
+  path: '/climate-shocks',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DiscussionRoute = DiscussionRouteImport.update({
+  id: '/discussion',
+  path: '/discussion',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const GrassRoute = GrassRouteImport.update({
+  id: '/grass',
+  path: '/grass',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const InformalityContextRoute = InformalityContextRouteImport.update({
+  id: '/informality-context',
+  path: '/informality-context',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LaborHistoryRoute = LaborHistoryRouteImport.update({
+  id: '/labor-history',
+  path: '/labor-history',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MethodologyRoute = MethodologyRouteImport.update({
+  id: '/methodology',
+  path: '/methodology',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ReferencesRoute = ReferencesRouteImport.update({
+  id: '/references',
+  path: '/references',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ReflectionsRoute = ReflectionsRouteImport.update({
+  id: '/reflections',
+  path: '/reflections',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ResultsRoute = ResultsRouteImport.update({
+  id: '/results',
+  path: '/results',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
+  id: '/sitemap.xml',
+  path: '/sitemap.xml',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const Step1Route = Step1RouteImport.update({
+  id: '/step-1',
+  path: '/step-1',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const Step2Route = Step2RouteImport.update({
+  id: '/step-2',
+  path: '/step-2',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const Step3Route = Step3RouteImport.update({
+  id: '/step-3',
+  path: '/step-3',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const Step4Route = Step4RouteImport.update({
+  id: '/step-4',
+  path: '/step-4',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const Step5Route = Step5RouteImport.update({
+  id: '/step-5',
+  path: '/step-5',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const Step6Route = Step6RouteImport.update({
+  id: '/step-6',
+  path: '/step-6',
   getParentRoute: () => rootRouteImport,
 } as any)
 
@@ -279,123 +279,11 @@ export interface RootRouteChildren {
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    '/step-6': {
-      id: '/step-6'
-      path: '/step-6'
-      fullPath: '/step-6'
-      preLoaderRoute: typeof Step6RouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/step-5': {
-      id: '/step-5'
-      path: '/step-5'
-      fullPath: '/step-5'
-      preLoaderRoute: typeof Step5RouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/step-4': {
-      id: '/step-4'
-      path: '/step-4'
-      fullPath: '/step-4'
-      preLoaderRoute: typeof Step4RouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/step-3': {
-      id: '/step-3'
-      path: '/step-3'
-      fullPath: '/step-3'
-      preLoaderRoute: typeof Step3RouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/step-2': {
-      id: '/step-2'
-      path: '/step-2'
-      fullPath: '/step-2'
-      preLoaderRoute: typeof Step2RouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/step-1': {
-      id: '/step-1'
-      path: '/step-1'
-      fullPath: '/step-1'
-      preLoaderRoute: typeof Step1RouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/sitemap.xml': {
-      id: '/sitemap.xml'
-      path: '/sitemap.xml'
-      fullPath: '/sitemap.xml'
-      preLoaderRoute: typeof SitemapDotxmlRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/results': {
-      id: '/results'
-      path: '/results'
-      fullPath: '/results'
-      preLoaderRoute: typeof ResultsRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/reflections': {
-      id: '/reflections'
-      path: '/reflections'
-      fullPath: '/reflections'
-      preLoaderRoute: typeof ReflectionsRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/references': {
-      id: '/references'
-      path: '/references'
-      fullPath: '/references'
-      preLoaderRoute: typeof ReferencesRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/methodology': {
-      id: '/methodology'
-      path: '/methodology'
-      fullPath: '/methodology'
-      preLoaderRoute: typeof MethodologyRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/labor-history': {
-      id: '/labor-history'
-      path: '/labor-history'
-      fullPath: '/labor-history'
-      preLoaderRoute: typeof LaborHistoryRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/informality-context': {
-      id: '/informality-context'
-      path: '/informality-context'
-      fullPath: '/informality-context'
-      preLoaderRoute: typeof InformalityContextRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/grass': {
-      id: '/grass'
-      path: '/grass'
-      fullPath: '/grass'
-      preLoaderRoute: typeof GrassRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/discussion': {
-      id: '/discussion'
-      path: '/discussion'
-      fullPath: '/discussion'
-      preLoaderRoute: typeof DiscussionRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/climate-shocks': {
-      id: '/climate-shocks'
-      path: '/climate-shocks'
-      fullPath: '/climate-shocks'
-      preLoaderRoute: typeof ClimateShocksRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/background': {
-      id: '/background'
-      path: '/background'
-      fullPath: '/background'
-      preLoaderRoute: typeof BackgroundRouteImport
+    '/': {
+      id: '/'
+      path: '/'
+      fullPath: '/'
+      preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/about': {
@@ -405,11 +293,123 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AboutRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/': {
-      id: '/'
-      path: '/'
-      fullPath: '/'
-      preLoaderRoute: typeof IndexRouteImport
+    '/background': {
+      id: '/background'
+      path: '/background'
+      fullPath: '/background'
+      preLoaderRoute: typeof BackgroundRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/climate-shocks': {
+      id: '/climate-shocks'
+      path: '/climate-shocks'
+      fullPath: '/climate-shocks'
+      preLoaderRoute: typeof ClimateShocksRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/discussion': {
+      id: '/discussion'
+      path: '/discussion'
+      fullPath: '/discussion'
+      preLoaderRoute: typeof DiscussionRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/grass': {
+      id: '/grass'
+      path: '/grass'
+      fullPath: '/grass'
+      preLoaderRoute: typeof GrassRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/informality-context': {
+      id: '/informality-context'
+      path: '/informality-context'
+      fullPath: '/informality-context'
+      preLoaderRoute: typeof InformalityContextRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/labor-history': {
+      id: '/labor-history'
+      path: '/labor-history'
+      fullPath: '/labor-history'
+      preLoaderRoute: typeof LaborHistoryRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/methodology': {
+      id: '/methodology'
+      path: '/methodology'
+      fullPath: '/methodology'
+      preLoaderRoute: typeof MethodologyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/references': {
+      id: '/references'
+      path: '/references'
+      fullPath: '/references'
+      preLoaderRoute: typeof ReferencesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/reflections': {
+      id: '/reflections'
+      path: '/reflections'
+      fullPath: '/reflections'
+      preLoaderRoute: typeof ReflectionsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/results': {
+      id: '/results'
+      path: '/results'
+      fullPath: '/results'
+      preLoaderRoute: typeof ResultsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/sitemap.xml': {
+      id: '/sitemap.xml'
+      path: '/sitemap.xml'
+      fullPath: '/sitemap.xml'
+      preLoaderRoute: typeof SitemapDotxmlRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/step-1': {
+      id: '/step-1'
+      path: '/step-1'
+      fullPath: '/step-1'
+      preLoaderRoute: typeof Step1RouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/step-2': {
+      id: '/step-2'
+      path: '/step-2'
+      fullPath: '/step-2'
+      preLoaderRoute: typeof Step2RouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/step-3': {
+      id: '/step-3'
+      path: '/step-3'
+      fullPath: '/step-3'
+      preLoaderRoute: typeof Step3RouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/step-4': {
+      id: '/step-4'
+      path: '/step-4'
+      fullPath: '/step-4'
+      preLoaderRoute: typeof Step4RouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/step-5': {
+      id: '/step-5'
+      path: '/step-5'
+      fullPath: '/step-5'
+      preLoaderRoute: typeof Step5RouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/step-6': {
+      id: '/step-6'
+      path: '/step-6'
+      fullPath: '/step-6'
+      preLoaderRoute: typeof Step6RouteImport
       parentRoute: typeof rootRouteImport
     }
   }
