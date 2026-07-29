@@ -252,22 +252,32 @@ function Step3() {
           <h3 className="font-semibold text-lg mb-4 flex items-center gap-2">
             Construction of the climate shock indicators
             <svg
-              viewBox="0 0 24 24"
+              viewBox="0 0 64 64"
               fill="none"
               stroke="currentColor"
-              strokeWidth="1.2"
+              strokeWidth="2.2"
               strokeLinecap="round"
               strokeLinejoin="round"
-              className="h-6 w-6 text-[color:var(--sun)] -rotate-12"
+              className="h-7 w-7 text-[color:var(--sun)] -rotate-12"
               aria-label="Satellite icon"
             >
-              <rect x="9" y="9" width="6" height="6" rx="1.5" />
-              <rect x="2" y="7" width="6" height="10" rx="1" />
-              <path d="M4 7v10 M5 7v10" />
-              <rect x="16" y="7" width="6" height="10" rx="1" />
-              <path d="M18 7v10 M19 7v10" />
-              <path d="M12 9V4" />
-              <path d="M9 4h6" />
+              {/* Central satellite body */}
+              <rect x="25" y="25" width="14" height="18" rx="2" />
+              {/* Top solar panel array */}
+              <rect x="8" y="4" width="20" height="18" rx="1.5" />
+              <path d="M13 4v18 M18 4v18 M23 4v18" />
+              <path d="M8 10h20 M8 16h20" />
+              {/* Bottom solar panel array */}
+              <rect x="36" y="42" width="20" height="18" rx="1.5" />
+              <path d="M41 42v18 M46 42v18 M51 42v18" />
+              <path d="M36 48h20 M36 54h20" />
+              {/* Connecting arms */}
+              <path d="M28 25L20 16" />
+              <path d="M36 43L44 52" />
+              {/* Dish antenna */}
+              <path d="M28 43c-6 2-10 8-10 14" />
+              <path d="M18 57l4-4" />
+              <circle cx="18" cy="57" r="2.5" fill="currentColor" stroke="none" />
             </svg>
           </h3>
           <div className="space-y-3">
