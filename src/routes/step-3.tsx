@@ -183,7 +183,7 @@ function Step3() {
           <div className="space-y-3">
             <details className="group border-t border-foreground/10 pt-4">
               <summary className="cursor-pointer list-none flex items-center justify-between font-medium">
-                <span>Labor data:&nbsp;Periodic Labor Force Survey of India (PLFS)</span>
+                <span>Some Info on the Labor data:&nbsp;Periodic Labor Force Survey of India (PLFS)</span>
                 <span className="ml-4 text-foreground/50 transition-transform group-open:rotate-90">▶</span>
               </summary>
               <div className="mt-3 space-y-3 text-foreground/80">
