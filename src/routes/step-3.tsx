@@ -288,6 +288,14 @@ function Step3() {
               <circle cx="41" cy="13" r="1.5" fill="currentColor" stroke="none" />
             </svg>
           </h3>
+
+          <div className="border border-sun bg-sun/10 rounded-lg p-4 mb-4">
+            <p className="font-semibold text-foreground mb-2">Why satellite data?</p>
+            <p className="text-foreground/80 text-sm leading-relaxed">
+              Risk = hazard × vulnerability × exposure. I focus on capturing hazard and exposure, and therefore try to get data as objective and unaffected by human decisions. Damage data reflects part of vulnerability. Satellite data is more objective than station data because it is likely that stations are unevenly distributed, and richer states may have different infrastructure than poorer states, creating a bias.
+            </p>
+          </div>
+
           <div className="space-y-3">
             <details className="group border-t border-foreground/10 pt-4">
               <summary className="cursor-pointer list-none flex items-center justify-between font-medium">
