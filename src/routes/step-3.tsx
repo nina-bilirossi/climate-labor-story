@@ -11,23 +11,14 @@ import floodBlock4 from "@/assets/flood-blocks/block-4.asset.json";
 import floodBlock6 from "@/assets/flood-blocks/block-6.asset.json";
 import floodBlock7 from "@/assets/flood-blocks/block-7.asset.json";
 
-// Hotspots over the flood workflow diagram (percentages of the 1744x828 image).
-const FLOOD_HOTSPOTS: Array<{
-  id: string;
-  label: string;
-  left: number;
-  top: number;
-  width: number;
-  height: number;
-  image?: { url: string };
-}> = [
-  { id: "b1", label: "ERA5 daily precipitation", left: 3, top: 14, width: 23, height: 19, image: floodBlock1 },
-  { id: "b2", label: "GEV threshold τᵢ", left: 29, top: 14, width: 21, height: 19, image: floodBlock2 },
-  { id: "b3", label: "ERA5 soil moisture", left: 3, top: 48, width: 23, height: 17, image: floodBlock3 },
-  { id: "b4", label: "Soil moisture modifier f(sᵢ,d)", left: 29, top: 48, width: 21, height: 17, image: floodBlock4 },
-  { id: "b5", label: "Flood contribution", left: 55, top: 33, width: 16, height: 19 },
-  { id: "b6", label: "#flood/district-year", left: 75, top: 33, width: 24, height: 19, image: floodBlock6 },
-  { id: "b7", label: "Average to state-year", left: 75, top: 56, width: 24, height: 19, image: floodBlock7 },
+// Gallery of flood workflow detail images, numbered per user's mapping.
+const FLOOD_GALLERY: Array<{ badge: string; label: string; image: { url: string } }> = [
+  { badge: "1", label: "ERA5 daily precipitation", image: floodBlock1 },
+  { badge: "2", label: "GEV threshold τᵢ", image: floodBlock2 },
+  { badge: "3", label: "#flood / district-year", image: floodBlock6 },
+  { badge: "4", label: "Average to state-year", image: floodBlock7 },
+  { badge: "A", label: "ERA5 soil moisture", image: floodBlock3 },
+  { badge: "B", label: "Soil moisture modifier f(sᵢ,d)", image: floodBlock4 },
 ];
 
 export const Route = createFileRoute("/step-3")({
@@ -450,12 +441,17 @@ function Step3() {
                     stronger.
                   </p>
                   <figure className="mt-6">
-                    <FloodWorkflowInteractive />
+                    <div className="w-full rounded-lg border border-foreground/10 bg-white overflow-hidden">
+                      <img
+                        src={floodWorkflow.url}
+                        alt="Flood index workflow: from ERA5 precipitation and soil moisture to a population-weighted state-year flash-flood index"
+                        className="w-full block"
+                      />
+                    </div>
                     <figcaption className="mt-3 text-sm text-foreground/60 text-center">
                       Workflow: from ERA5 precipitation and soil moisture data to a population-weighted state-year flash-flood index.
-                      <br />
-                      <span className="italic">Hover a block to see the underlying step in detail.</span>
                     </figcaption>
+                    <FloodGallery />
                   </figure>
                 </div>
               </div>
@@ -467,52 +463,68 @@ function Step3() {
   );
 }
 
-function FloodWorkflowInteractive() {
-  const [hovered, setHovered] = useState<string | null>(null);
-  const active = FLOOD_HOTSPOTS.find((h) => h.id === hovered);
+function FloodGallery() {
+  const [openIdx, setOpenIdx] = useState<number | null>(null);
   return (
-    <div className="relative w-full rounded-lg border border-foreground/10 bg-white overflow-hidden">
-      <img
-        src={floodWorkflow.url}
-        alt="Flood index workflow: from ERA5 precipitation and soil moisture to a population-weighted state-year flash-flood index"
-        className="w-full block"
-      />
-      {FLOOD_HOTSPOTS.map((h) => (
-        <button
-          key={h.id}
-          type="button"
-          onMouseEnter={() => h.image && setHovered(h.id)}
-          onMouseLeave={() => setHovered((v) => (v === h.id ? null : v))}
-          onFocus={() => h.image && setHovered(h.id)}
-          onBlur={() => setHovered((v) => (v === h.id ? null : v))}
-          aria-label={h.label}
-          className={[
-            "absolute rounded-md transition-colors duration-150",
-            h.image ? "cursor-help" : "cursor-default",
-            hovered === h.id
-              ? "bg-[color:var(--sun)]/30 ring-2 ring-[color:var(--sun)]"
-              : "bg-transparent ring-1 ring-transparent hover:ring-[color:var(--sun)]/40",
-          ].join(" ")}
-          style={{
-            left: `${h.left}%`,
-            top: `${h.top}%`,
-            width: `${h.width}%`,
-            height: `${h.height}%`,
-          }}
-        />
-      ))}
-      {active?.image && (
-        <div className="mt-0 border-t border-foreground/10 bg-white p-3">
-          <p className="text-xs text-foreground/60 mb-2 text-center">
-            {active.label}
-          </p>
-          <img
-            src={active.image.url}
-            alt={`Detail: ${active.label}`}
-            className="w-full rounded border border-foreground/10"
-          />
+    <>
+      <div className="mt-6 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3">
+        {FLOOD_GALLERY.map((item, i) => (
+          <button
+            key={item.badge}
+            type="button"
+            onClick={() => setOpenIdx(i)}
+            className="group relative rounded-md border border-foreground/10 bg-white overflow-hidden hover:ring-2 hover:ring-[color:var(--sun)] transition"
+            aria-label={`Enlarge ${item.label}`}
+          >
+            <span className="absolute top-1 left-1 z-10 flex h-6 w-6 items-center justify-center rounded-full bg-[color:var(--sun)] text-background text-xs font-semibold shadow">
+              {item.badge}
+            </span>
+            <img
+              src={item.image.url}
+              alt={item.label}
+              className="w-full h-28 object-cover"
+            />
+            <span className="block px-2 py-1 text-[11px] text-foreground/70 text-center truncate">
+              {item.label}
+            </span>
+          </button>
+        ))}
+      </div>
+      {openIdx !== null && (
+        <div
+          role="dialog"
+          aria-modal="true"
+          onClick={() => setOpenIdx(null)}
+          className="fixed inset-0 z-50 bg-black/70 flex items-center justify-center p-6 cursor-zoom-out"
+        >
+          <div
+            className="relative max-w-6xl w-full max-h-full bg-white rounded-lg overflow-hidden"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div className="flex items-center justify-between px-4 py-2 border-b border-foreground/10">
+              <span className="flex items-center gap-2 text-sm">
+                <span className="flex h-6 w-6 items-center justify-center rounded-full bg-[color:var(--sun)] text-background text-xs font-semibold">
+                  {FLOOD_GALLERY[openIdx].badge}
+                </span>
+                {FLOOD_GALLERY[openIdx].label}
+              </span>
+              <button
+                type="button"
+                onClick={() => setOpenIdx(null)}
+                className="text-sm px-2 py-1 rounded hover:bg-foreground/10"
+                aria-label="Close"
+              >
+                ✕
+              </button>
+            </div>
+            <img
+              src={FLOOD_GALLERY[openIdx].image.url}
+              alt={FLOOD_GALLERY[openIdx].label}
+              className="w-full max-h-[80vh] object-contain bg-white"
+            />
+          </div>
         </div>
       )}
-    </div>
+    </>
   );
 }
