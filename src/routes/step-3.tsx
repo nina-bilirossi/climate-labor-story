@@ -292,7 +292,14 @@ function Step3() {
 
             <details className="group border-t border-foreground/10 pt-4">
               <summary className="cursor-pointer list-none flex items-center justify-between font-medium">
-                <span>Flood index</span>
+                <span className="flex items-center gap-2">
+                  Flood index
+                  <img
+                    src="https://upload.wikimedia.org/wikipedia/commons/f/f8/Python_logo_and_wordmark.svg"
+                    alt="Python"
+                    className="inline-block h-4 w-auto"
+                  />
+                </span>
                 <span className="ml-4 text-foreground/50 transition-transform group-open:rotate-90">▶</span>
               </summary>
               <div className="mt-3 space-y-3 text-foreground/80">
