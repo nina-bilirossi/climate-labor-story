@@ -114,7 +114,9 @@ function Step3() {
             <InlineMath math="\zeta_{i, t}" />
           </HL>{" "}
           is the climate shock index: either the yearly drought index or the
-          yearly flood index. I control for state- (
+          yearly flood index. I include optimal lags as determined by a BIC
+          analysis (3 lags for the drought index, 2 for the flood index). I
+          control for state- (
           <HL k="alpha">
             <InlineMath math="\alpha_i" />
           </HL>
