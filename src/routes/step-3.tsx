@@ -450,13 +450,11 @@ function Step3() {
                     stronger.
                   </p>
                   <figure className="mt-6">
-                    <img
-                      src={floodWorkflow.url}
-                      alt="Flood index workflow: from ERA5 precipitation and soil moisture to a population-weighted state-year flash-flood index"
-                      className="w-full rounded-lg border border-foreground/10 bg-white"
-                    />
+                    <FloodWorkflowInteractive />
                     <figcaption className="mt-3 text-sm text-foreground/60 text-center">
                       Workflow: from ERA5 precipitation and soil moisture data to a population-weighted state-year flash-flood index.
+                      <br />
+                      <span className="italic">Hover a block to see the underlying step in detail.</span>
                     </figcaption>
                   </figure>
                 </div>
