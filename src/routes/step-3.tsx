@@ -464,9 +464,11 @@ function Step3() {
                         </span>
                       ))}
                     </div>
-                    <figcaption className="mt-3 text-sm text-foreground/60 text-center">
-                      Workflow: from ERA5 precipitation and soil moisture data to a population-weighted state-year flash-flood index.
-                    </figcaption>
+                  <figcaption className="mt-3 text-sm text-foreground/60 text-center">
+                    Workflow: from ERA5 LAND precipitation and soil moisture data to a population-weighted state-year flash-flood index.
+                    <br />
+                    Sources: ECMWF (ERA5 LAND), WorldPop (population), GADM (state boundaries).
+                  </figcaption>
                     <FloodGallery />
                   </figure>
                 </div>
