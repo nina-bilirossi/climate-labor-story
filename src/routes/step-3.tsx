@@ -16,7 +16,7 @@ export const Route = createFileRoute("/step-3")({
   component: Step3,
 });
 
-type MathKey = "inf" | "zeta" | "i" | "t" | "alpha" | "gamma";
+type MathKey = "inf" | "zeta" | "alpha" | "gamma";
 
 function Step3() {
   const [active, setActive] = useState<MathKey | null>(null);
@@ -103,15 +103,9 @@ function Step3() {
         </div>
 
         <p>
-          where{" "}
-          <HL k="i">
-            <InlineMath math="i" />
-          </HL>{" "}
-          indexes states and{" "}
-          <HL k="t">
-            <InlineMath math="t" />
-          </HL>{" "}
-          denotes the period (annual period from June to July).{" "}
+          where <InlineMath math="i" /> indexes states and{" "}
+          <InlineMath math="t" /> denotes the period (annual period from June to
+          July).{" "}
           <HL k="inf">
             <InlineMath math="\text{inf}_{i, t}" />
           </HL>{" "}
