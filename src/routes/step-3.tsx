@@ -2,7 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { ChapterLayout } from "@/components/ChapterLayout";
 import { InlineMath, BlockMath } from "react-katex";
 import { useState, ReactNode } from "react";
-import droughtWorkflow from "@/assets/drought-index-workflow.png.asset.json";
+import droughtWorkflow from "@/assets/spei-workflow-2026-07-29.png.asset.json";
 
 export const Route = createFileRoute("/step-3")({
   head: () => ({
