@@ -178,7 +178,22 @@ function Step3() {
         </ul>
 
         <section id="informality-construction" className="mt-12 scroll-mt-24 border-t border-foreground/10 pt-6">
-          <h3 className="font-semibold text-lg mb-4">Construction of the informality share</h3>
+          <h3 className="font-semibold text-lg mb-4 flex items-center gap-2">
+            Construction of the informality share
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="1.8"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              className="h-5 w-5 text-[color:var(--sun)]"
+              aria-label="House icon"
+            >
+              <path d="M3 9.5L12 4l9 5.5V20a1.5 1.5 0 0 1-1.5 1.5h-15A1.5 1.5 0 0 1 3 20V9.5z" />
+              <path d="M9 22V12h6v10" />
+            </svg>
+          </h3>
 
           <div className="space-y-3">
             <details className="group border-t border-foreground/10 pt-4">
@@ -234,7 +249,26 @@ function Step3() {
         </section>
 
         <section id="climate-construction" className="mt-12 scroll-mt-24 border-t border-foreground/10 pt-6">
-          <h3 className="font-semibold text-lg mb-4">Construction of the climate shock indicators</h3>
+          <h3 className="font-semibold text-lg mb-4 flex items-center gap-2">
+            Construction of the climate shock indicators
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="1.8"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              className="h-5 w-5 text-[color:var(--sun)]"
+              aria-label="Satellite icon"
+            >
+              <rect x="9" y="9" width="6" height="6" rx="1" />
+              <path d="M9 12H3l-2-2v4l2-2h6z" />
+              <path d="M15 12h6l2-2v4l-2-2h-6z" />
+              <path d="M12 9V5" />
+              <path d="M12 15v4" />
+              <circle cx="12" cy="12" r="1.5" fill="currentColor" />
+            </svg>
+          </h3>
           <div className="space-y-3">
             <details className="group border-t border-foreground/10 pt-4">
               <summary className="cursor-pointer list-none flex items-center justify-between font-medium">
