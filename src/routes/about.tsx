@@ -60,6 +60,8 @@ function AboutPage() {
         .
       </p>
 
+      <p className="mt-4">Any suggestions?&nbsp;</p>
+
       <div className="not-prose flex flex-wrap items-center gap-4 pt-2">
         <span className="inline-flex items-center gap-2 text-sm text-foreground/70">
           <span className="text-lg leading-none">🇫🇷</span>
