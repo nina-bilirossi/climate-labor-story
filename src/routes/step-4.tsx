@@ -100,9 +100,27 @@ function Step4() {
             <img
               src={regressionDiagram.url}
               alt="Zoomed visual diagram of regression settings and structure"
-              className="w-full h-auto block"
+              className="w-full h-auto block cursor-crosshair"
+              onMouseMove={handleLensMove}
+              onMouseLeave={() => setLens((l) => ({ ...l, visible: false }))}
             />
           </div>
+          {lens.visible && (
+            <div
+              className="pointer-events-none fixed rounded-full border-2 border-white shadow-2xl"
+              style={{
+                left: lens.x - LENS_SIZE / 2,
+                top: lens.y - LENS_SIZE / 2,
+                width: LENS_SIZE,
+                height: LENS_SIZE,
+                backgroundImage: `url(${regressionDiagram.url})`,
+                backgroundRepeat: "no-repeat",
+                backgroundSize: `${lens.bgW}px ${lens.bgH}px`,
+                backgroundPosition: `${lens.bgX}px ${lens.bgY}px`,
+                backgroundColor: "white",
+              }}
+            />
+          )}
         </div>
       )}
     </ChapterLayout>
