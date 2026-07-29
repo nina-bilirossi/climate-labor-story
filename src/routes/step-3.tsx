@@ -441,12 +441,28 @@ function Step3() {
                     stronger.
                   </p>
                   <figure className="mt-6">
-                    <div className="w-full rounded-lg border border-foreground/10 bg-white overflow-hidden">
+                    <div className="relative w-full rounded-lg border border-foreground/10 bg-white overflow-hidden">
                       <img
                         src={floodWorkflow.url}
                         alt="Flood index workflow: from ERA5 precipitation and soil moisture to a population-weighted state-year flash-flood index"
                         className="w-full block"
                       />
+                      {[
+                        { badge: "1", left: "3.5%", top: "13%" },
+                        { badge: "2", left: "27%", top: "13%" },
+                        { badge: "A", left: "3.5%", top: "43%" },
+                        { badge: "B", left: "27%", top: "43%" },
+                        { badge: "3", left: "73%", top: "29%" },
+                        { badge: "4", left: "73%", top: "52%" },
+                      ].map((b) => (
+                        <span
+                          key={b.badge}
+                          className="absolute flex h-6 w-6 sm:h-7 sm:w-7 items-center justify-center rounded-full bg-[color:var(--sun)] text-background text-xs sm:text-sm font-semibold shadow"
+                          style={{ left: b.left, top: b.top }}
+                        >
+                          {b.badge}
+                        </span>
+                      ))}
                     </div>
                     <figcaption className="mt-3 text-sm text-foreground/60 text-center">
                       Workflow: from ERA5 precipitation and soil moisture data to a population-weighted state-year flash-flood index.
