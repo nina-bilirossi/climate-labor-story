@@ -89,6 +89,22 @@
   }
 }
 
+@media (pointer: fine) {
+  html,
+  html a,
+  html button,
+  html [role="button"],
+  html input,
+  html select,
+  html textarea,
+  html label,
+  html summary,
+  html [data-cursor="hot"],
+  html .cursor-pointer {
+    cursor: none !important;
+  }
+}
+
 /* Rain animation */
 @keyframes rain-fall {
   0% { transform: translateY(-20%); }
