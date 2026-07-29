@@ -2,6 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { ChapterLayout } from "@/components/ChapterLayout";
 import { InlineMath, BlockMath } from "react-katex";
 import { useState, ReactNode } from "react";
+import droughtWorkflow from "@/assets/drought-index-workflow.png.asset.json";
 
 export const Route = createFileRoute("/step-3")({
   head: () => ({
@@ -313,6 +314,35 @@ function Step3() {
                 <p>
                   The drought index is based on the SPEI-12 index, which looks at temperature and evapotranspiration over the past 12 months. Values are normalized at the pixel level so that a negative score indicates a negative deviation (drought) compared to the baseline. I filter out the positive values and keep only the negative values, so that my index reflects the intensity of a drought.
                 </p>
+
+                <h4 className="font-semibold text-foreground pt-4">
+                  Drought index: Standardized Precipitation Evapotranspiration Index (SPEI)
+                </h4>
+
+                <ol className="list-decimal pl-5 space-y-2">
+                  <li>
+                    Download SPEI (12 months) gridded data (0.25° resolution) from Copernicus
+                  </li>
+                  <li>
+                    Compute population per district and average SPEI per district
+                  </li>
+                  <li>
+                    Aggregate to state level using population weight
+                  </li>
+                </ol>
+
+                <figure className="my-6">
+                  <img
+                    src={droughtWorkflow.url}
+                    alt="Drought index construction workflow showing SPEI gridded data and population raster being combined at district level, then aggregated to state boundaries to produce a population-weighted state SPEI12 map."
+                    className="w-full rounded-lg border border-foreground/10 bg-background"
+                  />
+                  <figcaption className="mt-3 text-sm text-foreground/60 text-center">
+                    Workflow: from SPEI gridded data and population raster to population-weighted state-level SPEI12.
+                    <br />
+                    Sources: ECMWF (SPEI), WorldPop (population), GADM (state boundaries).
+                  </figcaption>
+                </figure>
               </div>
             </details>
 
