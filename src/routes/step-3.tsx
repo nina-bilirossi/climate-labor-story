@@ -261,10 +261,12 @@ function Step3() {
               className="h-5 w-5 text-[color:var(--sun)]"
               aria-label="Satellite icon"
             >
-              <path d="M12 2a6 6 0 0 1 6 6c0 2.5-1.5 4.5-3 6l-3 3-3-3c-1.5-1.5-3-3.5-3-6a6 6 0 0 1 6-6z" />
-              <path d="M9.5 9.5a2.5 2.5 0 1 0 5 0 2.5 2.5 0 1 0-5 0z" />
-              <path d="M12 17v5" />
-              <path d="M8 22h8" />
+              <rect x="9" y="9" width="6" height="6" rx="1" />
+              <path d="M9 12H3l-2-2v4l2-2h6z" />
+              <path d="M15 12h6l2-2v4l-2-2h-6z" />
+              <path d="M12 9V5" />
+              <path d="M12 15v4" />
+              <circle cx="12" cy="12" r="1.5" fill="currentColor" />
             </svg>
           </h3>
           <div className="space-y-3">
