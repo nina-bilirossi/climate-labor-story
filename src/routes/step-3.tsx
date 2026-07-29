@@ -316,7 +316,7 @@ function Step3() {
                 </p>
 
                 <h4 className="font-semibold text-foreground pt-4">
-                  Drought index: Standardized Precipitation Evapotranspiration Index (SPEI)
+                  My workflow for the index construction from satellite to state-year index is the following
                 </h4>
 
                 <ol className="list-decimal pl-5 space-y-2">
