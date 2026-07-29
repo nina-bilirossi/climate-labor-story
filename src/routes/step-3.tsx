@@ -293,7 +293,19 @@ function Step3() {
           <div className="border border-sun bg-sun/10 rounded-lg p-4 mb-4">
             <p className="font-semibold text-foreground mb-2">Why satellite data?</p>
             <p className="text-foreground/80 text-sm leading-relaxed">
-              Risk = hazard × vulnerability × exposure. I focus on capturing hazard and exposure, and therefore try to get data as objective and unaffected by human decisions. Damage data reflects part of vulnerability. Satellite data is more objective than station data because it is likely that stations are unevenly distributed, and richer states may have different infrastructure than poorer states, creating a bias.
+              Risk = hazard × vulnerability × exposure. I focus on capturing hazard{" "}
+              and therefore try to get data as objective and unaffected by human
+              decisions. Damage data reflects part of vulnerability. Satellite data
+              is more objective than station data because it is likely that stations
+              are unevenly distributed, and richer states may have different
+              infrastructure than poorer states, creating a bias.
+              <br />
+              <br />
+              Note that I do integrate some exposure, since I am weighing events by
+              population living in the area of the event, but I assume that exposure
+              was not chosen, i.e., people could not determine they would be exposed
+              to those threats when they established their livelihoods in those
+              areas.
             </p>
           </div>
 
@@ -359,7 +371,31 @@ function Step3() {
                 <span className="ml-4 text-foreground/50 transition-transform group-open:rotate-90">▶</span>
               </summary>
               <div className="mt-3 space-y-3 text-foreground/80">
-                <p>Content coming soon.</p>
+                <p>
+                  Building the flood index was much less straightforward than the
+                  drought index. But it was also a lot more fun and required more
+                  investigation. It seems there is no unanimous approach to
+                  measuring floods in environmental economics. Floods are complex&nbsp;
+                  and can be broken down into three main categories: flash floods,
+                  fluvial floods, and coastal floods. Keeping the rationale of
+                  focusing on the hazard, and because of my technical expertise, I
+                  focus on flash floods (fluvial and coastal floods reflect, to some
+                  extent, human decisions in establishing in that area, and their
+                  damage will also depend on land use choices and infrastructure --
+                  many more variables than just precipitation intensity).
+                </p>
+                <p>
+                  What's a flash flood? Essentially, very intense precipitation over
+                  the course of a few hours. Those can be very destructive (more
+                  details in \Results).
+                </p>
+                <p>
+                  So how do I go about measuring them?&nbsp;
+                  I capture the year's worst hit by flash floods by counting the
+                  number of extreme events that occurred in that year in a given
+                  state, weighing the events within the state by how many people
+                  live in the affected area.
+                </p>
               </div>
             </details>
           </div>
