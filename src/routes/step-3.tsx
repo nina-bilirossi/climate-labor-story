@@ -255,29 +255,32 @@ function Step3() {
               viewBox="0 0 64 64"
               fill="none"
               stroke="currentColor"
-              strokeWidth="2.2"
+              strokeWidth="1.6"
               strokeLinecap="round"
               strokeLinejoin="round"
               className="h-7 w-7 text-[color:var(--sun)] -rotate-12"
               aria-label="Satellite icon"
             >
-              {/* Central satellite body */}
-              <rect x="25" y="25" width="14" height="18" rx="2" />
-              {/* Top solar panel array */}
-              <rect x="8" y="4" width="20" height="18" rx="1.5" />
-              <path d="M13 4v18 M18 4v18 M23 4v18" />
-              <path d="M8 10h20 M8 16h20" />
-              {/* Bottom solar panel array */}
-              <rect x="36" y="42" width="20" height="18" rx="1.5" />
-              <path d="M41 42v18 M46 42v18 M51 42v18" />
-              <path d="M36 48h20 M36 54h20" />
+              {/* Left solar panel wing */}
+              <rect x="2" y="20" width="18" height="24" rx="2" />
+              <path d="M7 20v24 M12 20v24 M17 20v24" />
+              <path d="M2 27h18 M2 34h18 M2 41h18" />
+              {/* Right solar panel wing */}
+              <rect x="44" y="20" width="18" height="24" rx="2" />
+              <path d="M49 20v24 M54 20v24 M59 20v24" />
+              <path d="M44 27h18 M44 34h18 M44 41h18" />
               {/* Connecting arms */}
-              <path d="M28 25L20 16" />
-              <path d="M36 43L44 52" />
+              <path d="M20 32h6" />
+              <path d="M38 32h6" />
+              {/* Central satellite body */}
+              <rect x="26" y="24" width="12" height="16" rx="3" />
+              {/* Body details */}
+              <circle cx="32" cy="30" r="2" fill="currentColor" stroke="none" />
+              <circle cx="32" cy="36" r="1.5" fill="currentColor" stroke="none" />
               {/* Dish antenna */}
-              <path d="M28 43c-6 2-10 8-10 14" />
-              <path d="M18 57l4-4" />
-              <circle cx="18" cy="57" r="2.5" fill="currentColor" stroke="none" />
+              <path d="M32 24c0-6 4-10 9-11" />
+              <path d="M41 13c-4 1-7 5-7 10" />
+              <circle cx="41" cy="13" r="1.5" fill="currentColor" stroke="none" />
             </svg>
           </h3>
           <div className="space-y-3">
