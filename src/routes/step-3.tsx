@@ -37,7 +37,7 @@ function Step3() {
         onMouseLeave={() => setActive(null)}
         className={[
           inline ? "inline-block" : "inline-block",
-          "rounded px-1 py-0.5 -mx-0.5 transition-colors duration-150 cursor-help",
+          "rounded px-1 py-0.5 -mx-0.5 transition-colors duration-150",
           isActive
             ? "bg-[color:var(--sun)]/70 text-background"
             : "bg-[color:var(--sun)]/15",
