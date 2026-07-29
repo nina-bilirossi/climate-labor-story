@@ -406,18 +406,18 @@ function Step3() {
                 </p>
                 <div className="mt-4 space-y-4">
                   <p>
-                    But what counts as an extreme event? For each district, I ask{" "}
+                    But what counts as an extreme event? For each district, I ask,{" "}
                     <span className="rounded px-1.5 py-0.5 font-semibold italic bg-[color:var(--sun)]/15">
                       "If I wait 10 years, what’s the worst event I can reasonably
                       expect? How many times was this value exceeded?"
                     </span>
-                    . This is known as "Return period value exceedance" (common in
+                    &nbsp;This is known as "return period value exceedance" (common in
                     insurance). You can find the details of my process in the
                     thesis itself; here's the overview. Ah yes, also, because
                     research suggests that when the soil is drier, it is much
                     harder for water to penetrate, so that very dry soil
                     amplifies the intensity of flash floods [think of the
-                    animation on the website's welcome page ;) ). Essentially, I
+                    animation on the website's welcome page]. Essentially, I
                     start by looking at precipitation, calculate the extreme
                     threshold, and count how many times it is surpassed,
                     multiplying it by a multiplier so that if the soil was drier
