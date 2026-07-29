@@ -448,9 +448,9 @@ function Step3() {
                         className="w-full block"
                       />
                       {[
-                        { badge: "1", left: "3.5%", top: "13%" },
-                        { badge: "2", left: "27%", top: "13%" },
-                        { badge: "A", left: "3.5%", top: "43%" },
+                        { badge: "1", left: "1.5%", top: "8%" },
+                        { badge: "2", left: "27%", top: "8%" },
+                        { badge: "A", left: "1.5%", top: "43%" },
                         { badge: "B", left: "27%", top: "43%" },
                         { badge: "3", left: "73%", top: "29%" },
                         { badge: "4", left: "73%", top: "52%" },
