@@ -47,6 +47,9 @@ function Step4() {
     if (!zoomOpen) reset();
   }, [zoomOpen]);
 
+  const stateRef = useRef({ scale, tx, ty });
+  useEffect(() => { stateRef.current = { scale, tx, ty }; }, [scale, tx, ty]);
+
   useEffect(() => {
     const frame = frameRef.current;
     if (!zoomOpen || !frame) return;
@@ -56,22 +59,15 @@ function Step4() {
       const cx = e.clientX - rect.left - rect.width / 2;
       const cy = e.clientY - rect.top - rect.height / 2;
       const factor = Math.exp(-e.deltaY * 0.0015);
-      setScale((prevS) => {
-        const nextS = Math.min(MAX_ZOOM, Math.max(MIN_ZOOM, prevS * factor));
-        const ratio = nextS / prevS;
-        setTx((prevTx) => {
-          setTy((prevTy) => {
-            const nx = cx - (cx - prevTx) * ratio;
-            const ny = cy - (cy - prevTy) * ratio;
-            const c = clampPan(nx, ny, nextS);
-            // schedule via microtask isn't needed; we return synchronously
-            queueMicrotask(() => setTx(c.x));
-            return c.y;
-          });
-          return prevTx;
-        });
-        return nextS;
-      });
+      const { scale: prevS, tx: prevTx, ty: prevTy } = stateRef.current;
+      const nextS = Math.min(MAX_ZOOM, Math.max(MIN_ZOOM, prevS * factor));
+      const ratio = nextS / prevS;
+      const nx = cx - (cx - prevTx) * ratio;
+      const ny = cy - (cy - prevTy) * ratio;
+      const c = clampPan(nx, ny, nextS);
+      setScale(nextS);
+      setTx(c.x);
+      setTy(c.y);
     };
     frame.addEventListener("wheel", onWheel, { passive: false });
     return () => frame.removeEventListener("wheel", onWheel);
