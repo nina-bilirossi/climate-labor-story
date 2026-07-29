@@ -13,58 +13,82 @@ export const Route = createFileRoute("/step-4")({
   component: Step4,
 });
 
+const MIN_ZOOM = 1;
+const MAX_ZOOM = 8;
+
 function Step4() {
   const [zoomOpen, setZoomOpen] = useState(false);
-  const [pos, setPos] = useState({ x: 0.5, y: 0.5 });
-  const [zoom, setZoom] = useState(3);
-  const [thumbRect, setThumbRect] = useState<{ w: number; h: number } | null>(null);
-  const [mainRect, setMainRect] = useState<{ w: number; h: number } | null>(null);
-  const thumbRef = useRef<HTMLImageElement>(null);
-  const mainRef = useRef<HTMLDivElement>(null);
+  const [scale, setScale] = useState(1);
+  const [tx, setTx] = useState(0);
+  const [ty, setTy] = useState(0);
+  const frameRef = useRef<HTMLDivElement>(null);
+  const dragRef = useRef<{ x: number; y: number; tx: number; ty: number } | null>(null);
 
-  const measure = () => {
-    if (thumbRef.current) {
-      setThumbRect({ w: thumbRef.current.clientWidth, h: thumbRef.current.clientHeight });
-    }
-    if (mainRef.current) {
-      setMainRect({ w: mainRef.current.clientWidth, h: mainRef.current.clientHeight });
-    }
+  const clampPan = (nx: number, ny: number, s: number) => {
+    const frame = frameRef.current;
+    if (!frame) return { x: nx, y: ny };
+    const w = frame.clientWidth;
+    const h = frame.clientHeight;
+    const maxX = ((s - 1) * w) / 2;
+    const maxY = ((s - 1) * h) / 2;
+    return {
+      x: Math.min(maxX, Math.max(-maxX, nx)),
+      y: Math.min(maxY, Math.max(-maxY, ny)),
+    };
+  };
+
+  const reset = () => {
+    setScale(1);
+    setTx(0);
+    setTy(0);
   };
 
   useEffect(() => {
-    if (!zoomOpen) return;
-    measure();
-    const handleResize = () => measure();
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
+    if (!zoomOpen) reset();
   }, [zoomOpen]);
 
-  const clamp = (n: number, min: number, max: number) => Math.min(Math.max(n, min), max);
-  const edge = 1 / (2 * zoom);
+  const stateRef = useRef({ scale, tx, ty });
+  useEffect(() => { stateRef.current = { scale, tx, ty }; }, [scale, tx, ty]);
 
-  const updatePos = (e: React.MouseEvent<HTMLImageElement>) => {
-    const rect = e.currentTarget.getBoundingClientRect();
-    const x = clamp((e.clientX - rect.left) / rect.width, edge, 1 - edge);
-    const y = clamp((e.clientY - rect.top) / rect.height, edge, 1 - edge);
-    setPos({ x, y });
+  useEffect(() => {
+    const frame = frameRef.current;
+    if (!zoomOpen || !frame) return;
+    const onWheel = (e: WheelEvent) => {
+      e.preventDefault();
+      const rect = frame.getBoundingClientRect();
+      const cx = e.clientX - rect.left - rect.width / 2;
+      const cy = e.clientY - rect.top - rect.height / 2;
+      const factor = Math.exp(-e.deltaY * 0.0015);
+      const { scale: prevS, tx: prevTx, ty: prevTy } = stateRef.current;
+      const nextS = Math.min(MAX_ZOOM, Math.max(MIN_ZOOM, prevS * factor));
+      const ratio = nextS / prevS;
+      const nx = cx - (cx - prevTx) * ratio;
+      const ny = cy - (cy - prevTy) * ratio;
+      const c = clampPan(nx, ny, nextS);
+      setScale(nextS);
+      setTx(c.x);
+      setTy(c.y);
+    };
+    frame.addEventListener("wheel", onWheel, { passive: false });
+    return () => frame.removeEventListener("wheel", onWheel);
+  }, [zoomOpen]);
+
+  const onPointerDown = (e: React.PointerEvent<HTMLDivElement>) => {
+    if (scale <= 1) return;
+    (e.currentTarget as HTMLDivElement).setPointerCapture(e.pointerId);
+    dragRef.current = { x: e.clientX, y: e.clientY, tx, ty };
   };
-
-  const indicatorStyle = () => {
-    if (!thumbRect) return {};
-    const iw = thumbRect.w / zoom;
-    const ih = thumbRect.h / zoom;
-    const left = clamp(pos.x * thumbRect.w - iw / 2, 0, thumbRect.w - iw);
-    const top = clamp(pos.y * thumbRect.h - ih / 2, 0, thumbRect.h - ih);
-    return { width: iw, height: ih, left, top };
+  const onPointerMove = (e: React.PointerEvent<HTMLDivElement>) => {
+    if (!dragRef.current) return;
+    const dx = e.clientX - dragRef.current.x;
+    const dy = e.clientY - dragRef.current.y;
+    const c = clampPan(dragRef.current.tx + dx, dragRef.current.ty + dy, scale);
+    setTx(c.x);
+    setTy(c.y);
   };
-
-  const mainImageStyle = () => {
-    if (!mainRect) return {};
-    const w = mainRect.w * zoom;
-    const h = mainRect.h * zoom;
-    const left = mainRect.w * (0.5 - pos.x * zoom);
-    const top = mainRect.h * (0.5 - pos.y * zoom);
-    return { width: w, height: h, left, top };
+  const onPointerUp = (e: React.PointerEvent<HTMLDivElement>) => {
+    dragRef.current = null;
+    try { (e.currentTarget as HTMLDivElement).releasePointerCapture(e.pointerId); } catch {}
   };
 
   return (
@@ -112,114 +136,26 @@ function Step4() {
           role="dialog"
           aria-modal="true"
           onClick={() => setZoomOpen(false)}
-          className="fixed inset-0 z-50 bg-black/90 flex items-center justify-center p-4 sm:p-6 cursor-zoom-out"
+          className="fixed inset-0 z-50 bg-black/90 flex items-center justify-center p-4 sm:p-6"
         >
           <div
-            className="relative w-full max-w-7xl max-h-full flex flex-col md:flex-row gap-4 overflow-auto rounded-lg bg-background p-4"
+            className="relative w-full max-w-7xl max-h-full flex flex-col gap-3 rounded-lg bg-background p-4"
             onClick={(e) => e.stopPropagation()}
           >
-            <div className="flex flex-col gap-2 md:hidden">
-              <div className="flex items-center justify-between">
-                <span className="text-sm font-medium text-foreground">
-                  Mind map of my regression settings and structure
-                </span>
-                <button
-                  type="button"
-                  onClick={() => setZoomOpen(false)}
-                  className="text-sm px-2 py-1 rounded hover:bg-foreground/10"
-                  aria-label="Close zoom view"
-                >
-                  ✕
-                </button>
-              </div>
+            <div className="flex items-center justify-between gap-3">
+              <span className="text-sm font-medium text-foreground">
+                Mind map of my regression settings and structure
+              </span>
               <div className="flex items-center gap-2 text-xs text-muted-foreground">
+                <span className="hidden sm:inline">Scroll to zoom · drag to pan</span>
+                <span className="tabular-nums font-medium text-foreground">{scale.toFixed(1)}×</span>
                 <button
                   type="button"
-                  onClick={() => setZoom((z) => Math.max(1, +(z - 0.5).toFixed(2)))}
+                  onClick={reset}
                   className="px-2 py-1 rounded border border-border hover:bg-foreground/5"
-                  aria-label="Zoom out"
                 >
-                  −
+                  Reset
                 </button>
-                <input
-                  type="range"
-                  min={1}
-                  max={6}
-                  step={0.1}
-                  value={zoom}
-                  onChange={(e) => setZoom(+e.target.value)}
-                  className="flex-1 accent-[color:var(--sun)]"
-                  aria-label="Zoom level"
-                />
-                <button
-                  type="button"
-                  onClick={() => setZoom((z) => Math.min(6, +(z + 0.5).toFixed(2)))}
-                  className="px-2 py-1 rounded border border-border hover:bg-foreground/5"
-                  aria-label="Zoom in"
-                >
-                  +
-                </button>
-                <span className="tabular-nums font-medium text-foreground w-10 text-right">{zoom.toFixed(1)}×</span>
-              </div>
-            </div>
-
-            <div className="flex flex-col gap-2 md:w-56 shrink-0">
-              <div className="relative inline-block self-start rounded-lg border border-border overflow-hidden bg-background">
-                <img
-                  ref={thumbRef}
-                  src={regressionDiagram.url}
-                  alt="Overview of regression mind map"
-                  className="w-32 md:w-52 h-auto block cursor-crosshair"
-                  onLoad={measure}
-                  onMouseMove={updatePos}
-                  onMouseDown={updatePos}
-                />
-                {thumbRect && (
-                  <div
-                    className="absolute pointer-events-none border-2 border-[color:var(--sun)] bg-[color:var(--sun)]/20 rounded-sm"
-                    style={indicatorStyle()}
-                  />
-                )}
-              </div>
-              <div className="hidden md:flex flex-col gap-2 text-xs text-muted-foreground">
-                <p>Hover or drag the thumbnail to explore the zoomed area.</p>
-                <div className="flex items-center gap-2">
-                  <button
-                    type="button"
-                    onClick={() => setZoom((z) => Math.max(1, +(z - 0.5).toFixed(2)))}
-                    className="px-2 py-1 rounded border border-border hover:bg-foreground/5"
-                    aria-label="Zoom out"
-                  >
-                    −
-                  </button>
-                  <input
-                    type="range"
-                    min={1}
-                    max={6}
-                    step={0.1}
-                    value={zoom}
-                    onChange={(e) => setZoom(+e.target.value)}
-                    className="w-24 accent-[color:var(--sun)]"
-                    aria-label="Zoom level"
-                  />
-                  <button
-                    type="button"
-                    onClick={() => setZoom((z) => Math.min(6, +(z + 0.5).toFixed(2)))}
-                    className="px-2 py-1 rounded border border-border hover:bg-foreground/5"
-                    aria-label="Zoom in"
-                  >
-                    +
-                  </button>
-                  <span className="tabular-nums font-medium text-foreground">{zoom.toFixed(1)}×</span>
-                </div>
-              </div>
-            </div>
-
-            <div className="flex-1 min-w-0 flex flex-col">
-              <div className="hidden md:flex items-center justify-between pb-3 border-b border-border mb-3">
-                <span className="text-sm font-medium text-foreground">
-                  Mind map of my regression settings and structure
-                </span>
                 <button
                   type="button"
                   onClick={() => setZoomOpen(false)}
@@ -229,25 +165,27 @@ function Step4() {
                   ✕
                 </button>
               </div>
+            </div>
 
-              <div
-                ref={mainRef}
-                className="relative overflow-hidden rounded-lg bg-black w-full max-h-[70vh]"
+            <div
+              ref={frameRef}
+              onPointerDown={onPointerDown}
+              onPointerMove={onPointerMove}
+              onPointerUp={onPointerUp}
+              onPointerCancel={onPointerUp}
+              className="relative overflow-hidden rounded-lg bg-black w-full h-[80vh] touch-none select-none"
+              style={{ cursor: scale > 1 ? (dragRef.current ? "grabbing" : "grab") : "default" }}
+            >
+              <img
+                src={regressionDiagram.url}
+                alt="Zoomed regression mind map"
+                draggable={false}
+                className="absolute inset-0 w-full h-full object-contain will-change-transform"
                 style={{
-                  aspectRatio: thumbRef.current
-                    ? thumbRef.current.naturalWidth / thumbRef.current.naturalHeight
-                    : undefined,
+                  transform: `translate(${tx}px, ${ty}px) scale(${scale})`,
+                  transformOrigin: "center center",
                 }}
-              >
-                <img
-                  src={regressionDiagram.url}
-                  alt="Zoomed regression mind map"
-                  className="absolute top-0 left-0 max-w-none max-h-none"
-                  onLoad={measure}
-                  style={mainImageStyle()}
-                  draggable={false}
-                />
-              </div>
+              />
             </div>
           </div>
         </div>
