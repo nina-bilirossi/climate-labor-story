@@ -4,6 +4,31 @@ import { InlineMath, BlockMath } from "react-katex";
 import { useState, ReactNode } from "react";
 import droughtWorkflow from "@/assets/spei-workflow-2026-07-29.png.asset.json";
 import floodWorkflow from "@/assets/flood-workflow.png.asset.json";
+import floodBlock1 from "@/assets/flood-blocks/block-1.asset.json";
+import floodBlock2 from "@/assets/flood-blocks/block-2.asset.json";
+import floodBlock3 from "@/assets/flood-blocks/block-3.asset.json";
+import floodBlock4 from "@/assets/flood-blocks/block-4.asset.json";
+import floodBlock6 from "@/assets/flood-blocks/block-6.asset.json";
+import floodBlock7 from "@/assets/flood-blocks/block-7.asset.json";
+
+// Hotspots over the flood workflow diagram (percentages of the 1744x828 image).
+const FLOOD_HOTSPOTS: Array<{
+  id: string;
+  label: string;
+  left: number;
+  top: number;
+  width: number;
+  height: number;
+  image?: { url: string };
+}> = [
+  { id: "b1", label: "ERA5 daily precipitation", left: 3, top: 14, width: 23, height: 19, image: floodBlock1 },
+  { id: "b2", label: "GEV threshold τᵢ", left: 29, top: 14, width: 21, height: 19, image: floodBlock2 },
+  { id: "b3", label: "ERA5 soil moisture", left: 3, top: 48, width: 23, height: 17, image: floodBlock3 },
+  { id: "b4", label: "Soil moisture modifier f(sᵢ,d)", left: 29, top: 48, width: 21, height: 17, image: floodBlock4 },
+  { id: "b5", label: "Flood contribution", left: 55, top: 33, width: 16, height: 19 },
+  { id: "b6", label: "#flood/district-year", left: 75, top: 33, width: 24, height: 19, image: floodBlock6 },
+  { id: "b7", label: "Average to state-year", left: 75, top: 56, width: 24, height: 19, image: floodBlock7 },
+];
 
 export const Route = createFileRoute("/step-3")({
   head: () => ({
