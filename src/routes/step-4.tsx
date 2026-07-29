@@ -16,11 +16,11 @@ export const Route = createFileRoute("/step-4")({
 function Step4() {
   const [zoomOpen, setZoomOpen] = useState(false);
   const [pos, setPos] = useState({ x: 0.5, y: 0.5 });
+  const [zoom, setZoom] = useState(3);
   const [thumbRect, setThumbRect] = useState<{ w: number; h: number } | null>(null);
   const [mainRect, setMainRect] = useState<{ w: number; h: number } | null>(null);
   const thumbRef = useRef<HTMLImageElement>(null);
   const mainRef = useRef<HTMLDivElement>(null);
-  const ZOOM = 3;
 
   const measure = () => {
     if (thumbRef.current) {
