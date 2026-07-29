@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { ChapterLayout } from "@/components/ChapterLayout";
 import regressionDiagram from "@/assets/regression-settings.jpg.asset.json";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 export const Route = createFileRoute("/step-4")({
   head: () => ({
@@ -15,23 +15,56 @@ export const Route = createFileRoute("/step-4")({
 
 function Step4() {
   const [zoomOpen, setZoomOpen] = useState(false);
-  const [lens, setLens] = useState<{ x: number; y: number; bgX: number; bgY: number; bgW: number; bgH: number; visible: boolean }>({
-    x: 0, y: 0, bgX: 0, bgY: 0, bgW: 0, bgH: 0, visible: false,
-  });
-  const LENS_W = 360;
-  const LENS_H = 240;
+  const [pos, setPos] = useState({ x: 0.5, y: 0.5 });
+  const [thumbRect, setThumbRect] = useState<{ w: number; h: number } | null>(null);
+  const [mainRect, setMainRect] = useState<{ w: number; h: number } | null>(null);
+  const thumbRef = useRef<HTMLImageElement>(null);
+  const mainRef = useRef<HTMLDivElement>(null);
   const ZOOM = 3;
 
-  const handleLensMove = (e: React.MouseEvent<HTMLImageElement>) => {
-    const img = e.currentTarget;
-    const rect = img.getBoundingClientRect();
-    const x = e.clientX - rect.left;
-    const y = e.clientY - rect.top;
-    const bgW = rect.width * ZOOM;
-    const bgH = rect.height * ZOOM;
-    const bgX = -(x * ZOOM - LENS_W / 2);
-    const bgY = -(y * ZOOM - LENS_H / 2);
-    setLens({ x: e.clientX, y: e.clientY, bgX, bgY, bgW, bgH, visible: true });
+  const measure = () => {
+    if (thumbRef.current) {
+      setThumbRect({ w: thumbRef.current.clientWidth, h: thumbRef.current.clientHeight });
+    }
+    if (mainRef.current) {
+      setMainRect({ w: mainRef.current.clientWidth, h: mainRef.current.clientHeight });
+    }
+  };
+
+  useEffect(() => {
+    if (!zoomOpen) return;
+    measure();
+    const handleResize = () => measure();
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, [zoomOpen]);
+
+  const clamp = (n: number, min: number, max: number) => Math.min(Math.max(n, min), max);
+  const edge = 1 / (2 * ZOOM);
+
+  const updatePos = (e: React.MouseEvent<HTMLImageElement>) => {
+    const rect = e.currentTarget.getBoundingClientRect();
+    const x = clamp((e.clientX - rect.left) / rect.width, edge, 1 - edge);
+    const y = clamp((e.clientY - rect.top) / rect.height, edge, 1 - edge);
+    setPos({ x, y });
+  };
+
+  const indicatorStyle = () => {
+    if (!thumbRect) return {};
+    const iw = thumbRect.w / ZOOM;
+    const ih = thumbRect.h / ZOOM;
+    const left = clamp(pos.x * thumbRect.w - iw / 2, 0, thumbRect.w - iw);
+    const top = clamp(pos.y * thumbRect.h - ih / 2, 0, thumbRect.h - ih);
+    return { width: iw, height: ih, left, top };
+  };
+
+  const mainImageStyle = () => {
+    if (!mainRect) return {};
+    const w = mainRect.w * ZOOM;
+    const h = mainRect.h * ZOOM;
+    const left = mainRect.w * (0.5 - pos.x * ZOOM);
+    const top = mainRect.h * (0.5 - pos.y * ZOOM);
+    return { width: w, height: h, left, top };
   };
 
   return (
@@ -79,13 +112,13 @@ function Step4() {
           role="dialog"
           aria-modal="true"
           onClick={() => setZoomOpen(false)}
-          className="fixed inset-0 z-50 bg-black/80 flex items-center justify-center p-4 sm:p-8 cursor-zoom-out"
+          className="fixed inset-0 z-50 bg-black/90 flex items-center justify-center p-4 sm:p-6 cursor-zoom-out"
         >
           <div
-            className="relative w-full max-w-6xl max-h-full overflow-auto rounded-lg bg-white"
+            className="relative w-full max-w-7xl max-h-full flex flex-col md:flex-row gap-4 overflow-auto rounded-lg bg-background p-4"
             onClick={(e) => e.stopPropagation()}
           >
-            <div className="sticky top-0 z-10 flex items-center justify-between px-4 py-2 border-b border-foreground/10 bg-white/95 backdrop-blur">
+            <div className="flex items-center justify-between md:hidden">
               <span className="text-sm font-medium text-foreground">
                 Mind map of my regression settings and structure
               </span>
@@ -98,30 +131,65 @@ function Step4() {
                 ✕
               </button>
             </div>
-            <img
-              src={regressionDiagram.url}
-              alt="Zoomed visual diagram of regression settings and structure"
-              className="w-full h-auto block cursor-crosshair"
-              onMouseMove={handleLensMove}
-              onMouseLeave={() => setLens((l) => ({ ...l, visible: false }))}
-            />
+
+            <div className="flex flex-col gap-2 md:w-56 shrink-0">
+              <div className="relative inline-block self-start rounded-lg border border-border overflow-hidden bg-background">
+                <img
+                  ref={thumbRef}
+                  src={regressionDiagram.url}
+                  alt="Overview of regression mind map"
+                  className="w-32 md:w-52 h-auto block cursor-crosshair"
+                  onLoad={measure}
+                  onMouseMove={updatePos}
+                  onMouseDown={updatePos}
+                />
+                {thumbRect && (
+                  <div
+                    className="absolute pointer-events-none border-2 border-[color:var(--sun)] bg-[color:var(--sun)]/20 rounded-sm"
+                    style={indicatorStyle()}
+                  />
+                )}
+              </div>
+              <p className="text-xs text-muted-foreground hidden md:block">
+                Hover or drag the thumbnail to explore the zoomed area.
+              </p>
+            </div>
+
+            <div className="flex-1 min-w-0 flex flex-col">
+              <div className="hidden md:flex items-center justify-between pb-3 border-b border-border mb-3">
+                <span className="text-sm font-medium text-foreground">
+                  Mind map of my regression settings and structure
+                </span>
+                <button
+                  type="button"
+                  onClick={() => setZoomOpen(false)}
+                  className="text-sm px-2 py-1 rounded hover:bg-foreground/10"
+                  aria-label="Close zoom view"
+                >
+                  ✕
+                </button>
+              </div>
+
+              <div
+                ref={mainRef}
+                className="relative overflow-hidden rounded-lg bg-black w-full max-h-[70vh]"
+                style={{
+                  aspectRatio: thumbRef.current
+                    ? thumbRef.current.naturalWidth / thumbRef.current.naturalHeight
+                    : undefined,
+                }}
+              >
+                <img
+                  src={regressionDiagram.url}
+                  alt="Zoomed regression mind map"
+                  className="absolute top-0 left-0 max-w-none max-h-none"
+                  onLoad={measure}
+                  style={mainImageStyle()}
+                  draggable={false}
+                />
+              </div>
+            </div>
           </div>
-          {lens.visible && (
-            <div
-              className="pointer-events-none fixed rounded-lg border-2 border-white shadow-2xl"
-              style={{
-                left: lens.x - LENS_W / 2,
-                top: lens.y - LENS_H / 2,
-                width: LENS_W,
-                height: LENS_H,
-                backgroundImage: `url(${regressionDiagram.url})`,
-                backgroundRepeat: "no-repeat",
-                backgroundSize: `${lens.bgW}px ${lens.bgH}px`,
-                backgroundPosition: `${lens.bgX}px ${lens.bgY}px`,
-                backgroundColor: "white",
-              }}
-            />
-          )}
         </div>
       )}
     </ChapterLayout>
