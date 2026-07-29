@@ -11,7 +11,6 @@ const references: Record<string, string> = {
   "10": "Chiplunkar et al. (2024)",
   "11": "Banerjee and Duflo (2011)",
   "12": "Elgin et al. (2019)",
-  "13": "Elgin et al. (2019)",
 };
 
 function Cite({ ids }: { ids: string[] }) {
