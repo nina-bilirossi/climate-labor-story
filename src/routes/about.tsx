@@ -60,9 +60,7 @@ function AboutPage() {
         .
       </p>
 
-      <p className="mt-4">Any suggestions?&nbsp;</p>
-
-      <p className="text-sm italic text-foreground/60 -mt-2 mb-2">
+      <p className="text-sm italic text-foreground/60 mt-8 mb-2">
         Questions? Suggestions? Feedback? I'm happy to hear them! You'll find my contact below.
       </p>
 
