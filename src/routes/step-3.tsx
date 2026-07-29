@@ -266,6 +266,9 @@ function Step3() {
                 <p>
                   The status of a casual worker is determined if an individual engaged in casual work as a primary or subsidiary activity (≥ 30 days) over the past 365 days.
                 </p>
+                <p>
+                  I also compute the share of informality for each state for males and females (other genders represent a tiny, if not invisible, fraction of the survey respondents, so they are excluded), and rural and urban areas separately. Additionally, I generate state splits based on the share of agricultural employment and state income [I also tested for geography (north-east, south, ...) but found no significant results, so I dropped it].
+                </p>
               </div>
             </details>
           </div>
