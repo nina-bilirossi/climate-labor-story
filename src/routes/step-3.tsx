@@ -39,6 +39,11 @@ function Step3() {
           a set of state- and year- specific climate shock indicators (one each
           for drought and floods)
         </li>
+        <li>
+          population per state, to use as weight and make more populated states
+          more influential on the coefficients (to reflect the actual affected
+          population)
+        </li>
       </ul>
     </ChapterLayout>
   );
