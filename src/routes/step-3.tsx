@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { ChapterLayout } from "@/components/ChapterLayout";
 import { InlineMath, BlockMath } from "react-katex";
+import { useState, ReactNode } from "react";
 
 export const Route = createFileRoute("/step-3")({
   head: () => ({
@@ -15,7 +16,38 @@ export const Route = createFileRoute("/step-3")({
   component: Step3,
 });
 
+type MathKey = "inf" | "zeta" | "i" | "t" | "alpha" | "gamma";
+
 function Step3() {
+  const [active, setActive] = useState<MathKey | null>(null);
+
+  const HL = ({
+    k,
+    children,
+    inline = false,
+  }: {
+    k: MathKey;
+    children: ReactNode;
+    inline?: boolean;
+  }) => {
+    const isActive = active === k;
+    return (
+      <span
+        onMouseEnter={() => setActive(k)}
+        onMouseLeave={() => setActive(null)}
+        className={[
+          inline ? "inline-block" : "inline-block",
+          "rounded px-1 py-0.5 -mx-0.5 transition-colors duration-150 cursor-help",
+          isActive
+            ? "bg-[color:var(--sun)]/70 text-background"
+            : "bg-[color:var(--sun)]/15",
+        ].join(" ")}
+      >
+        {children}
+      </span>
+    );
+  };
+
   return (
     <ChapterLayout
       eyebrow="Step 03"
@@ -42,22 +74,64 @@ function Step3() {
           The baseline specification is as follows:
         </p>
 
-        <div className="my-8 overflow-x-auto">
-          <BlockMath math="\text{inf}_{i, t} = C + \beta_1 \cdot \zeta_{i, t} + \beta_2 \cdot \zeta_{i, t-1} + \beta_3 \cdot \zeta_{i, t-2} + \alpha_i + \gamma_t + \delta_i \cdot t + \epsilon_{i, t}" />
+        <div className="my-8 overflow-x-auto flex flex-wrap items-center justify-center gap-x-1 gap-y-2 text-lg">
+          <HL k="inf">
+            <InlineMath math="\text{inf}_{i, t}" />
+          </HL>
+          <InlineMath math="= C +" />
+          <InlineMath math="\beta_1 \cdot" />
+          <HL k="zeta">
+            <InlineMath math="\zeta_{i, t}" />
+          </HL>
+          <InlineMath math="+ \beta_2 \cdot" />
+          <HL k="zeta">
+            <InlineMath math="\zeta_{i, t-1}" />
+          </HL>
+          <InlineMath math="+ \beta_3 \cdot" />
+          <HL k="zeta">
+            <InlineMath math="\zeta_{i, t-2}" />
+          </HL>
+          <InlineMath math="+" />
+          <HL k="alpha">
+            <InlineMath math="\alpha_i" />
+          </HL>
+          <InlineMath math="+" />
+          <HL k="gamma">
+            <InlineMath math="\gamma_t" />
+          </HL>
+          <InlineMath math="+ \delta_i \cdot t + \epsilon_{i, t}" />
         </div>
 
         <p>
-          where <InlineMath math="i" /> indexes states and{" "}
-          <InlineMath math="t" /> denotes the period (annual period from June to
-          July). <InlineMath math="\text{inf}_{i, t}" /> is the informal
-          employment share, and <InlineMath math="\zeta_{i, t}" /> is the
-          climate shock index: either the yearly drought index or the yearly
-          flood index. I control for state- (<InlineMath math="\alpha_i" />) and
-          time-fixed (<InlineMath math="\gamma_t" />) effects, and include
-          state-specific linear time trends (to account for state-specific
-          development paths, urbanization, and sectoral shifts). Standard errors
-          are clustered at the state level, and all regressions are weighted by
-          2020 population.
+          where{" "}
+          <HL k="i">
+            <InlineMath math="i" />
+          </HL>{" "}
+          indexes states and{" "}
+          <HL k="t">
+            <InlineMath math="t" />
+          </HL>{" "}
+          denotes the period (annual period from June to July).{" "}
+          <HL k="inf">
+            <InlineMath math="\text{inf}_{i, t}" />
+          </HL>{" "}
+          is the informal employment share, and{" "}
+          <HL k="zeta">
+            <InlineMath math="\zeta_{i, t}" />
+          </HL>{" "}
+          is the climate shock index: either the yearly drought index or the
+          yearly flood index. I control for state- (
+          <HL k="alpha">
+            <InlineMath math="\alpha_i" />
+          </HL>
+          ) and time-fixed (
+          <HL k="gamma">
+            <InlineMath math="\gamma_t" />
+          </HL>
+          ) effects, and include state-specific linear time trends (to account
+          for state-specific development paths, urbanization, and sectoral
+          shifts). Standard errors are clustered at the state level, and all
+          regressions are weighted by 2020 population.
         </p>
 
         <p className="mt-12 pt-8 border-t border-foreground/10">
