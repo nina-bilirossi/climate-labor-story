@@ -17,11 +17,13 @@ function Step2() {
     <ChapterLayout
       eyebrow="Step 02"
       title="Figuring out the research gaps"
-      lede="I investigate the effect of drought and flood shocks on casual labor force participation in India. I combine satellite climate data with labor survey data to investigate a potential correlation and argue a causal relationship."
+      lede="I investigate the effect of drought and flood shocks on casual labor force participation in India. I combine satellite climate data with labor survey data to investigate a potential correlation and argue for a causal relationship."
     >
       <div className="prose-thesis space-y-8">
         <section>
-          <h3 className="text-xl font-bold mb-4">I contribute to 3 main strands of the literature :</h3>
+          <h3 className="text-xl font-bold mb-4">
+            It's a bit scary having to check what's already been done, because you can't possibly check every paper that has been published. But to the best&nbsp;of my ability in the limited time that is the thesis, it seems to me like what i've set out to research was fairly original, and contributes to 3 main strands of the literature.
+          </h3>
           
           <div className="space-y-6">
             <div>
