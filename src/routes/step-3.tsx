@@ -1,4 +1,4 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { ChapterLayout } from "@/components/ChapterLayout";
 import { InlineMath, BlockMath } from "react-katex";
 import { useState, ReactNode } from "react";
