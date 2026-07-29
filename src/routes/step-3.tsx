@@ -430,8 +430,8 @@ function Step3() {
                       alt="Flood index workflow: from ERA5 precipitation and soil moisture to a population-weighted state-year flash-flood index"
                       className="w-full rounded-lg border border-foreground/10 bg-white"
                     />
-                    <figcaption className="mt-2 text-center text-sm text-foreground/60">
-                      Flood index construction workflow
+                    <figcaption className="mt-3 text-sm text-foreground/60 text-center">
+                      Workflow: from ERA5 precipitation and soil moisture data to a population-weighted state-year flash-flood index.
                     </figcaption>
                   </figure>
                 </div>
