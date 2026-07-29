@@ -3,6 +3,7 @@ import { ChapterLayout } from "@/components/ChapterLayout";
 import { InlineMath, BlockMath } from "react-katex";
 import { useState, ReactNode } from "react";
 import droughtWorkflow from "@/assets/spei-workflow-2026-07-29.png.asset.json";
+import floodWorkflow from "@/assets/flood-workflow.png.asset.json";
 
 export const Route = createFileRoute("/step-3")({
   head: () => ({
@@ -423,6 +424,16 @@ function Step3() {
                     than usual at that location on that day, the event counts as
                     stronger.
                   </p>
+                  <figure className="mt-6">
+                    <img
+                      src={floodWorkflow.url}
+                      alt="Flood index workflow: from ERA5 precipitation and soil moisture to a population-weighted state-year flash-flood index"
+                      className="w-full rounded-lg border border-foreground/10 bg-white"
+                    />
+                    <figcaption className="mt-2 text-center text-sm text-foreground/60">
+                      Flood index construction workflow
+                    </figcaption>
+                  </figure>
                 </div>
               </div>
             </details>
