@@ -328,9 +328,9 @@ function Step3() {
                   The drought index is based on the SPEI-12 index, which looks at temperature and evapotranspiration over the past 12 months. Values are normalized at the pixel level so that a negative score indicates a negative deviation (drought) compared to the baseline. I filter out the positive values and keep only the negative values, so that my index reflects the intensity of a drought.
                 </p>
 
-                <h4 className="font-semibold text-foreground pt-4">
+                <p className="pt-4">
                   My workflow for the index construction from satellite to state-year index is the following
-                </h4>
+                </p>
 
                 <ol className="list-decimal pl-5 space-y-2">
                   <li>
