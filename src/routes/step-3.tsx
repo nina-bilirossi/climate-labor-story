@@ -16,9 +16,30 @@ function Step3() {
     <ChapterLayout
       eyebrow="Step 03"
       title="Laying out the plan and getting the data"
-      lede="I address the question of the short-term effects of climate shocks on informality by combining labor data with satellite-derived climate data in a panel regression framework."
+      lede={
+        <>
+          I address the short-term effects of climate shocks on informality by
+          combining labor data with satellite-derived climate data in a{" "}
+          <a
+            href="https://en.wikipedia.org/wiki/Panel_analysis"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="underline underline-offset-4 decoration-[color:var(--sun)]/30 hover:decoration-[color:var(--sun)] transition-colors"
+          >
+            panel regression
+          </a>{" "}
+          framework.
+        </>
+      }
     >
-      <p>Content coming soon.</p>
+      <p>This recipe (analysis) requires a few ingredients:</p>
+      <ul className="list-disc pl-5 space-y-2">
+        <li>a set of state- and year- specific informality values</li>
+        <li>
+          a set of state- and year- specific climate shock indicators (one each
+          for drought and floods)
+        </li>
+      </ul>
     </ChapterLayout>
   );
 }
