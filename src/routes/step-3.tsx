@@ -190,7 +190,7 @@ function Step3() {
               viewBox="0 0 24 24"
               fill="none"
               stroke="currentColor"
-              strokeWidth="1.8"
+              strokeWidth="1.2"
               strokeLinecap="round"
               strokeLinejoin="round"
               className="h-6 w-6 text-[color:var(--sun)]"
