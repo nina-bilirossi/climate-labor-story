@@ -16,11 +16,11 @@ export const Route = createFileRoute("/step-4")({
 function Step4() {
   const [zoomOpen, setZoomOpen] = useState(false);
   const [pos, setPos] = useState({ x: 0.5, y: 0.5 });
+  const [zoom, setZoom] = useState(3);
   const [thumbRect, setThumbRect] = useState<{ w: number; h: number } | null>(null);
   const [mainRect, setMainRect] = useState<{ w: number; h: number } | null>(null);
   const thumbRef = useRef<HTMLImageElement>(null);
   const mainRef = useRef<HTMLDivElement>(null);
-  const ZOOM = 3;
 
   const measure = () => {
     if (thumbRef.current) {
@@ -40,7 +40,7 @@ function Step4() {
   }, [zoomOpen]);
 
   const clamp = (n: number, min: number, max: number) => Math.min(Math.max(n, min), max);
-  const edge = 1 / (2 * ZOOM);
+  const edge = 1 / (2 * zoom);
 
   const updatePos = (e: React.MouseEvent<HTMLImageElement>) => {
     const rect = e.currentTarget.getBoundingClientRect();
@@ -51,8 +51,8 @@ function Step4() {
 
   const indicatorStyle = () => {
     if (!thumbRect) return {};
-    const iw = thumbRect.w / ZOOM;
-    const ih = thumbRect.h / ZOOM;
+    const iw = thumbRect.w / zoom;
+    const ih = thumbRect.h / zoom;
     const left = clamp(pos.x * thumbRect.w - iw / 2, 0, thumbRect.w - iw);
     const top = clamp(pos.y * thumbRect.h - ih / 2, 0, thumbRect.h - ih);
     return { width: iw, height: ih, left, top };
@@ -60,10 +60,10 @@ function Step4() {
 
   const mainImageStyle = () => {
     if (!mainRect) return {};
-    const w = mainRect.w * ZOOM;
-    const h = mainRect.h * ZOOM;
-    const left = mainRect.w * (0.5 - pos.x * ZOOM);
-    const top = mainRect.h * (0.5 - pos.y * ZOOM);
+    const w = mainRect.w * zoom;
+    const h = mainRect.h * zoom;
+    const left = mainRect.w * (0.5 - pos.x * zoom);
+    const top = mainRect.h * (0.5 - pos.y * zoom);
     return { width: w, height: h, left, top };
   };
 
@@ -118,18 +118,49 @@ function Step4() {
             className="relative w-full max-w-7xl max-h-full flex flex-col md:flex-row gap-4 overflow-auto rounded-lg bg-background p-4"
             onClick={(e) => e.stopPropagation()}
           >
-            <div className="flex items-center justify-between md:hidden">
-              <span className="text-sm font-medium text-foreground">
-                Mind map of my regression settings and structure
-              </span>
-              <button
-                type="button"
-                onClick={() => setZoomOpen(false)}
-                className="text-sm px-2 py-1 rounded hover:bg-foreground/10"
-                aria-label="Close zoom view"
-              >
-                ✕
-              </button>
+            <div className="flex flex-col gap-2 md:hidden">
+              <div className="flex items-center justify-between">
+                <span className="text-sm font-medium text-foreground">
+                  Mind map of my regression settings and structure
+                </span>
+                <button
+                  type="button"
+                  onClick={() => setZoomOpen(false)}
+                  className="text-sm px-2 py-1 rounded hover:bg-foreground/10"
+                  aria-label="Close zoom view"
+                >
+                  ✕
+                </button>
+              </div>
+              <div className="flex items-center gap-2 text-xs text-muted-foreground">
+                <button
+                  type="button"
+                  onClick={() => setZoom((z) => Math.max(1, +(z - 0.5).toFixed(2)))}
+                  className="px-2 py-1 rounded border border-border hover:bg-foreground/5"
+                  aria-label="Zoom out"
+                >
+                  −
+                </button>
+                <input
+                  type="range"
+                  min={1}
+                  max={6}
+                  step={0.1}
+                  value={zoom}
+                  onChange={(e) => setZoom(+e.target.value)}
+                  className="flex-1 accent-[color:var(--sun)]"
+                  aria-label="Zoom level"
+                />
+                <button
+                  type="button"
+                  onClick={() => setZoom((z) => Math.min(6, +(z + 0.5).toFixed(2)))}
+                  className="px-2 py-1 rounded border border-border hover:bg-foreground/5"
+                  aria-label="Zoom in"
+                >
+                  +
+                </button>
+                <span className="tabular-nums font-medium text-foreground w-10 text-right">{zoom.toFixed(1)}×</span>
+              </div>
             </div>
 
             <div className="flex flex-col gap-2 md:w-56 shrink-0">
@@ -150,9 +181,38 @@ function Step4() {
                   />
                 )}
               </div>
-              <p className="text-xs text-muted-foreground hidden md:block">
-                Hover or drag the thumbnail to explore the zoomed area.
-              </p>
+              <div className="hidden md:flex flex-col gap-2 text-xs text-muted-foreground">
+                <p>Hover or drag the thumbnail to explore the zoomed area.</p>
+                <div className="flex items-center gap-2">
+                  <button
+                    type="button"
+                    onClick={() => setZoom((z) => Math.max(1, +(z - 0.5).toFixed(2)))}
+                    className="px-2 py-1 rounded border border-border hover:bg-foreground/5"
+                    aria-label="Zoom out"
+                  >
+                    −
+                  </button>
+                  <input
+                    type="range"
+                    min={1}
+                    max={6}
+                    step={0.1}
+                    value={zoom}
+                    onChange={(e) => setZoom(+e.target.value)}
+                    className="w-24 accent-[color:var(--sun)]"
+                    aria-label="Zoom level"
+                  />
+                  <button
+                    type="button"
+                    onClick={() => setZoom((z) => Math.min(6, +(z + 0.5).toFixed(2)))}
+                    className="px-2 py-1 rounded border border-border hover:bg-foreground/5"
+                    aria-label="Zoom in"
+                  >
+                    +
+                  </button>
+                  <span className="tabular-nums font-medium text-foreground">{zoom.toFixed(1)}×</span>
+                </div>
+              </div>
             </div>
 
             <div className="flex-1 min-w-0 flex flex-col">
