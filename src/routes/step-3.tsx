@@ -288,7 +288,7 @@ function Step3() {
                   <img
                     src="https://upload.wikimedia.org/wikipedia/commons/1/1b/R_logo.svg"
                     alt="R"
-                    className="inline-block h-4 w-auto"
+                    className="inline-block h-5 w-auto"
                   />
                 </span>
                 <span className="ml-4 text-foreground/50 transition-transform group-open:rotate-90">▶</span>
@@ -307,7 +307,7 @@ function Step3() {
                   <img
                     src="https://upload.wikimedia.org/wikipedia/commons/f/f8/Python_logo_and_wordmark.svg"
                     alt="Python"
-                    className="inline-block h-4 w-auto"
+                    className="inline-block h-5 w-auto"
                   />
                 </span>
                 <span className="ml-4 text-foreground/50 transition-transform group-open:rotate-90">▶</span>
