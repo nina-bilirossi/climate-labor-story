@@ -16,7 +16,7 @@ function Step3() {
     <ChapterLayout
       eyebrow="Step 03"
       title="Laying out the plan and getting the data"
-      lede="From research questions to a working dataset."
+      lede="I address the question of the short-term effects of climate shocks on informality by combining labor data with satellite-derived climate data in a panel regression framework."
     >
       <p>Content coming soon.</p>
     </ChapterLayout>
