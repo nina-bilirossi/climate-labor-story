@@ -62,6 +62,10 @@ function AboutPage() {
 
       <p className="mt-4">Any suggestions?&nbsp;</p>
 
+      <p className="text-sm italic text-foreground/60 -mt-2 mb-2">
+        Questions? Suggestions? Feedback? I'm happy to hear them! You'll find my contact below.
+      </p>
+
       <div className="not-prose flex flex-wrap items-center gap-4 pt-2">
         <span className="inline-flex items-center gap-2 text-sm text-foreground/70">
           <span className="text-lg leading-none">🇫🇷</span>
