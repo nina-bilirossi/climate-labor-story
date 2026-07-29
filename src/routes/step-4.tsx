@@ -108,12 +108,12 @@ function Step4() {
           </div>
           {lens.visible && (
             <div
-              className="pointer-events-none fixed rounded-full border-2 border-white shadow-2xl"
+              className="pointer-events-none fixed rounded-lg border-2 border-white shadow-2xl"
               style={{
-                left: lens.x - LENS_SIZE / 2,
-                top: lens.y - LENS_SIZE / 2,
-                width: LENS_SIZE,
-                height: LENS_SIZE,
+                left: lens.x - LENS_W / 2,
+                top: lens.y - LENS_H / 2,
+                width: LENS_W,
+                height: LENS_H,
                 backgroundImage: `url(${regressionDiagram.url})`,
                 backgroundRepeat: "no-repeat",
                 backgroundSize: `${lens.bgW}px ${lens.bgH}px`,
