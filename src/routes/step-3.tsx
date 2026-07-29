@@ -376,26 +376,26 @@ function Step3() {
                   Building the flood index was much less straightforward than the
                   drought index. But it was also a lot more fun and required more
                   investigation. It seems there is no unanimous approach to
-                  measuring floods in environmental economics. Floods are complex&nbsp;
-                  and can be broken down into three main categories: flash floods,
+                  measuring floods in environmental economics. Floods are complex&nbsp;and
+                  can be broken down into three main categories: flash floods,
                   fluvial floods, and coastal floods. Keeping the rationale of
                   focusing on the hazard, and because of my technical expertise, I
                   focus on flash floods (fluvial and coastal floods reflect, to some
                   extent, human decisions in establishing in that area, and their
-                  damage will also depend on land use choices and infrastructure --
+                  damage will also depend on land use choices and infrastructure -
                   many more variables than just precipitation intensity).
                 </p>
                 <p>
                   What's a flash flood? Essentially, very intense precipitation over
-                  the course of a few hours. Those can be very destructive (more
-                  details in{" "}
+                  the course of a few hours. Those can be very destructive (I go
+                  into more details in{" "}
                   <Link
                     to="/step-5"
                     className="underline underline-offset-4 decoration-[color:var(--sun)]/30 hover:decoration-[color:var(--sun)] transition-colors"
                   >
                     Results
                   </Link>
-                  ).
+                  , as I explain the observed motions).
                 </p>
                 <p>
                   So how do I go about measuring them?&nbsp;
@@ -406,18 +406,18 @@ function Step3() {
                 </p>
                 <div className="mt-4 space-y-4">
                   <p>
-                    But what counts as an extreme event? For each district, I ask{" "}
+                    But what counts as an extreme event? For each district, I ask,{" "}
                     <span className="rounded px-1.5 py-0.5 font-semibold italic bg-[color:var(--sun)]/15">
                       "If I wait 10 years, what’s the worst event I can reasonably
                       expect? How many times was this value exceeded?"
                     </span>
-                    . This is known as "Return period value exceedance" (common in
+                    &nbsp;This is known as "return period value exceedance" (common in
                     insurance). You can find the details of my process in the
                     thesis itself; here's the overview. Ah yes, also, because
                     research suggests that when the soil is drier, it is much
                     harder for water to penetrate, so that very dry soil
                     amplifies the intensity of flash floods [think of the
-                    animation on the website's welcome page ;) ). Essentially, I
+                    animation on the website's welcome page]. Essentially, I
                     start by looking at precipitation, calculate the extreme
                     threshold, and count how many times it is surpassed,
                     multiplying it by a multiplier so that if the soil was drier
