@@ -249,7 +249,24 @@ function Step3() {
         </section>
 
         <section id="climate-construction" className="mt-12 scroll-mt-24 border-t border-foreground/10 pt-6">
-          <h3 className="font-semibold text-lg mb-4">Construction of the climate shock indicators</h3>
+          <h3 className="font-semibold text-lg mb-4 flex items-center gap-2">
+            Construction of the climate shock indicators
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="1.8"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              className="h-5 w-5 text-[color:var(--sun)]"
+              aria-label="Satellite icon"
+            >
+              <path d="M12 2a6 6 0 0 1 6 6c0 2.5-1.5 4.5-3 6l-3 3-3-3c-1.5-1.5-3-3.5-3-6a6 6 0 0 1 6-6z" />
+              <path d="M9.5 9.5a2.5 2.5 0 1 0 5 0 2.5 2.5 0 1 0-5 0z" />
+              <path d="M12 17v5" />
+              <path d="M8 22h8" />
+            </svg>
+          </h3>
           <div className="space-y-3">
             <details className="group border-t border-foreground/10 pt-4">
               <summary className="cursor-pointer list-none flex items-center justify-between font-medium">
