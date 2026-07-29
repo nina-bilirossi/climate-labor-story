@@ -1,6 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { ChapterLayout } from "@/components/ChapterLayout";
-import "react-katex/dist/react-katex.min.css";
 import { InlineMath, BlockMath } from "react-katex";
 
 export const Route = createFileRoute("/step-3")({
