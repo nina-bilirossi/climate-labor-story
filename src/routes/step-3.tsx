@@ -4,6 +4,31 @@ import { InlineMath, BlockMath } from "react-katex";
 import { useState, ReactNode } from "react";
 import droughtWorkflow from "@/assets/spei-workflow-2026-07-29.png.asset.json";
 import floodWorkflow from "@/assets/flood-workflow.png.asset.json";
+import floodBlock1 from "@/assets/flood-blocks/block-1.asset.json";
+import floodBlock2 from "@/assets/flood-blocks/block-2.asset.json";
+import floodBlock3 from "@/assets/flood-blocks/block-3.asset.json";
+import floodBlock4 from "@/assets/flood-blocks/block-4.asset.json";
+import floodBlock6 from "@/assets/flood-blocks/block-6.asset.json";
+import floodBlock7 from "@/assets/flood-blocks/block-7.asset.json";
+
+// Hotspots over the flood workflow diagram (percentages of the 1744x828 image).
+const FLOOD_HOTSPOTS: Array<{
+  id: string;
+  label: string;
+  left: number;
+  top: number;
+  width: number;
+  height: number;
+  image?: { url: string };
+}> = [
+  { id: "b1", label: "ERA5 daily precipitation", left: 3, top: 14, width: 23, height: 19, image: floodBlock1 },
+  { id: "b2", label: "GEV threshold τᵢ", left: 29, top: 14, width: 21, height: 19, image: floodBlock2 },
+  { id: "b3", label: "ERA5 soil moisture", left: 3, top: 48, width: 23, height: 17, image: floodBlock3 },
+  { id: "b4", label: "Soil moisture modifier f(sᵢ,d)", left: 29, top: 48, width: 21, height: 17, image: floodBlock4 },
+  { id: "b5", label: "Flood contribution", left: 55, top: 33, width: 16, height: 19 },
+  { id: "b6", label: "#flood/district-year", left: 75, top: 33, width: 24, height: 19, image: floodBlock6 },
+  { id: "b7", label: "Average to state-year", left: 75, top: 56, width: 24, height: 19, image: floodBlock7 },
+];
 
 export const Route = createFileRoute("/step-3")({
   head: () => ({
@@ -425,13 +450,11 @@ function Step3() {
                     stronger.
                   </p>
                   <figure className="mt-6">
-                    <img
-                      src={floodWorkflow.url}
-                      alt="Flood index workflow: from ERA5 precipitation and soil moisture to a population-weighted state-year flash-flood index"
-                      className="w-full rounded-lg border border-foreground/10 bg-white"
-                    />
+                    <FloodWorkflowInteractive />
                     <figcaption className="mt-3 text-sm text-foreground/60 text-center">
                       Workflow: from ERA5 precipitation and soil moisture data to a population-weighted state-year flash-flood index.
+                      <br />
+                      <span className="italic">Hover a block to see the underlying step in detail.</span>
                     </figcaption>
                   </figure>
                 </div>
@@ -441,5 +464,55 @@ function Step3() {
         </section>
       </div>
     </ChapterLayout>
+  );
+}
+
+function FloodWorkflowInteractive() {
+  const [hovered, setHovered] = useState<string | null>(null);
+  const active = FLOOD_HOTSPOTS.find((h) => h.id === hovered);
+  return (
+    <div className="relative w-full rounded-lg border border-foreground/10 bg-white overflow-hidden">
+      <img
+        src={floodWorkflow.url}
+        alt="Flood index workflow: from ERA5 precipitation and soil moisture to a population-weighted state-year flash-flood index"
+        className="w-full block"
+      />
+      {FLOOD_HOTSPOTS.map((h) => (
+        <button
+          key={h.id}
+          type="button"
+          onMouseEnter={() => h.image && setHovered(h.id)}
+          onMouseLeave={() => setHovered((v) => (v === h.id ? null : v))}
+          onFocus={() => h.image && setHovered(h.id)}
+          onBlur={() => setHovered((v) => (v === h.id ? null : v))}
+          aria-label={h.label}
+          className={[
+            "absolute rounded-md transition-colors duration-150",
+            h.image ? "cursor-help" : "cursor-default",
+            hovered === h.id
+              ? "bg-[color:var(--sun)]/30 ring-2 ring-[color:var(--sun)]"
+              : "bg-transparent ring-1 ring-transparent hover:ring-[color:var(--sun)]/40",
+          ].join(" ")}
+          style={{
+            left: `${h.left}%`,
+            top: `${h.top}%`,
+            width: `${h.width}%`,
+            height: `${h.height}%`,
+          }}
+        />
+      ))}
+      {active?.image && (
+        <div className="mt-0 border-t border-foreground/10 bg-white p-3">
+          <p className="text-xs text-foreground/60 mb-2 text-center">
+            {active.label}
+          </p>
+          <img
+            src={active.image.url}
+            alt={`Detail: ${active.label}`}
+            className="w-full rounded border border-foreground/10"
+          />
+        </div>
+      )}
+    </div>
   );
 }
