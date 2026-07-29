@@ -399,8 +399,10 @@ function Step3() {
                 <div className="mt-4 space-y-4">
                   <p>
                     But what counts as an extreme event? For each district, I ask
-                    "If I wait 10 years, what’s the worst event I can reasonably
-                    expect? How many times was this value exceeded?". This is
+                    <span className="rounded px-1.5 py-0.5 font-semibold italic" style={{ backgroundColor: 'var(--sun)', color: 'var(--ink)' }}>
+                      "If I wait 10 years, what’s the worst event I can reasonably
+                      expect? How many times was this value exceeded?"
+                    </span>. This is
                     known as "Return period value exceedance" (common in
                     insurance). You can find the details of my process in the
                     thesis itself, here's the overview. Ah yes also, because
