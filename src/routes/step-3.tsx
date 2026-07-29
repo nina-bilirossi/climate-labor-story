@@ -174,6 +174,11 @@ function Step3() {
             population per state, to use as weight and make more populated
             states more influential on the coefficients (to reflect the actual
             affected population)
+            <p className="mt-4 italic text-foreground/70">
+              Specific instructions on data retrieval, along with all my code,
+              is decribed in the thesis manuscript (download it at the bottom of
+              the page) and on my Github.
+            </p>
           </li>
         </ul>
 
