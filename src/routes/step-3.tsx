@@ -387,7 +387,14 @@ function Step3() {
                 <p>
                   What's a flash flood? Essentially, very intense precipitation over
                   the course of a few hours. Those can be very destructive (more
-                  details in \Results).
+                  details in{" "}
+                  <Link
+                    to="/step-5"
+                    className="underline underline-offset-4 decoration-[color:var(--sun)]/30 hover:decoration-[color:var(--sun)] transition-colors"
+                  >
+                    Results
+                  </Link>
+                  ).
                 </p>
                 <p>
                   So how do I go about measuring them?&nbsp;
