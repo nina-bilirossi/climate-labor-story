@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { ChapterLayout } from "@/components/ChapterLayout";
-import regressionDiagram from "@/assets/regression-settings.png.asset.json";
+import regressionDiagram from "@/assets/regression-settings.jpg.asset.json";
 
 export const Route = createFileRoute("/step-4")({
   head: () => ({
