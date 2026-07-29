@@ -185,8 +185,25 @@ function Step3() {
                 ▶
               </span>
             </summary>
-            <div className="mt-4 space-y-3 text-foreground/80">
-              <p>Content coming soon.</p>
+            <div className="mt-4 space-y-4 text-foreground/80">
+              <p className="whitespace-pre-line">
+                Labor data: Periodic Labor Force Survey of India (PLFS)
+                {"\n\n"}
+                • Representative national household survey{"\n"}
+                • Yearly from 2017 to 2024, for each of the 36 states and union territories{"\n"}
+                • Open access, upon request{"\n"}
+                More infoo on survey design:{" "}
+                <a 
+                  href="https://www.dataforindia.com/plfs-explainer/" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="underline decoration-[color:var(--sun)]/30 hover:decoration-[color:var(--sun)] transition-colors"
+                >
+                  https://www.dataforindia.com/plfs-explainer/
+                </a>
+                {"\n\n"}
+                Index construction (using Stata)
+              </p>
             </div>
           </details>
         </section>
