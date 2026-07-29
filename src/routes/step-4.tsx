@@ -18,7 +18,8 @@ function Step4() {
   const [lens, setLens] = useState<{ x: number; y: number; bgX: number; bgY: number; bgW: number; bgH: number; visible: boolean }>({
     x: 0, y: 0, bgX: 0, bgY: 0, bgW: 0, bgH: 0, visible: false,
   });
-  const LENS_SIZE = 220;
+  const LENS_W = 360;
+  const LENS_H = 240;
   const ZOOM = 3;
 
   const handleLensMove = (e: React.MouseEvent<HTMLImageElement>) => {
