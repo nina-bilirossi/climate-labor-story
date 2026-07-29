@@ -235,7 +235,29 @@ function Step3() {
 
         <section id="climate-construction" className="mt-12 scroll-mt-24 border-t border-foreground/10 pt-6">
           <h3 className="font-semibold text-lg mb-4">Construction of the climate shock indicators</h3>
-          <p className="text-foreground/80">Content coming soon.</p>
+          <div className="space-y-3">
+            <details className="group border-t border-foreground/10 pt-4">
+              <summary className="cursor-pointer list-none flex items-center justify-between font-medium">
+                <span>Drought index</span>
+                <span className="ml-4 text-foreground/50 transition-transform group-open:rotate-90">▶</span>
+              </summary>
+              <div className="mt-3 space-y-3 text-foreground/80">
+                <p>
+                  The drought index is based on the SPEI-12 index, which looks at temperature and evapotranspiration over the past 12 months. Values are normalized at the pixel level so that a negative score indicates a negative deviation (drought) compared to the baseline. I filter out the positive values and keep only the negative values, so that my index reflects the intensity of a drought.
+                </p>
+              </div>
+            </details>
+
+            <details className="group border-t border-foreground/10 pt-4">
+              <summary className="cursor-pointer list-none flex items-center justify-between font-medium">
+                <span>Flood index</span>
+                <span className="ml-4 text-foreground/50 transition-transform group-open:rotate-90">▶</span>
+              </summary>
+              <div className="mt-3 space-y-3 text-foreground/80">
+                <p>Content coming soon.</p>
+              </div>
+            </details>
+          </div>
         </section>
       </div>
     </ChapterLayout>
