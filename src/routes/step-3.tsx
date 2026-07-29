@@ -187,7 +187,7 @@ function Step3() {
               strokeWidth="1.8"
               strokeLinecap="round"
               strokeLinejoin="round"
-              className="h-5 w-5 text-[color:var(--sun)]"
+              className="h-6 w-6 text-[color:var(--sun)]"
               aria-label="House icon"
             >
               <path d="M3 9.5L12 4l9 5.5V20a1.5 1.5 0 0 1-1.5 1.5h-15A1.5 1.5 0 0 1 3 20V9.5z" />
@@ -258,15 +258,16 @@ function Step3() {
               strokeWidth="1.8"
               strokeLinecap="round"
               strokeLinejoin="round"
-              className="h-5 w-5 text-[color:var(--sun)]"
+              className="h-6 w-6 text-[color:var(--sun)]"
               aria-label="Satellite icon"
             >
-              <rect x="9" y="9" width="6" height="6" rx="1" />
-              <path d="M9 12H3l-2-2v4l2-2h6z" />
-              <path d="M15 12h6l2-2v4l-2-2h-6z" />
-              <path d="M12 9V5" />
-              <path d="M12 15v4" />
-              <circle cx="12" cy="12" r="1.5" fill="currentColor" />
+              <rect x="9" y="9" width="6" height="6" rx="1.5" />
+              <rect x="2" y="7" width="6" height="10" rx="1" />
+              <path d="M4 7v10 M5 7v10" />
+              <rect x="16" y="7" width="6" height="10" rx="1" />
+              <path d="M18 7v10 M19 7v10" />
+              <path d="M12 9V4" />
+              <path d="M9 4h6" />
             </svg>
           </h3>
           <div className="space-y-3">
