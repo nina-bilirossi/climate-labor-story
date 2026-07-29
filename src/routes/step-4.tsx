@@ -40,7 +40,7 @@ function Step4() {
   }, [zoomOpen]);
 
   const clamp = (n: number, min: number, max: number) => Math.min(Math.max(n, min), max);
-  const edge = 1 / (2 * ZOOM);
+  const edge = 1 / (2 * zoom);
 
   const updatePos = (e: React.MouseEvent<HTMLImageElement>) => {
     const rect = e.currentTarget.getBoundingClientRect();
@@ -51,8 +51,8 @@ function Step4() {
 
   const indicatorStyle = () => {
     if (!thumbRect) return {};
-    const iw = thumbRect.w / ZOOM;
-    const ih = thumbRect.h / ZOOM;
+    const iw = thumbRect.w / zoom;
+    const ih = thumbRect.h / zoom;
     const left = clamp(pos.x * thumbRect.w - iw / 2, 0, thumbRect.w - iw);
     const top = clamp(pos.y * thumbRect.h - ih / 2, 0, thumbRect.h - ih);
     return { width: iw, height: ih, left, top };
@@ -60,10 +60,10 @@ function Step4() {
 
   const mainImageStyle = () => {
     if (!mainRect) return {};
-    const w = mainRect.w * ZOOM;
-    const h = mainRect.h * ZOOM;
-    const left = mainRect.w * (0.5 - pos.x * ZOOM);
-    const top = mainRect.h * (0.5 - pos.y * ZOOM);
+    const w = mainRect.w * zoom;
+    const h = mainRect.h * zoom;
+    const left = mainRect.w * (0.5 - pos.x * zoom);
+    const top = mainRect.h * (0.5 - pos.y * zoom);
     return { width: w, height: h, left, top };
   };
 
