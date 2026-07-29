@@ -135,10 +135,40 @@ function Step3() {
         </p>
 
         <ul className="list-disc pl-5 space-y-2">
-          <li>a set of state- and year- specific informality values</li>
-          <li>
-            a set of state- and year- specific climate shock indicators (one
-            each for drought and floods)
+          <li
+            onMouseEnter={() => setActive("inf")}
+            onMouseLeave={() => setActive(null)}
+          >
+            <a
+              href="#informality-construction"
+              onClick={(e) => {
+                e.preventDefault();
+                document
+                  .getElementById("informality-construction")
+                  ?.scrollIntoView({ behavior: "smooth" });
+              }}
+              className="underline underline-offset-4 decoration-[color:var(--sun)]/30 hover:decoration-[color:var(--sun)] transition-colors cursor-pointer"
+            >
+              a set of state- and year- specific informality values
+            </a>
+          </li>
+          <li
+            onMouseEnter={() => setActive("zeta")}
+            onMouseLeave={() => setActive(null)}
+          >
+            <a
+              href="#climate-construction"
+              onClick={(e) => {
+                e.preventDefault();
+                document
+                  .getElementById("climate-construction")
+                  ?.scrollIntoView({ behavior: "smooth" });
+              }}
+              className="underline underline-offset-4 decoration-[color:var(--sun)]/30 hover:decoration-[color:var(--sun)] transition-colors cursor-pointer"
+            >
+              a set of state- and year- specific climate shock indicators (one
+              each for drought and floods)
+            </a>
           </li>
           <li>
             population per state, to use as weight and make more populated
@@ -146,6 +176,34 @@ function Step3() {
             affected population)
           </li>
         </ul>
+
+        <section id="informality-construction" className="mt-12 scroll-mt-24">
+          <details className="group border-t border-foreground/10 pt-6">
+            <summary className="cursor-pointer list-none flex items-center justify-between font-semibold text-lg">
+              <span>Construction of the informality share</span>
+              <span className="ml-4 text-foreground/50 transition-transform group-open:rotate-90">
+                ▶
+              </span>
+            </summary>
+            <div className="mt-4 space-y-3 text-foreground/80">
+              <p>Content coming soon.</p>
+            </div>
+          </details>
+        </section>
+
+        <section id="climate-construction" className="mt-6 scroll-mt-24">
+          <details className="group border-t border-foreground/10 pt-6">
+            <summary className="cursor-pointer list-none flex items-center justify-between font-semibold text-lg">
+              <span>Construction of the climate shock indicators</span>
+              <span className="ml-4 text-foreground/50 transition-transform group-open:rotate-90">
+                ▶
+              </span>
+            </summary>
+            <div className="mt-4 space-y-3 text-foreground/80">
+              <p>Content coming soon.</p>
+            </div>
+          </details>
+        </section>
       </div>
     </ChapterLayout>
   );
