@@ -466,3 +466,53 @@ function Step3() {
     </ChapterLayout>
   );
 }
+
+function FloodWorkflowInteractive() {
+  const [hovered, setHovered] = useState<string | null>(null);
+  const active = FLOOD_HOTSPOTS.find((h) => h.id === hovered);
+  return (
+    <div className="relative w-full rounded-lg border border-foreground/10 bg-white overflow-hidden">
+      <img
+        src={floodWorkflow.url}
+        alt="Flood index workflow: from ERA5 precipitation and soil moisture to a population-weighted state-year flash-flood index"
+        className="w-full block"
+      />
+      {FLOOD_HOTSPOTS.map((h) => (
+        <button
+          key={h.id}
+          type="button"
+          onMouseEnter={() => h.image && setHovered(h.id)}
+          onMouseLeave={() => setHovered((v) => (v === h.id ? null : v))}
+          onFocus={() => h.image && setHovered(h.id)}
+          onBlur={() => setHovered((v) => (v === h.id ? null : v))}
+          aria-label={h.label}
+          className={[
+            "absolute rounded-md transition-colors duration-150",
+            h.image ? "cursor-help" : "cursor-default",
+            hovered === h.id
+              ? "bg-[color:var(--sun)]/30 ring-2 ring-[color:var(--sun)]"
+              : "bg-transparent ring-1 ring-transparent hover:ring-[color:var(--sun)]/40",
+          ].join(" ")}
+          style={{
+            left: `${h.left}%`,
+            top: `${h.top}%`,
+            width: `${h.width}%`,
+            height: `${h.height}%`,
+          }}
+        />
+      ))}
+      {active?.image && (
+        <div className="mt-0 border-t border-foreground/10 bg-white p-3">
+          <p className="text-xs text-foreground/60 mb-2 text-center">
+            {active.label}
+          </p>
+          <img
+            src={active.image.url}
+            alt={`Detail: ${active.label}`}
+            className="w-full rounded border border-foreground/10"
+          />
+        </div>
+      )}
+    </div>
+  );
+}
