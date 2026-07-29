@@ -128,9 +128,6 @@ function Step3() {
           regressions are weighted by 2020 population.
         </p>
 
-        <p className="mt-12 pt-8 border-t border-foreground/10">
-          Essentially, this is the equation:
-        </p>
 
         <p className="font-semibold text-lg">
           This recipe (analysis) requires a few ingredients:
