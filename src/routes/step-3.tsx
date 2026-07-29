@@ -396,6 +396,24 @@ function Step3() {
                   state, weighing the events within the state by how many people
                   live in the affected area.
                 </p>
+                <div className="mt-4 space-y-4">
+                  <p>
+                    But what counts as an extreme event? For each district, I ask
+                    "If I wait 10 years, what’s the worst event I can reasonably
+                    expect? How many times was this value exceeded?". This is
+                    known as "Return period value exceedance" (common in
+                    insurance). You can find the details of my process in the
+                    thesis itself, here's the overview. Ah yes also, because
+                    research suggests that when the soil is drier, it is much
+                    harder for water to penetrate, so that very dry soil
+                    amplifies the intensity of flash floods. Essentially, I
+                    start by looking at precipitation, calculatie the extreme
+                    threshold, and count how many times it is surpassed,
+                    multiplying it by a magnifier so that if the soil was drier
+                    than usual at that location on that day, the event counts as
+                    stronger.
+                  </p>
+                </div>
               </div>
             </details>
           </div>
