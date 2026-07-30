@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { ChapterLayout } from "@/components/ChapterLayout";
-import regressionDiagram from "@/assets/regression-settings.png.asset.json";
+import regressionDiagram from "@/assets/regression-settings.jpg.asset.json";
 import { useEffect, useRef, useState } from "react";
 
 export const Route = createFileRoute("/step-4")({
@@ -12,9 +12,6 @@ export const Route = createFileRoute("/step-4")({
   }),
   component: Step4,
 });
-
-const MIN_ZOOM = 1;
-const MAX_ZOOM = 8;
 
 function Step4() {
   const [zoomOpen, setZoomOpen] = useState(false);
@@ -60,7 +57,7 @@ function Step4() {
       const cy = e.clientY - rect.top - rect.height / 2;
       const factor = Math.exp(-e.deltaY * 0.0015);
       const { scale: prevS, tx: prevTx, ty: prevTy } = stateRef.current;
-      const nextS = Math.min(MAX_ZOOM, Math.max(MIN_ZOOM, prevS * factor));
+      const nextS = Math.min(8, Math.max(1, prevS * factor));
       const ratio = nextS / prevS;
       const nx = cx - (cx - prevTx) * ratio;
       const ny = cy - (cy - prevTy) * ratio;
@@ -115,7 +112,6 @@ function Step4() {
               src={regressionDiagram.url}
               alt="Visual diagram of regression settings and structure"
               className="w-full rounded-lg border border-border group-hover:ring-2 group-hover:ring-[color:var(--sun)] transition"
-              style={{ imageRendering: "crisp-edges" }}
             />
             <span className="absolute bottom-3 right-3 flex items-center gap-1.5 rounded-full bg-background/90 px-3 py-1.5 text-xs font-medium text-foreground shadow-sm border border-border opacity-80 group-hover:opacity-100 transition">
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
@@ -174,7 +170,7 @@ function Step4() {
               onPointerMove={onPointerMove}
               onPointerUp={onPointerUp}
               onPointerCancel={onPointerUp}
-              className="relative overflow-hidden rounded-lg bg-black w-full h-[80vh] touch-none select-none"
+              className="relative overflow-hidden rounded-lg bg-background w-full h-[80vh] touch-none select-none"
               style={{ cursor: scale > 1 ? (dragRef.current ? "grabbing" : "grab") : "default" }}
             >
               <img
@@ -185,7 +181,6 @@ function Step4() {
                 style={{
                   transform: `translate(${tx}px, ${ty}px) scale(${scale})`,
                   transformOrigin: "center center",
-                  imageRendering: "crisp-edges",
                 }}
               />
             </div>
