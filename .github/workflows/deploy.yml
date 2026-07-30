@@ -31,5 +31,5 @@ jobs:
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4
         with:
-          folder: .output/public 
+          folder: dist/client # Changed from .output/public
           branch: gh-pages
