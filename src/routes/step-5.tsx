@@ -38,10 +38,7 @@ function Step5() {
 
       <div className="not-prose mt-10">
         <ResultGroupRow icon={<IconGeneral />} title="General population">
-          <p>
-            The baseline estimate across all states and years — the average response of the
-            informality share to a climate shock.
-          </p>
+          <p>- droughts</p>
         </ResultGroupRow>
 
         <ResultGroupRow icon={<IconIncome />} title="High- vs low-income states">
@@ -77,8 +74,9 @@ function Step5() {
       </div>
 
       <p className="mt-10">
-        I also look at the effects of climate shocks on a handful of labor market measures
-        (unemployment, employment, labor force participation) for each of those subgroups.
+        I also run regression to look at the effects of climate shocks on a handful of labor market
+        measures (unemployment, employment, labor force participation) for each of those
+        subgroups, and&nbsp;at the relative size of each industry in relation to climate shocks.
       </p>
     </ChapterLayout>
   );
