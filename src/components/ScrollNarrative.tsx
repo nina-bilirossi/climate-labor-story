@@ -342,7 +342,7 @@ export function ScrollNarrative() {
               <TooltipProvider delayDuration={100}>
                 <Tooltip>
                   <TooltipTrigger asChild>
-                    <em className="text-[color:var(--sun)] not-italic font-normal italic cursor-help border-b border-[color:var(--sun)]/50 transition-colors hover:border-[color:var(--sun)]">
+                    <em className="text-[color:var(--sun)] not-italic font-normal italic border-b border-[color:var(--sun)]/50 transition-colors hover:border-[color:var(--sun)]">
                       informality
                     </em>
                   </TooltipTrigger>
