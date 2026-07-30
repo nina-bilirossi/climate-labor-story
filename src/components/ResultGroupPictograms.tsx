@@ -59,36 +59,25 @@ export function IconIncome() {
 export function IconAgriculture() {
   return (
     <Frame>
-      {[14, 32, 50, 68, 84].map((x, i) => {
-        const isFarmer = i === 2;
-        return (
-          <g key={x} transform={`translate(${x} 22)`}>
-            {/* Hat */}
-            {isFarmer && (
-              <>
-                <ellipse cx="0" cy="-14" rx="7" ry="2" fill="none" stroke="currentColor" strokeWidth="1.4" />
-                <path d="M -5 -14 C -5 -20 5 -20 5 -14 Z" fill={sun} stroke="currentColor" strokeWidth="1.4" />
-              </>
-            )}
-            {/* Person */}
-            <circle cx="0" cy="0" r="4" fill={i % 2 === 0 ? sun : "none"} stroke="currentColor" strokeWidth="1.4" />
-            <path
-              d="M -6 18 C -6 8 -3 5 0 5 C 3 5 6 8 6 18 Z"
-              fill={i % 2 === 0 ? sun : "none"}
-              stroke="currentColor"
-              strokeWidth="1.4"
-              strokeLinejoin="round"
-            />
-            {/* Pitchfork */}
-            {isFarmer && (
-              <g transform="translate(9 6)">
-                <line x1="0" y1="0" x2="0" y2="20" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" />
-                <path d="M -4 0 L 0 -4 L 4 0" stroke="currentColor" strokeWidth="1.4" fill="none" strokeLinejoin="round" />
-              </g>
-            )}
-          </g>
-        );
-      })}
+      <g transform="translate(48 22)">
+        {/* Hat */}
+        <ellipse cx="0" cy="-14" rx="7" ry="2" fill="none" stroke="currentColor" strokeWidth="1.4" />
+        <path d="M -5 -14 C -5 -20 5 -20 5 -14 Z" fill={sun} stroke="currentColor" strokeWidth="1.4" />
+        {/* Person */}
+        <circle cx="0" cy="0" r="4" fill={sun} stroke="currentColor" strokeWidth="1.4" />
+        <path
+          d="M -6 18 C -6 8 -3 5 0 5 C 3 5 6 8 6 18 Z"
+          fill={sun}
+          stroke="currentColor"
+          strokeWidth="1.4"
+          strokeLinejoin="round"
+        />
+        {/* Pitchfork */}
+        <g transform="translate(9 6)">
+          <line x1="0" y1="0" x2="0" y2="20" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" />
+          <path d="M -4 0 L 0 -4 L 4 0" stroke="currentColor" strokeWidth="1.4" fill="none" strokeLinejoin="round" />
+        </g>
+      </g>
       <line x1="8" y1="60" x2="88" y2="60" stroke="currentColor" strokeWidth="1.2" opacity="0.4" />
     </Frame>
   );
