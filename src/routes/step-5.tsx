@@ -49,22 +49,61 @@ function Step5() {
           </thead>
           <tbody>
             {[
-              { icon: <IconGeneral />, title: "General population" },
-              { icon: <IconIncome />, title: "High- vs low-income states" },
-              { icon: <IconAgriculture />, title: "High vs low share of agricultural employment" },
-              { icon: <IconGender />, title: "Male vs female workers" },
-              { icon: <IconRuralUrban />, title: "Rural vs urban areas" },
-            ].map((row) => (
-              <tr key={row.title} className="border-b border-border/60 align-middle">
-                <td className="px-3 py-5">
-                  <div className="flex items-center gap-4">
-                    <div className="shrink-0">{row.icon}</div>
-                    <span className="font-medium">{row.title}</span>
-                  </div>
-                </td>
-                <td className="px-3 py-5 text-center text-lg tabular-nums"></td>
-                <td className="px-3 py-5 text-center text-lg tabular-nums"></td>
-              </tr>
+              {
+                icon: <IconGeneral />,
+                title: "General population",
+                subs: ["Aggregate"],
+              },
+              {
+                icon: <IconIncome />,
+                title: "High- vs low-income states",
+                subs: ["High-income states", "Low-income states"],
+              },
+              {
+                icon: <IconAgriculture />,
+                title: "High vs low share of agricultural employment",
+                subs: ["High agricultural share", "Low agricultural share"],
+              },
+              {
+                icon: <IconGender />,
+                title: "Male vs female workers",
+                subs: ["Male workers", "Female workers"],
+              },
+              {
+                icon: <IconRuralUrban />,
+                title: "Rural vs urban areas",
+                subs: ["Rural areas", "Urban areas"],
+              },
+            ].map((group) => (
+              <React.Fragment key={group.title}>
+                {group.subs.map((sub, i) => {
+                  const isLast = i === group.subs.length - 1;
+                  const isFirst = i === 0;
+                  return (
+                    <tr
+                      key={`${group.title}-${sub}`}
+                      className={cn(
+                        "align-middle",
+                        isLast && "border-b border-border/60",
+                        !isLast && "border-b border-dashed border-border/40"
+                      )}
+                    >
+                      <td className="px-3 py-4">
+                        <div className="flex items-center gap-4">
+                          <div className="shrink-0">
+                            {isFirst ? group.icon : <div className="w-12" />}
+                          </div>
+                          <span className="font-medium">
+                            {isFirst && group.subs.length > 1 ? group.title : sub}
+                          </span>
+                        </div>
+                      </td>
+                      <td className="px-3 py-4 text-center text-lg tabular-nums"></td>
+                      <td className="px-3 py-4 text-center text-lg tabular-nums"></td>
+                    </tr>
+                  );
+                })}
+              </React.Fragment>
             ))}
           </tbody>
         </table>
