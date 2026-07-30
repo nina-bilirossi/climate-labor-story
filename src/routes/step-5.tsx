@@ -34,11 +34,7 @@ function Step5() {
       title="Analysing the results and discussing the mechanisms"
       lede="What the numbers mean — and why."
     >
-      <p>
-        The results are easier to read group by group. Below, each breakdown gets its own
-        pictogram: the aggregate picture first, then the splits that reveal who actually absorbs
-        the shock.
-      </p>
+      <p>I regress on different populations and state subgroups to better understand what's happening.</p>
 
       <div className="not-prose mt-10">
         <ResultGroupRow icon={<IconGeneral />} title="General population">
