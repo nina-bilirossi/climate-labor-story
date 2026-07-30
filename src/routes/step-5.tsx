@@ -1,7 +1,5 @@
-import { Fragment } from "react";
 import { createFileRoute } from "@tanstack/react-router";
 import { ChapterLayout } from "@/components/ChapterLayout";
-import { cn } from "@/lib/utils";
 import {
   IconGeneral,
   IconIncome,
@@ -50,86 +48,30 @@ function Step5() {
           </thead>
           <tbody>
             {[
-              {
-                icon: <IconGeneral />,
-                title: "General population",
-                subs: ["Aggregate"],
-              },
-              {
-                icon: <IconIncome />,
-                title: "High- vs low-income states",
-                subs: ["High-income states", "Low-income states"],
-              },
-              {
-                icon: <IconAgriculture />,
-                title: "High vs low share of agricultural employment",
-                subs: ["High agricultural share", "Low agricultural share"],
-              },
-              {
-                icon: <IconGender />,
-                title: "Male vs female workers",
-                subs: ["Male workers", "Female workers"],
-              },
-              {
-                icon: <IconRuralUrban />,
-                title: "Rural vs urban areas",
-                subs: ["Rural areas", "Urban areas"],
-              },
-            ].map((group) => {
-              const hasSplit = group.subs.length > 1;
-              return (
-                <Fragment key={group.title}>
-                  {hasSplit ? (
-                    <>
-                      <tr className="border-b border-border/60 align-middle">
-                        <td className="px-3 py-4" colSpan={3}>
-                          <div className="flex items-center gap-4">
-                            <div className="shrink-0">{group.icon}</div>
-                            <span className="font-medium">{group.title}</span>
-                          </div>
-                        </td>
-                      </tr>
-                      {group.subs.map((sub, i) => {
-                        const isLast = i === group.subs.length - 1;
-                        return (
-                          <tr
-                            key={`${group.title}-${sub}`}
-                            className={cn(
-                              "align-middle",
-                              isLast
-                                ? "border-b border-border/60"
-                                : "border-b border-dashed border-border/40"
-                            )}
-                          >
-                            <td className="px-3 py-3 pl-[4.5rem]">
-                              <span className="font-medium">{sub}</span>
-                            </td>
-                            <td className="px-3 py-3 text-center text-lg tabular-nums"></td>
-                            <td className="px-3 py-3 text-center text-lg tabular-nums"></td>
-                          </tr>
-                        );
-                      })}
-                    </>
-                  ) : (
-                    <tr className="border-b border-border/60 align-middle">
-                      <td className="px-3 py-4">
-                        <div className="flex items-center gap-4">
-                          <div className="shrink-0">{group.icon}</div>
-                          <span className="font-medium">{group.title}</span>
-                        </div>
-                      </td>
-                      <td className="px-3 py-4 text-center text-lg tabular-nums"></td>
-                      <td className="px-3 py-4 text-center text-lg tabular-nums"></td>
-                    </tr>
-                  )}
-                </Fragment>
-              );
-            })}
+              { icon: <IconGeneral />, label: "General population" },
+              { icon: <IconIncome />, label: "High-income states" },
+              { icon: <IconIncome />, label: "Low-income states" },
+              { icon: <IconAgriculture />, label: "High agricultural share" },
+              { icon: <IconAgriculture />, label: "Low agricultural share" },
+              { icon: <IconGender />, label: "Male workers" },
+              { icon: <IconGender />, label: "Female workers" },
+              { icon: <IconRuralUrban />, label: "Rural areas" },
+              { icon: <IconRuralUrban />, label: "Urban areas" },
+            ].map((row) => (
+              <tr key={row.label} className="border-b border-border/60 align-middle">
+                <td className="px-3 py-4">
+                  <div className="flex items-center gap-4">
+                    <div className="shrink-0">{row.icon}</div>
+                    <span className="font-medium">{row.label}</span>
+                  </div>
+                </td>
+                <td className="px-3 py-4 text-center text-lg tabular-nums"></td>
+                <td className="px-3 py-4 text-center text-lg tabular-nums"></td>
+              </tr>
+            ))}
           </tbody>
         </table>
       </div>
-
-
 
       <p className="mt-10">
         I also run regression to look at the effects of climate shocks on a handful of labor market
@@ -139,4 +81,3 @@ function Step5() {
     </ChapterLayout>
   );
 }
-
