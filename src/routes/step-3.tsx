@@ -1,6 +1,11 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ChapterLayout } from "@/components/ChapterLayout";
-import { InlineMath, BlockMath } from "react-katex";
+import ReactKatex from "react-katex";
+
+const { InlineMath, BlockMath } = ReactKatex as unknown as {
+  InlineMath: React.ComponentType<{ math: string }>;
+  BlockMath: React.ComponentType<{ math: string }>;
+};
 import { useState, ReactNode } from "react";
 import droughtWorkflow from "@/assets/spei-workflow-2026-07-29.png.asset.json";
 import floodWorkflow from "@/assets/flood-workflow.png.asset.json";
