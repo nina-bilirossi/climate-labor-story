@@ -71,7 +71,7 @@ export function IconAgriculture() {
               </>
             )}
             {/* Person */}
-            <circle cx="0" cy="0" r="4" fill={filled ? sun : "none"} stroke="currentColor" strokeWidth="1.4" />
+            <circle cx="0" cy="0" r="4" fill={i % 2 === 0 ? sun : "none"} stroke="currentColor" strokeWidth="1.4" />
             <path
               d="M -6 18 C -6 8 -3 5 0 5 C 3 5 6 8 6 18 Z"
               fill={i % 2 === 0 ? sun : "none"}
