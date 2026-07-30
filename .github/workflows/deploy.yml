@@ -19,10 +19,11 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 20
-          cache: 'npm'
+          # Removed the 'cache: npm' setting that strictly requires a lockfile
 
       - name: Install Dependencies
-        run: npm ci --legacy-peer-deps
+        # Changed from 'npm ci' to 'npm install' to generate dependencies fresh on the runner
+        run: npm install --legacy-peer-deps
 
       - name: Build Application
         run: npm run build
@@ -30,5 +31,5 @@ jobs:
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4
         with:
-          folder: .output/public # TanStack Start outputs static targets here
+          folder: .output/public 
           branch: gh-pages
