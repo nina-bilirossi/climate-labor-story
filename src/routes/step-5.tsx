@@ -76,7 +76,7 @@ function Step5() {
                 subs: ["Rural areas", "Urban areas"],
               },
             ].map((group) => (
-              <React.Fragment key={group.title}>
+              <Fragment key={group.title}>
                 {group.subs.map((sub, i) => {
                   const isLast = i === group.subs.length - 1;
                   const isFirst = i === 0;
@@ -104,7 +104,7 @@ function Step5() {
                     </tr>
                   );
                 })}
-              </React.Fragment>
+              </Fragment>
             ))}
           </tbody>
         </table>
