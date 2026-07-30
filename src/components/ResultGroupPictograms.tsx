@@ -59,16 +59,26 @@ export function IconIncome() {
 export function IconAgriculture() {
   return (
     <Frame>
-      {[10, 20, 30, 40].map((x) => (
-        <g key={x}>
-          <path d={`M ${x} 54 V 26`} stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" />
-          <circle cx={x} cy="22" r="4" fill={sun} stroke="currentColor" strokeWidth="1.2" />
-        </g>
-      ))}
-      {[64, 80].map((x) => (
-        <g key={x} opacity="0.55">
-          <path d={`M ${x} 54 V 34`} stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" />
-          <circle cx={x} cy="30" r="4" fill="none" stroke="currentColor" strokeWidth="1.2" />
+      {/* Farmer figure */}
+      <g transform="translate(48 30)">
+        {/* Hat brim and crown */}
+        <ellipse cx="0" cy="-14" rx="14" ry="4" fill="none" stroke="currentColor" strokeWidth="1.4" />
+        <path d="M -8 -14 C -8 -24 8 -24 8 -14 Z" fill={sun} stroke="currentColor" strokeWidth="1.4" />
+        {/* Head */}
+        <circle cx="0" cy="-4" r="6" fill="none" stroke="currentColor" strokeWidth="1.4" />
+        {/* Body */}
+        <path d="M -9 6 C -9 -2 9 -2 9 6 V 22 H -9 Z" fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinejoin="round" />
+        {/* Arms holding a hoe */}
+        <path d="M -9 4 L -16 14" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" />
+        <path d="M 9 4 L 16 14" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" />
+        <line x1="16" y1="-6" x2="16" y2="26" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" />
+        <path d="M 12 26 L 20 26" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" />
+      </g>
+      {/* Crop rows on either side */}
+      {[18, 78].map((x) => (
+        <g key={x} opacity="0.5">
+          <path d={`M ${x} 54 V 38`} stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" />
+          <circle cx={x} cy="34" r="3" fill={sun} stroke="currentColor" strokeWidth="1.2" />
         </g>
       ))}
       <line x1="6" y1="58" x2="90" y2="58" stroke="currentColor" strokeWidth="1.2" opacity="0.4" />
