@@ -1,1 +1,0 @@
-import{j as t}from"./index-B2qO5JNF.js";import{C as o}from"./ChapterLayout-DcENT-Xo.js";import"./SiteHeader-B_BGbQJz.js";import"./TopNav-CVkbtN-F.js";function r(){return t.jsx(o,{eyebrow:"Step 06",title:"Limitations and Conclusion",lede:"Where the analysis stops, and what it still tells us.",children:t.jsx("p",{children:"Content coming soon."})})}export{r as component};
