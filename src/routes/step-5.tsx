@@ -75,37 +75,56 @@ function Step5() {
                 title: "Rural vs urban areas",
                 subs: ["Rural areas", "Urban areas"],
               },
-            ].map((group) => (
-              <Fragment key={group.title}>
-                {group.subs.map((sub, i) => {
-                  const isLast = i === group.subs.length - 1;
-                  const isFirst = i === 0;
-                  return (
-                    <tr
-                      key={`${group.title}-${sub}`}
-                      className={cn(
-                        "align-middle",
-                        isLast && "border-b border-border/60",
-                        !isLast && "border-b border-dashed border-border/40"
-                      )}
-                    >
+            ].map((group) => {
+              const hasSplit = group.subs.length > 1;
+              return (
+                <Fragment key={group.title}>
+                  {hasSplit ? (
+                    <>
+                      <tr className="border-b border-border/60 align-middle">
+                        <td className="px-3 py-4" colSpan={3}>
+                          <div className="flex items-center gap-4">
+                            <div className="shrink-0">{group.icon}</div>
+                            <span className="font-medium">{group.title}</span>
+                          </div>
+                        </td>
+                      </tr>
+                      {group.subs.map((sub, i) => {
+                        const isLast = i === group.subs.length - 1;
+                        return (
+                          <tr
+                            key={`${group.title}-${sub}`}
+                            className={cn(
+                              "align-middle",
+                              isLast
+                                ? "border-b border-border/60"
+                                : "border-b border-dashed border-border/40"
+                            )}
+                          >
+                            <td className="px-3 py-3 pl-[4.5rem]">
+                              <span className="font-medium">{sub}</span>
+                            </td>
+                            <td className="px-3 py-3 text-center text-lg tabular-nums"></td>
+                            <td className="px-3 py-3 text-center text-lg tabular-nums"></td>
+                          </tr>
+                        );
+                      })}
+                    </>
+                  ) : (
+                    <tr className="border-b border-border/60 align-middle">
                       <td className="px-3 py-4">
                         <div className="flex items-center gap-4">
-                          <div className="shrink-0">
-                            {isFirst ? group.icon : <div className="w-12" />}
-                          </div>
-                          <span className="font-medium">
-                            {isFirst && group.subs.length > 1 ? group.title : sub}
-                          </span>
+                          <div className="shrink-0">{group.icon}</div>
+                          <span className="font-medium">{group.title}</span>
                         </div>
                       </td>
                       <td className="px-3 py-4 text-center text-lg tabular-nums"></td>
                       <td className="px-3 py-4 text-center text-lg tabular-nums"></td>
                     </tr>
-                  );
-                })}
-              </Fragment>
-            ))}
+                  )}
+                </Fragment>
+              );
+            })}
           </tbody>
         </table>
       </div>
