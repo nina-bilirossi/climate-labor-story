@@ -14,6 +14,6 @@ export default defineConfig({
   },
   // Pass the GitHub Pages base path to the underlying Vite builder
   vite: {
-    base: "/msc-thesis/", 
+    base: "/climate-labor-story/", 
   }
 });
