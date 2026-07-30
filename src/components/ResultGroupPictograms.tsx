@@ -41,19 +41,19 @@ export function IconGeneral() {
 export function IconIncome() {
   return (
     <Frame>
-      <rect x="10" y="18" width="26" height="34" rx="3" fill={sun} stroke="currentColor" strokeWidth="1.4" />
-      <rect x="58" y="38" width="26" height="14" rx="3" fill="none" stroke="currentColor" strokeWidth="1.4" />
-      <path d="M 23 12 v 4 M 21 10 h 4" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" />
-      <text x="23" y="10" textAnchor="middle" fontSize="9" fill="currentColor" fontFamily="inherit">
+      <rect x="12" y="20" width="26" height="34" rx="3" fill={sun} stroke="currentColor" strokeWidth="1.4" />
+      <rect x="58" y="40" width="26" height="14" rx="3" fill="none" stroke="currentColor" strokeWidth="1.4" />
+      <text x="25" y="15" textAnchor="middle" fontSize="11" fill="currentColor">
         ₹₹
       </text>
-      <text x="71" y="32" textAnchor="middle" fontSize="9" fill="currentColor" fontFamily="inherit" opacity="0.6">
+      <text x="71" y="35" textAnchor="middle" fontSize="11" fill="currentColor" opacity="0.6">
         ₹
       </text>
       <line x1="6" y1="58" x2="90" y2="58" stroke="currentColor" strokeWidth="1.2" opacity="0.4" />
     </Frame>
   );
 }
+
 
 /** 3. High vs low agricultural employment */
 export function IconAgriculture() {
