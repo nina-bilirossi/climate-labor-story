@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { ChapterLayout } from "@/components/ChapterLayout";
 import {
-  ResultGroupRow,
+  
   IconGeneral,
   IconIncome,
   IconAgriculture,
