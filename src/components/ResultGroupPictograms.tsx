@@ -59,29 +59,37 @@ export function IconIncome() {
 export function IconAgriculture() {
   return (
     <Frame>
-      {/* Farmer figure */}
-      <g transform="translate(48 30)">
-        {/* Hat brim and crown */}
-        <ellipse cx="0" cy="-14" rx="14" ry="4" fill="none" stroke="currentColor" strokeWidth="1.4" />
-        <path d="M -8 -14 C -8 -24 8 -24 8 -14 Z" fill={sun} stroke="currentColor" strokeWidth="1.4" />
-        {/* Head */}
-        <circle cx="0" cy="-4" r="6" fill="none" stroke="currentColor" strokeWidth="1.4" />
-        {/* Body */}
-        <path d="M -9 6 C -9 -2 9 -2 9 6 V 22 H -9 Z" fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinejoin="round" />
-        {/* Arms holding a hoe */}
-        <path d="M -9 4 L -16 14" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" />
-        <path d="M 9 4 L 16 14" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" />
-        <line x1="16" y1="-6" x2="16" y2="26" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" />
-        <path d="M 12 26 L 20 26" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" />
-      </g>
-      {/* Crop rows on either side */}
-      {[18, 78].map((x) => (
-        <g key={x} opacity="0.5">
-          <path d={`M ${x} 54 V 38`} stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" />
-          <circle cx={x} cy="34" r="3" fill={sun} stroke="currentColor" strokeWidth="1.2" />
-        </g>
-      ))}
-      <line x1="6" y1="58" x2="90" y2="58" stroke="currentColor" strokeWidth="1.2" opacity="0.4" />
+      {[14, 32, 50, 68, 84].map((x, i) => {
+        const isFarmer = i === 2;
+        return (
+          <g key={x} transform={`translate(${x} 22)`}>
+            {/* Hat */}
+            {isFarmer && (
+              <>
+                <ellipse cx="0" cy="-14" rx="7" ry="2" fill="none" stroke="currentColor" strokeWidth="1.4" />
+                <path d="M -5 -14 C -5 -20 5 -20 5 -14 Z" fill={sun} stroke="currentColor" strokeWidth="1.4" />
+              </>
+            )}
+            {/* Person */}
+            <circle cx="0" cy="0" r="4" fill={filled ? sun : "none"} stroke="currentColor" strokeWidth="1.4" />
+            <path
+              d="M -6 18 C -6 8 -3 5 0 5 C 3 5 6 8 6 18 Z"
+              fill={i % 2 === 0 ? sun : "none"}
+              stroke="currentColor"
+              strokeWidth="1.4"
+              strokeLinejoin="round"
+            />
+            {/* Pitchfork */}
+            {isFarmer && (
+              <g transform="translate(9 6)">
+                <line x1="0" y1="0" x2="0" y2="20" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" />
+                <path d="M -4 0 L 0 -4 L 4 0" stroke="currentColor" strokeWidth="1.4" fill="none" strokeLinejoin="round" />
+              </g>
+            )}
+          </g>
+        );
+      })}
+      <line x1="8" y1="60" x2="88" y2="60" stroke="currentColor" strokeWidth="1.2" opacity="0.4" />
     </Frame>
   );
 }
