@@ -1,8 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { ChapterLayout } from "@/components/ChapterLayout";
 import regressionDiagram from "@/assets/regression-settings.png.asset.json";
-import regressionPdf from "@/assets/regression-settings.pdf.asset.json";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 export const Route = createFileRoute("/step-4")({
   head: () => ({
@@ -16,6 +15,78 @@ export const Route = createFileRoute("/step-4")({
 
 function Step4() {
   const [zoomOpen, setZoomOpen] = useState(false);
+  const [scale, setScale] = useState(1);
+  const [tx, setTx] = useState(0);
+  const [ty, setTy] = useState(0);
+  const frameRef = useRef<HTMLDivElement>(null);
+  const dragRef = useRef<{ x: number; y: number; tx: number; ty: number } | null>(null);
+
+  const clampPan = (nx: number, ny: number, s: number) => {
+    const frame = frameRef.current;
+    if (!frame) return { x: nx, y: ny };
+    const w = frame.clientWidth;
+    const h = frame.clientHeight;
+    const maxX = ((s - 1) * w) / 2;
+    const maxY = ((s - 1) * h) / 2;
+    return {
+      x: Math.min(maxX, Math.max(-maxX, nx)),
+      y: Math.min(maxY, Math.max(-maxY, ny)),
+    };
+  };
+
+  const reset = () => {
+    setScale(1);
+    setTx(0);
+    setTy(0);
+  };
+
+  useEffect(() => {
+    if (!zoomOpen) reset();
+  }, [zoomOpen]);
+
+  const stateRef = useRef({ scale, tx, ty });
+  useEffect(() => { stateRef.current = { scale, tx, ty }; }, [scale, tx, ty]);
+
+  useEffect(() => {
+    const frame = frameRef.current;
+    if (!zoomOpen || !frame) return;
+    const onWheel = (e: WheelEvent) => {
+      e.preventDefault();
+      const rect = frame.getBoundingClientRect();
+      const cx = e.clientX - rect.left - rect.width / 2;
+      const cy = e.clientY - rect.top - rect.height / 2;
+      const factor = Math.exp(-e.deltaY * 0.0015);
+      const { scale: prevS, tx: prevTx, ty: prevTy } = stateRef.current;
+      const nextS = Math.min(8, Math.max(1, prevS * factor));
+      const ratio = nextS / prevS;
+      const nx = cx - (cx - prevTx) * ratio;
+      const ny = cy - (cy - prevTy) * ratio;
+      const c = clampPan(nx, ny, nextS);
+      setScale(nextS);
+      setTx(c.x);
+      setTy(c.y);
+    };
+    frame.addEventListener("wheel", onWheel, { passive: false });
+    return () => frame.removeEventListener("wheel", onWheel);
+  }, [zoomOpen]);
+
+  const onPointerDown = (e: React.PointerEvent<HTMLDivElement>) => {
+    if (scale <= 1) return;
+    (e.currentTarget as HTMLDivElement).setPointerCapture(e.pointerId);
+    dragRef.current = { x: e.clientX, y: e.clientY, tx, ty };
+  };
+  const onPointerMove = (e: React.PointerEvent<HTMLDivElement>) => {
+    if (!dragRef.current) return;
+    const dx = e.clientX - dragRef.current.x;
+    const dy = e.clientY - dragRef.current.y;
+    const c = clampPan(dragRef.current.tx + dx, dragRef.current.ty + dy, scale);
+    setTx(c.x);
+    setTy(c.y);
+  };
+  const onPointerUp = (e: React.PointerEvent<HTMLDivElement>) => {
+    dragRef.current = null;
+    try { (e.currentTarget as HTMLDivElement).releasePointerCapture(e.pointerId); } catch {}
+  };
 
   return (
     <ChapterLayout
@@ -73,7 +144,15 @@ function Step4() {
                 Mind map of my regression settings and structure
               </span>
               <div className="flex items-center gap-2 text-xs text-muted-foreground">
-                <span className="hidden sm:inline">Use the PDF controls to zoom</span>
+                <span className="hidden sm:inline">Scroll to zoom · drag to pan</span>
+                <span className="tabular-nums font-medium text-foreground">{scale.toFixed(1)}×</span>
+                <button
+                  type="button"
+                  onClick={reset}
+                  className="px-2 py-1 rounded border border-border hover:bg-foreground/5"
+                >
+                  Reset
+                </button>
                 <button
                   type="button"
                   onClick={() => setZoomOpen(false)}
@@ -86,12 +165,23 @@ function Step4() {
             </div>
 
             <div
-              className="relative overflow-hidden rounded-lg bg-background w-full h-[80vh]"
+              ref={frameRef}
+              onPointerDown={onPointerDown}
+              onPointerMove={onPointerMove}
+              onPointerUp={onPointerUp}
+              onPointerCancel={onPointerUp}
+              className="relative overflow-hidden rounded-lg bg-background w-full h-[80vh] touch-none select-none"
+              style={{ cursor: scale > 1 ? (dragRef.current ? "grabbing" : "grab") : "default" }}
             >
-              <iframe
-                src={`${regressionPdf.url}#toolbar=1&navpanes=0&view=FitH`}
-                title="Zoomed regression mind map PDF"
-                className="absolute inset-0 h-full w-full border-0"
+              <img
+                src={regressionDiagram.url}
+                alt="Zoomed regression mind map"
+                draggable={false}
+                className="absolute inset-0 w-full h-full object-contain will-change-transform"
+                style={{
+                  transform: `translate(${tx}px, ${ty}px) scale(${scale})`,
+                  transformOrigin: "center center",
+                }}
               />
             </div>
           </div>
