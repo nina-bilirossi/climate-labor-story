@@ -19,10 +19,8 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 20
-          # Removed the 'cache: npm' setting that strictly requires a lockfile
 
       - name: Install Dependencies
-        # Changed from 'npm ci' to 'npm install' to generate dependencies fresh on the runner
         run: npm install --legacy-peer-deps
 
       - name: Build Application
@@ -31,5 +29,6 @@ jobs:
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4
         with:
-          folder: dist/client # Changed from .output/public
+          # This is where your native build script actually dumps your public site files
+          folder: .output/public 
           branch: gh-pages
