@@ -36,40 +36,40 @@ function Step5() {
     >
       <p>I regress on different populations and state subgroups to better understand what's happening.</p>
 
-      <div className="not-prose mt-10">
-        <ResultGroupRow icon={<IconGeneral />} title="General population">
-          <p>- droughts</p>
-        </ResultGroupRow>
+      <div className="not-prose mt-10 overflow-x-auto">
+        <table className="w-full border-collapse text-sm">
+          <thead>
+            <tr className="border-b border-border">
+              <th className="w-1/2 px-3 py-3 text-left font-medium text-muted-foreground">
+                Subgroup
+              </th>
+              <th className="px-3 py-3 text-center font-medium text-muted-foreground">Droughts</th>
+              <th className="px-3 py-3 text-center font-medium text-muted-foreground">Floods</th>
+            </tr>
+          </thead>
+          <tbody>
+            {[
+              { icon: <IconGeneral />, title: "General population" },
+              { icon: <IconIncome />, title: "High- vs low-income states" },
+              { icon: <IconAgriculture />, title: "High vs low share of agricultural employment" },
+              { icon: <IconGender />, title: "Male vs female workers" },
+              { icon: <IconRuralUrban />, title: "Rural vs urban areas" },
+            ].map((row) => (
+              <tr key={row.title} className="border-b border-border/60 align-middle">
+                <td className="px-3 py-5">
+                  <div className="flex items-center gap-4">
+                    <div className="shrink-0">{row.icon}</div>
+                    <span className="font-medium">{row.title}</span>
+                  </div>
+                </td>
+                <td className="px-3 py-5 text-center text-lg tabular-nums"></td>
+                <td className="px-3 py-5 text-center text-lg tabular-nums"></td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
 
-        <ResultGroupRow icon={<IconIncome />} title="High- vs low-income states">
-          <p>
-            Splitting states by income tests whether wealthier states absorb shocks better through
-            savings, insurance, and public safety nets.
-          </p>
-        </ResultGroupRow>
-
-        <ResultGroupRow
-          icon={<IconAgriculture />}
-          title="High vs low share of agricultural employment"
-        >
-          <p>
-            Agriculture is the most weather-exposed sector, so states that depend on it should
-            transmit climate shocks into informality most directly.
-          </p>
-        </ResultGroupRow>
-
-        <ResultGroupRow icon={<IconGender />} title="Male vs female workers">
-          <p>
-            Men and women enter and exit informal work through different channels, so the same
-            shock can produce very different adjustments.
-          </p>
-        </ResultGroupRow>
-
-        <ResultGroupRow icon={<IconRuralUrban />} title="Rural vs urban areas">
-          <p>
-            Rural labour markets are closer to the shock itself; urban informality often reflects
-            the migration and spillovers that follow.
-          </p>
         </ResultGroupRow>
       </div>
 
