@@ -70,8 +70,7 @@ function Step5() {
         </table>
       </div>
 
-        </ResultGroupRow>
-      </div>
+
 
       <p className="mt-10">
         I also run regression to look at the effects of climate shocks on a handful of labor market
