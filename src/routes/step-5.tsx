@@ -75,6 +75,11 @@ function Step5() {
           </p>
         </ResultGroupRow>
       </div>
+
+      <p className="mt-10">
+        I also look at the effects of climate shocks on a handful of labor market measures
+        (unemployment, employment, labor force participation) for each of those subgroups.
+      </p>
     </ChapterLayout>
   );
 }
