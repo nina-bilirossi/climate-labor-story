@@ -185,6 +185,7 @@ function Step4() {
                 style={{
                   transform: `translate(${tx}px, ${ty}px) scale(${scale})`,
                   transformOrigin: "center center",
+                  imageRendering: "crisp-edges",
                 }}
               />
             </div>
