@@ -17,7 +17,7 @@ const floodBlock6 = "/images/flood-block-6.png";
 const floodBlock7 = "/images/flood-block-7.png";
 
 // Gallery of flood workflow detail images, numbered per user's mapping.
-const FLOOD_GALLERY: Array<{ badge: string; label: string; image: { url: string } }> = [
+const FLOOD_GALLERY: Array<{ badge: string; label: string; image: string }> = [
   { badge: "1", label: "ERA5 daily precipitation", image: floodBlock1 },
   { badge: "2", label: "GEV threshold τᵢ", image: floodBlock2 },
   { badge: "3", label: "#flood / district-year", image: floodBlock6 },
@@ -506,7 +506,7 @@ function FloodGallery() {
               {item.badge}
             </span>
             <img
-              src={item.image.url}
+              src={item.image}
               alt={item.label}
               className="w-full h-28 object-cover"
             />
@@ -544,7 +544,7 @@ function FloodGallery() {
               </button>
             </div>
             <img
-              src={FLOOD_GALLERY[openIdx].image.url}
+              src={FLOOD_GALLERY[openIdx].image}
               alt={FLOOD_GALLERY[openIdx].label}
               className="w-full max-h-[80vh] object-contain bg-white"
             />
