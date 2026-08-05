@@ -1,7 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Linkedin, Mail } from "lucide-react";
 import { ChapterLayout } from "@/components/ChapterLayout";
-import ninaPhoto from "@/assets/nina-portrait.jpeg.asset.json";
+const ninaPhoto = "/images/nina-portrait.jpeg";
 
 export const Route = createFileRoute("/about")({
   head: () => ({
@@ -32,7 +32,7 @@ function AboutPage() {
       <div className="not-prose flex flex-col sm:flex-row gap-6 items-stretch">
         <div className="shrink-0 w-full sm:w-56">
           <img
-            src={ninaPhoto.url}
+            src={ninaPhoto}
             alt="Nina hiking in the mountains"
             className="w-full h-full object-cover rounded-lg shadow-md"
           />

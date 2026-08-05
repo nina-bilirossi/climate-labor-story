@@ -7,14 +7,14 @@ const { InlineMath, BlockMath } = ReactKatex as unknown as {
   BlockMath: React.ComponentType<{ math: string }>;
 };
 import { useState, ReactNode } from "react";
-import droughtWorkflow from "@/assets/spei-workflow-2026-07-29.png.asset.json";
-import floodWorkflow from "@/assets/flood-workflow.png.asset.json";
-import floodBlock1 from "@/assets/flood-blocks/block-1.asset.json";
-import floodBlock2 from "@/assets/flood-blocks/block-2.asset.json";
-import floodBlock3 from "@/assets/flood-blocks/block-3.asset.json";
-import floodBlock4 from "@/assets/flood-blocks/block-4.asset.json";
-import floodBlock6 from "@/assets/flood-blocks/block-6.asset.json";
-import floodBlock7 from "@/assets/flood-blocks/block-7.asset.json";
+const droughtWorkflow = "/images/spei-workflow-2026-07-29.png";
+const floodWorkflow = "/images/flood-workflow.png";
+const floodBlock1 = "/images/flood-blocks/flood-block-1.png";
+const floodBlock2 = "/images/flood-blocks/flood-block-2.png";
+const floodBlock3 = "/images/flood-blocks/flood-block-3.png";
+const floodBlock4 = "/images/flood-blocks/flood-block-4.png";
+const floodBlock6 = "/images/flood-blocks/flood-block-6.png";
+const floodBlock7 = "/images/flood-blocks/flood-block-7.png";
 
 // Gallery of flood workflow detail images, numbered per user's mapping.
 const FLOOD_GALLERY: Array<{ badge: string; label: string; image: { url: string } }> = [
@@ -370,7 +370,7 @@ function Step3() {
 
                 <figure className="my-6">
                   <img
-                    src={droughtWorkflow.url}
+                    src={droughtWorkflow}
                     alt="Drought index construction workflow showing SPEI gridded data and population raster being combined at district level, then aggregated to state boundaries to produce a population-weighted state SPEI12 map."
                     className="w-full rounded-lg border border-foreground/10 bg-background"
                   />
@@ -451,7 +451,7 @@ function Step3() {
                   <figure className="mt-6">
                     <div className="relative w-full rounded-lg border border-foreground/10 bg-white overflow-hidden">
                       <img
-                        src={floodWorkflow.url}
+                        src={floodWorkflow}
                         alt="Flood index workflow: from ERA5 precipitation and soil moisture to a population-weighted state-year flash-flood index"
                         className="w-full block"
                       />
