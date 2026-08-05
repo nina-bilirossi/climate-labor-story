@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { ChapterLayout } from "@/components/ChapterLayout";
-import regressionDiagram from "@/assets/regression-settings.jpg.asset.json";
+const regressionDiagram = "/images/regression-settings.jpg";
 import { useEffect, useRef, useState } from "react";
 
 export const Route = createFileRoute("/step-4")({
@@ -109,7 +109,7 @@ function Step4() {
             aria-label="Open zoom view of regression mind map"
           >
             <img
-              src={regressionDiagram.url}
+              src={regressionDiagram}
               alt="Visual diagram of regression settings and structure"
               className="w-full rounded-lg border border-border group-hover:ring-2 group-hover:ring-[color:var(--sun)] transition"
             />
@@ -174,7 +174,7 @@ function Step4() {
               style={{ cursor: scale > 1 ? (dragRef.current ? "grabbing" : "grab") : "default" }}
             >
               <img
-                src={regressionDiagram.url}
+                src={regressionDiagram}
                 alt="Zoomed regression mind map"
                 draggable={false}
                 className="absolute inset-0 w-full h-full object-contain will-change-transform"

@@ -5,11 +5,11 @@ import { FieldScene } from "@/components/FieldScene";
 import { SiteFooter } from "@/components/SiteFooter";
 import { TopNav } from "@/components/TopNav";
 import { Cite } from "@/components/Cite";
-import roadmapGaps from "@/assets/roadmap-gaps.png";
-import roadmapSatellite from "@/assets/roadmap-satellite.png";
-import roadmapComputer from "@/assets/roadmap-computer.png";
-import roadmapResults from "@/assets/roadmap-results.png";
-import roadmapConclusion from "@/assets/roadmap-conclusion.png";
+const roadmapGaps = "/images/roadmap-gaps.png";
+const roadmapSatellite = "/images/roadmap-satellite.png";
+const roadmapComputer = "/images/roadmap-computer.png";
+const roadmapResults = "/images/roadmap-results.png";
+const roadmapConclusion = "/images/roadmap-conclusion.png";
 
 export const Route = createFileRoute("/")({
   head: () => ({
