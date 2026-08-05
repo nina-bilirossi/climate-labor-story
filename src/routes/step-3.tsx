@@ -1,11 +1,12 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ChapterLayout } from "@/components/ChapterLayout";
-import ReactKatex from "react-katex";
+import * as ReactKatexNS from "react-katex";
 
-const { InlineMath, BlockMath } = ReactKatex as unknown as {
+const ReactKatex = ((ReactKatexNS as Record<string, unknown>)["default"] ?? ReactKatexNS) as unknown as {
   InlineMath: React.ComponentType<{ math: string }>;
   BlockMath: React.ComponentType<{ math: string }>;
 };
+const { InlineMath, BlockMath } = ReactKatex;
 import { useState, ReactNode } from "react";
 const droughtWorkflow = "/images/spei-workflow-2026-07-29.png";
 const floodWorkflow = "/images/flood-workflow.png";
@@ -17,7 +18,7 @@ const floodBlock6 = "/images/flood-block-6.png";
 const floodBlock7 = "/images/flood-block-7.png";
 
 // Gallery of flood workflow detail images, numbered per user's mapping.
-const FLOOD_GALLERY: Array<{ badge: string; label: string; image: { url: string } }> = [
+const FLOOD_GALLERY: Array<{ badge: string; label: string; image: string }> = [
   { badge: "1", label: "ERA5 daily precipitation", image: floodBlock1 },
   { badge: "2", label: "GEV threshold τᵢ", image: floodBlock2 },
   { badge: "3", label: "#flood / district-year", image: floodBlock6 },
@@ -506,7 +507,7 @@ function FloodGallery() {
               {item.badge}
             </span>
             <img
-              src={item.image.url}
+              src={item.image}
               alt={item.label}
               className="w-full h-28 object-cover"
             />
@@ -544,7 +545,7 @@ function FloodGallery() {
               </button>
             </div>
             <img
-              src={FLOOD_GALLERY[openIdx].image.url}
+              src={FLOOD_GALLERY[openIdx].image}
               alt={FLOOD_GALLERY[openIdx].label}
               className="w-full max-h-[80vh] object-contain bg-white"
             />
