@@ -9,12 +9,12 @@ const { InlineMath, BlockMath } = ReactKatex as unknown as {
 import { useState, ReactNode } from "react";
 const droughtWorkflow = "/images/spei-workflow-2026-07-29.png";
 const floodWorkflow = "/images/flood-workflow.png";
-const floodBlock1 = "/images/flood-blocks/flood-block-1.png";
-const floodBlock2 = "/images/flood-blocks/flood-block-2.png";
-const floodBlock3 = "/images/flood-blocks/flood-block-3.png";
-const floodBlock4 = "/images/flood-blocks/flood-block-4.png";
-const floodBlock6 = "/images/flood-blocks/flood-block-6.png";
-const floodBlock7 = "/images/flood-blocks/flood-block-7.png";
+const floodBlock1 = "/images/flood-block-1.png";
+const floodBlock2 = "/images/flood-block-2.png";
+const floodBlock3 = "/images/flood-block-3.png";
+const floodBlock4 = "/images/flood-block-4.png";
+const floodBlock6 = "/images/flood-block-6.png";
+const floodBlock7 = "/images/flood-block-7.png";
 
 // Gallery of flood workflow detail images, numbered per user's mapping.
 const FLOOD_GALLERY: Array<{ badge: string; label: string; image: { url: string } }> = [
