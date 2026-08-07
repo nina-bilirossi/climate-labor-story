@@ -36,15 +36,6 @@ const METRICS: Metric[] = [
     format: (v) => v.toFixed(3),
   },
   {
-    key: "precip",
-    label: "Extreme precipitation index (mean)",
-    short: "Extreme precip.",
-    unit: "index",
-    get: (s) => s.precipMean,
-    sd: (s) => s.precipSd,
-    format: (v) => v.toFixed(3),
-  },
-  {
     key: "agri",
     label: "Agricultural share of employment",
     short: "Agri. share",
