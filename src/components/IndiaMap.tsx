@@ -23,7 +23,7 @@ const METRICS: Metric[] = [
   {
     key: "drought",
     label: "Drought index (SPEI, mean)",
-    short: "Drought",
+    short: "Drought Index",
     unit: "SPEI",
     get: (s) => s.speiMean,
     sd: (s) => s.speiSd,
@@ -33,7 +33,7 @@ const METRICS: Metric[] = [
   {
     key: "flood",
     label: "Flood index (mean)",
-    short: "Flood",
+    short: "Flood Index",
     unit: "index",
     get: (s) => s.floodMean,
     sd: (s) => s.floodSd,
