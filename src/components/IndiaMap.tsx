@@ -15,6 +15,8 @@ type Metric = {
   invert?: boolean;
   /** fixed numeric domain; otherwise derived from data min/max */
   domain?: [number, number];
+  /** power exponent for contrast: <1 exaggerates extremes, >1 compresses them */
+  contrast?: number;
 };
 
 const METRICS: Metric[] = [
