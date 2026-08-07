@@ -123,6 +123,7 @@ export function IndiaMap() {
   }, [features]);
 
   const { min, max } = useMemo(() => {
+    if (metric.domain) return { min: metric.domain[0], max: metric.domain[1] };
     const vals = Object.values(STATE_STATS_BY_NAME)
       .map((s) => metric.get(s))
       .filter((v): v is number => v !== null);
@@ -135,7 +136,10 @@ export function IndiaMap() {
     if (v === null || v === undefined) return "color-mix(in oklab, var(--muted) 70%, transparent)";
     let t = max === min ? 0.5 : (v - min) / (max - min);
     if (metric.invert) t = 1 - t;
-    const pct = (8 + t * 88).toFixed(1);
+    // Power transform exaggerates the distance of mid-values from the extremes,
+    // making low and high values more visually distinct.
+    t = Math.pow(t, 0.75);
+    const pct = (t * 100).toFixed(1);
     return `color-mix(in oklab, var(--sun) ${pct}%, var(--storm-deep))`;
   }
 
