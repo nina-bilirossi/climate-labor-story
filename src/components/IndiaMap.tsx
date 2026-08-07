@@ -15,6 +15,8 @@ type Metric = {
   invert?: boolean;
   /** fixed numeric domain; otherwise derived from data min/max */
   domain?: [number, number];
+  /** power exponent for contrast: <1 exaggerates extremes, >1 compresses them */
+  contrast?: number;
 };
 
 const METRICS: Metric[] = [
@@ -45,6 +47,7 @@ const METRICS: Metric[] = [
     get: (s) => s.agriShare,
     format: (v) => `${v.toFixed(1)}%`,
     domain: [0, 100],
+    contrast: 0.5,
   },
   {
     key: "inf",
@@ -138,7 +141,7 @@ export function IndiaMap() {
     if (metric.invert) t = 1 - t;
     // Power transform exaggerates the distance of mid-values from the extremes,
     // making low and high values more visually distinct.
-    t = Math.pow(t, 0.75);
+    t = Math.pow(t, metric.contrast ?? 0.75);
     const pct = (t * 100).toFixed(1);
     return `color-mix(in oklab, var(--sun) ${pct}%, var(--storm))`;
   }
