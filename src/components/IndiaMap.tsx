@@ -13,6 +13,8 @@ type Metric = {
   format: (v: number) => string;
   /** low value = intense (true for SPEI, where more negative = drier) */
   invert?: boolean;
+  /** fixed numeric domain; otherwise derived from data min/max */
+  domain?: [number, number];
 };
 
 const METRICS: Metric[] = [
