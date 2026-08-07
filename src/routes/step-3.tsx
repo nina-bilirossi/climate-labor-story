@@ -488,7 +488,7 @@ function Step3() {
         </section>
 
         <section className="mt-16">
-          <h2 className="text-2xl sm:text-3xl">The data, state by state</h2>
+          <h2 className="text-2xl sm:text-3xl">State by state</h2>
           <p className="mt-3 text-foreground/70 max-w-3xl">
             Pick an indicator to see how it varies across the 35 states and union territories in the
             sample (Lakshadweep excluded). Hover a state for its value.
