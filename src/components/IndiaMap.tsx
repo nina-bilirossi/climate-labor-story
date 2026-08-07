@@ -42,7 +42,7 @@ const METRICS: Metric[] = [
   {
     key: "agri",
     label: "Agricultural share of employment",
-    short: "Agri. share",
+    short: "Agricultural share of employment",
     unit: "%",
     get: (s) => s.agriShare,
     format: (v) => `${v.toFixed(1)}%`,
