@@ -141,7 +141,7 @@ export function IndiaMap() {
     if (metric.invert) t = 1 - t;
     // Power transform exaggerates the distance of mid-values from the extremes,
     // making low and high values more visually distinct.
-    t = Math.pow(t, 0.75);
+    t = Math.pow(t, metric.contrast ?? 0.75);
     const pct = (t * 100).toFixed(1);
     return `color-mix(in oklab, var(--sun) ${pct}%, var(--storm))`;
   }
