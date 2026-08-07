@@ -140,7 +140,7 @@ export function IndiaMap() {
     // making low and high values more visually distinct.
     t = Math.pow(t, 0.75);
     const pct = (t * 100).toFixed(1);
-    return `color-mix(in oklab, var(--sun) ${pct}%, var(--storm-deep))`;
+    return `color-mix(in oklab, var(--sun) ${pct}%, var(--storm))`;
   }
 
   const hovered = hover ? STATE_STATS_BY_NAME[hover.name] : null;
@@ -229,7 +229,7 @@ export function IndiaMap() {
         <span
           className="h-3 w-40 rounded-full"
           style={{
-            background: "linear-gradient(to right, var(--storm-deep), var(--sun))",
+            background: "linear-gradient(to right, var(--storm), var(--sun))",
           }}
         />
         <span>{metric.invert ? "Drier" : "High"}</span>
