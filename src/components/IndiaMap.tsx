@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import { STATE_STATS_BY_NAME, type StateStat } from "@/data/stateStats";
 
-type MetricKey = "drought" | "flood" | "precip" | "agri" | "inf";
+type MetricKey = "drought" | "flood" | "agri" | "inf";
 
 type Metric = {
   key: MetricKey;
