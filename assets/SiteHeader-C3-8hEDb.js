@@ -1,1 +1,0 @@
-import{j as r}from"./index-D7Rcjg4Z.js";import{T as e}from"./TopNav-BIWy-t1R.js";function t(){return r.jsxs(r.Fragment,{children:[r.jsx(e,{visible:!0}),r.jsx("div",{"aria-hidden":!0,className:"h-[52px]"})]})}export{t as S};
