@@ -229,9 +229,7 @@ export function IndiaMap() {
         <span
           className="h-3 w-40 rounded-full"
           style={{
-            background: metric.invert
-              ? "linear-gradient(to right, color-mix(in oklab, var(--sun) 8%, var(--storm-deep)), color-mix(in oklab, var(--sun) 96%, var(--storm-deep)))"
-              : "linear-gradient(to right, color-mix(in oklab, var(--sun) 8%, var(--storm-deep)), color-mix(in oklab, var(--sun) 96%, var(--storm-deep)))",
+            background: "linear-gradient(to right, var(--storm-deep), var(--sun))",
           }}
         />
         <span>{metric.invert ? "Drier" : "High"}</span>
