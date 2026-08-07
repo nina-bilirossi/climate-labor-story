@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import { STATE_STATS_BY_NAME, type StateStat } from "@/data/stateStats";
 
-type MetricKey = "drought" | "flood" | "precip" | "agri" | "inf";
+type MetricKey = "drought" | "flood" | "agri" | "inf";
 
 type Metric = {
   key: MetricKey;
@@ -33,15 +33,6 @@ const METRICS: Metric[] = [
     unit: "index",
     get: (s) => s.floodMean,
     sd: (s) => s.floodSd,
-    format: (v) => v.toFixed(3),
-  },
-  {
-    key: "precip",
-    label: "Extreme precipitation index (mean)",
-    short: "Extreme precip.",
-    unit: "index",
-    get: (s) => s.precipMean,
-    sd: (s) => s.precipSd,
     format: (v) => v.toFixed(3),
   },
   {
