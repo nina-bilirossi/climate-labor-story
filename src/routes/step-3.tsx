@@ -8,6 +8,7 @@ const ReactKatex = ((ReactKatexNS as Record<string, unknown>)["default"] ?? Reac
 };
 const { InlineMath, BlockMath } = ReactKatex;
 import { useState, ReactNode } from "react";
+import { IndiaMap } from "@/components/IndiaMap";
 const droughtWorkflow = "/images/spei-workflow-2026-07-29.png";
 const floodWorkflow = "/images/flood-workflow.png";
 const floodBlock1 = "/images/flood-block-1.png";
