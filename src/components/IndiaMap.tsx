@@ -229,7 +229,7 @@ export function IndiaMap() {
         <span
           className="h-3 w-40 rounded-full"
           style={{
-            background: "linear-gradient(to right, var(--storm-deep), var(--sun))",
+            background: "linear-gradient(to right, var(--storm), var(--sun))",
           }}
         />
         <span>{metric.invert ? "Drier" : "High"}</span>
