@@ -13,6 +13,8 @@ type Metric = {
   format: (v: number) => string;
   /** low value = intense (true for SPEI, where more negative = drier) */
   invert?: boolean;
+  /** fixed numeric domain; otherwise derived from data min/max */
+  domain?: [number, number];
 };
 
 const METRICS: Metric[] = [
@@ -42,6 +44,7 @@ const METRICS: Metric[] = [
     unit: "%",
     get: (s) => s.agriShare,
     format: (v) => `${v.toFixed(1)}%`,
+    domain: [0, 100],
   },
   {
     key: "inf",
@@ -120,6 +123,7 @@ export function IndiaMap() {
   }, [features]);
 
   const { min, max } = useMemo(() => {
+    if (metric.domain) return { min: metric.domain[0], max: metric.domain[1] };
     const vals = Object.values(STATE_STATS_BY_NAME)
       .map((s) => metric.get(s))
       .filter((v): v is number => v !== null);
@@ -132,7 +136,10 @@ export function IndiaMap() {
     if (v === null || v === undefined) return "color-mix(in oklab, var(--muted) 70%, transparent)";
     let t = max === min ? 0.5 : (v - min) / (max - min);
     if (metric.invert) t = 1 - t;
-    const pct = (8 + t * 88).toFixed(1);
+    // Power transform exaggerates the distance of mid-values from the extremes,
+    // making low and high values more visually distinct.
+    t = Math.pow(t, 0.75);
+    const pct = (t * 100).toFixed(1);
     return `color-mix(in oklab, var(--sun) ${pct}%, var(--storm-deep))`;
   }
 
@@ -222,9 +229,7 @@ export function IndiaMap() {
         <span
           className="h-3 w-40 rounded-full"
           style={{
-            background: metric.invert
-              ? "linear-gradient(to right, color-mix(in oklab, var(--sun) 8%, var(--storm-deep)), color-mix(in oklab, var(--sun) 96%, var(--storm-deep)))"
-              : "linear-gradient(to right, color-mix(in oklab, var(--sun) 8%, var(--storm-deep)), color-mix(in oklab, var(--sun) 96%, var(--storm-deep)))",
+            background: "linear-gradient(to right, var(--storm-deep), var(--sun))",
           }}
         />
         <span>{metric.invert ? "Drier" : "High"}</span>
