@@ -485,6 +485,20 @@ function Step3() {
             </details>
           </div>
         </section>
+
+        <section className="mt-16">
+          <h2 className="text-2xl sm:text-3xl">The data, state by state</h2>
+          <p className="mt-3 text-foreground/70 max-w-3xl">
+            Pick an indicator to see how it varies across the 35 states and union territories in the
+            sample (Lakshadweep excluded). Hover a state for its value.
+          </p>
+          <IndiaMap />
+          <p className="mt-3 text-sm text-foreground/50">
+            State-level summary statistics. SPEI, flood and extreme precipitation indices are period
+            means; agricultural share of employment and baseline informality (casual labour share)
+            are reported where available.
+          </p>
+        </section>
       </div>
     </ChapterLayout>
   );
