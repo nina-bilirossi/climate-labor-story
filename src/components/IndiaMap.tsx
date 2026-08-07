@@ -44,6 +44,7 @@ const METRICS: Metric[] = [
     unit: "%",
     get: (s) => s.agriShare,
     format: (v) => `${v.toFixed(1)}%`,
+    domain: [0, 100],
   },
   {
     key: "inf",
