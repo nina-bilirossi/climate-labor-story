@@ -205,6 +205,60 @@ function RoadmapStepCard({ step, highlight = false }: { step: RoadmapStep; highl
   );
 }
 
+function VerticalRoadmapStepCard({
+  step,
+  align,
+}: {
+  step: RoadmapStep;
+  align: "left" | "right";
+}) {
+  const navigate = useNavigate();
+  const [animating, setAnimating] = useState(false);
+
+  const handleClick = () => {
+    if (animating) return;
+    setAnimating(true);
+    window.setTimeout(() => {
+      navigate({ to: `/${step.slug}` });
+    }, 360);
+  };
+
+  return (
+    <button
+      type="button"
+      onClick={handleClick}
+      className={
+        "group block w-full cursor-pointer rounded-2xl border p-5 text-left transition-all duration-300 md:w-[45%] " +
+        (animating ? "roadmap-droplet " : "") +
+        (align === "left" ? "md:mr-auto " : "md:ml-auto md:text-right ") +
+        (step.num === "06"
+          ? "border-[color:var(--sun)] bg-[color:var(--sun)]/15 shadow-[0_10px_40px_-10px_color-mix(in_oklab,var(--sun)_60%,transparent)] hover:bg-[color:var(--sun)]/25"
+          : "border-border bg-card/40 hover:border-[color:var(--sun)] hover:bg-card/70 hover:-translate-y-1")
+      }
+      aria-label={`Open: ${step.title}`}
+    >
+      <span className="text-xs font-mono uppercase tracking-[0.2em] text-[color:var(--sun)]">Step {step.num}</span>
+      <h3 className="mt-2 font-display text-xl leading-snug">{step.title}</h3>
+      {step.custom === "fieldscene" ? (
+        <div className="mx-auto mt-3 max-w-[8rem] pointer-events-none">
+          <FieldScene />
+        </div>
+      ) : step.image ? (
+        <div className="mt-3 overflow-hidden rounded-lg">
+          <img
+            src={step.image}
+            alt={step.imageAlt}
+            className="h-32 w-full object-cover opacity-90 transition-opacity group-hover:opacity-100"
+          />
+        </div>
+      ) : null}
+      <p className="mt-3 text-[10px] uppercase tracking-[0.3em] text-foreground/50">
+        {animating ? "\n" : "Click to open"}
+      </p>
+    </button>
+  );
+}
+
 function Index() {
   const sentinelRef = useRef<HTMLDivElement | null>(null);
   const [navVisible, setNavVisible] = useState(false);
@@ -295,71 +349,26 @@ function Index() {
             Casual Business: Floods, Droughts, and Informal Work in India
           </p>
 
-          {/* Two-row snake flow: 1→2→3, then 3→4, then 4→5→6 */}
-          <div className="mx-auto mt-16 grid w-fit grid-cols-[auto_auto_auto_auto_auto] gap-x-1 gap-y-2">
-            {ROADMAP.slice(0, 3).map((step, i) => (
-              <div key={step.num} className="contents">
-                <div
-                  id={step.slug}
-                  className={`scroll-mt-24 ${i === 0 ? "-translate-y-2" : i === 1 ? "translate-y-3" : "translate-y-6"}`}
-                >
-                  <RoadmapStepCard step={step} highlight={step.num === "06"} />
-                </div>
-                {i < 2 && (
-                  <div className="flex items-center justify-center w-24 h-24">
-                    <DottedArrow
-                      path={i === 1 ? "M 5 90 C 50 120, 110 70, 167 108" : ARROW_PATHS_RIGHT[i]}
-                      viewBox="0 0 160 140"
-                      className="w-full h-full"
-                    />
-                  </div>
-                )}
-              </div>
-            ))}
+          {/* Vertical cascading timeline */}
+          <div className="relative mx-auto mt-16 max-w-4xl">
+            {/* Central dotted spine */}
+            <div className="absolute left-1/2 top-0 bottom-0 hidden md:block -translate-x-1/2 border-l-2 border-dashed border-[color:var(--sun)]/30" />
 
-            <div className="col-span-5 relative -mt-4 -mb-4 h-28 w-full">
-              <DottedArrow
-                path="M 705 40 C 705 80, 560 80, 400 70 S 200 110, 120 110 C 120 110, 88 110, 88 140"
-                viewBox="0 0 800 140"
-                className="absolute inset-0 w-full h-full -translate-y-3"
-                preserveAspectRatio="none"
-                dashArray="2 4"
-                showArrowhead={false}
-                extraPaths={
-                  <path
-                    d="M 705 0 v 4 m 0 4 v 4 m 0 4 v 4 m 0 4 v 4 m 0 4 v 4"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth={ARROW_STROKE_WIDTH}
-                    strokeLinecap="round"
-                    vectorEffect="non-scaling-stroke"
-                  />
-                }
-              />
-              <FixedArrowhead
-                style={{
-                  left: "11%",
-                  top: "100%",
-                  transform: "translate(-50%, -100%) rotate(90deg)",
-                }}
-              />
+            {/* Steps */}
+            <div className="space-y-12">
+              {ROADMAP.map((step, i) => {
+                const align = i % 2 === 0 ? "left" : "right";
+                return (
+                  <div key={step.num} id={step.slug} className="relative flex items-center scroll-mt-24">
+                    <div className={`w-full md:w-[45%] ${align === "left" ? "md:mr-auto" : "md:ml-auto"}`}>
+                      <VerticalRoadmapStepCard step={step} align={align} />
+                    </div>
+                    {/* Center node */}
+                    <div className="absolute left-1/2 top-1/2 hidden md:flex -translate-x-1/2 -translate-y-1/2 h-4 w-4 items-center justify-center rounded-full bg-[color:var(--sun)] shadow-[0_0_15px_color-mix(in_oklab,var(--sun)_50%,transparent)]" />
+                  </div>
+                );
+              })}
             </div>
-
-            {ROADMAP.slice(3, 6).map((step, i) => (
-              <div key={step.num} className="contents">
-                <div
-                  id={step.slug}
-                  className={`scroll-mt-24 ${i === 0 ? "translate-y-2" : i === 1 ? "-translate-y-3" : "translate-y-1"}`}
-                >
-                  <RoadmapStepCard step={step} highlight={step.num === "06"} />
-                </div>
-                {i < 2 && (
-                  <div className="flex items-center justify-center w-24 h-24">
-                    <DottedArrow path={ARROW_PATHS_RIGHT[i]} viewBox="0 0 160 140" className="w-full h-full" />
-                  </div>
-                )}
-              </div>
-            ))}
           </div>
 
           {/* Bonus block */}
