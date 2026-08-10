@@ -205,57 +205,21 @@ function RoadmapStepCard({ step, highlight = false }: { step: RoadmapStep; highl
   );
 }
 
-function VerticalRoadmapStepCard({
-  step,
-  align,
-}: {
-  step: RoadmapStep;
-  align: "left" | "right";
-}) {
-  const navigate = useNavigate();
-  const [animating, setAnimating] = useState(false);
-
-  const handleClick = () => {
-    if (animating) return;
-    setAnimating(true);
-    window.setTimeout(() => {
-      navigate({ to: `/${step.slug}` });
-    }, 360);
-  };
-
+function VerticalArrow() {
   return (
-    <button
-      type="button"
-      onClick={handleClick}
-      className={
-        "group block w-full cursor-pointer rounded-2xl border p-5 text-left transition-all duration-300 md:w-[45%] " +
-        (animating ? "roadmap-droplet " : "") +
-        (align === "left" ? "md:mr-auto " : "md:ml-auto md:text-right ") +
-        (step.num === "06"
-          ? "border-[color:var(--sun)] bg-[color:var(--sun)]/15 shadow-[0_10px_40px_-10px_color-mix(in_oklab,var(--sun)_60%,transparent)] hover:bg-[color:var(--sun)]/25"
-          : "border-border bg-card/40 hover:border-[color:var(--sun)] hover:bg-card/70 hover:-translate-y-1")
-      }
-      aria-label={`Open: ${step.title}`}
-    >
-      <span className="text-xs font-mono uppercase tracking-[0.2em] text-[color:var(--sun)]">Step {step.num}</span>
-      <h3 className="mt-2 font-display text-xl leading-snug">{step.title}</h3>
-      {step.custom === "fieldscene" ? (
-        <div className="mx-auto mt-3 max-w-[8rem] pointer-events-none">
-          <FieldScene />
-        </div>
-      ) : step.image ? (
-        <div className="mt-3 overflow-hidden rounded-lg">
-          <img
-            src={step.image}
-            alt={step.imageAlt}
-            className="h-32 w-full object-cover opacity-90 transition-opacity group-hover:opacity-100"
-          />
-        </div>
-      ) : null}
-      <p className="mt-3 text-[10px] uppercase tracking-[0.3em] text-foreground/50">
-        {animating ? "\n" : "Click to open"}
-      </p>
-    </button>
+    <svg width="24" height="40" viewBox="0 0 24 40" className="text-[color:var(--sun)]/70" aria-hidden>
+      <line
+        x1="12"
+        y1="0"
+        x2="12"
+        y2="32"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeDasharray="4 6"
+        strokeLinecap="round"
+      />
+      <polygon points="8,32 12,40 16,32" fill="currentColor" />
+    </svg>
   );
 }
 
@@ -349,26 +313,14 @@ function Index() {
             Casual Business: Floods, Droughts, and Informal Work in India
           </p>
 
-          {/* Vertical cascading timeline */}
-          <div className="relative mx-auto mt-16 max-w-4xl">
-            {/* Central dotted spine */}
-            <div className="absolute left-1/2 top-0 bottom-0 hidden md:block -translate-x-1/2 border-l-2 border-dashed border-[color:var(--sun)]/30" />
-
-            {/* Steps */}
-            <div className="space-y-12">
-              {ROADMAP.map((step, i) => {
-                const align = i % 2 === 0 ? "left" : "right";
-                return (
-                  <div key={step.num} id={step.slug} className="relative flex items-center scroll-mt-24">
-                    <div className={`w-full md:w-[45%] ${align === "left" ? "md:mr-auto" : "md:ml-auto"}`}>
-                      <VerticalRoadmapStepCard step={step} align={align} />
-                    </div>
-                    {/* Center node */}
-                    <div className="absolute left-1/2 top-1/2 hidden md:flex -translate-x-1/2 -translate-y-1/2 h-4 w-4 items-center justify-center rounded-full bg-[color:var(--sun)] shadow-[0_0_15px_color-mix(in_oklab,var(--sun)_50%,transparent)]" />
-                  </div>
-                );
-              })}
-            </div>
+          {/* Vertical stack of roadmap blocks */}
+          <div className="mx-auto mt-16 flex max-w-4xl flex-col items-center gap-4">
+            {ROADMAP.map((step, i) => (
+              <div key={step.num} id={step.slug} className="flex flex-col items-center scroll-mt-24">
+                <RoadmapStepCard step={step} highlight={step.num === "06"} />
+                {i < ROADMAP.length - 1 && <VerticalArrow />}
+              </div>
+            ))}
           </div>
 
           {/* Bonus block */}
