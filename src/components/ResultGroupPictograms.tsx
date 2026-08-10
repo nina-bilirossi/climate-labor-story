@@ -111,15 +111,15 @@ export function IconAgriculture({ highlight = "high" }: { highlight?: "high" | "
 }
 
 /** 4. Male vs female */
-export function IconGender() {
+export function IconGender({ highlight = "male" }: { highlight?: "male" | "female" }) {
   return (
     <Frame>
       <g transform="translate(28 20)">
-        <circle cx="0" cy="6" r="10" fill="none" stroke="currentColor" strokeWidth="1.6" />
+        <circle cx="0" cy="6" r="10" fill={highlight === "male" ? sun : "none"} stroke="currentColor" strokeWidth="1.6" />
         <path d="M 7 -1 L 15 -9 M 9 -9 h 6 v 6" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" />
       </g>
       <g transform="translate(66 18)">
-        <circle cx="0" cy="6" r="10" fill={sun} stroke="currentColor" strokeWidth="1.6" />
+        <circle cx="0" cy="6" r="10" fill={highlight === "female" ? sun : "none"} stroke="currentColor" strokeWidth="1.6" />
         <path d="M 0 16 v 12 M -6 22 h 12" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" />
       </g>
       <line x1="6" y1="62" x2="90" y2="62" stroke="currentColor" strokeWidth="1.2" opacity="0.4" />
