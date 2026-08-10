@@ -128,14 +128,18 @@ export function IconGender({ highlight = "male" }: { highlight?: "male" | "femal
 }
 
 /** 5. Rural vs urban */
-export function IconRuralUrban() {
+export function IconRuralUrban({ highlight = "rural" }: { highlight?: "rural" | "urban" }) {
+  const ruralFill = highlight === "rural" ? sun : "currentColor";
+  const ruralFillOpacity = highlight === "rural" ? undefined : 0.25;
+  const urbanFill = highlight === "urban" ? sun : "currentColor";
+  const urbanFillOpacity = highlight === "urban" ? undefined : 0.25;
   return (
     <Frame>
-      <path d="M 8 52 V 34 L 22 24 L 36 34 V 52 Z" fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinejoin="round" />
-      <rect x="18" y="42" width="8" height="10" fill={sun} stroke="currentColor" strokeWidth="1.1" />
-      <rect x="56" y="18" width="14" height="34" fill="none" stroke="currentColor" strokeWidth="1.4" />
-      <rect x="74" y="28" width="12" height="24" fill={sun} stroke="currentColor" strokeWidth="1.4" />
-      <g opacity="0.7">
+      <path d="M 8 52 V 34 L 22 24 L 36 34 V 52 Z" fill={ruralFill} fillOpacity={ruralFillOpacity} stroke="currentColor" strokeWidth="1.4" strokeLinejoin="round" />
+      <rect x="18" y="42" width="8" height="10" fill={ruralFill} fillOpacity={ruralFillOpacity} stroke="currentColor" strokeWidth="1.1" />
+      <rect x="56" y="18" width="14" height="34" fill={urbanFill} fillOpacity={urbanFillOpacity} stroke="currentColor" strokeWidth="1.4" />
+      <rect x="74" y="28" width="12" height="24" fill={urbanFill} fillOpacity={urbanFillOpacity} stroke="currentColor" strokeWidth="1.4" />
+      <g opacity={highlight === "urban" ? 1 : 0.3}>
         {[24, 32, 40].map((y) => (
           <line key={y} x1="59" y1={y} x2="67" y2={y} stroke="currentColor" strokeWidth="1" />
         ))}
