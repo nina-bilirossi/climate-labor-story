@@ -48,15 +48,15 @@ function Step5() {
           </thead>
           <tbody>
             {[
-              { icon: <IconGeneral />, label: "General population" },
-              { icon: <IconIncome highlight="high" />, label: "High-income states" },
-              { icon: <IconIncome highlight="low" />, label: "Low-income states" },
-              { icon: <IconAgriculture highlight="high" />, label: "Agricultural states" },
-              { icon: <IconAgriculture highlight="low" />, label: "Less agricultural states" },
-              { icon: <IconGender highlight="male" />, label: "Male workers" },
-              { icon: <IconGender highlight="female" />, label: "Female workers" },
-              { icon: <IconRuralUrban highlight="rural" />, label: "Rural areas" },
-              { icon: <IconRuralUrban highlight="urban" />, label: "Urban areas" },
+              { icon: <IconGeneral />, label: "General population", drought: "+", flood: "non significant" },
+              { icon: <IconIncome highlight="high" />, label: "High-income states", drought: "−", flood: "−" },
+              { icon: <IconIncome highlight="low" />, label: "Low-income states", drought: "+", flood: "+" },
+              { icon: <IconAgriculture highlight="high" />, label: "Agricultural states", drought: "non-significant", flood: "non-significant" },
+              { icon: <IconAgriculture highlight="low" />, label: "Less agricultural states", drought: "+", flood: "−" },
+              { icon: <IconGender highlight="male" />, label: "Male workers", drought: "+", flood: "non significant" },
+              { icon: <IconGender highlight="female" />, label: "Female workers", drought: "++", flood: "non significant" },
+              { icon: <IconRuralUrban highlight="rural" />, label: "Rural areas", drought: "+", flood: "non significant" },
+              { icon: <IconRuralUrban highlight="urban" />, label: "Urban areas", drought: "+", flood: "not very significant (+)" },
             ].map((row) => (
               <tr key={row.label} className="border-b border-border/60 align-middle">
                 <td className="px-3 py-4">
@@ -65,8 +65,8 @@ function Step5() {
                     <span className="font-medium">{row.label}</span>
                   </div>
                 </td>
-                <td className="px-3 py-4 text-center text-lg tabular-nums"></td>
-                <td className="px-3 py-4 text-center text-lg tabular-nums"></td>
+                <td className="px-3 py-4 text-center text-lg tabular-nums">{row.drought}</td>
+                <td className="px-3 py-4 text-center text-lg tabular-nums">{row.flood}</td>
               </tr>
             ))}
           </tbody>
