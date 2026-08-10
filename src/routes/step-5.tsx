@@ -56,9 +56,9 @@ function Step5() {
           <tbody>
             {[
               { icon: <IconGeneral />, label: "General population", drought: "+++", flood: "non significant" },
-              { icon: <IconIncome highlight="high" />, label: "High-income states", drought: "−-", flood: "−" },
+              { icon: <IconIncome highlight="high" />, label: "High-income states", drought: "−−", flood: "−" },
               { icon: <IconIncome highlight="low" />, label: "Low-income states", drought: "++", flood: "+" },
-              { icon: <IconAgriculture highlight="high" />, label: "Agricultural states", drought: "-", flood: "non-significant" },
+              { icon: <IconAgriculture highlight="high" />, label: "Agricultural states", drought: "−", flood: "non-significant" },
               { icon: <IconAgriculture highlight="low" />, label: "Less agricultural states", drought: "+++", flood: "−" },
               { icon: <IconGender highlight="male" />, label: "Male workers", drought: "++", flood: "non significant" },
               { icon: <IconGender highlight="female" />, label: "Female workers", drought: "+++", flood: "non significant" },
