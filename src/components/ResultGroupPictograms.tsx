@@ -38,15 +38,39 @@ export function IconGeneral() {
 }
 
 /** 2. High vs low income states */
-export function IconIncome() {
+export function IconIncome({ highlight = "high" }: { highlight?: "high" | "low" }) {
+  const leftFill = highlight === "high" ? sun : "currentColor";
+  const leftFillOpacity = highlight === "high" ? undefined : 0.25;
+  const rightFill = highlight === "low" ? sun : "currentColor";
+  const rightFillOpacity = highlight === "low" ? undefined : 0.25;
   return (
     <Frame>
-      <rect x="12" y="20" width="26" height="34" rx="3" fill={sun} stroke="currentColor" strokeWidth="1.4" />
-      <rect x="58" y="40" width="26" height="14" rx="3" fill="none" stroke="currentColor" strokeWidth="1.4" />
-      <text x="25" y="15" textAnchor="middle" fontSize="11" fill="currentColor">
+      <rect
+        x="12"
+        y="20"
+        width="26"
+        height="34"
+        rx="3"
+        fill={leftFill}
+        fillOpacity={leftFillOpacity}
+        stroke="currentColor"
+        strokeWidth="1.4"
+      />
+      <rect
+        x="58"
+        y="40"
+        width="26"
+        height="14"
+        rx="3"
+        fill={rightFill}
+        fillOpacity={rightFillOpacity}
+        stroke="currentColor"
+        strokeWidth="1.4"
+      />
+      <text x="25" y="15" textAnchor="middle" fontSize="11" fill="currentColor" opacity={highlight === "high" ? 1 : 0.3}>
         ₹₹
       </text>
-      <text x="71" y="35" textAnchor="middle" fontSize="11" fill="currentColor" opacity="0.6">
+      <text x="71" y="35" textAnchor="middle" fontSize="11" fill="currentColor" opacity={highlight === "low" ? 1 : 0.3}>
         ₹
       </text>
       <line x1="6" y1="58" x2="90" y2="58" stroke="currentColor" strokeWidth="1.2" opacity="0.4" />
