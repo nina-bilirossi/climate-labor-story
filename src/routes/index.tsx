@@ -189,17 +189,8 @@ function RoadmapStepCard({ step, highlight = false }: { step: RoadmapStep; highl
     >
       <div className="text-xs font-mono text-[color:var(--sun)]">{step.num}</div>
       <h3 className={"mt-2 font-display leading-snug text-sm " + (highlight ? "md:text-base" : "")}>{step.title}</h3>
-      <div
-        className={
-          step.custom === "fieldscene"
-            ? "[&>div]:!mt-0 [&>div]:!max-w-full mx-auto max-w-[6rem] pointer-events-none"
-            : "mt-2"
-        }
-      >
-        {step.custom === "fieldscene" ? <FieldScene /> : null}
-      </div>
-      <p className="mt-2 text-[10px] uppercase tracking-[0.3em] text-foreground/50">
-        {highlight ? "\n" : "Click to open"}
+      <p className="mt-3 text-[10px] uppercase tracking-[0.3em] text-foreground/50">
+        {highlight ? "\u00a0" : "Click to open"}
       </p>
     </button>
   );
