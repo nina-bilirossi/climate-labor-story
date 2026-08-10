@@ -65,8 +65,20 @@ function Step5() {
                     <span className="font-medium">{row.label}</span>
                   </div>
                 </td>
-                <td className="px-3 py-4 text-center text-2xl tabular-nums">{row.drought}</td>
-                <td className="px-3 py-4 text-center text-2xl tabular-nums">{row.flood}</td>
+                <td
+                  className={`px-3 py-4 text-center tabular-nums ${
+                    /^[+-]+$/.test(row.drought) ? "text-2xl" : "text-sm text-muted-foreground"
+                  }`}
+                >
+                  {row.drought}
+                </td>
+                <td
+                  className={`px-3 py-4 text-center tabular-nums ${
+                    /^[+-]+$/.test(row.flood) ? "text-2xl" : "text-sm text-muted-foreground"
+                  }`}
+                >
+                  {row.flood}
+                </td>
               </tr>
             ))}
           </tbody>
