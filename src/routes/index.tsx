@@ -313,26 +313,14 @@ function Index() {
             Casual Business: Floods, Droughts, and Informal Work in India
           </p>
 
-          {/* Vertical cascading timeline */}
-          <div className="relative mx-auto mt-16 max-w-4xl">
-            {/* Central dotted spine */}
-            <div className="absolute left-1/2 top-0 bottom-0 hidden md:block -translate-x-1/2 border-l-2 border-dashed border-[color:var(--sun)]/30" />
-
-            {/* Steps */}
-            <div className="space-y-12">
-              {ROADMAP.map((step, i) => {
-                const align = i % 2 === 0 ? "left" : "right";
-                return (
-                  <div key={step.num} id={step.slug} className="relative flex items-center scroll-mt-24">
-                    <div className={`w-full md:w-[45%] ${align === "left" ? "md:mr-auto" : "md:ml-auto"}`}>
-                      <VerticalRoadmapStepCard step={step} align={align} />
-                    </div>
-                    {/* Center node */}
-                    <div className="absolute left-1/2 top-1/2 hidden md:flex -translate-x-1/2 -translate-y-1/2 h-4 w-4 items-center justify-center rounded-full bg-[color:var(--sun)] shadow-[0_0_15px_color-mix(in_oklab,var(--sun)_50%,transparent)]" />
-                  </div>
-                );
-              })}
-            </div>
+          {/* Vertical stack of roadmap blocks */}
+          <div className="mx-auto mt-16 flex max-w-4xl flex-col items-center gap-4">
+            {ROADMAP.map((step, i) => (
+              <div key={step.num} id={step.slug} className="flex flex-col items-center scroll-mt-24">
+                <RoadmapStepCard step={step} highlight={step.num === "06"} />
+                {i < ROADMAP.length - 1 && <VerticalArrow />}
+              </div>
+            ))}
           </div>
 
           {/* Bonus block */}
