@@ -37,17 +37,18 @@ function Step6() {
         <p>All my results are 100% valid and objective. Just kidding; every study has its limitations. Check out the ones from my research in the manuscript.&nbsp;</p>
         <div className="mt-8 pt-8 border-t border-border">
           <p className="text-sm text-muted-foreground mb-4">Also, here are some recent news to bring some contrast and food for thought:&nbsp;</p>
-          <div className="bg-muted/30 p-4 rounded-lg border border-border/50">
-            <h4 className="font-display text-lg mb-2">
+          <div>
+            <h4 className="font-display text-base mb-1">
               <a
                 href="https://www.economist.com/asia/2026/02/05/a-booming-gig-economy-is-formalising-indias-labour-force"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-sun hover:underline"
+                className="text-foreground/80 hover:text-sun hover:underline"
               >
                 A booming gig economy is formalising India’s labour force
               </a>
             </h4>
+            <p className="text-xs text-muted-foreground">The Economist, Feb 5th 2026</p>
           </div>
         </div>
       </div>
