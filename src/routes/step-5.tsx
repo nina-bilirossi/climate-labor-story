@@ -65,8 +65,8 @@ function Step5() {
                     <span className="font-medium">{row.label}</span>
                   </div>
                 </td>
-                <td className="px-3 py-4 text-center text-lg tabular-nums">{row.drought}</td>
-                <td className="px-3 py-4 text-center text-lg tabular-nums">{row.flood}</td>
+                <td className="px-3 py-4 text-center text-2xl tabular-nums">{row.drought}</td>
+                <td className="px-3 py-4 text-center text-2xl tabular-nums">{row.flood}</td>
               </tr>
             ))}
           </tbody>
