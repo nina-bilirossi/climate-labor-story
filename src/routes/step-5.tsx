@@ -55,15 +55,15 @@ function Step5() {
           </thead>
           <tbody>
             {[
-              { icon: <IconGeneral />, label: "General population", drought: "+", flood: "non significant" },
-              { icon: <IconIncome highlight="high" />, label: "High-income states", drought: "−", flood: "−" },
-              { icon: <IconIncome highlight="low" />, label: "Low-income states", drought: "+", flood: "+" },
-              { icon: <IconAgriculture highlight="high" />, label: "Agricultural states", drought: "non-significant", flood: "non-significant" },
-              { icon: <IconAgriculture highlight="low" />, label: "Less agricultural states", drought: "+", flood: "−" },
-              { icon: <IconGender highlight="male" />, label: "Male workers", drought: "+", flood: "non significant" },
-              { icon: <IconGender highlight="female" />, label: "Female workers", drought: "++", flood: "non significant" },
-              { icon: <IconRuralUrban highlight="rural" />, label: "Rural areas", drought: "+", flood: "non significant" },
-              { icon: <IconRuralUrban highlight="urban" />, label: "Urban areas", drought: "+", flood: "not very significant (+)" },
+              { icon: <IconGeneral />, label: "General population", drought: "+++", flood: "non significant" },
+              { icon: <IconIncome highlight="high" />, label: "High-income states", drought: "−-", flood: "−" },
+              { icon: <IconIncome highlight="low" />, label: "Low-income states", drought: "++", flood: "+" },
+              { icon: <IconAgriculture highlight="high" />, label: "Agricultural states", drought: "-", flood: "non-significant" },
+              { icon: <IconAgriculture highlight="low" />, label: "Less agricultural states", drought: "+++", flood: "−" },
+              { icon: <IconGender highlight="male" />, label: "Male workers", drought: "++", flood: "non significant" },
+              { icon: <IconGender highlight="female" />, label: "Female workers", drought: "+++", flood: "non significant" },
+              { icon: <IconRuralUrban highlight="rural" />, label: "Rural areas", drought: "++", flood: "non significant" },
+              { icon: <IconRuralUrban highlight="urban" />, label: "Urban areas", drought: "++", flood: "not very significant (+)" },
             ].map((row) => (
               <tr key={row.label} className="border-b border-border/60 align-middle">
                 <td className="px-3 py-4">
