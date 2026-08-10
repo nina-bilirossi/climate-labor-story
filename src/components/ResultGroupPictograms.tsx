@@ -59,23 +59,23 @@ export function IconIncome() {
 export function IconAgriculture() {
   return (
     <Frame>
-      <g transform="translate(48 22)">
-        {/* Hat */}
-        <ellipse cx="0" cy="-14" rx="7" ry="2" fill="none" stroke="currentColor" strokeWidth="1.4" />
-        <path d="M -5 -14 C -5 -20 5 -20 5 -14 Z" fill={sun} stroke="currentColor" strokeWidth="1.4" />
-        {/* Person */}
-        <circle cx="0" cy="0" r="4" fill={sun} stroke="currentColor" strokeWidth="1.4" />
-        <path
-          d="M -6 18 C -6 8 -3 5 0 5 C 3 5 6 8 6 18 Z"
-          fill={sun}
-          stroke="currentColor"
-          strokeWidth="1.4"
-          strokeLinejoin="round"
-        />
-        {/* Pitchfork */}
-        <g transform="translate(9 6)">
-          <line x1="0" y1="0" x2="0" y2="20" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" />
-          <path d="M -4 0 L 0 -4 L 4 0" stroke="currentColor" strokeWidth="1.4" fill="none" strokeLinejoin="round" />
+      <g transform="translate(48 56)">
+        {/* Stem */}
+        <path d="M 0 0 Q -2 -18 0 -36" stroke="currentColor" strokeWidth="1.4" fill="none" strokeLinecap="round" />
+        {/* Leaves */}
+        <path d="M 0 -10 Q -12 -22 -18 -14 Q -10 -16 0 -10" fill={sun} stroke="currentColor" strokeWidth="1.4" strokeLinejoin="round" />
+        <path d="M 0 -18 Q 14 -30 20 -20 Q 10 -24 0 -18" fill={sun} stroke="currentColor" strokeWidth="1.4" strokeLinejoin="round" />
+        {/* Rice panicle */}
+        <g transform="translate(0 -38)">
+          {[0, 1, 2, 3, 4].map((i) => {
+            const y = i * 3.5;
+            const angle = i % 2 === 0 ? -28 : 28;
+            return (
+              <g key={i} transform={`translate(0 ${y}) rotate(${angle})`}>
+                <ellipse cx="0" cy="0" rx="2.2" ry="1.4" fill={sun} stroke="currentColor" strokeWidth="1.2" />
+              </g>
+            );
+          })}
         </g>
       </g>
       <line x1="8" y1="60" x2="88" y2="60" stroke="currentColor" strokeWidth="1.2" opacity="0.4" />
