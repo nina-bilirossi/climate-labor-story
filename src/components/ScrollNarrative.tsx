@@ -369,8 +369,8 @@ export function ScrollNarrative() {
         </motion.div>
       </div>
 
-      {/* Anchor for the research question — placed at the end of the scroll section so hash links land on the final frame */}
-      <div id="research-question" className="absolute bottom-0 left-0 h-1 w-full" aria-hidden="true" />
+      {/* Anchor for the research question — placed where the question becomes visible so hash links land on the final frame */}
+      <div id="research-question" className="absolute top-[88%] left-0 h-1 w-full" aria-hidden="true" />
     </section>
   );
 }
