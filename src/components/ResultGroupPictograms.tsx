@@ -80,15 +80,18 @@ export function IconIncome({ highlight = "high" }: { highlight?: "high" | "low" 
 
 
 /** 3. High vs low agricultural employment */
-export function IconAgriculture() {
+export function IconAgriculture({ highlight = "high" }: { highlight?: "high" | "low" }) {
+  const dim = highlight === "low";
+  const fill = dim ? "currentColor" : sun;
+  const fillOpacity = dim ? 0.25 : undefined;
   return (
     <Frame>
       <g transform="translate(48 56)">
         {/* Stem */}
         <path d="M 0 0 Q -2 -18 0 -36" stroke="currentColor" strokeWidth="1.4" fill="none" strokeLinecap="round" />
         {/* Leaves */}
-        <path d="M 0 -10 Q -12 -22 -18 -14 Q -10 -16 0 -10" fill={sun} stroke="currentColor" strokeWidth="1.4" strokeLinejoin="round" />
-        <path d="M 0 -18 Q 14 -30 20 -20 Q 10 -24 0 -18" fill={sun} stroke="currentColor" strokeWidth="1.4" strokeLinejoin="round" />
+        <path d="M 0 -10 Q -12 -22 -18 -14 Q -10 -16 0 -10" fill={fill} fillOpacity={fillOpacity} stroke="currentColor" strokeWidth="1.4" strokeLinejoin="round" />
+        <path d="M 0 -18 Q 14 -30 20 -20 Q 10 -24 0 -18" fill={fill} fillOpacity={fillOpacity} stroke="currentColor" strokeWidth="1.4" strokeLinejoin="round" />
         {/* Rice panicle */}
         <g transform="translate(0 -38)">
           {[0, 1, 2, 3, 4].map((i) => {
@@ -96,7 +99,7 @@ export function IconAgriculture() {
             const angle = i % 2 === 0 ? -28 : 28;
             return (
               <g key={i} transform={`translate(0 ${y}) rotate(${angle})`}>
-                <ellipse cx="0" cy="0" rx="2.2" ry="1.4" fill={sun} stroke="currentColor" strokeWidth="1.2" />
+                <ellipse cx="0" cy="0" rx="2.2" ry="1.4" fill={fill} fillOpacity={fillOpacity} stroke="currentColor" strokeWidth="1.2" />
               </g>
             );
           })}
