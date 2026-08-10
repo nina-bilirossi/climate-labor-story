@@ -36,7 +36,7 @@
   --color-storm-deep: var(--storm-deep);
   --color-rain: var(--rain);
   --font-display: "Gelasio", ui-serif, Georgia, serif;
-  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "Source Sans 3", ui-sans-serif, system-ui, sans-serif;
 }
 
 :root {
