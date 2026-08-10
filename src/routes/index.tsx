@@ -277,8 +277,8 @@ function Index() {
               predict climate shocks, which are also getting more intense by the way.&nbsp;
             </p>
             <p>
-              The International Labor Organization states that the decrease in the informal share of employment is a
-              necessary condition for India's inclusive growth&nbsp;<Cite k="ilo2019informal" />. Informality has been
+              The <Cite k="ilo2019informal">International Labor Organization</Cite> states that the decrease in the
+              informal share of employment is a necessary condition for India's inclusive growth. Informality has been
               sticky, but may take a turn in the coming years… I dive into it and see how it reacts to some climate
               shocks!
             </p>
