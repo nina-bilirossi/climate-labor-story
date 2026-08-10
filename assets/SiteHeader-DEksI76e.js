@@ -1,1 +1,0 @@
-import{j as r}from"./index-C4PS2Fk0.js";import{T as e}from"./TopNav-GtR_TecT.js";function t(){return r.jsxs(r.Fragment,{children:[r.jsx(e,{visible:!0}),r.jsx("div",{"aria-hidden":!0,className:"h-[52px]"})]})}export{t as S};
