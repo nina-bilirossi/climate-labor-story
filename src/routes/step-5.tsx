@@ -39,7 +39,7 @@ function Step5() {
         Effects of climate shocks on casual labor force participation
       </h2>
       <p className="mt-2 text-sm text-muted-foreground">
-        +/- indicates an associated increase/decrease in informality following a shock, all lags included. The number of signs indicates significance and magnitude. Conventional levels are used (∗p&lt;0.1; ∗∗p&lt;0.05; ∗∗∗p&lt;0.01). For detailed scientific results, refer to the manuscript.
+        +/- indicates an associated increase/decrease in informality following a shock, all lags included. The number of signs indicates the effect's strength as a combination of significance and magnitude. Conventional levels are used (∗p&lt;0.1; ∗∗p&lt;0.05; ∗∗∗p&lt;0.01). For detailed scientific results, refer to the manuscript.
       </p>
 
       <div className="not-prose mt-6 overflow-x-auto">
