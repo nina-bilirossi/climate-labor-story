@@ -1,7 +1,7 @@
 import { useEffect, useId, useRef, useState } from "react";
 import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
 import { ScrollNarrative } from "@/components/ScrollNarrative";
-import { FieldScene } from "@/components/FieldScene";
+
 import { SiteFooter } from "@/components/SiteFooter";
 import { TopNav } from "@/components/TopNav";
 import { Cite } from "@/components/Cite";
