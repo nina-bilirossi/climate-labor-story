@@ -268,16 +268,21 @@ function Index() {
       <section className="relative border-t border-border/60 px-6 py-24">
         <div className="mx-auto max-w-3xl">
           <p className="text-xs uppercase tracking-[0.4em] text-[color:var(--sun)]">Abstract</p>
-          <p className="mt-6 text-lg leading-relaxed text-foreground/85">
-            It's a tough world out there. Especially if you as a country was colonized up until the mid-19th century and
-            you had to build you labor laws kinda from scratch after independence. Now add to that the fast growing and
-            largest-on-earth population, imagine having to get good jobs, social security, and food on the table for
-            everyone!! That's crazy. AND climate change is hitting you hard, like hard hard and it's getting hard to
-            predict climate shocks, which are also getting more intense by the way. The International Labor Organization
-            states that the decrease in the informal share of employment is a necessary condition for India's inclusive
-            growth <Cite k="ilo2019informal" />. Informality has been sticky, but may take a turn in the coming years… I
-            dive into it and see how it reacts to some climate shocks!
-          </p>
+          <div className="mt-6 text-lg leading-relaxed text-foreground/85 space-y-6">
+            <p>
+              It's a tough world out there. Especially if you as a country was colonized up until the mid-19th century and
+              you lowkey had to build your labor laws from scratch after independence. Add to that the fast-growing and
+              largest-on-earth population; imagine having to get good jobs, social security, and food on the table for
+              everyone!! That's crazy. AND climate change is hitting you hard, like hard hard, and it's getting hard to
+              predict climate shocks, which are also getting more intense by the way.&nbsp;
+            </p>
+            <p>
+              The International Labor Organization states that the decrease in the informal share of employment is a
+              necessary condition for India's inclusive growth&nbsp;<Cite k="ilo2019informal" />. Informality has been
+              sticky, but may take a turn in the coming years… I dive into it and see how it reacts to some climate
+              shocks!
+            </p>
+          </div>
         </div>
       </section>
 
