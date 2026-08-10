@@ -1,7 +1,7 @@
-import { useEffect, useId, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
 import { ScrollNarrative } from "@/components/ScrollNarrative";
-import { FieldScene } from "@/components/FieldScene";
+
 import { SiteFooter } from "@/components/SiteFooter";
 import { TopNav } from "@/components/TopNav";
 import { Cite } from "@/components/Cite";
@@ -84,83 +84,6 @@ const ROADMAP: RoadmapStep[] = [
   },
 ];
 
-// Curvy dotted arrows. All start/end at vertical center (y=70 in a 0..140 viewBox)
-// so the arrowhead lands on the middle of the next box's side.
-const ARROW_PATHS_RIGHT = [
-  "M 5 70 C 50 30, 110 110, 155 70",
-  "M 5 90 C 50 120, 110 60, 155 90",
-  "M 5 70 C 80 35, 80 105, 155 70",
-];
-
-// Shared marker/stroke constants — keep every arrow identical.
-const ARROW_STROKE_WIDTH = 2.2;
-const ARROW_DASH = "2 6";
-const ARROW_MARKER_W = 4;
-const ARROW_MARKER_H = 4;
-
-function DottedArrow({
-  path,
-  viewBox,
-  className = "",
-  preserveAspectRatio = "xMidYMid meet",
-  dashArray = ARROW_DASH,
-  showArrowhead = true,
-  extraPaths,
-}: {
-  path: string;
-  viewBox: string;
-  className?: string;
-  preserveAspectRatio?: string;
-  dashArray?: string;
-  showArrowhead?: boolean;
-  extraPaths?: React.ReactNode;
-}) {
-  const id = `arrowhead-${useId().replace(/:/g, "")}`;
-  return (
-    <svg
-      viewBox={viewBox}
-      preserveAspectRatio={preserveAspectRatio}
-      className={"text-[color:var(--sun)]/80 " + className}
-      overflow="visible"
-      aria-hidden
-    >
-      <defs>
-        <marker
-          id={id}
-          markerWidth={ARROW_MARKER_W}
-          markerHeight={ARROW_MARKER_H}
-          refX={ARROW_MARKER_W - 0.5}
-          refY={ARROW_MARKER_H / 2}
-          orient="auto"
-          markerUnits="strokeWidth"
-        >
-          <polygon points={`0 0, ${ARROW_MARKER_W} ${ARROW_MARKER_H / 2}, 0 ${ARROW_MARKER_H}`} fill="currentColor" />
-        </marker>
-      </defs>
-      <path
-        d={path}
-        fill="none"
-        stroke="currentColor"
-        strokeWidth={ARROW_STROKE_WIDTH}
-        strokeDasharray={dashArray}
-        strokeLinecap="round"
-        vectorEffect="non-scaling-stroke"
-        markerEnd={showArrowhead ? `url(#${id})` : undefined}
-      />
-      {extraPaths}
-    </svg>
-  );
-}
-
-function FixedArrowhead({ style }: { style?: React.CSSProperties }) {
-  return (
-    <div className="absolute text-[color:var(--sun)]/80" style={style} aria-hidden>
-      <svg width="12" height="12" viewBox="0 0 4 4" overflow="visible">
-        <polygon points="0 0, 4 2, 0 4" fill="currentColor" />
-      </svg>
-    </div>
-  );
-}
 
 function RoadmapStepCard({ step, highlight = false }: { step: RoadmapStep; highlight?: boolean }) {
   const navigate = useNavigate();
@@ -189,17 +112,8 @@ function RoadmapStepCard({ step, highlight = false }: { step: RoadmapStep; highl
     >
       <div className="text-xs font-mono text-[color:var(--sun)]">{step.num}</div>
       <h3 className={"mt-2 font-display leading-snug text-sm " + (highlight ? "md:text-base" : "")}>{step.title}</h3>
-      <div
-        className={
-          step.custom === "fieldscene"
-            ? "[&>div]:!mt-0 [&>div]:!max-w-full mx-auto max-w-[6rem] pointer-events-none"
-            : "mt-2"
-        }
-      >
-        {step.custom === "fieldscene" ? <FieldScene /> : null}
-      </div>
-      <p className="mt-2 text-[10px] uppercase tracking-[0.3em] text-foreground/50">
-        {highlight ? "\n" : "Click to open"}
+      <p className="mt-3 text-[10px] uppercase tracking-[0.3em] text-foreground/50">
+        {highlight ? "\u00a0" : "Click to open"}
       </p>
     </button>
   );
