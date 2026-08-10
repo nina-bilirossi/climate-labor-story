@@ -35,7 +35,14 @@ function Step5() {
     >
       <p>I regress on different populations and state subgroups to better understand what's happening.</p>
 
-      <div className="not-prose mt-10 overflow-x-auto">
+      <h2 className="mt-10 font-display text-2xl leading-tight">
+        Effects of climate shocks on casual labor force participation (informality): results of the regressions
+      </h2>
+      <p className="mt-2 text-sm text-muted-foreground">
+        +/- indicates an associated increase/decrease in informality following a shock. The number of signs indicates significance and magnitude. Conventional levels are used (∗p&lt;0.1; ∗∗p&lt;0.05; ∗∗∗p&lt;0.01).
+      </p>
+
+      <div className="not-prose mt-6 overflow-x-auto">
         <table className="w-full border-collapse text-sm">
           <thead>
             <tr className="border-b border-border">
