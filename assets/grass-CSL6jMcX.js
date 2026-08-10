@@ -1,0 +1,1 @@
+import{j as e,L as s}from"./index-uNKf_ecl.js";function n(){return e.jsxs("main",{className:"min-h-screen flex flex-col items-center justify-center px-6",children:[e.jsx("p",{className:"text-2xl",children:"just kidding."}),e.jsx(s,{to:"/step-1",className:"mt-4 text-sm opacity-70 underline underline-offset-4 hover:opacity-100",children:"Go back"})]})}export{n as component};
