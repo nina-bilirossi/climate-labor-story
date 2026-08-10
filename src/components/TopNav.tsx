@@ -19,7 +19,7 @@ export function TopNav({ visible = true }: Props) {
       aria-hidden={!visible}
     >
       <div className="mx-auto flex max-w-6xl items-center justify-end gap-1 overflow-x-visible px-4 py-3 text-xs uppercase tracking-[0.2em]">
-        <Link to="/" hash="top" className={linkBase}>
+        <Link to="/" hash="research-question" className={linkBase}>
           Homepage
         </Link>
 
