@@ -36,10 +36,10 @@ function Step5() {
       <p>I regress on different populations and state subgroups to better understand what's happening.</p>
 
       <h2 className="mt-10 font-display text-2xl leading-tight">
-        Effects of climate shocks on casual labor force participation (informality): results of the regressions
+        Effects of climate shocks on casual labor force participation
       </h2>
       <p className="mt-2 text-sm text-muted-foreground">
-        +/- indicates an associated increase/decrease in informality following a shock. The number of signs indicates significance and magnitude. Conventional levels are used (∗p&lt;0.1; ∗∗p&lt;0.05; ∗∗∗p&lt;0.01).
+        +/- indicates an associated increase/decrease in informality following a shock, all lags included. The number of signs indicates significance and magnitude. Conventional levels are used (∗p&lt;0.1; ∗∗p&lt;0.05; ∗∗∗p&lt;0.01). For detailed scientific results, refer to the manuscript.
       </p>
 
       <div className="not-prose mt-6 overflow-x-auto">
