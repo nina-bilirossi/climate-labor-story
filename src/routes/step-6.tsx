@@ -33,7 +33,7 @@ function Step6() {
         </div>
       }
     >
-      <p>Those results are 100% valid and objective. Just kidding; every study has its limitations. Check out the ones from my research in the manuscript.&nbsp;</p>
+      <p>All my results are 100% valid and objective. Just kidding; every study has its limitations. Check out the ones from my research in the manuscript.&nbsp;</p>
     </ChapterLayout>
   );
 }
