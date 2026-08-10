@@ -74,14 +74,14 @@ function Step5() {
                 </td>
                 <td
                   className={`px-3 py-4 text-center tabular-nums ${
-                    /^[+-]+$/.test(row.drought) ? "text-2xl" : "text-sm text-muted-foreground"
+                    /^[+\u2212-]+$/.test(row.drought) ? "text-2xl" : "text-sm text-muted-foreground"
                   }`}
                 >
                   {row.drought}
                 </td>
                 <td
                   className={`px-3 py-4 text-center tabular-nums ${
-                    /^[+-]+$/.test(row.flood) ? "text-2xl" : "text-sm text-muted-foreground"
+                    /^[+\u2212-]+$/.test(row.flood) ? "text-2xl" : "text-sm text-muted-foreground"
                   }`}
                 >
                   {row.flood}
