@@ -38,15 +38,39 @@ export function IconGeneral() {
 }
 
 /** 2. High vs low income states */
-export function IconIncome() {
+export function IconIncome({ highlight = "high" }: { highlight?: "high" | "low" }) {
+  const leftFill = highlight === "high" ? sun : "currentColor";
+  const leftFillOpacity = highlight === "high" ? undefined : 0.25;
+  const rightFill = highlight === "low" ? sun : "currentColor";
+  const rightFillOpacity = highlight === "low" ? undefined : 0.25;
   return (
     <Frame>
-      <rect x="12" y="20" width="26" height="34" rx="3" fill={sun} stroke="currentColor" strokeWidth="1.4" />
-      <rect x="58" y="40" width="26" height="14" rx="3" fill="none" stroke="currentColor" strokeWidth="1.4" />
-      <text x="25" y="15" textAnchor="middle" fontSize="11" fill="currentColor">
+      <rect
+        x="12"
+        y="20"
+        width="26"
+        height="34"
+        rx="3"
+        fill={leftFill}
+        fillOpacity={leftFillOpacity}
+        stroke="currentColor"
+        strokeWidth="1.4"
+      />
+      <rect
+        x="58"
+        y="40"
+        width="26"
+        height="14"
+        rx="3"
+        fill={rightFill}
+        fillOpacity={rightFillOpacity}
+        stroke="currentColor"
+        strokeWidth="1.4"
+      />
+      <text x="25" y="15" textAnchor="middle" fontSize="11" fill="currentColor" opacity={highlight === "high" ? 1 : 0.3}>
         ₹₹
       </text>
-      <text x="71" y="35" textAnchor="middle" fontSize="11" fill="currentColor" opacity="0.6">
+      <text x="71" y="35" textAnchor="middle" fontSize="11" fill="currentColor" opacity={highlight === "low" ? 1 : 0.3}>
         ₹
       </text>
       <line x1="6" y1="58" x2="90" y2="58" stroke="currentColor" strokeWidth="1.2" opacity="0.4" />
@@ -56,15 +80,18 @@ export function IconIncome() {
 
 
 /** 3. High vs low agricultural employment */
-export function IconAgriculture() {
+export function IconAgriculture({ highlight = "high" }: { highlight?: "high" | "low" }) {
+  const dim = highlight === "low";
+  const fill = dim ? "currentColor" : sun;
+  const fillOpacity = dim ? 0.25 : undefined;
   return (
     <Frame>
       <g transform="translate(48 56)">
         {/* Stem */}
         <path d="M 0 0 Q -2 -18 0 -36" stroke="currentColor" strokeWidth="1.4" fill="none" strokeLinecap="round" />
         {/* Leaves */}
-        <path d="M 0 -10 Q -12 -22 -18 -14 Q -10 -16 0 -10" fill={sun} stroke="currentColor" strokeWidth="1.4" strokeLinejoin="round" />
-        <path d="M 0 -18 Q 14 -30 20 -20 Q 10 -24 0 -18" fill={sun} stroke="currentColor" strokeWidth="1.4" strokeLinejoin="round" />
+        <path d="M 0 -10 Q -12 -22 -18 -14 Q -10 -16 0 -10" fill={fill} fillOpacity={fillOpacity} stroke="currentColor" strokeWidth="1.4" strokeLinejoin="round" />
+        <path d="M 0 -18 Q 14 -30 20 -20 Q 10 -24 0 -18" fill={fill} fillOpacity={fillOpacity} stroke="currentColor" strokeWidth="1.4" strokeLinejoin="round" />
         {/* Rice panicle */}
         <g transform="translate(0 -38)">
           {[0, 1, 2, 3, 4].map((i) => {
@@ -72,7 +99,7 @@ export function IconAgriculture() {
             const angle = i % 2 === 0 ? -28 : 28;
             return (
               <g key={i} transform={`translate(0 ${y}) rotate(${angle})`}>
-                <ellipse cx="0" cy="0" rx="2.2" ry="1.4" fill={sun} stroke="currentColor" strokeWidth="1.2" />
+                <ellipse cx="0" cy="0" rx="2.2" ry="1.4" fill={fill} fillOpacity={fillOpacity} stroke="currentColor" strokeWidth="1.2" />
               </g>
             );
           })}
@@ -84,15 +111,15 @@ export function IconAgriculture() {
 }
 
 /** 4. Male vs female */
-export function IconGender() {
+export function IconGender({ highlight = "male" }: { highlight?: "male" | "female" }) {
   return (
     <Frame>
       <g transform="translate(28 20)">
-        <circle cx="0" cy="6" r="10" fill="none" stroke="currentColor" strokeWidth="1.6" />
+        <circle cx="0" cy="6" r="10" fill={highlight === "male" ? sun : "none"} stroke="currentColor" strokeWidth="1.6" />
         <path d="M 7 -1 L 15 -9 M 9 -9 h 6 v 6" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" />
       </g>
       <g transform="translate(66 18)">
-        <circle cx="0" cy="6" r="10" fill={sun} stroke="currentColor" strokeWidth="1.6" />
+        <circle cx="0" cy="6" r="10" fill={highlight === "female" ? sun : "none"} stroke="currentColor" strokeWidth="1.6" />
         <path d="M 0 16 v 12 M -6 22 h 12" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" />
       </g>
       <line x1="6" y1="62" x2="90" y2="62" stroke="currentColor" strokeWidth="1.2" opacity="0.4" />
@@ -101,14 +128,18 @@ export function IconGender() {
 }
 
 /** 5. Rural vs urban */
-export function IconRuralUrban() {
+export function IconRuralUrban({ highlight = "rural" }: { highlight?: "rural" | "urban" }) {
+  const ruralFill = highlight === "rural" ? sun : "currentColor";
+  const ruralFillOpacity = highlight === "rural" ? undefined : 0.25;
+  const urbanFill = highlight === "urban" ? sun : "currentColor";
+  const urbanFillOpacity = highlight === "urban" ? undefined : 0.25;
   return (
     <Frame>
-      <path d="M 8 52 V 34 L 22 24 L 36 34 V 52 Z" fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinejoin="round" />
-      <rect x="18" y="42" width="8" height="10" fill={sun} stroke="currentColor" strokeWidth="1.1" />
-      <rect x="56" y="18" width="14" height="34" fill="none" stroke="currentColor" strokeWidth="1.4" />
-      <rect x="74" y="28" width="12" height="24" fill={sun} stroke="currentColor" strokeWidth="1.4" />
-      <g opacity="0.7">
+      <path d="M 8 52 V 34 L 22 24 L 36 34 V 52 Z" fill={ruralFill} fillOpacity={ruralFillOpacity} stroke="currentColor" strokeWidth="1.4" strokeLinejoin="round" />
+      <rect x="18" y="42" width="8" height="10" fill={ruralFill} fillOpacity={ruralFillOpacity} stroke="currentColor" strokeWidth="1.1" />
+      <rect x="56" y="18" width="14" height="34" fill={urbanFill} fillOpacity={urbanFillOpacity} stroke="currentColor" strokeWidth="1.4" />
+      <rect x="74" y="28" width="12" height="24" fill={urbanFill} fillOpacity={urbanFillOpacity} stroke="currentColor" strokeWidth="1.4" />
+      <g opacity={highlight === "urban" ? 1 : 0.3}>
         {[24, 32, 40].map((y) => (
           <line key={y} x1="59" y1={y} x2="67" y2={y} stroke="currentColor" strokeWidth="1" />
         ))}

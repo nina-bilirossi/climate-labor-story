@@ -49,14 +49,14 @@ function Step5() {
           <tbody>
             {[
               { icon: <IconGeneral />, label: "General population" },
-              { icon: <IconIncome />, label: "High-income states" },
-              { icon: <IconIncome />, label: "Low-income states" },
-              { icon: <IconAgriculture />, label: "Agricultural states" },
-              { icon: <IconAgriculture />, label: "Less agricultural states" },
-              { icon: <IconGender />, label: "Male workers" },
-              { icon: <IconGender />, label: "Female workers" },
-              { icon: <IconRuralUrban />, label: "Rural areas" },
-              { icon: <IconRuralUrban />, label: "Urban areas" },
+              { icon: <IconIncome highlight="high" />, label: "High-income states" },
+              { icon: <IconIncome highlight="low" />, label: "Low-income states" },
+              { icon: <IconAgriculture highlight="high" />, label: "Agricultural states" },
+              { icon: <IconAgriculture highlight="low" />, label: "Less agricultural states" },
+              { icon: <IconGender highlight="male" />, label: "Male workers" },
+              { icon: <IconGender highlight="female" />, label: "Female workers" },
+              { icon: <IconRuralUrban highlight="rural" />, label: "Rural areas" },
+              { icon: <IconRuralUrban highlight="urban" />, label: "Urban areas" },
             ].map((row) => (
               <tr key={row.label} className="border-b border-border/60 align-middle">
                 <td className="px-3 py-4">
