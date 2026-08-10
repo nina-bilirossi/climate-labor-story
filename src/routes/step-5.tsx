@@ -39,7 +39,7 @@ function Step5() {
         Effects of climate shocks on casual labor force participation
       </h2>
       <p className="mt-2 text-sm text-muted-foreground">
-        +/- indicates an associated increase/decrease in informality following a shock, all lags included. The number of signs indicates significance and magnitude. Conventional levels are used (∗p&lt;0.1; ∗∗p&lt;0.05; ∗∗∗p&lt;0.01). For detailed scientific results, refer to the manuscript.
+        +/- indicates an associated increase/decrease in informality following a shock, all lags included. The number of signs indicates the effect's strength as a combination of significance and magnitude. Conventional levels are used (∗p&lt;0.1; ∗∗p&lt;0.05; ∗∗∗p&lt;0.01). For detailed scientific results, refer to the manuscript.
       </p>
 
       <div className="not-prose mt-6 overflow-x-auto">
@@ -55,15 +55,15 @@ function Step5() {
           </thead>
           <tbody>
             {[
-              { icon: <IconGeneral />, label: "General population", drought: "+", flood: "non significant" },
-              { icon: <IconIncome highlight="high" />, label: "High-income states", drought: "−", flood: "−" },
-              { icon: <IconIncome highlight="low" />, label: "Low-income states", drought: "+", flood: "+" },
-              { icon: <IconAgriculture highlight="high" />, label: "Agricultural states", drought: "non-significant", flood: "non-significant" },
-              { icon: <IconAgriculture highlight="low" />, label: "Less agricultural states", drought: "+", flood: "−" },
-              { icon: <IconGender highlight="male" />, label: "Male workers", drought: "+", flood: "non significant" },
-              { icon: <IconGender highlight="female" />, label: "Female workers", drought: "++", flood: "non significant" },
-              { icon: <IconRuralUrban highlight="rural" />, label: "Rural areas", drought: "+", flood: "non significant" },
-              { icon: <IconRuralUrban highlight="urban" />, label: "Urban areas", drought: "+", flood: "not very significant (+)" },
+              { icon: <IconGeneral />, label: "General population", drought: "+++", flood: "non significant" },
+              { icon: <IconIncome highlight="high" />, label: "High-income states", drought: "−-", flood: "−" },
+              { icon: <IconIncome highlight="low" />, label: "Low-income states", drought: "++", flood: "+" },
+              { icon: <IconAgriculture highlight="high" />, label: "Agricultural states", drought: "-", flood: "non-significant" },
+              { icon: <IconAgriculture highlight="low" />, label: "Less agricultural states", drought: "+++", flood: "−" },
+              { icon: <IconGender highlight="male" />, label: "Male workers", drought: "++", flood: "non significant" },
+              { icon: <IconGender highlight="female" />, label: "Female workers", drought: "+++", flood: "non significant" },
+              { icon: <IconRuralUrban highlight="rural" />, label: "Rural areas", drought: "++", flood: "non significant" },
+              { icon: <IconRuralUrban highlight="urban" />, label: "Urban areas", drought: "++", flood: "not very significant (+)" },
             ].map((row) => (
               <tr key={row.label} className="border-b border-border/60 align-middle">
                 <td className="px-3 py-4">
