@@ -330,7 +330,6 @@ export function ScrollNarrative() {
         <motion.div className="absolute inset-0 bg-black" style={{ opacity: dimOpacity }} />
         {/* Research question */}
         <motion.div
-          id="research-question"
           className="absolute inset-0 flex items-center justify-center px-6"
           style={{ opacity: questionOpacity, y: questionY }}
         >
@@ -369,6 +368,9 @@ export function ScrollNarrative() {
           Scroll down
         </motion.div>
       </div>
+
+      {/* Anchor for the research question — placed where the question becomes visible so hash links land on the final frame */}
+      <div id="research-question" className="absolute top-[88%] left-0 h-1 w-full" aria-hidden="true" />
     </section>
   );
 }
