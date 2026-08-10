@@ -330,6 +330,7 @@ export function ScrollNarrative() {
         <motion.div className="absolute inset-0 bg-black" style={{ opacity: dimOpacity }} />
         {/* Research question */}
         <motion.div
+          id="research-question"
           className="absolute inset-0 flex items-center justify-center px-6"
           style={{ opacity: questionOpacity, y: questionY }}
         >
