@@ -202,11 +202,11 @@ function Index() {
           <p className="text-xs uppercase tracking-[0.4em] text-[color:var(--sun)]">(VERY INFORMAL) ABSTRACT</p>
           <div className="mt-6 text-lg leading-relaxed text-foreground/85 space-y-6">
             <p>
-              It's a tough world out there. Especially if you are a country was colonized up until the mid-19th century and
-              you had a lot of policy work to set up after independence. Add to that the fast-growing and
+              It's a tough world out there. Especially if you are a country that was colonized up until the mid-19th century, and
+              you suddenly gained a lot of space for policy work&nbsp;after independence. Add to that the fast-growing and
               largest-on-earth population; having to get good jobs, social security, and food on the table for
               everyone!! &nbsp;AND climate change is hitting you hard, like hard hard, and it's getting hard to
-              predict climate shocks, which are also getting more intense by the way.&nbsp;
+              predict climate shocks, which are also getting more intense, by the way.&nbsp;
             </p>
             <p>
               The <Cite k="ilo2019informal">International Labor Organization</Cite> states that the decrease in the
