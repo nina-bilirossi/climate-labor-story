@@ -31,7 +31,14 @@ function Step5() {
     <ChapterLayout
       eyebrow="Step 05"
       title="Analysing the results and discussing the mechanisms"
-      lede="The numbers, what they mean, and why."
+      lede={
+        <>
+          The numbers, what they mean, and why.
+          <br />
+          <br />
+          I'm still working on this page, more content coming soon...
+        </>
+      }
     >
       <p>I regress on different populations and state subgroups to better understand what's happening.</p>
 

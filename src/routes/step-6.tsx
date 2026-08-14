@@ -20,6 +20,9 @@ function Step6() {
         <div className="space-y-6">
           <p>
             The main result of my research is the observed short-term effects of increasing informality during droughts (over 12 months) and flash floods, though to a lesser extent. This reinforces the view of informality as a survival strategy for workers — rather than a career plan.
+            <br />
+            <br />
+            I'm still working on this page, more content coming soon...
           </p>
           <p>
             The International Labor Organization states that the decrease in the informal share of employment is a necessary condition for India's inclusive growth. I think that resilience to climate change will be a collaborative effort, and proper planning needs proper knowledge of what is happening. One hindrance of informality is that it is harder to collect information (such as inputs and outputs of firms). But this is in part a big advantage of informality for informal workers and firms (low administrative burden). It is a tradeoff between instant ease and long term planning, adaptation and strategy; both at the individual level (having social security), and at the state or national level (investing in better infrastructure, allocating budget according to risk and vulnerability).
