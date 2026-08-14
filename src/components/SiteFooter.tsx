@@ -1,4 +1,5 @@
 import { Link } from "@tanstack/react-router";
+import thesisPdf from "@/assets/thesis.pdf.asset.json";
 
 export function SiteFooter() {
   return (
@@ -13,8 +14,10 @@ export function SiteFooter() {
       <div className="mt-2">
         Feeling more academic? Download my official thesis{" "}
         <a
-          href="/thesis_placeholder.txt"
-          download
+          href={thesisPdf.url}
+          download="Casual-Business_BiliRossi_MscThesis.pdf"
+          target="_blank"
+          rel="noopener noreferrer"
           className="underline decoration-dotted underline-offset-2 hover:text-foreground/80"
         >
           here
