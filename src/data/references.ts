@@ -83,6 +83,4 @@ export const references: Reference[] = [
   { key: "mospi2024esankhyiki", type: "misc", authors: "{Ministry of Statistics and Programme Implementation}", title: "{eSankhyiki}: Macro indicators -- {National Accounts Statistics}", year: "2024", note: "Data retrieved: 2016. Accessed August 12, 2026", howpublished: "\\url{https://esankhyiki.mospi.gov.in/macroindicators?product=nas}" },
 ];
 
-export const referenceMap: Record<string, Reference> = Object.fromEntries(
-  references.map((r) => [r.key, r])
-);
+export const referencesByKey: Record<string, Reference> = Object.fromEntries(references.map(r => [r.key.toLowerCase(), r]));
