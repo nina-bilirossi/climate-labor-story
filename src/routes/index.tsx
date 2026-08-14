@@ -188,8 +188,8 @@ function Index() {
             </p>
             <p>This is the goal of the website.&nbsp;</p>
             <p>
-              And if you are feeling a bit more academic, the manuscript is available for download at the bottom of
-              this page.
+              The tone I use throughout is rather casual&nbsp;and differs substantially from scholarly prose. If you are
+              feeling a bit more academic, the manuscript is available for download at the bottom of this page.
             </p>
             <p>Happy exploring!</p>
           </div>
