@@ -189,9 +189,20 @@ function Index() {
             </p>
             <p>This is the goal of the website.&nbsp;</p>
             <p>
-              The tone I use throughout is rather casual&nbsp;and differs substantially from scholarly prose. If you are
-              feeling a bit more academic, the manuscript is available for download at the bottom of this page.
+              The tone I use throughout is rather casual&nbsp;and differs substantially from scholarly prose. Feeling
+              more academic? Download my official thesis{" "}
+              <a
+                href={thesisPdf.url}
+                download="Casual-Business_BiliRossi_MscThesis.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="underline decoration-[color:var(--sun)] decoration-2 underline-offset-4 hover:text-[color:var(--sun)]"
+              >
+                here
+              </a>
+              .
             </p>
+
             <p>Happy exploring!</p>
           </div>
         </div>
