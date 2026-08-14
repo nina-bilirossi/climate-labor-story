@@ -190,10 +190,9 @@ function Index() {
             <p>This is the goal of the website.&nbsp;</p>
             <p>
               The tone I use throughout is rather casual&nbsp;and differs substantially from scholarly prose. Feeling
-              more academic? Download my official thesis{" "}
+              more academic? Read my official thesis{" "}
               <a
-                href={thesisPdf.url}
-                download="Casual-Business_BiliRossi_MscThesis.pdf"
+                href="https://github.com/nina-bilirossi/Masters_thesis/blob/main/Casual-Business_BiliRossi_MscThesis_web.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="underline decoration-[color:var(--sun)] decoration-2 underline-offset-4 hover:text-[color:var(--sun)]"
