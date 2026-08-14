@@ -5,7 +5,6 @@ import { ScrollNarrative } from "@/components/ScrollNarrative";
 import { SiteFooter } from "@/components/SiteFooter";
 import { TopNav } from "@/components/TopNav";
 import { Cite } from "@/components/Cite";
-import thesisPdf from "@/assets/thesis.pdf.asset.json";
 const roadmapGaps = "/images/roadmap-gaps.png";
 const roadmapSatellite = "/images/roadmap-satellite.png";
 const roadmapComputer = "/images/roadmap-computer.png";
