@@ -97,6 +97,8 @@ function Step5() {
         measures (unemployment, employment, labor force participation) for each of those
         subgroups, and&nbsp;at the relative size of each industry in relation to climate shocks.
       </p>
+
+      <div className="mt-8 italic text-muted-foreground">More content coming soon...</div>
     </ChapterLayout>
   );
 }
