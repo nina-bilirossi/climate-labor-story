@@ -5,6 +5,7 @@ import { ScrollNarrative } from "@/components/ScrollNarrative";
 import { SiteFooter } from "@/components/SiteFooter";
 import { TopNav } from "@/components/TopNav";
 import { Cite } from "@/components/Cite";
+import thesisPdf from "@/assets/thesis.pdf.asset.json";
 const roadmapGaps = "/images/roadmap-gaps.png";
 const roadmapSatellite = "/images/roadmap-satellite.png";
 const roadmapComputer = "/images/roadmap-computer.png";
@@ -249,6 +250,28 @@ function Index() {
             <p className="mt-2 text-sm text-foreground/75">A quick dip into my brain.</p>
             <div className="mt-4 text-sm text-foreground/70 group-hover:text-foreground">Read →</div>
           </Link>
+        </div>
+      </section>
+
+      {/* Manuscript download */}
+      <section className="relative border-t border-border/60 px-6 py-20">
+        <div className="mx-auto max-w-3xl text-center">
+          <p className="text-xs uppercase tracking-[0.4em] text-[color:var(--sun)]">The manuscript</p>
+          <h2 className="mt-4 font-display text-3xl md:text-4xl leading-tight">
+            Casual Business: Floods, Droughts, and Informal Work in India
+          </h2>
+          <p className="mt-3 text-foreground/70">
+            The full master's thesis, in proper academic prose.
+          </p>
+          <a
+            href={thesisPdf.url}
+            download="Casual-Business_BiliRossi_MscThesis.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-8 inline-flex items-center gap-2 rounded-full border border-[color:var(--sun)]/50 bg-[color:var(--sun)]/10 px-6 py-3 text-sm font-medium transition-colors hover:bg-[color:var(--sun)]/20 hover:border-[color:var(--sun)]"
+          >
+            Download the PDF (4.7 MB) ↓
+          </a>
         </div>
       </section>
 
