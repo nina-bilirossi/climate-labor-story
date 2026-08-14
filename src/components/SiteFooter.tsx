@@ -12,10 +12,9 @@ export function SiteFooter() {
         , MSc Agricultural Economics @ ETH Zürich
       </div>
       <div className="mt-2">
-        Feeling more academic? Download my official thesis{" "}
+        Feeling more academic? Read my official thesis{" "}
         <a
-          href={thesisPdf.url}
-          download="Casual-Business_BiliRossi_MscThesis.pdf"
+          href="https://github.com/nina-bilirossi/Masters_thesis/blob/main/Casual-Business_BiliRossi_MscThesis_web.pdf"
           target="_blank"
           rel="noopener noreferrer"
           className="underline decoration-dotted underline-offset-2 hover:text-foreground/80"
