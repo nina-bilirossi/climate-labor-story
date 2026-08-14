@@ -126,7 +126,7 @@ function ReflectionsPage() {
                 experience of working on his PhD, and reminded me that the most important task in the thesis is to grow.
               </li>
               <li>Sharing doubts with Izzy, a good friend also writing her thesis.</li>
-              <li>My roommate Lara who forced me to leave the house.</li>
+              <li>My roommate Lara and the kind and loving people of Bülachstrasse.</li>
             </ul>
             <li>The MSc Thesis lab in CAB, with monitors, daylight, and people around to hold you accountable.</li>
             <li>Issey Skyr yogurt for days I felt I needed an extra boost.</li>
