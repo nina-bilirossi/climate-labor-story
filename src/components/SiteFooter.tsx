@@ -1,5 +1,5 @@
 import { Link } from "@tanstack/react-router";
-import thesisPdf from "@/assets/thesis.pdf.asset.json";
+
 
 export function SiteFooter() {
   return (
