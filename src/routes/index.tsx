@@ -199,13 +199,13 @@ function Index() {
       {/* Abstract */}
       <section className="relative border-t border-border/60 px-6 py-24">
         <div className="mx-auto max-w-3xl">
-          <p className="text-xs uppercase tracking-[0.4em] text-[color:var(--sun)]">Abstract</p>
+          <p className="text-xs uppercase tracking-[0.4em] text-[color:var(--sun)]">(VERY INFORMAL) ABSTRACT</p>
           <div className="mt-6 text-lg leading-relaxed text-foreground/85 space-y-6">
             <p>
-              It's a tough world out there. Especially if you as a country was colonized up until the mid-19th century and
-              you lowkey had to build your labor laws from scratch after independence. Add to that the fast-growing and
-              largest-on-earth population; imagine having to get good jobs, social security, and food on the table for
-              everyone!! That's crazy. AND climate change is hitting you hard, like hard hard, and it's getting hard to
+              It's a tough world out there. Especially if you are a country was colonized up until the mid-19th century and
+              you had a lot of policy work to set up after independence. Add to that the fast-growing and
+              largest-on-earth population; having to get good jobs, social security, and food on the table for
+              everyone!! &nbsp;AND climate change is hitting you hard, like hard hard, and it's getting hard to
               predict climate shocks, which are also getting more intense by the way.&nbsp;
             </p>
             <p>
