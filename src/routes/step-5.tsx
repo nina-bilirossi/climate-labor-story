@@ -35,8 +35,6 @@ function Step5() {
         <>
           The numbers, what they mean, and why.
           <br />
-          <br />
-          I'm still working on this page, more content coming soon...
         </>
       }
     >
