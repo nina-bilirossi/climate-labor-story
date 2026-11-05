@@ -18,6 +18,7 @@ function Step6() {
       title="Conclusion"
       lede={
         <div className="space-y-6">
+          <p>I do get significant results. Here I bring together the pieces of the puzzle to tell the story behind them.</p>
           <p>
             For droughts, this directional effect was observed across all regressions and subgroups, EXCEPT for states with a high agricultural share of employment and for high-income states.
           </p>
