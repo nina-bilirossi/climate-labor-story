@@ -17,18 +17,16 @@ function Step6() {
       eyebrow="Step 06"
       title="Conclusion"
       lede={
-        <div className="space-y-6">
-          <p>I do get significant results. Here I bring together the pieces of the puzzle to tell the story behind them.</p>
-          <p>
-            For droughts, this directional effect was observed across all regressions and subgroups, EXCEPT for states with a high agricultural share of employment and for high-income states.
-          </p>
-          <p>
-            For floods, effects are more often insignificant than not. Nevertheless, the analyses show that flash floods are associated with an increased casual worker share in low-income states and a decrease in high-income states.
-          </p>
-        </div>
+        <span>I do get significant results. Here I bring together the pieces of the puzzle to tell the story behind them.</span>
       }
     >
       <div className="space-y-6">
+        <p>
+          For droughts, this directional effect was observed across all regressions and subgroups, EXCEPT for states with a high agricultural share of employment and for high-income states.
+        </p>
+        <p>
+          For floods, effects are more often insignificant than not. Nevertheless, the analyses show that flash floods are associated with an increased casual worker share in low-income states and a decrease in high-income states.
+        </p>
         <h3 className="font-display text-2xl">How can we interpret this?</h3>
         <p>First, let’s lay down a bit of a thought framework. What does a change in the casual worker share actually represent?</p>
         <ol className="list-decimal pl-6 space-y-1">
