@@ -101,10 +101,13 @@ function Step5() {
         I also run regression to look at the effects of climate shocks on a handful of labor market
         measures (unemployment, employment, labor force participation) for each of those
         subgroups, and&nbsp;at the relative size of each industry in relation to climate shocks.
+        <br />
+        <br />
+        Those analyses serve as a reminder that informality is not the whole picture&nbsp;and motivate the emphasis on the role of opportunity in the discussion. I use those insights to interpret the results in the&nbsp;{'/link{Conclusion}'}.&nbsp;
       </p>
 
       <div className="mt-8 italic text-muted-foreground">
-        Those analises serve as a reminder that informality is not the whole picture, and motivate the emphasis on the role of opportunity in the discussion. I use those insights to interpret the results in the {'/link{Conclusion}'}. As always, full results are u-in the manusirpt.
+        As always, full results are in the manuscript.
       </div>
     </ChapterLayout>
   );
