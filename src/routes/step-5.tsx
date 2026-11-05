@@ -1,4 +1,4 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { ChapterLayout } from "@/components/ChapterLayout";
 import {
   IconGeneral,
@@ -103,7 +103,7 @@ function Step5() {
         subgroups, and&nbsp;at the relative size of each industry in relation to climate shocks.
         <br />
         <br />
-        Those analyses serve as a reminder that informality is not the whole picture&nbsp;and motivate the emphasis on the role of opportunity in the discussion. I use those insights to interpret the results in the&nbsp;{'/link{Conclusion}'}.&nbsp;
+        Those analyses serve as a reminder that informality is not the whole picture&nbsp;and motivate the emphasis on the role of opportunity in the discussion. I use those insights to interpret the results in the&nbsp;<Link to="/step-6" className="underline decoration-primary underline-offset-4 hover:text-primary">Conclusion</Link>.&nbsp;
       </p>
 
       <div className="mt-8 italic text-muted-foreground">
