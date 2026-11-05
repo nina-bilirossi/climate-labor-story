@@ -104,7 +104,7 @@ function Step5() {
       </p>
 
       <div className="mt-8 italic text-muted-foreground">
-        Those analises serve as a reminder that informality is not the whole picture, and motivate the emphasis on the role of opportunity in the discussion. I use those insights to interpret the results in the /link{Conclusion}. As always, full results are u-in the manusirpt.
+        Those analises serve as a reminder that informality is not the whole picture, and motivate the emphasis on the role of opportunity in the discussion. I use those insights to interpret the results in the {'/link{Conclusion}'}. As always, full results are u-in the manusirpt.
       </div>
     </ChapterLayout>
   );
