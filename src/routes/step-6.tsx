@@ -22,6 +22,9 @@ function Step6() {
     >
       <div className="space-y-6">
         <p>
+          The main result of my research is the observed short-term e!ects of increasing informality
+          during droughts (over 12 months) and flash floods,
+
           For droughts, this directional effect was observed across all regressions and subgroups, EXCEPT for states with a high agricultural share of employment and for high-income states.
         </p>
         <p>
