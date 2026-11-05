@@ -22,10 +22,10 @@ function Step6() {
     >
       <div className="space-y-6">
         <p>
-          The main result of my research is the observed short-term e!ects of increasing informality
-          during droughts (over 12 months) and flash floods,
+          The main result of my research is the observed short-term effects of increasing informality during droughts (over 12 months) and flash floods.
 
           For droughts, this directional effect was observed across all regressions and subgroups, EXCEPT for states with a high agricultural share of employment and for high-income states.
+
         </p>
         <p>
           For floods, effects are more often insignificant than not. Nevertheless, the analyses show that flash floods are associated with an increased casual worker share in low-income states and a decrease in high-income states.
